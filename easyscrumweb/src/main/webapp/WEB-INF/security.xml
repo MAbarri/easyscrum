@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+                   http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+                   http://www.springframework.org/schema/util
+                   http://www.springframework.org/schema/util/spring-util.xsd
+ 				   http://www.springframework.org/schema/context
+				   http://www.springframework.org/schema/context/spring-context-4.1.xsd
+                   http://www.springframework.org/schema/security
+                   http://www.springframework.org/schema/security/spring-security-3.2.xsd">
+				
+	<!-- <beans:bean name="userSession" class="UserSession"/>
+   	 -->
+   	 
+   	 <context:component-scan base-package="com.sqli.ideo.formation.web.security"/>
+	
+	<!-- role file properties location binding  -->
+	<util:properties id="rolesProperties" location="/WEB-INF/roles.properties"/>
+	
+	
+	<!-- This is where we configure Spring-Security -->
+	<http pattern="/css/**" security="none" />
+	<http pattern="/icons/**" security="none" />
+	<http pattern="/js/**" security="none" />
+
+	<http pattern="/auth/login" security="none" />
+	
+	<http use-expressions="true">
+	    <intercept-url pattern="/resources/**" access="permitAll" />
+	    <intercept-url pattern="/**" access="isAuthenticated()"/>
+		<intercept-url pattern="/main/admin" access="hasRole('ROLE_ADMIN')" />
+		<intercept-url pattern="/main/register" access="hasRole('ROLE_VISITOR')"/>
+
+		<form-login login-page="/auth/login"
+			authentication-failure-url="/auth/login?error=true"
+			default-target-url="/main/home" always-use-default-target="true"/>
+
+		<logout logout-success-url="/auth/login?logoutmsg=true"
+			logout-url="/auth/logout" />
+		<access-denied-handler error-page="/denied" />
+	</http>
+
+
+	<!-- For authentication: user-search-filter: the attribute name that contains 
+		the user name user-search-base: the base path where to find user information 
+		For authorization: group-search-filter: the attribute name that contains 
+		the full dn of a user group-search-base: the base path where to find role 
+		information group-role-attribute: the attribute name that contains the role 
+		type role-prefix: the prefix to be added when retrieving role values For 
+		server access: manager-dn: the full dn of the person that has access to an 
+		LDAP server manager-password: the password of the person that has access 
+		to an LDAP server -->
+	<beans:bean id="contextSource"
+		class="org.springframework.security.ldap.DefaultSpringSecurityContextSource">
+		<beans:constructor-arg value="ldap://mailcorpo.sqli.com:389/ou=personsqli,o=sqli,c=com" />
+	    <beans:property name="userDn" value="uid=anakmouch,ou=personsqli,o=sqli,c=com" />
+	    <beans:property name="password" value="Password2014" />		
+	 
+	 	<!-- <beans:property name="anonymousReadOnly" value="true"/> -->
+	 </beans:bean>
+
+	<beans:bean id="userSearch"
+		class="org.springframework.security.ldap.search.FilterBasedLdapUserSearch">
+		<beans:constructor-arg index="0" value="" />
+		<beans:constructor-arg index="1" value="(uid={0})" />
+		<beans:constructor-arg index="2" ref="contextSource"/>
+	</beans:bean>
+
+	<beans:bean id="ldapAuthProvider"
+		class="org.springframework.security.ldap.authentication.LdapAuthenticationProvider">
+		<beans:constructor-arg>
+			<beans:bean
+				class="org.springframework.security.ldap.authentication.BindAuthenticator">
+				<beans:constructor-arg ref="contextSource" />
+				<beans:property name="userSearch" ref="userSearch" />
+				<beans:property name="userDnPatterns">
+					<beans:list>
+						<beans:value>uid={0},ou=personsqli,o=sqli,c=com</beans:value>
+					</beans:list>
+				</beans:property>
+				
+			</beans:bean>
+		</beans:constructor-arg>
+		<beans:constructor-arg>
+			<beans:bean
+				class="com.sqli.easyscrum.web.security.CustomLdapAuthoritiesPopulator" />
+		</beans:constructor-arg>
+	</beans:bean>
+
+	<authentication-manager>
+		<authentication-provider ref="ldapAuthProvider" />
+		<!-- For Tests ONLY -->
+		<authentication-provider user-service-ref="testService"/>
+	</authentication-manager>
+</beans:beans>

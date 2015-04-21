@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/easy-scrum.iml" filepath="$PROJECT_DIR$/easy-scrum.iml" />
+      <module fileurl="file://$PROJECT_DIR$/easyscrumbusiness/easyscrumbusiness.iml" filepath="$PROJECT_DIR$/easyscrumbusiness/easyscrumbusiness.iml" />
+      <module fileurl="file://$PROJECT_DIR$/easyscrumcore/easyscrumcore.iml" filepath="$PROJECT_DIR$/easyscrumcore/easyscrumcore.iml" />
+      <module fileurl="file://$PROJECT_DIR$/easyscrumrepository/easyscrumrepository.iml" filepath="$PROJECT_DIR$/easyscrumrepository/easyscrumrepository.iml" />
+      <module fileurl="file://$PROJECT_DIR$/easyscrumweb/easyscrumweb.iml" filepath="$PROJECT_DIR$/easyscrumweb/easyscrumweb.iml" />
+    </modules>
+  </component>
+</project>

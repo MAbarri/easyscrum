@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings 
+    xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+    version="2.0">
+
+    <entity class="com.sqli.easyscrum.entity.User">
+
+        <named-query name="findByLogin">
+            <query><![CDATA[
+                select u
+                  from User u
+                 where u.login = :login
+            ]]></query>
+        </named-query>
+		<named-query name="findByNomComplet">
+            <query><![CDATA[
+                select u
+                  from User u 
+                 where u.nomComplet = :nomComplet
+            ]]></query>
+        </named-query>
+        <named-query name="findByUserActif">
+            <query><![CDATA[
+                select u
+                  from User u
+                 where u.actif = true
+            ]]></query>
+        </named-query>
+        
+        <named-query name="findByValidationStatusAndNotActive">
+            <query><![CDATA[
+                select u
+                  from User u
+                 where u.actif = false
+                 and u.validationStatus = :vStatus
+            ]]></query>
+        </named-query>
+        <named-query name="findUserRegistrationValidationByManager">
+            <query><![CDATA[
+                select u
+                  from User u
+                 where u.actif = false
+                 and u.validationStatus = :vStatus
+                 and u.manager.userId = :managerId
+            ]]></query>
+        </named-query>
+    </entity>
+
+</entity-mappings>

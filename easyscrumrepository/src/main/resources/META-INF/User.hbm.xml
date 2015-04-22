@@ -14,38 +14,6 @@
                  where u.login = :login
             ]]></query>
         </named-query>
-		<named-query name="findByNomComplet">
-            <query><![CDATA[
-                select u
-                  from User u 
-                 where u.nomComplet = :nomComplet
-            ]]></query>
-        </named-query>
-        <named-query name="findByUserActif">
-            <query><![CDATA[
-                select u
-                  from User u
-                 where u.actif = true
-            ]]></query>
-        </named-query>
-        
-        <named-query name="findByValidationStatusAndNotActive">
-            <query><![CDATA[
-                select u
-                  from User u
-                 where u.actif = false
-                 and u.validationStatus = :vStatus
-            ]]></query>
-        </named-query>
-        <named-query name="findUserRegistrationValidationByManager">
-            <query><![CDATA[
-                select u
-                  from User u
-                 where u.actif = false
-                 and u.validationStatus = :vStatus
-                 and u.manager.userId = :managerId
-            ]]></query>
-        </named-query>
     </entity>
 
 </entity-mappings>

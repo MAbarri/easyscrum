@@ -13,7 +13,6 @@
 	<context:component-scan base-package="com.sqli.ideo.formation.web.controller" />
 	<context:component-scan base-package="com.sqli.ideo.formation.web.converter" />
 	<context:component-scan base-package="com.sqli.ideo.formation.web.property.editors" />
-	
 	<context:component-scan base-package="com.sqli.ideo.formation.core.email" />
 	
 	<mvc:annotation-driven />

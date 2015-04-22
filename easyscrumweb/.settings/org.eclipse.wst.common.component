@@ -4,16 +4,16 @@
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
-        <dependent-module archiveName="ideoformationcore-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/ideoformationcore/ideoformationcore">
+        <dependent-module archiveName="easyscrumcore-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/easyscrumcore/easyscrumcore">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="ideoformationbusiness-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/ideoformationbusiness/ideoformationbusiness">
+        <dependent-module archiveName="easyscrumbusiness-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/easyscrumbusiness/easyscrumbusiness">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="ideoformationrepository-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/ideoformationrepository/ideoformationrepository">
+        <dependent-module archiveName="easyscrumrepository-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/easyscrumrepository/easyscrumrepository">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <property name="context-root" value="ideoformationweb"/>
         <property name="java-output-path" value="/ideoformationweb/target/classes"/>
+        <property name="context-root" value="easyscrumweb"/>
     </wb-module>
 </project-modules>

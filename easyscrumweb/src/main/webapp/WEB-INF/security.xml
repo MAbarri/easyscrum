@@ -70,30 +70,5 @@
 		<beans:constructor-arg index="2" ref="contextSource"/>
 	</beans:bean>
 
-	<beans:bean id="ldapAuthProvider"
-		class="org.springframework.security.ldap.authentication.LdapAuthenticationProvider">
-		<beans:constructor-arg>
-			<beans:bean
-				class="org.springframework.security.ldap.authentication.BindAuthenticator">
-				<beans:constructor-arg ref="contextSource" />
-				<beans:property name="userSearch" ref="userSearch" />
-				<beans:property name="userDnPatterns">
-					<beans:list>
-						<beans:value>uid={0},ou=personsqli,o=sqli,c=com</beans:value>
-					</beans:list>
-				</beans:property>
-				
-			</beans:bean>
-		</beans:constructor-arg>
-		<beans:constructor-arg>
-			<beans:bean
-				class="com.sqli.easyscrum.web.security.CustomLdapAuthoritiesPopulator" />
-		</beans:constructor-arg>
-	</beans:bean>
-
-	<authentication-manager>
-		<authentication-provider ref="ldapAuthProvider" />
-		<!-- For Tests ONLY -->
-		<authentication-provider user-service-ref="testService"/>
-	</authentication-manager>
+	
 </beans:beans>

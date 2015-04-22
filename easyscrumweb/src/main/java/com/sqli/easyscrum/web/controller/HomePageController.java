@@ -32,9 +32,7 @@ public class HomePageController
 	{
 		final ModelAndView modelAndView = new ModelAndView();
 		logger.info("Received request to show common page");
+		modelAndView.setViewName("index");
 		return modelAndView;
 	}
-
-	
-
 }

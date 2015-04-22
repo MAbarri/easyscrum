@@ -10,10 +10,11 @@
 		http://www.springframework.org/schema/security
                    http://www.springframework.org/schema/security/spring-security-3.2.xsd">
 	<!-- Scan just controllers, nothing more -->
-	<context:component-scan base-package="com.sqli.ideo.formation.web.controller" />
-	<context:component-scan base-package="com.sqli.ideo.formation.web.converter" />
-	<context:component-scan base-package="com.sqli.ideo.formation.web.property.editors" />
-	<context:component-scan base-package="com.sqli.ideo.formation.core.email" />
+	<context:component-scan base-package="com.sqli.easyscrum.web.controller" />
+	<context:component-scan base-package="com.sqli.easyscrum.web.converter" />
+	<context:component-scan base-package="com.sqli.easyscrum.core.email" />
+	<context:component-scan base-package="com.sqli.easyscrum.business.services" />
+	
 	
 	<mvc:annotation-driven />
 	<mvc:view-controller path="/"
@@ -22,7 +23,6 @@
 	<!-- the mvc resources tag does the magic -->
 	<mvc:resources mapping="/resources/**" location="/resources/" />
 	
-	<beans:bean id="formationValidator" class="com.sqli.easyscrum.web.validator.FormationFormValidator" />
 
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">

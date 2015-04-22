@@ -32,9 +32,6 @@ public class UserServiceImpl extends GenericServiceImpl<User, Integer> implement
 		return userDao;
 	}
 	
-	private @Value("#{rolesProperties['adminRole']}") String ADMIN_ROLE;
-	
-
 
 	private final Integer MAX=99;
 

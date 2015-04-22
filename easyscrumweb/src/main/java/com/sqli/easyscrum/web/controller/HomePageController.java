@@ -13,7 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
  */
 
 @Controller
-@RequestMapping("/main")
+@RequestMapping("/")
 public class HomePageController
 {
 

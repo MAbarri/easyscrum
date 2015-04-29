@@ -21,8 +21,10 @@ public class DAOUserImpl implements DAOuser {
 	}
 	public void init()
 	{
-		User a = new User(1, "nom", "prenom", "photo", "adresse", true, "email", "login","pass");
-		list.add(a);
+		list.add(new User(1, "admin", "boss", "photo", "adresse", true, "boss@boss.boss", "admin","admin",1));
+		list.add(new User(1, "po", "client", "photo", "adresse", true, "project@owner.com", "po","123456",2));
+		list.add(new User(1, "developer", "programmer", "photo", "adresse", true, "dev@loper.com", "dev","123456",3));
+		list.add(new User(1, "SM", "teamboss", "photo", "adresse", true, "scrum@master.com", "sm","123456",4));
 	}
 	public List<User> getList() {
 		return list;
@@ -69,6 +71,9 @@ public class DAOUserImpl implements DAOuser {
 		return u;
 		
 	}
-	
+	public List<User> getAllUsers()
+	{
+		return list;
+	}
 
 }

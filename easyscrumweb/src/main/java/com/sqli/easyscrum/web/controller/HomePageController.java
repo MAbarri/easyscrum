@@ -1,6 +1,8 @@
 package com.sqli.easyscrum.web.controller;
 
 
+import javax.servlet.http.HttpSession;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -42,6 +44,18 @@ public class HomePageController
 		modelAndView.setViewName("index");
 		return modelAndView;
 	}
-	
+	@RequestMapping(value = "/deconnect", method = RequestMethod.GET)
+	public ModelAndView DeconnectPage(HttpSession session) {
+		final ModelAndView modelAndView = new ModelAndView();
+		logger.info("Received request to show common page");
+		
+		session.setAttribute("login","");
+		session.setAttribute("pass", "");
+		
+		modelAndView.setViewName("index");
+
+		return modelAndView;
+	}
+
 	
 }

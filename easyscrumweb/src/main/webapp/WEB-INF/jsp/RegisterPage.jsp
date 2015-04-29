@@ -326,8 +326,9 @@
 															class="btn btn-success creatButton">Creer un
 															compte</button></td>
 												</tr>
+												<tr>
 												<td><c:out value="${error.general}"></c:out></td>
-
+												</tr>
 											</table>
 										</form>
 									</div>

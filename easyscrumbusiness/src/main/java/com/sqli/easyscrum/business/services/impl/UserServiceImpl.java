@@ -70,4 +70,8 @@ public class UserServiceImpl extends GenericServiceImpl<User, Integer> implement
 	public void editUser(User u) {
 		dao.editUser(u);
 	}
+	public List<User> getAllUsers()
+	{
+		return dao.getAllUsers();
+	}
 }

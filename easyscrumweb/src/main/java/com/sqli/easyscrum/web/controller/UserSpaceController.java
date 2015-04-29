@@ -42,7 +42,7 @@ public class UserSpaceController {
 
 		logger.info("Received request to show common page");
 
-		User u = new User(2, fm.getLname(), fm.getLname(), "", fm.getAdresse(),true, fm.getEmail(), fm.getEmail(),fm.getPass());
+		User u = new User(2, fm.getLname(), fm.getLname(), "", fm.getAdresse(),true, fm.getEmail(), fm.getEmail(),fm.getPass(),fm.getType());
 		
 		if (fm.getConfpass().equals(fm.getPass())) {
 			if (userService.getUserByLogin(u.getLogin()) == null) {
@@ -82,19 +82,42 @@ public class UserSpaceController {
 		result = userService.getUserByLogin(fm.getLogin());
 		i=false;
 		}
-		logger.info("3");
 		if(result!=null)
 			if(result.getPassword().equals(fm.getPass())||result.getPassword().equals(sessionpass))
 			{
+				logger.info("3");
 				if(!i)
 				{
 				session.setAttribute("login", fm.getLogin());
 				session.setAttribute("pass", fm.getPass());
 				}
+
+				
+				switch (result.getType()){
+				
+				case 1:
+				{
 				modelAndView.setViewName("adminProfil");
+				break;
+				}
+				case 2:
+				{
+					modelAndView.setViewName("login");
+					break;}
+				case 3:
+				{
+					modelAndView.setViewName("DevProfil");
+					break;}
+				case 4:
+				{
+					modelAndView.setViewName("SMasterProfil");
+					break;}
+				}
 			}
 				
 		return modelAndView;
 	}
-
+	
+	
+	
 }

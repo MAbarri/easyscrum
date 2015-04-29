@@ -8,6 +8,13 @@ public class FormObject {
 	private String lname;
 	private String adresse;
 	private String login;
+	private int type;
+	public int getType() {
+		return type;
+	}
+	public void setType(int type) {
+		this.type = type;
+	}
 	public String getLogin() {
 		return login;
 	}

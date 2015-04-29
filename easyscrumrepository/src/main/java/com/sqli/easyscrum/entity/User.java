@@ -127,10 +127,21 @@ public class User extends BaseEntity implements Serializable {
     @Column(name = "password")
     private String password;
 
+	@Column(name = "type")
+    private int type;
 
 
+    public int getType() {
+		return type;
+	}
 
-    public User() {
+
+	public void setType(int type) {
+		this.type = type;
+	}
+
+
+	public User() {
     }
 
 
@@ -138,7 +149,7 @@ public class User extends BaseEntity implements Serializable {
         this.userId = userId;
     }
 
-    public User(Integer userId, String nom, String prenom , String photo, String adresse, Boolean actif, String email, String login,String pass) {
+    public User(Integer userId, String nom, String prenom , String photo, String adresse, Boolean actif, String email, String login,String pass,int tp) {
         this.userId = userId;
         this.adresse=adresse;
         this.nom=nom;
@@ -147,6 +158,7 @@ public class User extends BaseEntity implements Serializable {
         this.email=email;
         this.login = login;
         this.password=pass;
+        this.type=tp;
     }
 
     

@@ -18,4 +18,6 @@ public interface UserService extends GenericService<User,Integer>{
 	public void deleteUser(User u);
 	
 	public void editUser(User u) ;
+	
+	public List<User> getAllUsers();
 }

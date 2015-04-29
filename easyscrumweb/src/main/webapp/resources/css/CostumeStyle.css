@@ -1,6 +1,30 @@
+#sendform
+{
+	display: none;
+}
+
+.adminaddform
+{
+    margin-left: 0px !important;
+}
+    
+
+.clientPanel
+{
+	
+    width: 90%;
+    margin: auto;
+    margin-top: 40px;
+    height: 550px;
+	
+}
+
 body
 {
 	background-color: #bbbbbb;
+	
+    min-height: 800px;
+	
 }
 .stickfoot
 {

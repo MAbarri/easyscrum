@@ -1,5 +1,7 @@
 package com.sqli.easyscrum.repository;
 
+import java.util.List;
+
 import com.sqli.easyscrum.entity.User;
 
 public interface DAOuser {
@@ -11,4 +13,5 @@ public interface DAOuser {
 	
 	public void editUser(User u);
 	public User getUserByLogin (String lgn);
+	public List<User> getAllUsers();
 }

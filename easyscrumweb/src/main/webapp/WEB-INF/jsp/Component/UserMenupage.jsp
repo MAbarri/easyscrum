@@ -17,7 +17,7 @@
 		<div class="collapse navbar-collapse" id="navbar-collapse-4">
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="#">Home</a></li>
-				<li><a href="#">projects</a></li>
+				<li><a href="/easyscrumweb/userspace/ManageProjects">projects</a></li>
 				<li><a href="#">Sprints</a></li>
 				<li><a href="#">Clients</a></li>
 				<li><a href="#">Team</a></li>

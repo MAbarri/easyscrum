@@ -51,8 +51,7 @@ try{
 				erreurs.put("login", " ce username existe déja !");
 				modelAndView.addObject("ListErreur", erreurs);
 				modelAndView.setViewName("#");
-			}
-}catch(Exception ec){}
+			}}catch(Exception ec){}
 
 		return modelAndView;
 	}

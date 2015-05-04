@@ -16,11 +16,13 @@
 .clientPanel
 {
 	
+    
+	
     width: 90%;
     margin: auto;
     margin-top: 40px;
     min-height: 550px;
-	
+	margin-bottom: 100px;
 }
 
 body

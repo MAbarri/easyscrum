@@ -8,10 +8,15 @@
 <title>Insert title here</title>
 <link rel="stylesheet"
 	href="/easyscrumweb/resources/css/CostumeStyle.css">
-<link rel="stylesheet"
-	href="/easyscrumweb/resources/bootstrap-table/bootstrap-table.css">
-<link rel="stylesheet"
-	href="/easyscrumweb/resources/bootstrap-table/bootstrap-table.min.css">
+<!-- DataTables CSS -->
+<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.css">
+
+<!-- jQuery -->
+<script type="text/javascript" charset="utf8" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+
+<!-- DataTables -->
+<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.js"></script>
+
 <!-- DataTables CSS -->
 
 
@@ -25,7 +30,8 @@
 			<div class="panel-heading">Liste des Utilisateurs</div>
 			<div class="panel-body">
 
-				<table class="table .table-striped" data-toggle="table">
+
+				<table id="example" class="display" cellspacing="0" width="100%">
 					<tr>
 						<th>Item</th>
 						<th>Nom</th>
@@ -37,7 +43,7 @@
 					</tr>
 					<c:forEach items="${userlist}" var="u">
 						<tr>
-							<td><input type="checkbox"/></td>
+							<td><input type="checkbox" /></td>
 							<td><c:out value="${u.nom }"></c:out></td>
 							<td><c:out value="${u.prenom }"></c:out></td>
 							<td><c:out value="${u.email }"></c:out></td>
@@ -46,9 +52,8 @@
 							<td><c:out value="${u.adresse }"></c:out></td>
 					</c:forEach>
 				</table>
-				<center>Jquery import problem with mvc resources</center>
 				<center>
-				<!-- ---------------------------Creat---------------------------- -->
+					<!-- ---------------------------Creat---------------------------- -->
 					<!-- Button trigger modal -->
 					<button type="button" class="btn btn-primary btn-lg"
 						data-toggle="modal" data-target="#myModal">Add</button>
@@ -71,14 +76,15 @@
 										<ul class="nav nav-tabs ">
 											<li class="active"><a href="#tab_default_1"
 												data-toggle="tab">Project Owner </a></li>
-											<li><a href="#tab_default_2" data-toggle="tab">Developper </a></li>
+											<li><a href="#tab_default_2" data-toggle="tab">Developper
+											</a></li>
 											<li><a href="#tab_default_3" data-toggle="tab">
 													Scrum Master </a></li>
 										</ul>
 										<div class="tab-content">
 											<div class="tab-pane active registersingltab"
 												id="tab_default_1">
-												<form action="addAccount" method="post" >
+												<form action="addAccount" method="post">
 													<table class="tableregister adminaddform">
 														<tr>
 															<td>&nbsp;</td>
@@ -142,7 +148,7 @@
 														<tr>
 															<td><c:out value="${error.general}"></c:out></td>
 														</tr>
-														
+
 
 													</table>
 													<input type="submit" id="sendform" />
@@ -225,7 +231,7 @@
 														<tr>
 															<td><c:out value="${error.general}"></c:out></td>
 														</tr>
-														
+
 
 													</table>
 													<input type="submit" id="sendform" />
@@ -310,7 +316,7 @@
 															<td><c:out value="${error.general}"></c:out></td>
 														</tr>
 
-														
+
 
 													</table>
 													<input type="submit" id="sendform" />
@@ -322,7 +328,8 @@
 								<div class="modal-footer">
 									<button type="button" class="btn btn-default"
 										data-dismiss="modal">Cancel</button>
-									<button type="button" class="btn btn-primary" onclick="submit()">Add User</button>
+									<button type="button" class="btn btn-primary"
+										onclick="submit()">Add User</button>
 								</div>
 							</div>
 						</div>
@@ -346,94 +353,95 @@
 										d'un utilisateur</h4>
 								</div>
 								<div class="modal-body">
-										<div class="tab-content">
-											<div class="tab-pane active registersingltab"
-												id="tab_default_1">
-												<form action="addAccount" method="post" >
-													<table class="tableregister adminaddform">
-														<tr>
-															<td>&nbsp;</td>
-														</tr>
-														<tr>
-															<td>&nbsp;</td>
-														</tr>
-														<tr>
-															<td>&nbsp;</td>
-														</tr>
-														<tr>
-															<td><input type="email" class="form-control"
-																id="exampleInputEmail1" placeholder="Email" required
-																name="email"></td>
-															<td>&nbsp;*</td>
-															<td><c:out value="${ListErreur['email']}"></c:out></td>
-														</tr>
-														<tr>
-															<td>&nbsp;</td>
-														</tr>
-														<tr>
-															<td><input type="password" class="form-control"
-																id="InputPassword1" placeholder="Password" required
-																name="pass"></td>
-															<td>&nbsp;*</td>
-															<td><c:out value="${ListErreur['pass']}"></c:out></td>
-														</tr>
-														<tr>
-															<td>&nbsp;</td>
-														</tr>
-														<tr>
-															<td><input type="text"
-																class="form-control inscriptioninput" id="ImputName"
-																placeholder="First name" required name="name"> <input
-																type="text" class="form-control inscriptioninput"
-																id="ImputLname" placeholder="Last name" name="lname"></td>
-															<td>&nbsp;*</td>
-															<td><c:out value="${ListErreur['Fullname']}"></c:out></td>
-														</tr>
-														<tr>
-															<td>&nbsp;</td>
-														</tr>
-														<tr>
-															<td><input type="text" class="form-control"
-																id="ImputAdresse" placeholder="Adresse" name="adresse"></td>
-															<td><c:out value="${ListErreur['adresse']}"></c:out></td>
-														</tr>
-														<tr>
-															<td>&nbsp;</td>
-														</tr>
-														<tr>
-															<td><input type="text" class="form-control"
-																id="ImputAdresse" placeholder="Login" name="login"></td>
-															<td><c:out value="${ListErreur['login']}"></c:out></td>
-														</tr>
+									<div class="tab-content">
+										<div class="tab-pane active registersingltab"
+											id="tab_default_1">
+											<form action="addAccount" method="post">
+												<table class="tableregister adminaddform">
+													<tr>
+														<td>&nbsp;</td>
+													</tr>
+													<tr>
+														<td>&nbsp;</td>
+													</tr>
+													<tr>
+														<td>&nbsp;</td>
+													</tr>
+													<tr>
+														<td><input type="email" class="form-control"
+															id="exampleInputEmail1" placeholder="Email" required
+															name="email"></td>
+														<td>&nbsp;*</td>
+														<td><c:out value="${ListErreur['email']}"></c:out></td>
+													</tr>
+													<tr>
+														<td>&nbsp;</td>
+													</tr>
+													<tr>
+														<td><input type="password" class="form-control"
+															id="InputPassword1" placeholder="Password" required
+															name="pass"></td>
+														<td>&nbsp;*</td>
+														<td><c:out value="${ListErreur['pass']}"></c:out></td>
+													</tr>
+													<tr>
+														<td>&nbsp;</td>
+													</tr>
+													<tr>
+														<td><input type="text"
+															class="form-control inscriptioninput" id="ImputName"
+															placeholder="First name" required name="name"> <input
+															type="text" class="form-control inscriptioninput"
+															id="ImputLname" placeholder="Last name" name="lname"></td>
+														<td>&nbsp;*</td>
+														<td><c:out value="${ListErreur['Fullname']}"></c:out></td>
+													</tr>
+													<tr>
+														<td>&nbsp;</td>
+													</tr>
+													<tr>
+														<td><input type="text" class="form-control"
+															id="ImputAdresse" placeholder="Adresse" name="adresse"></td>
+														<td><c:out value="${ListErreur['adresse']}"></c:out></td>
+													</tr>
+													<tr>
+														<td>&nbsp;</td>
+													</tr>
+													<tr>
+														<td><input type="text" class="form-control"
+															id="ImputAdresse" placeholder="Login" name="login"></td>
+														<td><c:out value="${ListErreur['login']}"></c:out></td>
+													</tr>
 
-														<tr>
-															<td>&nbsp;</td>
-														</tr>
+													<tr>
+														<td>&nbsp;</td>
+													</tr>
 
-														<tr>
-															<td><c:out value="${error.general}"></c:out></td>
-														</tr>
-														
+													<tr>
+														<td><c:out value="${error.general}"></c:out></td>
+													</tr>
 
-													</table>
-													<input type="submit" id="sendform" />
-												</form>
+
+												</table>
+												<input type="submit" id="sendform" />
+											</form>
 										</div>
 									</div>
 								</div>
 								<div class="modal-footer">
 									<button type="button" class="btn btn-default"
 										data-dismiss="modal">Cancel</button>
-									<button type="button" class="btn btn-primary" onclick="submit()">Add User</button>
+									<button type="button" class="btn btn-primary"
+										onclick="submit()">Add User</button>
 								</div>
 							</div>
 						</div>
 					</div>
-					
+
 					<!-- Button trigger modal -->
 					<button type="button" class="btn btn-primary btn-lg"
 						data-toggle="modal" data-target="#myModal3">Delete</button>
-										<!-- Modal -->
+					<!-- Modal -->
 					<div class="modal fade" id="myModal3" tabindex="-1" role="dialog"
 						aria-labelledby="myModalLabel" aria-hidden="true">
 						<div class="modal-dialog">
@@ -446,16 +454,18 @@
 									<h4 class="modal-title" id="myModalLabel">Suppression</h4>
 								</div>
 								<div class="modal-body">
-										<center>Are You sure about deleting these accounts ?</center>
-										<br><br>
+									<center>Are You sure about deleting these accounts ?</center>
+									<br> <br>
 									<button type="button" class="btn btn-default"
 										data-dismiss="modal">Cancel</button>
-									<button type="button" class="btn btn-primary" onclick="submit()" data-dismiss="modal">Yup, they deserve</button>
-									</div>
+									<button type="button" class="btn btn-primary"
+										onclick="submit()" data-dismiss="modal">Yup, they
+										deserve</button>
 								</div>
+							</div>
 						</div>
 					</div>
-					
+
 				</center>
 			</div>
 		</div>
@@ -464,16 +474,12 @@
 			<center>CHAT SPACE</center>
 		</div>
 	</div>
-	<script
-		src="/easyscrumweb/resources/bootstrap-table/bootstrap-table.js"></script>
-	<-- put your locale files after bootstrap-table.js -->
-	<script
-		src="/easyscrumweb/resources/bootstrap-table/bootstrap-table-en-US.js"></script>
-		<script type="text/javascript">
-		function submit()
-		{
-			document.getElementById("sendform").click();
-		}
-		</script>
+
+	<script>
+		$(document).ready(function() {
+			$('#example').DataTable();
+		});
+	</script>
+
 </body>
 </html>

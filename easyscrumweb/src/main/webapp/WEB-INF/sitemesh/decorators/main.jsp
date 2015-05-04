@@ -12,11 +12,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
   <meta name="description" content="">
   <meta name="author" content="ThemeBucket">
+  <!--  
   <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/js/gritter/css/jquery.gritter.css" />
-  <link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet">
+  -->
   <link href="${pageContext.request.contextPath}/resources/css/style-responsive.css" rel="stylesheet">
-  <title>SQLI Learning Manager - <decorator:title /></title>
-	
+  <link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet">
+  <title>EasyScrum - <decorator:title /></title>
+
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!--[if lt IE 9]>
   <script src="${pageContext.request.contextPath}/resources/js/html5shiv.js"></script>
@@ -148,19 +150,13 @@
 <decorator:body/>
 </c:if>
 
-<!-- Placed js at the end of the document so the pages load faster -->
+<!-- Placed js at the end of the document so the pages load faster  -->
 <script src="${pageContext.request.contextPath}/resources/js/jquery-1.10.2.min.js"></script>
-<script src="${pageContext.request.contextPath}/resources/js/jquery-ui-1.9.2.custom.min.js"></script>
-<script src="${pageContext.request.contextPath}/resources/js/jquery-migrate-1.2.1.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
-<script src="${pageContext.request.contextPath}/resources/js/modernizr.min.js"></script>
-<script src="${pageContext.request.contextPath}/resources/js/jquery.nicescroll.js"></script>
-<script src="${pageContext.request.contextPath}/resources/js/gritter/js/jquery.gritter.js"></script>
 <decorator:getProperty property="page.bottom_javascript"></decorator:getProperty>
-<!--common scripts for all pages-->
-<script src="${pageContext.request.contextPath}/resources/js/scripts.js"></script>
-
-<script>
+<!--common scripts for all pages
+ <script src="${pageContext.request.contextPath}/resources/js/scripts.js"></script>-->
+<!-- <script>
 $(document).ready(function(){
 	<c:if test="${not empty message}">
 	$.gritter.add({
@@ -170,5 +166,6 @@ $(document).ready(function(){
 	</c:if>
 });
 </script>
+ -->
 </body>
 </html>

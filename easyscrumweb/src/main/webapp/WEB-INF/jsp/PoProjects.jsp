@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -20,108 +21,37 @@
 		<div class="panel panel-default clientPanel">
 			<div class="panel-heading">Projects</div>
 			<div class="panel-body">
-				<div class="ui card leftbubble cardpad">
+				
+				
+				<c:forEach items="${projectslist }" var="p">
+				
+					<div class="ui card leftbubble cardpad">
 					<div class="image">
 						<img
-							src="https://pbs.twimg.com/profile_images/1752714948/Old-New-logo_Mark-on-darkBG.png">
+							src="/easyscrumweb/resources/images/Old-New-logo_Mark-on-darkBG.png">
 					</div>
 					<div class="content">
-						<a class="header">Stevie jhonson</a>
+						<a class="header"><c:out value="${p.nomproject }"></c:out> </a>
 						<div class="meta">
-							<span class="date">Joined in 2014</span>
+							<span class="date">Date of Creation : <c:out value="${p.dateDebut }"></c:out></span>
 						</div>
-						<div class="description">Stevie Feliciano is a library
-							scientist living in New York City. She likes to spend her time
-							reading, running, and writing.</div>
+						<div class="description">This is not an actual project, is just a lie to let you see how beautifull this design is :)</div>
 					</div>
 					<div class="extra content">
-						<a> <i class="user icon"></i> 22 Friends
+						<a> <i class="user icon"></i> Working on
 						</a>
 					</div>
 				</div>
-				<div class="ui card leftbubble cardpad">
-					<div class="image">
-						<img
-							src="https://pbs.twimg.com/profile_images/1752714948/Old-New-logo_Mark-on-darkBG.png">
-					</div>
-					<div class="content">
-						<a class="header">Stevie jhonson</a>
-						<div class="meta">
-							<span class="date">Joined in 2014</span>
-						</div>
-						<div class="description">Stevie Feliciano is a library
-							scientist living in New York City. She likes to spend her time
-							reading, running, and writing.</div>
-					</div>
-					<div class="extra content">
-						<a> <i class="user icon"></i> 22 Friends
-						</a>
-					</div>
-				</div>
-				<div class="ui card leftbubble cardpad">
-					<div class="image">
-						<img
-							src="https://pbs.twimg.com/profile_images/1752714948/Old-New-logo_Mark-on-darkBG.png">
-					</div>
-					<div class="content">
-						<a class="header">Stevie jhonson</a>
-						<div class="meta">
-							<span class="date">Joined in 2014</span>
-						</div>
-						<div class="description">Stevie Feliciano is a library
-							scientist living in New York City. She likes to spend her time
-							reading, running, and writing.</div>
-					</div>
-					<div class="extra content">
-						<a> <i class="user icon"></i> 22 Friends
-						</a>
-					</div>
-				</div>
-				<div class="ui card leftbubble cardpad">
-					<div class="image">
-						<img
-							src="https://pbs.twimg.com/profile_images/1752714948/Old-New-logo_Mark-on-darkBG.png">
-					</div>
-					<div class="content">
-						<a class="header">Stevie jhonson</a>
-						<div class="meta">
-							<span class="date">Joined in 2014</span>
-						</div>
-						<div class="description">Stevie Feliciano is a library
-							scientist living in New York City. She likes to spend her time
-							reading, running, and writing.</div>
-					</div>
-					<div class="extra content">
-						<a> <i class="user icon"></i> 22 Friends
-						</a>
-					</div>
-				</div>
-				<div class="ui card leftbubble cardpad">
-					<div class="image">
-						<img
-							src="https://pbs.twimg.com/profile_images/1752714948/Old-New-logo_Mark-on-darkBG.png">
-					</div>
-					<div class="content">
-						<a class="header">Stevie jhonson</a>
-						<div class="meta">
-							<span class="date">Joined in 2014</span>
-						</div>
-						<div class="description">Stevie Feliciano is a library
-							scientist living in New York City. She likes to spend her time
-							reading, running, and writing.</div>
-					</div>
-					<div class="extra content">
-						<a> <i class="user icon"></i> 22 Friends
-						</a>
-					</div>
-				</div>
+				</c:forEach>
+				
+				
 			 <div class="ui card leftbubble cardpad">
 					<div class="image">
 						<img
-							src="https://cdn2.iconfinder.com/data/icons/perfect-flat-icons-2/512/Create_with_plus_mail_layer_add_vector_stock.png">
+							src="/easyscrumweb/resources/images/Create_with_plus_mail_layer_add_vector_stock.png">
 					</div>
 					<div class="content">
-						<a class="header">New Project</a>
+						<a class="header" href="newProject">New Project</a>
 						<div class="meta">
 							<span class="date">Client date</span>
 						</div>

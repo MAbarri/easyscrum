@@ -9,5 +9,6 @@
 	<import resource="classpath*:core.xml"/>
 
 	<bean class="com.sqli.easyscrum.repository.Impl.DAOUserImpl" id="daouserimpl" init-method="init"></bean>
+	<bean class="com.sqli.easyscrum.repository.Impl.DAOprojectImpl" id="daoprojectimpl" init-method="init"></bean>
 
  </beans>

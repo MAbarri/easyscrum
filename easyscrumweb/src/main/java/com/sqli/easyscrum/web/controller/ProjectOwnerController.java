@@ -2,6 +2,7 @@ package com.sqli.easyscrum.web.controller;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.sqli.easyscrum.business.services.ProjectService;
+import com.sqli.easyscrum.business.services.SprintService;
 import com.sqli.easyscrum.entity.Backlog;
 import com.sqli.easyscrum.entity.Project;
 import com.sqli.easyscrum.entity.UserStorie;
@@ -21,6 +23,9 @@ public class ProjectOwnerController {
 		
 		@Autowired
 		private ProjectService projectService;
+		
+		@Autowired
+		private SprintService sprintService;
 
 		
 		@RequestMapping(value = "/ManageProjects", method = RequestMethod.GET)
@@ -68,14 +73,24 @@ public class ProjectOwnerController {
 		}
 		
 		@RequestMapping(value = "/project", method = RequestMethod.GET)
-		public ModelAndView getsingleprojectPage()
+		public ModelAndView getsingleprojectPage(@RequestParam int idproject)
 		{
 			final ModelAndView modelAndView = new ModelAndView();
 			logger.info("Received request to show common page");
+			modelAndView.addObject("project", projectService.getProjectById(idproject));
 			modelAndView.addObject("projectslist", projectService.getAllProject());
 			modelAndView.setViewName("singleproject");
 			return modelAndView;
 		}
-		
-
+		@RequestMapping(value = "/allSprints", method = RequestMethod.GET)
+		public ModelAndView getSprintsprojectPage(@RequestParam int idproject)
+		{
+			final ModelAndView modelAndView = new ModelAndView();
+			logger.info("Received request to show common page");
+			modelAndView.addObject("project", projectService.getProjectById(idproject));
+			modelAndView.addObject("projectslist", projectService.getAllProject());
+			modelAndView.addObject("Sprintslist", sprintService.getAllSprint());
+			modelAndView.setViewName("SprintsOverview");
+			return modelAndView;
+		}
 }

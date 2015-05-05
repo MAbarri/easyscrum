@@ -31,7 +31,7 @@
 							src="/easyscrumweb/resources/images/Old-New-logo_Mark-on-darkBG.png">
 					</div>
 					<div class="content">
-						<a class="header" href="/easyscrumweb/userspace/project"><c:out value="${p.nomproject }"></c:out> </a>
+						<a class="header" href="/easyscrumweb/userspace/project?idproject=<c:out value="${p.projectId }"></c:out>"><c:out value="${p.nomproject }"></c:out> </a>
 						<div class="meta">
 							<span class="date">Date of Creation : <c:out value="${p.dateDebut }"></c:out></span>
 						</div>

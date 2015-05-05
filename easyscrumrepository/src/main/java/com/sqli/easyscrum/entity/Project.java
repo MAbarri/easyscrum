@@ -26,28 +26,28 @@ public class Project {
     private String language;
 	
 	@Column(name = "type")
-    private String Type;
+    private String type;
 	
 	@Column(name = "Description")
     private String desc;
 	
 	@Column(name = "tags")
-    private String Tags;
+    private String tags;
 	
 	@Column(name = "Cost")
     private String cost;
 	
 	@Column(name = "Company")
-    private String Company;
+    private String company;
 	
 	@Column(name = "Email")
-    private String Email;
+    private String email;
 	
 	@Column(name = "DateDebut")
     private String dateDebut;
 	
 	@Column(name = "DateRouge")
-    private String DeadLine;
+    private String deadLine;
 	
 	@Column(name = "DateFin")
     private String dateFin;
@@ -60,7 +60,7 @@ public class Project {
 	}
 
 	public void setStatus(String status) {
-		status = status;
+		this.status = status;
 	}
 	
 	@ManyToOne
@@ -76,11 +76,11 @@ public class Project {
 	}
 
 	public String getType() {
-		return Type;
+		return type;
 	}
 
 	public void setType(String type) {
-		Type = type;
+		type = type;
 	}
 
 	public String getDesc() {
@@ -92,11 +92,11 @@ public class Project {
 	}
 
 	public String getTags() {
-		return Tags;
+		return tags;
 	}
 
 	public void setTags(String tags) {
-		Tags = tags;
+		tags = tags;
 	}
 
 	public String getCost() {
@@ -108,27 +108,27 @@ public class Project {
 	}
 
 	public String getCompany() {
-		return Company;
+		return company;
 	}
 
 	public void setCompany(String company) {
-		Company = company;
+		company = company;
 	}
 
 	public String getEmail() {
-		return Email;
+		return email;
 	}
 
 	public void setEmail(String email) {
-		Email = email;
+		email = email;
 	}
 
 	public String getDeadLine() {
-		return DeadLine;
+		return deadLine;
 	}
 
 	public void setDeadLine(String deadLine) {
-		DeadLine = deadLine;
+		deadLine = deadLine;
 	}
 
 	public Backlog getBg() {
@@ -174,15 +174,15 @@ public class Project {
 	{
 		this.projectId=num;
 		this.nomproject=nom;
-		this.Company=Company;
+		this.company=Company;
 		this.bg=backl;
 		this.cost=Cost;
 		this.language=Langue;
-		this.Type=Type;
+		this.type=Type;
 		this.desc=Desc;
-		this.Tags=Tags;
-		this.Email=Email;
-		this.DeadLine=DeadLine;
+		this.tags=Tags;
+		this.email=Email;
+		this.deadLine=DeadLine;
 		this.status=Status;
 		this.dateDebut=dtd;
 		this.dateFin=Dtf;

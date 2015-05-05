@@ -20,7 +20,7 @@
 
 	<%@ include file="Component/projectsnavbar.jsp"%>
 		
-		<div style="margin-left: 350px;">
+		<div class="sprintcenter">
 		<!-- /.row -->
 		<div class="row leftbubble centerbubbles">
 			<div class="col-lg-4 col-md-4">

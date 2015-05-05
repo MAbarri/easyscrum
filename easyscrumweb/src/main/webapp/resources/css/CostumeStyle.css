@@ -1,3 +1,29 @@
+.onesprintbyone
+{
+	
+    margin: 20px;
+    box-shadow: 0 3px 0 0 #d4d4d5,0 0 0 1px #d4d4d5;
+    padding: 12px;
+	
+}
+.sprintslist
+{
+    margin-top: -330px;
+}
+.sprintcard
+{	
+    margin-left: 30px;
+    margin-top: 40px;
+}
+.sprintpanel
+{
+	width:70% !important;
+    margin-left: 360px !important;
+}
+.sprintcenter
+{
+	margin-left: 350px;
+}
 .cardpad
 {
 	margin:25px !important;

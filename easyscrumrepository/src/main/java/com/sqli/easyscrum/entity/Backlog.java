@@ -15,10 +15,10 @@ public class Backlog {
 	private int Idback;
 	
 	@Column(name="Dtpost")
-	private String DtPost;
+	private String dtPost;
 	
 	@Column(name="Contenue")
-	private String Description;
+	private String description;
 	
 	@ManyToOne
     @JoinColumn(name = "id_us")
@@ -31,8 +31,8 @@ public class Backlog {
 	public Backlog(int id,String desc,String date,UserStorie ustories )
 	{
 		this.Idback=id;
-		this.Description=desc;
-		this.DtPost=date;
+		this.description=desc;
+		this.dtPost=date;
 		this.storie=ustories;
 	}
 	public int getIdback() {
@@ -42,15 +42,15 @@ public class Backlog {
 		Idback = idback;
 	}
 	public String getDtPost() {
-		return DtPost;
+		return dtPost;
 	}
 	public void setDtPost(String dtPost) {
-		DtPost = dtPost;
+		dtPost = dtPost;
 	}
 	public String getDescription() {
-		return Description;
+		return description;
 	}
 	public void setDescription(String description) {
-		Description = description;
+		this.description = description;
 	}
 }

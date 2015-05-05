@@ -3,7 +3,9 @@ package com.sqli.easyscrum.repository.Impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.sqli.easyscrum.entity.Backlog;
 import com.sqli.easyscrum.entity.Project;
+import com.sqli.easyscrum.entity.UserStorie;
 import com.sqli.easyscrum.repository.DAOproject;
 
 public class DAOprojectImpl implements DAOproject {
@@ -11,8 +13,9 @@ public class DAOprojectImpl implements DAOproject {
 	
 	public void init()
 	{
-		list.add(new Project(1, "facebook","12/12/2013","12/09/2014"));
-		list.add(new Project(1, "twitter","12/12/2013","12/09/2014"));
+		list.add(new Project(1, "facebook", "English", "Web App", "an awsome Work", "socialMedia;Blue;Awsome", "12000$", "Sumsung", "face@book.com", "22/12/2014", new Backlog(1, "first Backlog", "13/06/2014",new UserStorie(1, "Work Well please")) , "Getting Started", "22/04/2014", "22/11/2014"));
+
+		list.add(new Project(2, "twitter", "British", "Web App", "a good Work", "socialMedia;Blue;Bird", "22000$", "Apple", "tweet@tter.com", "22/12/2013", new Backlog(2, "second Backlog", "13/06/2013",new UserStorie(2, "A lot of money to offer")) , "Getting Started", "22/04/2013", "22/11/2013"));
 	}
 	@Override
 	public Project getProjectById(int id) {

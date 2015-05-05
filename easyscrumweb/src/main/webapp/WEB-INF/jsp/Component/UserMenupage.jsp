@@ -1,6 +1,6 @@
 
 <!-- Second navbar for profile settings -->
-<nav class="navbar navbar-inverse norandomespace">
+<nav class="navbar navbar-inverse norandomespace" style="z-index: 99;">
 	<div class="container">
 		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="navbar-header">
@@ -18,7 +18,7 @@
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="/easyscrumweb/userspace/profil">Home</a></li>
 				<li><a href="/easyscrumweb/userspace/ManageProjects">projects</a></li>
-				<li><a href="#">Sprints</a></li>
+				<li><a href="/easyscrumweb/userspace/ManageSprints">Sprints</a></li>
 				<li><a href="#">Clients</a></li>
 				<li><a href="#">Team</a></li>
 				<li><a href="#">Inbox</a></li>

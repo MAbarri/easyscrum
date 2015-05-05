@@ -54,7 +54,7 @@
 								</div>
 								<div class="form-group">
 									<label class="control-label">Project Type</label> <select
-										class="form-control" id="sel1">
+										class="form-control" id="sel1" name="sel1">
 										<option value="" disabled selected>Type :</option>
 										<option>Web App</option>
 										<option>Mobile App</option>
@@ -64,7 +64,7 @@
 								</div>
 								<div class="form-group">
 									<label class="control-label">Language</label> <select
-										class="form-control" id="sel1">
+										class="form-control" id="sel2" name="sel2">
 										<option value="" disabled selected>Language :</option>
 										<option>English</option>
 										<option>French</option>
@@ -83,12 +83,12 @@
 								<h3>Step 2</h3>
 								<div class="form-group">
 									<label class="control-label">Description</label> 
-									<textarea class="form-control" rows="5" id="Description"></textarea>
+									<textarea class="form-control" rows="5" id="Description" name="Description"></textarea>
 								</div>
 								<div class="form-group">
-									<label class="control-label">Important facts</label> <input
+									<label class="control-label">Tags</label> <input
 										maxlength="200" type="text" required="required"
-										class="form-control" placeholder="what u hate to see and what u Love to see" />
+										class="form-control" placeholder="Write here Some Keywords for developpers to find your project"  id="tags" name="tags"  />
 								</div>
 								<button class="btn btn-primary nextBtn btn-lg pull-right"
 									type="button">Next</button>
@@ -102,12 +102,12 @@
 								<div class="form-group">
 									<label class="control-label">Basic Backlog</label> <input
 										maxlength="200" type="text" required="required"
-										class="form-control" placeholder="Title of the Backlog" />
+										class="form-control" placeholder="Title of the Backlog"  id="backlogtitle" name="backlogtitle"/>
 										</div>
 										<div class="form-group">
 									<label class="control-label">Write in details What you want</label> <input
 										maxlength="200" type="text" required="required"
-										class="form-control" placeholder="User Stories" />
+										class="form-control" placeholder="User Stories" id="ustext" name="ustext"/>
 								</div>
 								<div id="space"></div>
 								<button type="button" class="btn btn-default navbar-btn" onclick="addplace()">More space please</button>
@@ -125,22 +125,22 @@
 								<div class="form-group">
 								<label class="control-label">Durée du projet</label> <input
 										maxlength="200" type="text" required="required"
-										class="form-control" placeholder="Durée en semaines" />
+										class="form-control" placeholder="Durée en semaines" id="time" name="time" />
 								</div>
 								<div class="form-group">
 								<label class="control-label">Cost of project</label> <input
 										maxlength="200" type="text" required="required"
-										class="form-control" placeholder="value $" />
+										class="form-control" placeholder="value $"  id="cost" name="cost"  />
 								</div>
 								<div class="form-group">
 								<label class="control-label">Company</label> <input
 										maxlength="200" type="text" required="required"
-										class="form-control" placeholder="client company" />
+										class="form-control" placeholder="client company"  id="company" name="company" />
 								</div>
 								<div class="form-group">
 								<label class="control-label">Email where You will recieve updates about the project</label> <input
 										maxlength="200" type="text" required="required"
-										class="form-control" placeholder="Email" />
+										class="form-control" placeholder="Email" id="email" name="email" />
 								</div>
 								<button class="btn btn-success btn-lg pull-right" type="submit">Finish!</button>
 							</div>

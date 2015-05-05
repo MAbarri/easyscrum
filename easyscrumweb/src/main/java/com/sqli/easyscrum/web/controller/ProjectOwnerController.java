@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.sqli.easyscrum.business.services.ProjectService;
+import com.sqli.easyscrum.entity.Backlog;
 import com.sqli.easyscrum.entity.Project;
+import com.sqli.easyscrum.entity.UserStorie;
 
 @Controller
 @RequestMapping("/userspace")
@@ -39,14 +41,41 @@ public class ProjectOwnerController {
 			return modelAndView;
 		}
 		@RequestMapping(value = "/CreatProjects", method = RequestMethod.GET)
-		public ModelAndView getresultPage(@RequestParam String nomp)
+		public ModelAndView getresultPage(FormProjectObject fm)
 		{
 			final ModelAndView modelAndView = new ModelAndView();
 			logger.info("Received request to show common page");
-			projectService.creatProject(new Project(2,nomp,"12/12/2012","09/09/2009"));
-			logger.info("Project CReated Successfully");
+			UserStorie us=new UserStorie(3, fm.getUstext());
+			Backlog bklg = new Backlog(4,fm.getBacklogtitle(),"today",us);
+			Project prj = new Project(3, fm.getNom(), fm.getSel2(), fm.getSel1(), fm.getDescription(), fm.getTags(), fm.getCost(), fm.getCompany(), fm.getEmail(), "12/12/12", bklg, "getting started", "today", "--");
+			projectService.creatProject(prj);
+			us=null;
+			bklg=null;
+			prj=null;
+			logger.info("Project Created Successfully");
 			modelAndView.setViewName("redirect:ManageProjects");
 			return modelAndView;
 		}
+		
+		@RequestMapping(value = "/ManageSprints", method = RequestMethod.GET)
+		public ModelAndView getSprintsPage()
+		{
+			final ModelAndView modelAndView = new ModelAndView();
+			logger.info("Received request to show common page");
+			modelAndView.addObject("projectslist", projectService.getAllProject());
+			modelAndView.setViewName("ProjectsSprints");
+			return modelAndView;
+		}
+		
+		@RequestMapping(value = "/project", method = RequestMethod.GET)
+		public ModelAndView getsingleprojectPage()
+		{
+			final ModelAndView modelAndView = new ModelAndView();
+			logger.info("Received request to show common page");
+			modelAndView.addObject("projectslist", projectService.getAllProject());
+			modelAndView.setViewName("singleproject");
+			return modelAndView;
+		}
+		
 
 }

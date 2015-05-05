@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Projects Overview</title>
 <link rel="stylesheet"
 	href="/easyscrumweb/resources/css/CostumeStyle.css">
 <link rel="stylesheet" href="/easyscrumweb/resources/css/card.css">
@@ -31,15 +31,14 @@
 							src="/easyscrumweb/resources/images/Old-New-logo_Mark-on-darkBG.png">
 					</div>
 					<div class="content">
-						<a class="header"><c:out value="${p.nomproject }"></c:out> </a>
+						<a class="header" href="/easyscrumweb/userspace/project"><c:out value="${p.nomproject }"></c:out> </a>
 						<div class="meta">
 							<span class="date">Date of Creation : <c:out value="${p.dateDebut }"></c:out></span>
 						</div>
-						<div class="description">This is not an actual project, is just a lie to let you see how beautifull this design is :)</div>
+						<div class="description"><c:out value="${p.desc }"/></div>
 					</div>
 					<div class="extra content">
-						<a> <i class="user icon"></i> Working on
-						</a>
+						<a> <i class="user icon"></i><c:out value="${p.status}"/></a>
 					</div>
 				</div>
 				</c:forEach>

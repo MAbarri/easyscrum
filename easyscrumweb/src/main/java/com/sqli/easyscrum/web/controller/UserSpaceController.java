@@ -66,7 +66,8 @@ public class UserSpaceController {
 	@RequestMapping(value = "/profil")
 	public ModelAndView getloginPage(FormObject fm,HttpSession session) {
 		final ModelAndView modelAndView = new ModelAndView();
-		logger.info("Received request to show common page");
+		
+		logger.info("Received request to show login page");
 		
 		modelAndView.setViewName("index");
 		User result = null;
@@ -76,7 +77,7 @@ public class UserSpaceController {
 		try{
 		result = userService.getUserByLogin(session.getAttribute("login").toString());
 		sessionpass=session.getAttribute("pass").toString();
-		}catch(Exception l){}
+		}catch(Exception l){logger.info("null pointer");}
 		if(result==null)
 		{
 		result = userService.getUserByLogin(fm.getLogin());
@@ -92,7 +93,7 @@ public class UserSpaceController {
 				session.setAttribute("pass", fm.getPass());
 				}
 
-				
+				session.setAttribute("online", true);
 				switch (result.getType()){
 				
 				case 1:

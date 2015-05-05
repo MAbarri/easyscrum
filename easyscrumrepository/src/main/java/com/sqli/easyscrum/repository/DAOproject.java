@@ -12,6 +12,7 @@ public interface DAOproject {
 	public void deleteProject(Project u);
 	
 	public void editProject(Project u);
+	
 	public List<Project> getAllProject();
 
 }

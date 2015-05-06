@@ -11,7 +11,7 @@
 </head>
 <body>
 	<!-- Main navbar -->
-	<%@ include file="Component/UserMenupage.jsp"%>
+	<%@ include file="../Component/UserMenupage.jsp"%>
 
 	<div id="cover" class="backprofil">
 

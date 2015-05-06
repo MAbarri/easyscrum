@@ -26,7 +26,7 @@ public class AdminSpaceController {
 	public ModelAndView getwelcomePage() {
 		final ModelAndView modelAndView = new ModelAndView();
 		logger.info("Received request to show common page");
-		modelAndView.setViewName("ManageUsers");
+		modelAndView.setViewName("admin/ManageUsers");
 		modelAndView.addObject("userlist", userService.getAllUsers());
 		return modelAndView;
 	}
@@ -46,7 +46,7 @@ try{
 			if (userService.getUserByLogin(u.getLogin()) == null) {
 				userService.creatUser(u);
 				logger.info("User created");
-				modelAndView.setViewName("redirect:" + "ManageUsers");
+				modelAndView.setViewName("redirect:" + "admin/ManageUsers");
 			} else {
 				erreurs.put("login", " ce username existe déja !");
 				modelAndView.addObject("ListErreur", erreurs);

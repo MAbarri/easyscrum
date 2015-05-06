@@ -28,7 +28,7 @@ public class UserSpaceController {
 	public ModelAndView getwelcomePage() {
 		final ModelAndView modelAndView = new ModelAndView();
 		logger.info("Received request to show common page");
-		modelAndView.setViewName("RegisterPage");
+		modelAndView.setViewName("public/RegisterPage");
 
 		return modelAndView;
 	}
@@ -47,16 +47,16 @@ public class UserSpaceController {
 		if (fm.getConfpass().equals(fm.getPass())) {
 			if (userService.getUserByLogin(u.getLogin()) == null) {
 					userService.creatUser(u);
-				modelAndView.setViewName("EmailCheck");
+				modelAndView.setViewName("public/EmailCheck");
 			} else {
 				erreurs.put("login", " ce username existe déja !");
 				modelAndView.addObject("ListErreur", erreurs);
-				modelAndView.setViewName("RegisterPage");
+				modelAndView.setViewName("public/RegisterPage");
 			}
 		} else {
 			erreurs.put("confpass", "les deux chaine ne sont pas identiques !");
 			modelAndView.addObject("ListErreur", erreurs);
-			modelAndView.setViewName("RegisterPage");
+			modelAndView.setViewName("public/RegisterPage");
 		}
 
 		return modelAndView;
@@ -69,7 +69,7 @@ public class UserSpaceController {
 		
 		logger.info("Received request to show login page");
 		
-		modelAndView.setViewName("index");
+		modelAndView.setViewName("public/index");
 		User result = null;
 		boolean i=true; 
 		String sessionpass="";
@@ -98,20 +98,20 @@ public class UserSpaceController {
 				
 				case 1:
 				{
-				modelAndView.setViewName("adminProfil");
+				modelAndView.setViewName("admin/adminProfil");
 				break;
 				}
 				case 2:
 				{
-					modelAndView.setViewName("login");
+					modelAndView.setViewName("projectowner/login");
 					break;}
 				case 3:
 				{
-					modelAndView.setViewName("DevProfil");
+					modelAndView.setViewName("devloper/Devcpanel");
 					break;}
 				case 4:
 				{
-					modelAndView.setViewName("SMasterProfil");
+					modelAndView.setViewName("scrummaster/SMasterProfil");
 					break;}
 				}
 			}

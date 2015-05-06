@@ -1,6 +1,6 @@
 
 <!-- Second navbar for profile settings -->
-<nav class="navbar navbar-inverse norandomespace">
+<nav class="navbar navbar-inverse norandomespace" style="z-index: 99;">
 	<div class="container">
 		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="navbar-header">
@@ -17,9 +17,11 @@
 		<div class="collapse navbar-collapse" id="navbar-collapse-4">
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="/easyscrumweb/userspace/profil">Home</a></li>
-				<li><a href="/easyscrumweb/userspace/ManageUsers">Users</a></li>
+				<li><a href="/easyscrumweb/userspace/CheckProjects">projects</a></li>
+				<li><a href="/easyscrumweb/userspace/ManageSprints">Sprints</a></li>
+				<li><a href="#">Work to do</a></li>
+				<li><a href="#">My Teams</a></li>
 				<li><a href="#">Inbox</a></li>
-				<li><a href="#">Stats</a></li>
 				<li><a class="btn btn-default btn-outline btn-circle collapsed"
 					data-toggle="collapse" href="#nav-collapse4" aria-expanded="false"
 					aria-controls="nav-collapse4">Profile <i class=""></i>

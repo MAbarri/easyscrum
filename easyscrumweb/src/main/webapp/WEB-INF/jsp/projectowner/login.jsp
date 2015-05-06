@@ -4,14 +4,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Project owner Desktop</title>
 <link rel="stylesheet"
 	href="/easyscrumweb/resources/css/CostumeStyle.css">
 </head>
 <body>
 
 	<!-- Main navbar -->
-	<%@ include file="Component/UserMenupage.jsp"%>	
+	<%@ include file="../Component/UserMenupage.jsp"%>	
 	<div id="cover" class="backprofil">
 	<!-- Page component -->
 	

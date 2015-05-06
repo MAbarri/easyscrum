@@ -17,10 +17,9 @@
 								<span class="arrow"></span></a></li>
 						<ul class="sub-menu collapse"
 							id="products-<c:out value="${p.nomproject}"></c:out>">
-							<li class="active"><a href="#">Sprint 1</a></li>
-							<li><a href="#">Sprint 2</a></li>
-							<li><a href="#">Sprint 3</a></li>
-							<li><a href="#">Sprint 4</a></li>
+							<c:forEach items="${Sprintslist }" var="sprint">
+							<li><a href="/easyscrumweb/userspace/singleSprint?idSprint=<c:out value="${sprint.idsprint }"></c:out>"><c:out value="${sprint.nom }"></c:out></a></li>
+							</c:forEach>
 						</ul>
 					</c:forEach>
 
@@ -28,11 +27,6 @@
 					<li data-toggle="collapse" data-target="#service" class="collapsed">
 						<a href="#"><i class="fa fa-globe fa-lg"></i> Stats</a>
 					</li>
-					<ul class="sub-menu collapse" id="service">
-						<li>New Service 1</li>
-						<li>New Service 2</li>
-						<li>New Service 3</li>
-					</ul>
 
 
 					<li data-toggle="collapse" data-target="#new" class="collapsed">
@@ -41,7 +35,6 @@
 					</li>
 					<ul class="sub-menu collapse" id="new">
 						<li>New Project</li>
-						<li>New Sprint</li>
 						<li>New Backlog</li>
 					</ul>
 

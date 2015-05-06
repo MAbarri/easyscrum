@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Projects Overview</title>
+<title>Get a new Project</title>
 <link rel="stylesheet"
 	href="/easyscrumweb/resources/css/CostumeStyle.css">
 <link rel="stylesheet" href="/easyscrumweb/resources/css/card.css">
@@ -14,7 +14,7 @@
 <body>
 
 	<!-- Main navbar -->
-	<%@ include file="Component/UserMenupage.jsp"%>
+	<%@ include file="../Component/DeveloperMenupage.jsp"%>
 
 	<div id="cover" class="backprofil">
 
@@ -22,7 +22,9 @@
 			<div class="panel-heading">Projects</div>
 			<div class="panel-body">
 				
-				
+				<c:choose>
+				<c:when test="${empty projectslist }"><center>No available project found</center></c:when>
+				<c:otherwise>
 				<c:forEach items="${projectslist }" var="p">
 				
 					<div class="ui card leftbubble cardpad">
@@ -41,24 +43,8 @@
 						<a> <i class="user icon"></i><c:out value="${p.status}"/></a>
 					</div>
 				</div>
-				</c:forEach>
-				
-				
-			 <div class="ui card leftbubble cardpad">
-					<div class="image">
-						<img
-							src="/easyscrumweb/resources/images/Create_with_plus_mail_layer_add_vector_stock.png">
-					</div>
-					<div class="content">
-						<a class="header" href="newProject">New Project</a>
-						<div class="meta">
-							<span class="date">Client date</span>
-						</div>
-						<div class="description">Launch the "creat new project" wizard and get busy.</div>
-					</div>
-					<div class="extra content">
-					</div>
-				</div>
+				</c:forEach></c:otherwise>
+				</c:choose>
 			</div>
 		</div>
 	</div>

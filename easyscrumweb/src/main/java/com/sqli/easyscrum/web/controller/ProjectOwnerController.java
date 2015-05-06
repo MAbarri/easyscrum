@@ -13,6 +13,7 @@ import com.sqli.easyscrum.business.services.ProjectService;
 import com.sqli.easyscrum.business.services.SprintService;
 import com.sqli.easyscrum.entity.Backlog;
 import com.sqli.easyscrum.entity.Project;
+import com.sqli.easyscrum.entity.Sprint;
 import com.sqli.easyscrum.entity.UserStorie;
 
 @Controller
@@ -34,7 +35,7 @@ public class ProjectOwnerController {
 			final ModelAndView modelAndView = new ModelAndView();
 			logger.info("Received request to show common page");
 			modelAndView.addObject("projectslist", projectService.getAllProject());
-			modelAndView.setViewName("PoProjects");
+			modelAndView.setViewName("projectowner/PoProjects");
 			return modelAndView;
 		}
 		@RequestMapping(value = "/newProject", method = RequestMethod.GET)
@@ -42,7 +43,7 @@ public class ProjectOwnerController {
 		{
 			final ModelAndView modelAndView = new ModelAndView();
 			logger.info("Received request to show common page");
-			modelAndView.setViewName("NewProject");
+			modelAndView.setViewName("projectowner/NewProject");
 			return modelAndView;
 		}
 		@RequestMapping(value = "/CreatProjects", method = RequestMethod.GET)
@@ -68,7 +69,8 @@ public class ProjectOwnerController {
 			final ModelAndView modelAndView = new ModelAndView();
 			logger.info("Received request to show common page");
 			modelAndView.addObject("projectslist", projectService.getAllProject());
-			modelAndView.setViewName("ProjectsSprints");
+			modelAndView.addObject("Sprintslist", sprintService.getAllSprint());
+			modelAndView.setViewName("projectowner/ProjectsSprints");
 			return modelAndView;
 		}
 		
@@ -79,7 +81,8 @@ public class ProjectOwnerController {
 			logger.info("Received request to show common page");
 			modelAndView.addObject("project", projectService.getProjectById(idproject));
 			modelAndView.addObject("projectslist", projectService.getAllProject());
-			modelAndView.setViewName("singleproject");
+			modelAndView.addObject("Sprintslist", sprintService.getAllSprint());
+			modelAndView.setViewName("projectowner/singleproject");
 			return modelAndView;
 		}
 		@RequestMapping(value = "/allSprints", method = RequestMethod.GET)
@@ -90,7 +93,20 @@ public class ProjectOwnerController {
 			modelAndView.addObject("project", projectService.getProjectById(idproject));
 			modelAndView.addObject("projectslist", projectService.getAllProject());
 			modelAndView.addObject("Sprintslist", sprintService.getAllSprint());
-			modelAndView.setViewName("SprintsOverview");
+			modelAndView.setViewName("projectowner/SprintsOverview");
+			return modelAndView;
+		}
+		@RequestMapping(value = "/singleSprint", method = RequestMethod.GET)
+		public ModelAndView getOneSprintPage(@RequestParam int idSprint)
+		{
+			final ModelAndView modelAndView = new ModelAndView();
+			logger.info("Received request to show common page");
+			modelAndView.addObject("projectslist", projectService.getAllProject());
+			modelAndView.addObject("Sprintslist", sprintService.getAllSprint());
+			Sprint res=sprintService.getsprintById(idSprint);
+			logger.info(res.getStatus());
+			modelAndView.addObject("spr", res);
+			modelAndView.setViewName("projectowner/singleSprint");
 			return modelAndView;
 		}
 }

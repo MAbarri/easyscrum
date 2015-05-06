@@ -12,7 +12,7 @@
 </head>
 <body>
 	<!-- Main navbar -->
-	<%@ include file="Component/PublicMenupage.jsp"%>
+	<%@ include file="../Component/PublicMenupage.jsp"%>
 
 	<!-- Sign Up wizard -->
 	<div id="cover" class="backsite">
@@ -26,6 +26,6 @@
 		</div>
 	</div>
 	<!-- footer -->
-	<%@ include file="Component/footer.jsp"%>
+	<%@ include file="../Component/footer.jsp"%>
 </body>
 </html>

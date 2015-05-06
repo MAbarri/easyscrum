@@ -16,10 +16,10 @@
 <body>
 
 	<!-- Main navbar -->
-	<%@ include file="Component/UserMenupage.jsp"%>
+	<%@ include file="../Component/UserMenupage.jsp"%>
 
 	<div id="cover" class="backprofil">
-		<%@ include file="Component/projectsnavbar.jsp"%>
+		<%@ include file="../Component/poprojectsnavbar.jsp"%>
 		<div class="panel panel-default clientPanel sprintpanel">
 			<div class="panel-heading">Project <c:out value="${project.nomproject }"></c:out> </div>
 			<div class="panel-body">
@@ -65,19 +65,19 @@
 						<label for="pnl">Sprints :</label>
 						<div class="panel-body" id="pnl">
 							<div class="list-group">
-								<a href="#" class="list-group-item"> <i
+								<a href="/easyscrumweb/userspace/allSprints?idproject=<c:out value="${project.projectId }"></c:out>" class="list-group-item"> <i
 									class="fa fa-tasks fa-fw"></i> Sprint 1 <span
 									class="pull-right text-muted small"><em>12/12/2014</em> </span>
-								</a> <a href="#" class="list-group-item"> <i
+								</a> <a href="/easyscrumweb/userspace/allSprints?idproject=<c:out value="${project.projectId }"></c:out>" class="list-group-item"> <i
 									class="fa fa-tasks fa-fw"></i> Sprint 2 <span
 									class="pull-right text-muted small"><em>12/11/2014</em> </span>
-								</a><a href="#" class="list-group-item"> <i
+								</a><a href="/easyscrumweb/userspace/allSprints?idproject=<c:out value="${project.projectId }"></c:out>" class="list-group-item"> <i
 									class="fa fa-tasks fa-fw"></i> Sprint 3 <span
 									class="pull-right text-muted small"><em>22/09/2014</em> </span>
-								</a><a href="#" class="list-group-item"> <i
+								</a><a href="/easyscrumweb/userspace/allSprints?idproject=<c:out value="${project.projectId }"></c:out>" class="list-group-item"> <i
 									class="fa fa-tasks fa-fw"></i> Sprint 4 <span
 									class="pull-right text-muted small"><em>12/01/2014</em> </span>
-								</a><a href="#" class="list-group-item"> <i
+								</a><a href="/easyscrumweb/userspace/allSprints?idproject=<c:out value="${project.projectId }"></c:out>" class="list-group-item"> <i
 									class="fa fa-tasks fa-fw"></i> Sprint 5 <span
 									class="pull-right text-muted small"><em>11/01/2014</em> </span>
 								</a> 

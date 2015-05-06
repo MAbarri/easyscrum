@@ -37,7 +37,7 @@ public class HomePageController {
 	public ModelAndView getCommonPage(HttpSession session) {
 		final ModelAndView modelAndView = new ModelAndView();
 		logger.info("Received request to show common page");
-		modelAndView.setViewName("index");
+		modelAndView.setViewName("public/index");
 		try {
 			if ((Boolean) session.getAttribute("online")) {
 				User result = userService.getUserByLogin(session.getAttribute(
@@ -47,19 +47,19 @@ public class HomePageController {
 					switch (result.getType()) {
 
 					case 1: {
-						modelAndView.setViewName("adminProfil");
+						modelAndView.setViewName("admin/adminProfil");
 						break;
 					}
 					case 2: {
-						modelAndView.setViewName("login");
+						modelAndView.setViewName("projectowner/login");
 						break;
 					}
 					case 3: {
-						modelAndView.setViewName("DevProfil");
+						modelAndView.setViewName("devloper/Devcpanel");
 						break;
 					}
 					case 4: {
-						modelAndView.setViewName("SMasterProfil");
+						modelAndView.setViewName("scrummaster/SMasterProfil");
 						break;
 					}
 					}
@@ -78,7 +78,7 @@ public class HomePageController {
 		session.setAttribute("login", "");
 		session.setAttribute("pass", "");
 		session.setAttribute("online", false);
-		modelAndView.setViewName("index");
+		modelAndView.setViewName("public/index");
 
 		return modelAndView;
 	}

@@ -80,7 +80,7 @@ public class Project {
 	}
 
 	public void setType(String type) {
-		type = type;
+		this.type = type;
 	}
 
 	public String getDesc() {
@@ -96,7 +96,7 @@ public class Project {
 	}
 
 	public void setTags(String tags) {
-		tags = tags;
+		this.tags = tags;
 	}
 
 	public String getCost() {
@@ -112,7 +112,7 @@ public class Project {
 	}
 
 	public void setCompany(String company) {
-		company = company;
+		this.company = company;
 	}
 
 	public String getEmail() {
@@ -120,7 +120,7 @@ public class Project {
 	}
 
 	public void setEmail(String email) {
-		email = email;
+		this.email = email;
 	}
 
 	public String getDeadLine() {

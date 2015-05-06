@@ -19,8 +19,6 @@
 				<li><a href="/easyscrumweb/userspace/profil">Home</a></li>
 				<li><a href="/easyscrumweb/userspace/ManageProjects">projects</a></li>
 				<li><a href="/easyscrumweb/userspace/ManageSprints">Sprints</a></li>
-				<li><a href="#">Clients</a></li>
-				<li><a href="#">Team</a></li>
 				<li><a href="#">Inbox</a></li>
 				<li><a class="btn btn-default btn-outline btn-circle collapsed"
 					data-toggle="collapse" href="#nav-collapse4" aria-expanded="false"

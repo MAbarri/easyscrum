@@ -10,7 +10,7 @@
 </head>
 <body>
 	<!-- Main navbar -->
-	<%@ include file="Component/adminMenupage.jsp"%>
+	<%@ include file="../Component/adminMenupage.jsp"%>
 	<div id="cover" class="backprofil">
 		<!-- Page component -->
 

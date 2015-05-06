@@ -7,7 +7,7 @@
 </head>
 <body>
 	<!-- Main navbar -->
-		<%@ include file="Component/PublicMenupage.jsp" %>
+		<%@ include file="../Component/PublicMenupage.jsp" %>
 
 	<div class="subheader nospace tcenter">
 		<h1>EasyScrum is the best</h1>
@@ -34,5 +34,5 @@
 		<button type="button"
 			class="btn btn-default btn-lg btn-block homebutton">Hey look ! A button</button>
 	</div>
-<%@ include file="Component/footer.jsp" %>
+<%@ include file="../Component/footer.jsp" %>
 </body>

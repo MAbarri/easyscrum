@@ -23,7 +23,7 @@
 </head>
 <body style="font-size: 150%">
 	<!-- Main navbar -->
-	<%@ include file="Component/adminMenupage.jsp"%>
+	<%@ include file="../Component/adminMenupage.jsp"%>
 	<div id="cover" class="backprofil">
 
 		<div class="panel panel-default clientPanel">

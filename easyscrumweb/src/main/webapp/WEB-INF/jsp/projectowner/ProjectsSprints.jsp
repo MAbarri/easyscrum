@@ -14,11 +14,11 @@
 <body>
 
 	<!-- Main navbar -->
-	<%@ include file="Component/UserMenupage.jsp"%>
+	<%@ include file="../Component/UserMenupage.jsp"%>
 
 	<div id="cover" class="backprofil">
 
-	<%@ include file="Component/projectsnavbar.jsp"%>
+	<%@ include file="../Component/poprojectsnavbar.jsp"%>
 		
 		<div class="sprintcenter">
 		<!-- /.row -->

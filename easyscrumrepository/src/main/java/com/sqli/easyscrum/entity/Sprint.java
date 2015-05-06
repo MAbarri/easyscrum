@@ -16,6 +16,12 @@ public class Sprint {
 	@Column(name="DateDebut")
 	private String dtd;
 	
+	public String getNom() {
+		return nom;
+	}
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
 	@Column(name="DateFin")
 	private String dtf;
 	

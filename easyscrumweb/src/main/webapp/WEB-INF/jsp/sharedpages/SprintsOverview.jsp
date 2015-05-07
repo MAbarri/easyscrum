@@ -14,13 +14,37 @@
 	href="/easyscrumweb/resources/css/sidebarstyle.css">
 </head>
 <body>
-
-	<!-- Main navbar -->
-	<%@ include file="../Component/UserMenupage.jsp"%>
+	<c:choose>
+	<c:when test="${sessionScope.usertype=='1'}">
+			<!-- Main navbar -->
+			<%@ include file="../Component/adminMenupage.jsp"%>
+		</c:when>
+		<c:when test="${sessionScope.usertype=='2'}">
+			<!-- Main navbar -->
+			<%@ include file="../Component/UserMenupage.jsp"%>
+		</c:when>
+		<c:when test="${sessionScope.usertype=='3'}">
+			<%@ include file="../Component/DeveloperMenupage.jsp"%>
+		</c:when>
+		<c:when test="${sessionScope.usertype=='4'}">
+			<!-- Main navbar -->
+			<%@ include file="../Component/smastermenupage.jsp"%>
+		</c:when>
+	</c:choose>
 
 	<div id="cover" class="backprofil">
 	
-		<%@ include file="../Component/poprojectsnavbar.jsp"%>
+		<c:choose>
+	<c:when test="${sessionScope.usertype=='2'}">
+	<%@ include file="../Component/poprojectsnavbar.jsp"%>
+	</c:when>
+	<c:when test="${sessionScope.usertype=='3'}">
+	<%@ include file="../Component/devprojectnavbar.jsp"%>
+		</c:when>
+		<c:when test="${sessionScope.usertype=='4'}">
+	<%@ include file="../Component/smatserprojectnavbar.jsp"%>
+		</c:when>
+	</c:choose>
 		<div class="panel panel-default clientPanel sprintpanel">
 			<div class="panel-heading">
 				Project

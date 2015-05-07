@@ -17,8 +17,10 @@
 		<div class="collapse navbar-collapse" id="navbar-collapse-4">
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="/easyscrumweb/userspace/profil">Home</a></li>
-				<li><a href="/easyscrumweb/userspace/ManageProjects">projects</a></li>
+				<li><a href="/easyscrumweb/userspace/ProjectsManaging">projects</a></li>
 				<li><a href="/easyscrumweb/userspace/ManageSprints">Sprints</a></li>
+				<li><a href="#">Work to do</a></li>
+				<li><a href="#">My Teams</a></li>
 				<li><a href="/easyscrumweb/userspace/inbox">Inbox</a></li>
 				<li><a class="btn btn-default btn-outline btn-circle collapsed"
 					data-toggle="collapse" href="#nav-collapse4" aria-expanded="false"

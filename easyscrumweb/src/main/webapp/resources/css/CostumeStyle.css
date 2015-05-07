@@ -1,3 +1,25 @@
+.profilheight
+{
+	
+    min-height: 450px;
+	
+}
+
+.txtright
+{
+	text-align: right;
+    
+}
+.shadow
+{box-shadow: 0 3px 0 0 #d4d4d5,0 0 0 1px #d4d4d5;
+padding:10px;margin-bottom: 10px;
+	}
+.msgpanel
+{
+	
+    padding: 60px;
+	
+}
 .onesprintbyone
 {
 	

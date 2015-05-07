@@ -18,7 +18,7 @@
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="/easyscrumweb/userspace/profil">Home</a></li>
 				<li><a href="/easyscrumweb/userspace/ManageUsers">Users</a></li>
-				<li><a href="#">Inbox</a></li>
+				<li><a href="/easyscrumweb/userspace/inbox">Inbox</a></li>
 				<li><a href="#">Stats</a></li>
 				<li><a class="btn btn-default btn-outline btn-circle collapsed"
 					data-toggle="collapse" href="#nav-collapse4" aria-expanded="false"
@@ -34,7 +34,7 @@
 						src="https://pbs.twimg.com/profile_images/588909533428322304/Gxuyp46N.jpg"
 						alt="maridlcrmn" width="20" /> Maridlcrmn <span class="caret"></span></a>
 					<ul class="dropdown-menu" role="menu">
-						<li><a href="#">My profile</a></li>
+						<li><a href="/easyscrumweb/userspace/Account">My profile</a></li>
 						<li><a href="#">Favorited</a></li>
 						<li><a href="#">Settings</a></li>
 						<li class="divider"></li>

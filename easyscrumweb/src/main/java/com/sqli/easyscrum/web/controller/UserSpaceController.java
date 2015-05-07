@@ -10,8 +10,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.sqli.easyscrum.business.services.ProjectService;
+import com.sqli.easyscrum.business.services.SprintService;
 import com.sqli.easyscrum.business.services.UserService;
 import com.sqli.easyscrum.entity.User;
 
@@ -23,7 +26,14 @@ public class UserSpaceController {
 
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private ProjectService projectService;
+	
+	@Autowired
+	private SprintService sprintService;
 
+	
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public ModelAndView getwelcomePage() {
 		final ModelAndView modelAndView = new ModelAndView();
@@ -119,6 +129,46 @@ public class UserSpaceController {
 		return modelAndView;
 	}
 	
+	@RequestMapping(value = "/inbox", method = RequestMethod.GET)
+	public ModelAndView getinboxPage(HttpSession session) {
+		final ModelAndView modelAndView = new ModelAndView();
+		logger.info("Received request to show common page");
+		User resu = userService.getUserByLogin(session.getAttribute("login").toString() );
+		session.setAttribute("usertype",resu.getType() );
+		resu=null;
+		modelAndView.setViewName("sharedpages/inbox");
+
+		return modelAndView;
+	}
+	@RequestMapping(value = "/mail", method = RequestMethod.GET)
+	public ModelAndView getmessagePage(HttpSession session) {
+		final ModelAndView modelAndView = new ModelAndView();
+		logger.info("Received request to show common page");
+		User resu = userService.getUserByLogin(session.getAttribute("login").toString() );
+		session.setAttribute("usertype",resu.getType() );
+		resu=null;
+		modelAndView.setViewName("sharedpages/mail");
+
+		return modelAndView;
+	}
 	
-	
+	@RequestMapping(value = "/newmail", method = RequestMethod.GET)
+	public ModelAndView getnewmessagePage(HttpSession session) {
+		final ModelAndView modelAndView = new ModelAndView();
+		logger.info("Received request to show common page");
+		modelAndView.setViewName("sharedpages/newmail");
+
+		return modelAndView;
+	}
+	@RequestMapping(value = "/Account", method = RequestMethod.GET)
+	public ModelAndView getaccountPage(HttpSession session) {
+		final ModelAndView modelAndView = new ModelAndView();
+		logger.info("Received request to show common page");
+		User resu = userService.getUserByLogin(session.getAttribute("login").toString() );
+		session.setAttribute("usertype",resu.getType() );
+		resu=null;
+		modelAndView.setViewName("sharedpages/account");
+
+		return modelAndView;
+	}
 }

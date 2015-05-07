@@ -12,16 +12,39 @@
 	href="/easyscrumweb/resources/css/sidebarstyle.css">
 </head>
 <body>
-
-	<!-- Main navbar -->
-	<%@ include file="../Component/UserMenupage.jsp"%>
-
+	<c:choose>
+	<c:when test="${sessionScope.usertype=='1'}">
+			<!-- Main navbar -->
+			<%@ include file="../Component/adminMenupage.jsp"%>
+		</c:when>
+		<c:when test="${sessionScope.usertype=='2'}">
+			<!-- Main navbar -->
+			<%@ include file="../Component/UserMenupage.jsp"%>
+		</c:when>
+		<c:when test="${sessionScope.usertype=='3'}">
+			<%@ include file="../Component/DeveloperMenupage.jsp"%>
+		</c:when>
+		<c:when test="${sessionScope.usertype=='4'}">
+			<!-- Main navbar -->
+			<%@ include file="../Component/smastermenupage.jsp"%>
+		</c:when>
+	</c:choose>
 	<div id="cover" class="backprofil">
 
+	<c:choose>
+	<c:when test="${sessionScope.usertype=='2'}">
 	<%@ include file="../Component/poprojectsnavbar.jsp"%>
-		
+	</c:when>
+	<c:when test="${sessionScope.usertype=='3'}">
+	<%@ include file="../Component/devprojectnavbar.jsp"%>
+		</c:when>
+	<c:when test="${sessionScope.usertype=='4'}">
+	<%@ include file="../Component/smatserprojectnavbar.jsp"%>
+		</c:when>
+	</c:choose>
 		<div class="sprintcenter">
 		<!-- /.row -->
+		<c:out value="${sessionScope.usertype}"></c:out>
 		<div class="row leftbubble centerbubbles">
 			<div class="col-lg-4 col-md-4">
 				<div class="panel">

@@ -4,30 +4,30 @@
 		        <div class="container">
 		            <div class="row">
 		                <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
-		                    <h3>Head Quarter </h3>
+		                    <h3>Important Links</h3>
 		                    <ul>
-		                        <li> <a href="#"> Link 1 </a> </li>
-		                        <li> <a href="#"> Link 1 </a> </li>
-		                        <li> <a href="#"> Link 1 </a> </li>
-		                        <li> <a href="#"> Link 1 </a> </li>
+		                        <li> <a href="#"> Register </a> </li>
+		                        <li> <a href="#"> Login </a> </li>
+		                        <li> <a href="#"> Contact us </a> </li>
+		                        <li> <a href="#"> Consider a Donation </a> </li>
 		                    </ul>
 		                </div>
 		                
 		                <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
-		                    <h3>Head Quarter </h3>
+		                    <h3>Our Team </h3>
 		                    <ul>
-		                        <li> <a href="#"> Link 1 </a> </li>
-		                        <li> <a href="#"> Link 1 </a> </li>
-		                        <li> <a href="#"> Link 1 </a> </li>
+		                        <li> <a href="#"> Developper aaa</a> </li>
+		                        <li> <a href="#"> Designer aaa</a> </li>
+		                        <li> <a href="#"> Database admin aaa </a> </li>
 		                    </ul>
 		                </div>
 		                <div class="col-lg-3  col-md-3 col-sm-6 col-xs-12 ">
-		                    <h3> Lorem Ipsum </h3>
+		                    <h3> Extras things </h3>
 		                    <ul>
 		                        <li>
 		                            <div class="input-append newsletter-box text-center">
 		                                <input type="text" class="full text-center" placeholder="Email ">
-		                                <button class="btn  bg-gray" type="button"> Lorem ipsum <i class="fa fa-long-arrow-right"> </i> </button>
+		                                <button class="btn  bg-gray" type="button">Support@EasyScrum.com </i> </button>
 		                            </div>
 		                        </li>
 		                    </ul>

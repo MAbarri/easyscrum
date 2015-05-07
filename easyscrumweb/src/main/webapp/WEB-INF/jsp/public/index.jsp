@@ -12,9 +12,10 @@
 	<div class="subheader nospace tcenter">
 		<h1>EasyScrum is the best</h1>
 		<p>Description ..................................................</p>
+		<a href="/easyscrumweb/start">
 		<button type="button"
 			class="btn btn-default btn-lg btn-block homebutton">Get
-			Started</button>
+			Started</button></a>
 	</div>
 	<div id="container" class="nospace tcenter">
 		<h1>Some Text</h1>

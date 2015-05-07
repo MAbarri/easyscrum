@@ -51,7 +51,10 @@
 				<c:out value="${project.nomproject }"></c:out>
 			</div>
 			<div class="panel-body">
-			
+			<c:if test="${sessionScope.usertype=='4'}">
+			<a href="/easyscrumweb/userspace/newSprint"><button type="button" class="btn btn-primary rightbubble">Start new Sprint</button></a>
+			</c:if>
+			<br><br>
 				<c:forEach items="${Sprintslist }" var="sprint">
 					<div class="onesprintbyone">
 				<label>Sprint : <a href="/easyscrumweb/userspace/singleSprint?idSprint=<c:out value="${sprint.idsprint }"></c:out>"><c:out value="${sprint.nom }"></c:out></a> </label><br> <label>description:

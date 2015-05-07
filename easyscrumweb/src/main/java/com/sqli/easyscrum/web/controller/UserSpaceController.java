@@ -32,7 +32,7 @@ public class UserSpaceController {
 	
 	@Autowired
 	private SprintService sprintService;
-
+	
 	
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public ModelAndView getwelcomePage() {

@@ -82,5 +82,44 @@ public class HomePageController {
 
 		return modelAndView;
 	}
+	@RequestMapping(value = "/start", method = RequestMethod.GET)
+	public ModelAndView getstartPage() {
+		final ModelAndView modelAndView = new ModelAndView();
+		logger.info("Received request to show common page");
+		modelAndView.setViewName("public/start");
 
+		return modelAndView;
+	}
+	@RequestMapping(value = "/about", method = RequestMethod.GET)
+	public ModelAndView getaboutPage() {
+		final ModelAndView modelAndView = new ModelAndView();
+		logger.info("Received request to show common page");
+		modelAndView.setViewName("public/about");
+
+		return modelAndView;
+	}
+	@RequestMapping(value = "/services", method = RequestMethod.GET)
+	public ModelAndView getservicesPage() {
+		final ModelAndView modelAndView = new ModelAndView();
+		logger.info("Received request to show common page");
+		modelAndView.setViewName("public/services");
+
+		return modelAndView;
+	}
+	@RequestMapping(value = "/news", method = RequestMethod.GET)
+	public ModelAndView getwelcomePage() {
+		final ModelAndView modelAndView = new ModelAndView();
+		logger.info("Received request to show common page");
+		modelAndView.setViewName("public/news");
+
+		return modelAndView;
+	}
+	@RequestMapping(value = "/contact", method = RequestMethod.GET)
+	public ModelAndView getcontactPage() {
+		final ModelAndView modelAndView = new ModelAndView();
+		logger.info("Received request to show common page");
+		modelAndView.setViewName("public/contact");
+
+		return modelAndView;
+	}
 }

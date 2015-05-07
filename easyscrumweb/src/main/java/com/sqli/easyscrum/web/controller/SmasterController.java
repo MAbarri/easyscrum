@@ -35,4 +35,14 @@ public class SmasterController {
 		modelAndView.setViewName("scrummaster/SMProjects");
 		return modelAndView;
 	}
+	@RequestMapping(value = "/newSprint", method = RequestMethod.GET)
+	public ModelAndView getnewSprintPage()
+	{
+		final ModelAndView modelAndView = new ModelAndView();
+		logger.info("Received request to show common page");
+		modelAndView.addObject("projectslist", projectService.getAllProject());
+		modelAndView.setViewName("scrummaster/newSprint");
+		return modelAndView;
+	}
+
 }

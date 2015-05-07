@@ -8,8 +8,11 @@
 		<pattern>/auth/logout*</pattern>
 	</excludes>
 	<decorator name="no" page=""></decorator>
+	
 	<decorator name="main" page="main.jsp">
+		<pattern>/lol/*</pattern></decorator>
+		
+	<decorator name="testdecor" page="testdecor.jsp">
 		<pattern>/*</pattern>
 	</decorator>
-	
-</decorators>
+	</decorators>

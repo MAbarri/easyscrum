@@ -18,7 +18,7 @@
 </head>
 <body>
 	<c:choose>
-	<c:when test="${sessionScope.usertype=='1'}">
+		<c:when test="${sessionScope.usertype=='1'}">
 			<!-- Main navbar -->
 			<%@ include file="../Component/adminMenupage.jsp"%>
 		</c:when>
@@ -43,7 +43,8 @@
 					<div class="container"
 						style="margin-top: 20px; margin-bottom: 20px;">
 						<div class="row panel">
-							<div class="col-md-4 bg_blur " style="background-image: url(
+							<div class="col-md-4 bg_blur "
+								style="background-image: url(
 							<c:choose>
 									<c:when test="${sessionScope.usertype=='1'}">
 									'/easyscrumweb/resources/images/ADMINtag.jpg'
@@ -65,7 +66,10 @@
 									src="http://lorempixel.com/output/people-q-c-100-100-1.jpg"
 									class="img-thumbnail visible-xs picture_mob" />
 								<div class="header">
-									<h1>User Name <c:out value="${sessionScope.usertype}"></c:out> </h1>
+									<h1>
+										User Name
+										<c:out value="${sessionScope.usertype}"></c:out>
+									</h1>
 									<h4>Web Developer</h4>
 									<span>Description .......... .......... ..........
 										.......... details !!</span>
@@ -78,19 +82,120 @@
 							<div class="col-md-8 col-xs-12"
 								style="margin: 0px; padding: 0px;">
 								<a href="#" style="color: white;">
-								<div class="col-md-4 col-xs-4 well">
-									<i class="glyphicon glyphicon-pencil"></i> Edit Profil
-								</div>
+									<div class="col-md-4 col-xs-4 well" id="editclick">
+										<button data-toggle="modal" data-target="#myModal" id="edit"
+											style="display: none;"></button>
+										<i class="glyphicon glyphicon-pencil" id="editlink"></i> Edit
+										Profil
+									</div>
 								</a>
-								<a href="/easyscrumweb/userspace/newmail?dest=Utilisateur" style="color: white;">
+								<!-- Modal -->
+								<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+									aria-labelledby="myModalLabel" aria-hidden="true">
+									<div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal"
+													aria-label="Close">
+													<span aria-hidden="true">&times;</span>
+												</button>
+												<h4 class="modal-title" id="myModalLabel">Update My Profil</h4>
+											</div>
+											<div class="modal-body innerspace">
+												<div class="tab-content">
+													<div class="tab-pane active registersingltab"
+														id="tab_default_1">
+														<form action="addAccount" method="post">
+															<table class="tableregister adminaddform">
+																<tr>
+																	<td>&nbsp;</td>
+																</tr>
+																<tr>
+																	<td>&nbsp;</td>
+																</tr>
+																<tr>
+																	<td>&nbsp;</td>
+																</tr>
+																<tr>
+																	<td><input type="email" class="form-control"
+																		id="exampleInputEmail1" placeholder="Email" required
+																		name="email"></td>
+																	<td>&nbsp;*</td>
+																	<td><c:out value="${ListErreur['email']}"></c:out></td>
+																</tr>
+																<tr>
+																	<td>&nbsp;</td>
+																</tr>
+																<tr>
+																	<td><input type="password" class="form-control"
+																		id="InputPassword1" placeholder="Password" required
+																		name="pass"></td>
+																	<td>&nbsp;*</td>
+																	<td><c:out value="${ListErreur['pass']}"></c:out></td>
+																</tr>
+																<tr>
+																	<td>&nbsp;</td>
+																</tr>
+																<tr>
+																	<td><input type="text"
+																		class="form-control inscriptioninput" id="ImputName"
+																		placeholder="First name" required name="name">
+																		<input type="text"
+																		class="form-control inscriptioninput" id="ImputLname"
+																		placeholder="Last name" name="lname"></td>
+																	<td>&nbsp;*</td>
+																	<td><c:out value="${ListErreur['Fullname']}"></c:out></td>
+																</tr>
+																<tr>
+																	<td>&nbsp;</td>
+																</tr>
+																<tr>
+																	<td><input type="text" class="form-control"
+																		id="ImputAdresse" placeholder="Adresse" name="adresse"></td>
+																	<td><c:out value="${ListErreur['adresse']}"></c:out></td>
+																</tr>
+																<tr>
+																	<td>&nbsp;</td>
+																</tr>
+																<tr>
+																	<td><input type="text" class="form-control"
+																		id="ImputAdresse" placeholder="Login" name="login"></td>
+																	<td><c:out value="${ListErreur['login']}"></c:out></td>
+																</tr>
+
+																<tr>
+																	<td>&nbsp;</td>
+																</tr>
+
+																<tr>
+																	<td><c:out value="${error.general}"></c:out></td>
+																</tr>
+
+
+															</table>
+															<input type="submit" id="sendform" />
+														</form>
+													</div>
+												</div>
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-default"
+													data-dismiss="modal">Cancel</button>
+												<button type="button" class="btn btn-primary"
+													onclick="submit()">Update</button>
+											</div>
+										</div>
+									</div>
+								</div>
+								<a href="/easyscrumweb/userspace/newmail?dest=Utilisateur"
+									style="color: white;">
 									<div class="col-md-4 col-xs-4 well">
 										<i class="glyphicon glyphicon-envelope"></i> Send Email
 									</div>
-								</a>
-								<a href="#" style="color: white;">
-								<div class="col-md-4 col-xs-4 well">
-									<i class="glyphicon glyphicon-flag"></i> Report
-								</div>
+								</a> <a href="#" style="color: white;">
+									<div class="col-md-4 col-xs-4 well">
+										<i class="glyphicon glyphicon-flag"></i> Report
+									</div>
 								</a>
 							</div>
 						</div>
@@ -99,5 +204,11 @@
 			</div>
 		</div>
 	</div>
+	<script src="/easyscrumweb/resources/js/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript">
+		$("#editclick").click(function() {
+			$("#edit").click();
+		});
+	</script>
 </body>
 </html>

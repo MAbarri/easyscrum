@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 
 import com.sqli.easyscrum.business.services.ProjectService;
 import com.sqli.easyscrum.entity.Project;
+import com.sqli.easyscrum.entity.Sprint;
+import com.sqli.easyscrum.entity.User;
 import com.sqli.easyscrum.repository.DAOproject;
 @Service
 public class ProjectServiceImpl implements ProjectService {
@@ -15,8 +17,8 @@ public class ProjectServiceImpl implements ProjectService {
 	DAOproject dao;
 
 	@Override
-	public Project getProjectById(int id) {
-		return dao.getProjectById(id);
+	public Project getProjectById(int id,User u) {
+		return dao.getProjectById(id,u);
 
 	}
 
@@ -41,6 +43,11 @@ public class ProjectServiceImpl implements ProjectService {
 	@Override
 	public List<Project> getAllProject() {
 		return dao.getAllProject();
+	}
+
+	@Override
+	public Sprint getSprintById(int id, Project u) {
+		return dao.getSprintById(id, u);
 	}
 
 }

@@ -16,6 +16,16 @@ public class Sprint {
 	@Column(name="DateDebut")
 	private String dtd;
 	
+	@ManyToOne
+    @JoinColumn(name = "id_project")
+	private Project projet;
+	
+	public Project getProjet() {
+		return projet;
+	}
+	public void setProjet(Project projet) {
+		this.projet = projet;
+	}
 	public String getNom() {
 		return nom;
 	}

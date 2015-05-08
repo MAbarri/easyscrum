@@ -166,9 +166,12 @@ public class UserSpaceController {
 		logger.info("Received request to show common page");
 		User resu = userService.getUserByLogin(session.getAttribute("login").toString() );
 		session.setAttribute("usertype",resu.getType() );
+		session.setAttribute("user",resu);
 		resu=null;
 		modelAndView.setViewName("sharedpages/account");
 
 		return modelAndView;
 	}
+	
+//
 }

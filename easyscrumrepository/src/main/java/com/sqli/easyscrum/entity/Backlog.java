@@ -12,7 +12,7 @@ public class Backlog {
 	@Id
 	@Column(name="IdBackLog")
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int Idback;
+	private int idback;
 	
 	@Column(name="Dtpost")
 	private String dtPost;
@@ -23,6 +23,10 @@ public class Backlog {
 	@ManyToOne
     @JoinColumn(name = "id_us")
     private UserStorie storie;
+	
+	@ManyToOne
+    @JoinColumn(name = "id_project")
+	private Project projet;
 		
 	public Backlog()
 	{
@@ -30,16 +34,16 @@ public class Backlog {
 	}
 	public Backlog(int id,String desc,String date,UserStorie ustories )
 	{
-		this.Idback=id;
+		this.idback=id;
 		this.description=desc;
 		this.dtPost=date;
 		this.storie=ustories;
 	}
 	public int getIdback() {
-		return Idback;
+		return idback;
 	}
 	public void setIdback(int idback) {
-		Idback = idback;
+		this.idback = idback;
 	}
 	public String getDtPost() {
 		return dtPost;

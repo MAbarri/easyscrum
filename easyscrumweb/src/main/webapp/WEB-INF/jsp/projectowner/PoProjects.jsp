@@ -23,7 +23,7 @@
 			<div class="panel-body">
 				
 				
-				<c:forEach items="${projectslist }" var="p">
+				<c:forEach items="${user.projects }" var="p">
 				
 					<div class="ui card leftbubble cardpad">
 					<div class="image">

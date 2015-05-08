@@ -15,18 +15,18 @@
 </head>
 <body>
 	<c:choose>
-	<c:when test="${sessionScope.usertype=='1'}">
+	<c:when test="${sessionScope.user.type=='1'}">
 			<!-- Main navbar -->
 			<%@ include file="../Component/adminMenupage.jsp"%>
 		</c:when>
-		<c:when test="${sessionScope.usertype=='2'}">
+		<c:when test="${sessionScope.user.type=='2'}">
 			<!-- Main navbar -->
 			<%@ include file="../Component/UserMenupage.jsp"%>
 		</c:when>
-		<c:when test="${sessionScope.usertype=='3'}">
+		<c:when test="${sessionScope.user.type=='3'}">
 			<%@ include file="../Component/DeveloperMenupage.jsp"%>
 		</c:when>
-		<c:when test="${sessionScope.usertype=='4'}">
+		<c:when test="${sessionScope.user.type=='4'}">
 			<!-- Main navbar -->
 			<%@ include file="../Component/smastermenupage.jsp"%>
 		</c:when>
@@ -34,13 +34,13 @@
 
 	<div id="cover" class="backprofil">
 		<c:choose>
-	<c:when test="${sessionScope.usertype=='2'}">
+	<c:when test="${sessionScope.user.type=='2'}">
 	<%@ include file="../Component/poprojectsnavbar.jsp"%>
 	</c:when>
-	<c:when test="${sessionScope.usertype=='3'}">
+	<c:when test="${sessionScope.user.type=='3'}">
 	<%@ include file="../Component/devprojectnavbar.jsp"%>
 		</c:when>
-	<c:when test="${sessionScope.usertype=='4'}">
+	<c:when test="${sessionScope.user.type=='4'}">
 	<%@ include file="../Component/smatserprojectnavbar.jsp"%>
 		</c:when>
 	</c:choose>
@@ -74,8 +74,10 @@
 										<br><label>Status :</label>&nbsp;<c:out value="${project.status}"></c:out>
 										<br><label>Description :</label>&nbsp;<c:out value="${project.desc}"></c:out>
 										<br><label>Cost :</label>&nbsp;<c:out value="${project.cost}"></c:out>
-										<br><label>Backlog :</label>&nbsp;<c:out value="${project.bg.description}"></c:out>
 										<br><label>Tags :</label>&nbsp;<c:out value="${project.tags}"></c:out>
+										<c:forEach items="${project.backlogs }" var="bg" >
+										<br><a href="/easyscrumweb/userspace/projectbacklog?id=<c:out value="${bg.idback }"></c:out>" style="position: static;">Backlog</a><br>
+										</c:forEach>
 									</div>
 								</div>
 							</div>

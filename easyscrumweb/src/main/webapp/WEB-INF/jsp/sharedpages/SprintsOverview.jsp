@@ -15,18 +15,18 @@
 </head>
 <body>
 	<c:choose>
-	<c:when test="${sessionScope.usertype=='1'}">
+	<c:when test="${sessionScope.user.type=='1'}">
 			<!-- Main navbar -->
 			<%@ include file="../Component/adminMenupage.jsp"%>
 		</c:when>
-		<c:when test="${sessionScope.usertype=='2'}">
+		<c:when test="${sessionScope.user.type=='2'}">
 			<!-- Main navbar -->
 			<%@ include file="../Component/UserMenupage.jsp"%>
 		</c:when>
-		<c:when test="${sessionScope.usertype=='3'}">
+		<c:when test="${sessionScope.user.type=='3'}">
 			<%@ include file="../Component/DeveloperMenupage.jsp"%>
 		</c:when>
-		<c:when test="${sessionScope.usertype=='4'}">
+		<c:when test="${sessionScope.user.type=='4'}">
 			<!-- Main navbar -->
 			<%@ include file="../Component/smastermenupage.jsp"%>
 		</c:when>
@@ -35,13 +35,13 @@
 	<div id="cover" class="backprofil">
 	
 		<c:choose>
-	<c:when test="${sessionScope.usertype=='2'}">
+	<c:when test="${sessionScope.user.type=='2'}">
 	<%@ include file="../Component/poprojectsnavbar.jsp"%>
 	</c:when>
-	<c:when test="${sessionScope.usertype=='3'}">
+	<c:when test="${sessionScope.user.type=='3'}">
 	<%@ include file="../Component/devprojectnavbar.jsp"%>
 		</c:when>
-		<c:when test="${sessionScope.usertype=='4'}">
+		<c:when test="${sessionScope.user.type=='4'}">
 	<%@ include file="../Component/smatserprojectnavbar.jsp"%>
 		</c:when>
 	</c:choose>
@@ -57,7 +57,7 @@
 			<br><br>
 				<c:forEach items="${Sprintslist }" var="sprint">
 					<div class="onesprintbyone">
-				<label>Sprint : <a href="/easyscrumweb/userspace/singleSprint?idSprint=<c:out value="${sprint.idsprint }"></c:out>"><c:out value="${sprint.nom }"></c:out></a> </label><br> <label>description:
+				<label>Sprint : <a href="/easyscrumweb/userspace/singleSprint?idSprint= <c:out value="${sprint.idsprint }"></c:out> &idprojet= <c:out value="${project.projectId}"></c:out> " > <c:out value="${sprint.nom }"></c:out></a> </label><br> <label>description:
 					</label>&nbsp;<c:out value="${sprint.nom }"></c:out>&nbsp;&nbsp;<label>date de debut Sprint :</label>&nbsp;<c:out value="${sprint.dtd }"></c:out>				
 				<br> <label for="progress">progress :</label>&nbsp;<c:out value="${sprint.status }"></c:out><br><br>
 				<div class="progress">

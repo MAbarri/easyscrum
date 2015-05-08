@@ -67,12 +67,30 @@
 									class="img-thumbnail visible-xs picture_mob" />
 								<div class="header">
 									<h1>
-										User Name
-										<c:out value="${sessionScope.usertype}"></c:out>
+										<c:out value="${user.nom}"></c:out>&nbsp;<c:out value="${user.prenom}"></c:out>
 									</h1>
-									<h4>Web Developer</h4>
-									<span>Description .......... .......... ..........
-										.......... details !!</span>
+									<h4>
+									<c:choose>
+									<c:when test="${sessionScope.usertype=='1'}">
+									Admin
+									</c:when>
+									<c:when test="${sessionScope.usertype=='2'}">
+									Project Owner
+									</c:when>
+									<c:when test="${sessionScope.usertype=='3'}">
+									Developer
+									</c:when>
+									<c:when test="${sessionScope.usertype=='4'}">
+									Scrum Master
+									</c:when>
+								</c:choose>
+									</h4>
+									<span>
+									<label>Email :</label>&nbsp;<c:out value="${user.email }"></c:out><br>
+									<label>Adress :</label>&nbsp;<c:out value="${user.adresse }"></c:out><br>
+									<label>Phone number :</label>&nbsp;<c:out value="${user.telephone }"></c:out><br>
+									<label>Speciality :</label>
+									</span>
 								</div>
 							</div>
 						</div>
@@ -119,7 +137,7 @@
 																<tr>
 																	<td><input type="email" class="form-control"
 																		id="exampleInputEmail1" placeholder="Email" required
-																		name="email"></td>
+																		name="email" value="<c:out value="${user.email }"></c:out>" ></td>
 																	<td>&nbsp;*</td>
 																	<td><c:out value="${ListErreur['email']}"></c:out></td>
 																</tr>
@@ -139,10 +157,10 @@
 																<tr>
 																	<td><input type="text"
 																		class="form-control inscriptioninput" id="ImputName"
-																		placeholder="First name" required name="name">
+																		placeholder="First name" required name="name" value="<c:out value="${user.nom }"></c:out>">
 																		<input type="text"
 																		class="form-control inscriptioninput" id="ImputLname"
-																		placeholder="Last name" name="lname"></td>
+																		placeholder="Last name" name="lname" value="<c:out value="${user.prenom }"></c:out>"></td>
 																	<td>&nbsp;*</td>
 																	<td><c:out value="${ListErreur['Fullname']}"></c:out></td>
 																</tr>
@@ -151,7 +169,7 @@
 																</tr>
 																<tr>
 																	<td><input type="text" class="form-control"
-																		id="ImputAdresse" placeholder="Adresse" name="adresse"></td>
+																		id="ImputAdresse" placeholder="Adresse" name="adresse" value="<c:out value="${user.adresse }"></c:out>"></td>
 																	<td><c:out value="${ListErreur['adresse']}"></c:out></td>
 																</tr>
 																<tr>
@@ -159,7 +177,7 @@
 																</tr>
 																<tr>
 																	<td><input type="text" class="form-control"
-																		id="ImputAdresse" placeholder="Login" name="login"></td>
+																		id="ImputAdresse" placeholder="Login" name="login" <c:out value="${user.login }"></c:out>></td>
 																	<td><c:out value="${ListErreur['login']}"></c:out></td>
 																</tr>
 

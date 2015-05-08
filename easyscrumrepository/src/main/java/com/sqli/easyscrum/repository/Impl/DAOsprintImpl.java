@@ -11,9 +11,6 @@ public class DAOsprintImpl implements DAOsprint {
 	
 	public void init()
 	{
-		list.add(new Sprint(1,"Main Sprint", "08/09/2014", "28/09/2014", "Delivery"));
-		list.add(new Sprint(2,"Side Sprint", "08/02/2014", "28/02/2014", "Ready for a Demo"));
-		list.add(new Sprint(3,"Final Sprint", "08/01/2015", "28/01/2015", "Working On"));
 
 		
 	}

@@ -1,22 +1,26 @@
 package com.sqli.easyscrum.entity;
 
 import java.io.Serializable;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
 @Entity
-@Table(name = "client")
+@Table(name = "user")
 public class User extends BaseEntity implements Serializable {
 
 	private static final long serialVersionUID = 1L;
     @Id
-    @Column(name = "idSM")
+    @Column(name = "iduser")
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Integer userId;
     
@@ -24,6 +28,18 @@ public class User extends BaseEntity implements Serializable {
 		return userId;
 	}
 
+    public Set<Project> getProjects() {
+		return projects;
+	}
+
+
+	public void setProjects(Set<Project> projects) {
+		this.projects = projects;
+	}
+
+	@OneToMany(mappedBy="user")
+    private Set<Project> projects;
+ 
 
 	public void setUserId(Integer userId) {
 		this.userId = userId;
@@ -119,6 +135,31 @@ public class User extends BaseEntity implements Serializable {
     
     @Column(name = "password")
     private String password;
+
+    @Column(name = "Telephone")
+    private String telephone;
+    
+    @Column(name = "Speciality")
+    private String Speciality;
+    
+	public String getTelephone() {
+		return telephone;
+	}
+
+
+	public void setTelephone(String telephone) {
+		this.telephone = telephone;
+	}
+
+
+	public String getSpeciality() {
+		return Speciality;
+	}
+
+
+	public void setSpeciality(String speciality) {
+		Speciality = speciality;
+	}
 
 	@Column(name = "type")
     private int type;

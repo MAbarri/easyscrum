@@ -36,11 +36,14 @@ public class ProjectOwnerController {
 		private UserService userService;
 		
 		@RequestMapping(value = "/ManageProjects", method = RequestMethod.GET)
-		public ModelAndView getCommonPage()
+		public ModelAndView getCommonPage(HttpSession session)
 		{
 			final ModelAndView modelAndView = new ModelAndView();
 			logger.info("Received request to show common page");
 			modelAndView.addObject("projectslist", projectService.getAllProject());
+			User res = userService.getUserByLogin(session.getAttribute("login").toString() );
+			session.setAttribute("user",res );
+			res=null;
 			modelAndView.setViewName("projectowner/PoProjects");
 			return modelAndView;
 		}
@@ -58,11 +61,9 @@ public class ProjectOwnerController {
 			final ModelAndView modelAndView = new ModelAndView();
 			logger.info("Received request to show common page");
 			UserStorie us=new UserStorie(3, fm.getUstext());
-			Backlog bklg = new Backlog(4,fm.getBacklogtitle(),"today",us);
-			Project prj = new Project(3, fm.getNom(), fm.getSel2(), fm.getSel1(), fm.getDescription(), fm.getTags(), fm.getCost(), fm.getCompany(), fm.getEmail(), "12/12/12", bklg, "getting started", "today", "--");
+			Project prj = new Project(3, fm.getNom(), fm.getSel2(), fm.getSel1(), fm.getDescription(), fm.getTags(), fm.getCost(), fm.getCompany(), fm.getEmail(), "12/12/12", "getting started", "today", "--");
 			projectService.creatProject(prj);
 			us=null;
-			bklg=null;
 			prj=null;
 			logger.info("Project Created Successfully");
 			modelAndView.setViewName("redirect:ManageProjects");
@@ -74,10 +75,9 @@ public class ProjectOwnerController {
 		{
 			final ModelAndView modelAndView = new ModelAndView();
 			logger.info("Received request to show common page");
-			modelAndView.addObject("projectslist", projectService.getAllProject());
-			modelAndView.addObject("Sprintslist", sprintService.getAllSprint());
 			User res = userService.getUserByLogin(session.getAttribute("login").toString() );
-			session.setAttribute("usertype",res.getType() );
+			session.setAttribute("user",res); 
+			modelAndView.addObject("projectslist", res.getProjects());
 			res=null;
 			modelAndView.setViewName("sharedpages/ProjectsSprints");
 			return modelAndView;
@@ -88,11 +88,10 @@ public class ProjectOwnerController {
 		{
 			final ModelAndView modelAndView = new ModelAndView();
 			logger.info("Received request to show common page");
-			modelAndView.addObject("project", projectService.getProjectById(idproject));
-			modelAndView.addObject("projectslist", projectService.getAllProject());
-			modelAndView.addObject("Sprintslist", sprintService.getAllSprint());
 			User res = userService.getUserByLogin(session.getAttribute("login").toString() );
-			session.setAttribute("usertype",res.getType() );
+			session.setAttribute("user",res); 
+			modelAndView.addObject("project", projectService.getProjectById(idproject,res));
+			modelAndView.addObject("projectslist", res.getProjects());
 			res=null;
 			modelAndView.setViewName("sharedpages/singleproject");
 			return modelAndView;
@@ -102,29 +101,42 @@ public class ProjectOwnerController {
 		{
 			final ModelAndView modelAndView = new ModelAndView();
 			logger.info("Received request to show common page");
-			modelAndView.addObject("project", projectService.getProjectById(idproject));
-			modelAndView.addObject("projectslist", projectService.getAllProject());
-			modelAndView.addObject("Sprintslist", sprintService.getAllSprint());
+			
 			User res = userService.getUserByLogin(session.getAttribute("login").toString() );
-			session.setAttribute("usertype",res.getType() );
+			session.setAttribute("user",res); 
+			modelAndView.addObject("project", projectService.getProjectById(idproject,res));
+			modelAndView.addObject("Sprintslist", projectService.getProjectById(idproject,res).getSprints());
+			modelAndView.addObject("projectslist", res.getProjects());
 			res=null;
 			modelAndView.setViewName("sharedpages/SprintsOverview");
 			return modelAndView;
 		}
 		@RequestMapping(value = "/singleSprint", method = RequestMethod.GET)
-		public ModelAndView getOneSprintPage(@RequestParam int idSprint,HttpSession session)
+		public ModelAndView getOneSprintPage(@RequestParam int idSprint,@RequestParam int idprojet,HttpSession session)
 		{
 			final ModelAndView modelAndView = new ModelAndView();
 			logger.info("Received request to show common page");
-			modelAndView.addObject("projectslist", projectService.getAllProject());
-			modelAndView.addObject("Sprintslist", sprintService.getAllSprint());
+			
 			Sprint res=sprintService.getsprintById(idSprint);
-			logger.info(res.getStatus());
-			modelAndView.addObject("spr", res);
+			
 			User resu = userService.getUserByLogin(session.getAttribute("login").toString() );
-			session.setAttribute("usertype",resu.getType() );
+			session.setAttribute("user",resu); 
+			modelAndView.addObject("projectslist", resu.getProjects());
+			modelAndView.addObject("spr", projectService.getSprintById(idSprint, projectService.getProjectById(idprojet,resu)));
 			resu=null;
 			modelAndView.setViewName("sharedpages/singleSprint");
+			return modelAndView; 
+		}
+		@RequestMapping(value = "/projectbacklog", method = RequestMethod.GET)
+		public ModelAndView getbacklogPage(HttpSession session,@RequestParam int id) {
+			final ModelAndView modelAndView = new ModelAndView();
+			logger.info("Received request to show common page");
+			User resu = userService.getUserByLogin(session.getAttribute("login").toString() );
+			session.setAttribute("user",resu);
+			modelAndView.addObject("project", projectService.getProjectById(id,resu));
+			resu=null;
+			modelAndView.setViewName("sharedpages/backlog");
+
 			return modelAndView;
 		}
 }

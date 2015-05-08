@@ -17,18 +17,18 @@
 </head>
 <body>
 	<c:choose>
-	<c:when test="${sessionScope.usertype=='1'}">
+	<c:when test="${sessionScope.user.type=='1'}">
 			<!-- Main navbar -->
 			<%@ include file="../Component/adminMenupage.jsp"%>
 		</c:when>
-		<c:when test="${sessionScope.usertype=='2'}">
+		<c:when test="${sessionScope.user.type=='2'}">
 			<!-- Main navbar -->
 			<%@ include file="../Component/UserMenupage.jsp"%>
 		</c:when>
-		<c:when test="${sessionScope.usertype=='3'}">
+		<c:when test="${sessionScope.user.type=='3'}">
 			<%@ include file="../Component/DeveloperMenupage.jsp"%>
 		</c:when>
-		<c:when test="${sessionScope.usertype=='4'}">
+		<c:when test="${sessionScope.user.type=='4'}">
 			<!-- Main navbar -->
 			<%@ include file="../Component/smastermenupage.jsp"%>
 		</c:when>

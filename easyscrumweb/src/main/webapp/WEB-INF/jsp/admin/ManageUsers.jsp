@@ -8,18 +8,9 @@
 <title>Insert title here</title>
 <link rel="stylesheet"
 	href="/easyscrumweb/resources/css/CostumeStyle.css">
+	
 <!-- DataTables CSS -->
 <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.css">
-
-<!-- jQuery -->
-<script type="text/javascript" charset="utf8" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-
-<!-- DataTables -->
-<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.js"></script>
-
-<!-- DataTables CSS -->
-
-
 </head>
 <body style="font-size: 150%">
 	<!-- Main navbar -->
@@ -32,7 +23,8 @@
 
 
 				<table id="example" class="display" cellspacing="0" width="100%">
-					<tr>
+					<thead>
+					 <tr>
 						<th>Item</th>
 						<th>Nom</th>
 						<th>Prenom</th>
@@ -41,22 +33,26 @@
 						<th>Mot de passe</th>
 						<th>Adresse</th>
 					</tr>
+					</thead>
+					<tbody>
 					<c:forEach items="${userlist}" var="u">
-						<tr>
-							<td><input type="checkbox" /></td>
+						<tr onclick="checkme(this)" >
+							<td><input type="checkbox" name="checkselect" id="dunno" value='<c:out value="${u.userId }"></c:out>' onclick="checkit()"/></td>
 							<td><c:out value="${u.nom }"></c:out></td>
 							<td><c:out value="${u.prenom }"></c:out></td>
 							<td><c:out value="${u.email }"></c:out></td>
 							<td><c:out value="${u.login }"></c:out></td>
 							<td><c:out value="${u.password }"></c:out></td>
 							<td><c:out value="${u.adresse }"></c:out></td>
+							</tr>
 					</c:forEach>
+					</tbody>
 				</table>
 				<center>
 					<!-- ---------------------------Creat---------------------------- -->
 					<!-- Button trigger modal -->
 					<button type="button" class="btn btn-primary btn-lg"
-						data-toggle="modal" data-target="#myModal">Add</button>
+						data-toggle="modal" data-target="#myModal" id="add">Add</button>
 
 					<!-- Modal -->
 					<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
@@ -337,7 +333,7 @@
 					<!-- ---------------------------Update---------------------------- -->
 					<!-- Button trigger modal -->
 					<button type="button" class="btn btn-primary btn-lg"
-						data-toggle="modal" data-target="#myModal2">Edit</button>
+						data-toggle="modal" data-target="#myModal2" id="edit">Edit</button>
 
 					<!-- Modal -->
 					<div class="modal fade" id="myModal2" tabindex="-1" role="dialog"
@@ -440,7 +436,7 @@
 
 					<!-- Button trigger modal -->
 					<button type="button" class="btn btn-primary btn-lg"
-						data-toggle="modal" data-target="#myModal3">Delete</button>
+						data-toggle="modal" data-target="#myModal3" id="delete">Delete</button>
 					<!-- Modal -->
 					<div class="modal fade" id="myModal3" tabindex="-1" role="dialog"
 						aria-labelledby="myModalLabel" aria-hidden="true">
@@ -474,12 +470,44 @@
 			<center>CHAT SPACE</center>
 		</div>
 	</div>
+	<content tag="bottom_javascript">
 
+
+<!-- DataTables -->
+<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.js"></script>
 	<script>
 		$(document).ready(function() {
 			$('#example').DataTable();
 		});
 	</script>
-
+	<script type="text/javascript">
+	
+	function checkit()
+	{
+		var count =document.querySelectorAll('input[type="checkbox"]:checked').length;
+		if(count>1)
+			{
+			document.getElementById("edit").className  = "btn btn-primary btn-lg disabled";
+			document.getElementById("edit").style.backgroundColor="#B2B8BD";
+			
+			}
+		else if(count<=1)
+		{
+			document.getElementById("edit").className  = "btn btn-primary btn-lg";
+			document.getElementById("edit").style.backgroundColor="#424F63";
+			}
+		}
+	</script>
+	<script type="text/javascript">
+	$(document).ready(function() {
+		  $('tr').click(function(event) {
+		    if (event.target.type !== 'checkbox') {
+		      $(':checkbox', this).trigger('click');
+		    }
+		  });
+		});
+	</script>
+	
+</content>
 </body>
-</html>
+</html>	

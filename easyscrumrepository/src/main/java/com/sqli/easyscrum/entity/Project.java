@@ -1,6 +1,8 @@
 package com.sqli.easyscrum.entity;
 
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,13 +10,22 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "project")
 public class Project {
 
-    @Id
+    public Set<Sprint> getSprints() {
+		return sprints;
+	}
+
+	public void setSprints(Set<Sprint> sprints) {
+		this.sprints = sprints;
+	}
+
+	@Id
     @Column(name = "idSM")
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Integer projectId;
@@ -55,6 +66,20 @@ public class Project {
 	@Column(name = "PStatus")
     private String status;
 	
+	@OneToMany(mappedBy="sprint")
+	private Set<Sprint> sprints;
+	
+	@OneToMany(mappedBy="backlog")
+	private Set<Backlog> backlogs;
+	
+	public Set<Backlog> getBacklogs() {
+		return backlogs;
+	}
+
+	public void setBacklogs(Set<Backlog> backlogs) {
+		this.backlogs = backlogs;
+	}
+
 	public String getStatus() {
 		return status;
 	}
@@ -64,9 +89,18 @@ public class Project {
 	}
 	
 	@ManyToOne
-    @JoinColumn(name = "backlog")
-	private Backlog bg;
+    @JoinColumn(name = "iduser")
+    private User user;
+	
+	public User getUser() {
+		return user;
+	}
 
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	
 	public String getLanguage() {
 		return language;
 	}
@@ -128,16 +162,9 @@ public class Project {
 	}
 
 	public void setDeadLine(String deadLine) {
-		deadLine = deadLine;
+		this.deadLine = deadLine;
 	}
 
-	public Backlog getBg() {
-		return bg;
-	}
-
-	public void setBg(Backlog bg) {
-		this.bg = bg;
-	}
 
 	public Integer getProjectId() {
 		return projectId;
@@ -170,12 +197,11 @@ public class Project {
 	public void setDateFin(String dateFin) {
 		this.dateFin = dateFin;
 	}
-	public Project(int num,String nom ,String Langue ,String Type ,String Desc ,String Tags ,String Cost ,String Company ,String Email ,String DeadLine ,Backlog backl ,String Status,String dtd,String Dtf)
+	public Project(int num,String nom ,String Langue ,String Type ,String Desc ,String Tags ,String Cost ,String Company ,String Email ,String DeadLine ,String Status,String dtd,String Dtf)
 	{
 		this.projectId=num;
 		this.nomproject=nom;
 		this.company=Company;
-		this.bg=backl;
 		this.cost=Cost;
 		this.language=Langue;
 		this.type=Type;

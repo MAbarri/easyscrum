@@ -37,7 +37,18 @@ public class User extends BaseEntity implements Serializable {
 
 	@OneToMany(mappedBy="user")
     private Set<Project> projects;
+	
+	@OneToMany(mappedBy="user")
+    private Set<Mail> mails;
  
+
+	public Set<Mail> getMails() {
+		return mails;
+	}
+
+	public void setMails(Set<Mail> mails) {
+		this.mails = mails;
+	}
 
 	public void setUserId(Integer userId) {
 		this.userId = userId;

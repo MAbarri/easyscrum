@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Set;
 
 import com.sqli.easyscrum.entity.Backlog;
+import com.sqli.easyscrum.entity.Mail;
 import com.sqli.easyscrum.entity.Project;
 import com.sqli.easyscrum.entity.Sprint;
 import com.sqli.easyscrum.entity.User;
@@ -26,7 +27,17 @@ public class DAOUserImpl implements DAOuser {
 		return u;
 	}
 	public void init()
-	{//declaration des listes des foreign key x)
+	{
+		User boss =new User(2, "admin", "boss", "photo", "adresse", true, "boss@boss.boss", "admin","admin",1); 
+		list.add(boss);
+		User boss1 =new User(3, "developer", "programmer", "photo", "adresse", true, "dev@loper.com", "dev","123456",3); 
+		list.add(boss1);
+		User boss2 =new User(4, "SM", "teamboss", "photo", "adresse", true, "scrum@master.com", "sm","123456",4); 
+		list.add(boss2);
+		User boss3 =new User(5, "simo", "simo", "simo", "simo", true, "simo@boss.boss", "simo","simo",2); 
+		list.add(boss3);
+		
+		//declaration des listes des foreign key x)
 		Set<Project> pjs = new HashSet<Project>();
 		Set<Backlog> bklg = new HashSet<Backlog>();
 		Set<Sprint> sprt = new HashSet<Sprint>();
@@ -67,8 +78,16 @@ public class DAOUserImpl implements DAOuser {
 		
 		pjs.add(p);
 		
-		User u = new User(1, "po", "client", "photo", "adresse", true, "project@owner.com", "po","123456",2);
+		//some Mails 
+				Set<Mail> mails = new HashSet<Mail>();
+				Mail ml = new Mail(1, "Hey there", "Welcome to Our Web Site ^_^", "11/12/2014");
+				ml.setSender(boss1);
+				mails.add(ml);
+				mails.add(new Mail(2, "Important", "wash your teeth before you sleep", "11/09/2014"));
+				mails.add(new Mail(1, "NB", "u are so late !!!", "02/12/2013"));
 		
+		User u = new User(1, "po", "client", "photo", "adresse", true, "project@owner.com", "po","123456",2);
+		u.setMails(mails);
 		u.setProjects(pjs);
 		list.add(u);
 		p=null;
@@ -76,10 +95,7 @@ public class DAOUserImpl implements DAOuser {
 		pjs=null;
 		u=null;
 		sprt=null;
-		list.add(new User(2, "admin", "boss", "photo", "adresse", true, "boss@boss.boss", "admin","admin",1));
-		list.add(new User(3, "developer", "programmer", "photo", "adresse", true, "dev@loper.com", "dev","123456",3));
-		list.add(new User(4, "SM", "teamboss", "photo", "adresse", true, "scrum@master.com", "sm","123456",4));
-		list.add(new User(5, "simo", "simo", "simo", "simo", true, "simo@boss.boss", "simo","simo",2));
+				
 	}
 	public List<User> getList() {
 		return list;

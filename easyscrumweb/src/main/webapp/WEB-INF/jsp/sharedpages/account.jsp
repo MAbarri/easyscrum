@@ -18,18 +18,18 @@
 </head>
 <body>
 	<c:choose>
-		<c:when test="${sessionScope.usertype=='1'}">
+		<c:when test="${sessionScope.user.type=='1'}">
 			<!-- Main navbar -->
 			<%@ include file="../Component/adminMenupage.jsp"%>
 		</c:when>
-		<c:when test="${sessionScope.usertype=='2'}">
+		<c:when test="${sessionScope.user.type=='2'}">
 			<!-- Main navbar -->
 			<%@ include file="../Component/UserMenupage.jsp"%>
 		</c:when>
-		<c:when test="${sessionScope.usertype=='3'}">
+		<c:when test="${sessionScope.user.type=='3'}">
 			<%@ include file="../Component/DeveloperMenupage.jsp"%>
 		</c:when>
-		<c:when test="${sessionScope.usertype=='4'}">
+		<c:when test="${sessionScope.user.type=='4'}">
 			<!-- Main navbar -->
 			<%@ include file="../Component/smastermenupage.jsp"%>
 		</c:when>
@@ -46,16 +46,16 @@
 							<div class="col-md-4 bg_blur "
 								style="background-image: url(
 							<c:choose>
-									<c:when test="${sessionScope.usertype=='1'}">
+									<c:when test="${sessionScope.user.type=='1'}">
 									'/easyscrumweb/resources/images/ADMINtag.jpg'
 									</c:when>
-									<c:when test="${sessionScope.usertype=='2'}">
+									<c:when test="${sessionScope.user.type=='2'}">
 									'/easyscrumweb/resources/images/projectowner.jpg'
 									</c:when>
-									<c:when test="${sessionScope.usertype=='3'}">
+									<c:when test="${sessionScope.user.type=='3'}">
 									'/easyscrumweb/resources/images/developertag.jpg'
 									</c:when>
-									<c:when test="${sessionScope.usertype=='4'}">
+									<c:when test="${sessionScope.user.type=='4'}">
 									'/easyscrumweb/resources/images/scrummastertag.jpg'
 									</c:when>
 								</c:choose>
@@ -71,16 +71,16 @@
 									</h1>
 									<h4>
 									<c:choose>
-									<c:when test="${sessionScope.usertype=='1'}">
+									<c:when test="${sessionScope.user.type=='1'}">
 									Admin
 									</c:when>
-									<c:when test="${sessionScope.usertype=='2'}">
+									<c:when test="${sessionScope.user.type=='2'}">
 									Project Owner
 									</c:when>
-									<c:when test="${sessionScope.usertype=='3'}">
+									<c:when test="${sessionScope.user.type=='3'}">
 									Developer
 									</c:when>
-									<c:when test="${sessionScope.usertype=='4'}">
+									<c:when test="${sessionScope.user.type=='4'}">
 									Scrum Master
 									</c:when>
 								</c:choose>
@@ -100,7 +100,17 @@
 							<div class="col-md-8 col-xs-12"
 								style="margin: 0px; padding: 0px;">
 								<a href="#" style="color: white;">
-									<div class="col-md-4 col-xs-4 well" id="editclick">
+									<div class="col-md-4 col-xs-4 well" id="editclick" style="display: 
+									<c:choose>
+									<c:when test="${sessionScope.editrights}">
+									block
+									</c:when>
+									<c:when test="${!sessionScope.editrights}">
+									none
+									</c:when>
+									</c:choose>
+									
+									;">
 										<button data-toggle="modal" data-target="#myModal" id="edit"
 											style="display: none;"></button>
 										<i class="glyphicon glyphicon-pencil" id="editlink"></i> Edit
@@ -207,11 +217,31 @@
 								</div>
 								<a href="/easyscrumweb/userspace/newmail?dest=Utilisateur"
 									style="color: white;">
-									<div class="col-md-4 col-xs-4 well">
+									<div class="col-md-4 col-xs-4 well" style="display: 
+									<c:choose>
+									<c:when test="${!sessionScope.editrights}">
+									block
+									</c:when>
+									<c:when test="${sessionScope.editrights}">
+									none
+									</c:when>
+									</c:choose>
+									
+									;">
 										<i class="glyphicon glyphicon-envelope"></i> Send Email
 									</div>
 								</a> <a href="#" style="color: white;">
-									<div class="col-md-4 col-xs-4 well">
+									<div class="col-md-4 col-xs-4 well" style="display: 
+									<c:choose>
+									<c:when test="${!sessionScope.editrights}">
+									block
+									</c:when>
+									<c:when test="${sessionScope.editrights}">
+									none
+									</c:when>
+									</c:choose>
+									
+									;">
 										<i class="glyphicon glyphicon-flag"></i> Report
 									</div>
 								</a>

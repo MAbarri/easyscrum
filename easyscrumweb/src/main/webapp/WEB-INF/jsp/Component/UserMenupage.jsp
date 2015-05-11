@@ -34,7 +34,7 @@
 						src="https://pbs.twimg.com/profile_images/588909533428322304/Gxuyp46N.jpg"
 						alt="maridlcrmn" width="20" /> Maridlcrmn <span class="caret"></span></a>
 					<ul class="dropdown-menu" role="menu">
-						<li><a href="/easyscrumweb/userspace/Account">My profile</a></li>
+						<li><a href="/easyscrumweb/userspace/Account?pro=0">My profile</a></li>
 						<li><a href="#">Favorited</a></li>
 						<li><a href="#">Settings</a></li>
 						<li class="divider"></li>

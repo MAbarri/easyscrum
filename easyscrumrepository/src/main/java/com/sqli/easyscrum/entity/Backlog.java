@@ -1,6 +1,6 @@
 package com.sqli.easyscrum.entity;
 
-import java.util.List;
+import java.util.Set;
 
 import javax.persistence.*;
 
@@ -20,10 +20,21 @@ public class Backlog {
 	@Column(name="Contenue")
 	private String description;
 	
-	@ManyToOne
-    @JoinColumn(name = "id_us")
-    private UserStorie storie;
+	@OneToMany(mappedBy="Backlog")
+    private Set<UserStorie> stories;
 	
+	public Set<UserStorie> getStories() {
+		return stories;
+	}
+	public void setStories(Set<UserStorie> stories) {
+		this.stories = stories;
+	}
+	public Project getProjet() {
+		return projet;
+	}
+	public void setProjet(Project projet) {
+		this.projet = projet;
+	}
 	@ManyToOne
     @JoinColumn(name = "id_project")
 	private Project projet;
@@ -32,12 +43,11 @@ public class Backlog {
 	{
 		
 	}
-	public Backlog(int id,String desc,String date,UserStorie ustories )
+	public Backlog(int id,String desc,String date)
 	{
 		this.idback=id;
 		this.description=desc;
 		this.dtPost=date;
-		this.storie=ustories;
 	}
 	public int getIdback() {
 		return idback;

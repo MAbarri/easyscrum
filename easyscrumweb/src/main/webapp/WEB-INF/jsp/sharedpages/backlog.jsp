@@ -47,14 +47,18 @@
 		<div class="panel panel-default clientPanel sprintpanel">
 			<div class="panel-heading">Backlog <c:out value="${project.nomproject }"></c:out> </div>
 			<div class="panel-body">
-				<label>Project :<c:out value="${project.nomprojet }"></c:out> </label>
-				<br><label>Project Owner</label>
-				<br><label>Backlogs date :</label>
+				<label>Project :</label>&nbsp; <c:out value="${project.nomproject }"></c:out>
+				<br><label>Project Owner</label>&nbsp; <c:out value="${user.nom }"></c:out>&nbsp; <c:out value="${user.prenom }"></c:out>
+				<br><label>Backlogs date :</label>&nbsp;
+						<c:forEach items="${project.backlogs }" var="a" >
+						 <c:out value="${a.dtPost }"></c:out>
 				<br><br><br>
 				<br><label>User Stories</label>
 				<br><br>
-				lkjlkjlkjlkjlkj<br>hjkjhkjhkjhkjhkjhjk<br>sdopkepfijsqijeoij
-				<c:forEach items="${user.projet }" ></c:forEach>
+				<c:forEach items="${a.stories }" var="us" >
+					- <c:out value="${us.speech }"></c:out><br>
+					</c:forEach>
+				</c:forEach>
 			</div>
 		</div>
 

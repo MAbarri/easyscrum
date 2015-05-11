@@ -30,23 +30,36 @@ public class DAOUserImpl implements DAOuser {
 		Set<Project> pjs = new HashSet<Project>();
 		Set<Backlog> bklg = new HashSet<Backlog>();
 		Set<Sprint> sprt = new HashSet<Sprint>();
+		Set<UserStorie> ustr = new HashSet<UserStorie>();
 		//declaration d'un projet
 		Project p =new Project(1, "facebook", "English", "Web App", "an awsome Work", "socialMedia;Blue;Awsome", "12000$", "Sumsung", "face@book.com", "22/12/2014", "Getting Started", "22/04/2014", "22/11/2014");
 		//remplissage des listes
-		bklg.add(new Backlog(1, "first Backlog", "13/06/2014",new UserStorie(1, "Work Well please")) );
+		Backlog bg = new Backlog(1, "first Backlog", "13/06/2014");
+		ustr.add(new UserStorie(1, "This is a User Storie"));
+		ustr.add(new UserStorie(2, "This is another User Storie"));
+		ustr.add(new UserStorie(3, "This is a User Storie again"));
+		ustr.add(new UserStorie(4, "u get it now ? this is a User Storie"));
+		ustr.add(new UserStorie(5, "Ok, I'll stop, another Users...*dead*"));
+		bg.setStories(ustr);
+		bklg.add(bg);
 		sprt.add(new Sprint(1,"Main Sprint", "08/09/2014", "28/09/2014", "Delivery"));
 		sprt.add(new Sprint(2,"Side Sprint", "08/02/2014", "28/02/2014", "Ready for a Demo"));
 		//affectation des liste au projet
+		
 		p.setBacklogs(bklg);
 		p.setSprints(sprt);
 		pjs.add(p);
 
 		Set<Backlog> bklg2 = new HashSet<Backlog>();
 		Set<Sprint> sprt2 = new HashSet<Sprint>();
+		Set<UserStorie> ustr2 = new HashSet<UserStorie>();
 		
 		p=new Project(2, "twitter", "British", "Web App", "a good Work", "socialMedia;Blue;Bird", "22000$", "Apple", "tweet@tter.com", "22/12/2013", "Getting Started", "22/04/2013", "22/11/2013");
 		
-		bklg2.add(new Backlog(2, "second Backlog", "13/06/2013",new UserStorie(2, "A lot of money to offer")) );
+		Backlog bg2 = new Backlog(2, "second Backlog", "13/06/2013") ;
+		ustr2.add(new UserStorie(1, "This is a User Storie"));
+		bg2.setStories(ustr2);
+		bklg2.add(bg2);
 		sprt2.add(new Sprint(3,"Final Sprint", "08/01/2015", "28/01/2015", "Working On"));
 		
 		p.setBacklogs(bklg2);

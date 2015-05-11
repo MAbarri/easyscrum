@@ -16,7 +16,6 @@
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse membermenu" id="navbar-collapse-4">
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="/easyscrumweb/home">Home</a></li>
 						<li><a href="/easyscrumweb/start">Get Started</a></li>
 						<li><a href="/easyscrumweb/about">About</a></li>
 						<li><a href="/easyscrumweb/services">Services</a></li>

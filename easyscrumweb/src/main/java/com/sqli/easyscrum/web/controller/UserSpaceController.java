@@ -134,7 +134,7 @@ public class UserSpaceController {
 		final ModelAndView modelAndView = new ModelAndView();
 		logger.info("Received request to show common page");
 		User resu = userService.getUserByLogin(session.getAttribute("login").toString() );
-		session.setAttribute("usertype",resu.getType() );
+		session.setAttribute("user",resu );
 		resu=null;
 		modelAndView.setViewName("sharedpages/inbox");
 
@@ -145,7 +145,7 @@ public class UserSpaceController {
 		final ModelAndView modelAndView = new ModelAndView();
 		logger.info("Received request to show common page");
 		User resu = userService.getUserByLogin(session.getAttribute("login").toString() );
-		session.setAttribute("usertype",resu.getType() );
+		session.setAttribute("user",resu);
 		resu=null;
 		modelAndView.setViewName("sharedpages/mail");
 
@@ -161,13 +161,23 @@ public class UserSpaceController {
 		return modelAndView;
 	}
 	@RequestMapping(value = "/Account", method = RequestMethod.GET)
-	public ModelAndView getaccountPage(HttpSession session) {
+	public ModelAndView getaccountPage(HttpSession session,@RequestParam int pro) {
 		final ModelAndView modelAndView = new ModelAndView();
 		logger.info("Received request to show common page");
+		// if the passed parameter is equal to 0 or to the id of the current User, we give him the permission to update the profil but if it was different 
+		// wich means something else than 0 and userId we give him the right to send a message or to report
+		boolean editrights = true;
 		User resu = userService.getUserByLogin(session.getAttribute("login").toString() );
-		session.setAttribute("usertype",resu.getType() );
+		if(pro!=0 && pro!=resu.getUserId())
+		{
+		resu = userService.getUserById(pro);
+		editrights = false;
+		}
+		
 		session.setAttribute("user",resu);
+		session.setAttribute("editrights",editrights);
 		resu=null;
+		
 		modelAndView.setViewName("sharedpages/account");
 
 		return modelAndView;

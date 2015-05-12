@@ -5,6 +5,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.springframework.stereotype.Repository;
+
 import com.sqli.easyscrum.entity.Backlog;
 import com.sqli.easyscrum.entity.Mail;
 import com.sqli.easyscrum.entity.Project;
@@ -12,7 +14,7 @@ import com.sqli.easyscrum.entity.Sprint;
 import com.sqli.easyscrum.entity.User;
 import com.sqli.easyscrum.entity.UserStorie;
 import com.sqli.easyscrum.repository.DAOuser;
-
+@Repository
 public class DAOUserImpl implements DAOuser {
 
 		List<User> list = new ArrayList<User>();
@@ -81,7 +83,7 @@ public class DAOUserImpl implements DAOuser {
 		//some Mails 
 				Set<Mail> mails = new HashSet<Mail>();
 				Mail ml = new Mail(1, "Hey there", "Welcome to Our Web Site ^_^", "11/12/2014");
-				ml.setSender(boss1);
+				//ml.setSenderReciever(boss1);
 				mails.add(ml);
 				mails.add(new Mail(2, "Important", "wash your teeth before you sleep", "11/09/2014"));
 				mails.add(new Mail(1, "NB", "u are so late !!!", "02/12/2013"));

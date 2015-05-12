@@ -20,7 +20,7 @@ public class Backlog {
 	@Column(name="Contenue")
 	private String description;
 	
-	@OneToMany(mappedBy="Backlog")
+	@OneToMany(mappedBy="backlog")
     private Set<UserStorie> stories;
 	
 	public Set<UserStorie> getStories() {
@@ -59,7 +59,7 @@ public class Backlog {
 		return dtPost;
 	}
 	public void setDtPost(String dtPost) {
-		dtPost = dtPost;
+		this.dtPost = dtPost;
 	}
 	public String getDescription() {
 		return description;

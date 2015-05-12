@@ -30,7 +30,7 @@
 	<bean id="entityManagerFactory"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="packagesToScan" value="com.sqli.easyscrum.entity" />
-		<property name="persistenceUnitName" value="ideoFormationPU" />
+		<property name="persistenceUnitName" value="easyScrumPU" />
 		<property name="dataSource" ref="dataSource" />
 		<property name="jpaVendorAdapter" ref="jpaVendorAdapter" />
 		<property name="mappingResources">

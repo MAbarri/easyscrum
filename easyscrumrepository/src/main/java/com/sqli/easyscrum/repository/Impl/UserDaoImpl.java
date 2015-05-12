@@ -12,7 +12,7 @@ import com.sqli.easyscrum.repository.UserDao;
 @Repository
 public class UserDaoImpl extends GenericDaoImpl<User,Integer> implements UserDao {
 
-	@PersistenceContext(unitName="ideoFormationPU")
+	@PersistenceContext(unitName="easyScrumPU")
 	EntityManager em;
 	
 	UserDaoImpl(){

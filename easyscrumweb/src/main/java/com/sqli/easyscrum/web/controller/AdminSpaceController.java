@@ -27,33 +27,33 @@ public class AdminSpaceController {
 		final ModelAndView modelAndView = new ModelAndView();
 		logger.info("Received request to show common page");
 		modelAndView.setViewName("admin/ManageUsers");
-		modelAndView.addObject("userlist", userService.getAllUsers());
+		modelAndView.addObject("userlist", userService.findAll());
 		return modelAndView;
 	}
-
-	@RequestMapping(value = "/addAccount")
-	public ModelAndView addnew(FormObject fm) {
-
-		final ModelAndView modelAndView = new ModelAndView();
-
-		Map<String, String> erreurs = new HashMap<String, String>();
-
-		logger.info("Received request to show common page");
-try{
-		User u = new User(2, fm.getLname(), fm.getLname(), "", fm.getAdresse(),
-				true, fm.getEmail(), fm.getEmail(), fm.getPass(), fm.getType());
-
-			if (userService.getUserByLogin(u.getLogin()) == null) {
-				userService.creatUser(u);
-				logger.info("User created");
-				modelAndView.setViewName("redirect:" + "admin/ManageUsers");
-			} else {
-				erreurs.put("login", " ce username existe déja !");
-				modelAndView.addObject("ListErreur", erreurs);
-				modelAndView.setViewName("#");
-			}}catch(Exception ec){}
-
-		return modelAndView;
-	}
-
+//
+//	@RequestMapping(value = "/addAccount")
+//	public ModelAndView addnew(FormObject fm) {
+//
+//		final ModelAndView modelAndView = new ModelAndView();
+//
+//		Map<String, String> erreurs = new HashMap<String, String>();
+//
+//		logger.info("Received request to show common page");
+//try{
+//		User u = new User(2, fm.getLname(), fm.getLname(), "", fm.getAdresse(),
+//				true, fm.getEmail(), fm.getEmail(), fm.getPass(), fm.getType());
+//
+//			if (userService.getUserByLogin(u.getLogin()) == null) {
+//				userService.creatUser(u);
+//				logger.info("User created");
+//				modelAndView.setViewName("redirect:" + "admin/ManageUsers");
+//			} else {
+//				erreurs.put("login", " ce username existe déja !");
+//				modelAndView.addObject("ListErreur", erreurs);
+//				modelAndView.setViewName("#");
+//			}}catch(Exception ec){}
+//
+//		return modelAndView;
+//	}
+//
 }

@@ -8,16 +8,5 @@ import com.sqli.easyscrum.core.service.GenericService;
 import com.sqli.easyscrum.entity.User;
 @Service
 public interface UserService extends GenericService<User,Integer>{
-	
-	public User getUserById(int id);
-	
-	public User getUserByLogin (String lgn);
-	
-	public void creatUser(User u);
-	
-	public void deleteUser(User u);
-	
-	public void editUser(User u) ;
-	
-	public List<User> getAllUsers();
+	List<User> findUserByLogin(String login);
 }

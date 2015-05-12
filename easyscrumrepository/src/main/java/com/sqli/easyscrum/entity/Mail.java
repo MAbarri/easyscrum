@@ -1,6 +1,15 @@
 package com.sqli.easyscrum.entity;
 
-import javax.persistence.*;
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 
 @Entity
 @Table(name="email")
@@ -23,13 +32,10 @@ public class Mail {
 	@Column(name="vue")
 	private boolean vue;
 	
-	@OneToMany
-	@JoinColumn(name="iduser")
-	private User sender;
+	@ManyToMany
+	@JoinColumn(name="idPO")
+	private List<User> senderReciever;
 
-	@OneToMany
-	@JoinColumn(name="iduser")
-	private User reciever;
 	
 	public Mail(){}
 	public Mail(int id, String title,String text,String dateenvoi)
@@ -70,16 +76,11 @@ public class Mail {
 	public void setVue(boolean vue) {
 		this.vue = vue;
 	}
-	public User getSender() {
-		return sender;
+	public List<User> getSenderReciever() {
+		return senderReciever;
 	}
-	public void setSender(User sender) {
-		this.sender = sender;
+	public void setSenderReciever(List<User> senderReciever) {
+		this.senderReciever = senderReciever;
 	}
-	public User getReciever() {
-		return reciever;
-	}
-	public void setReciever(User reciever) {
-		this.reciever = reciever;
-	}
+
 }

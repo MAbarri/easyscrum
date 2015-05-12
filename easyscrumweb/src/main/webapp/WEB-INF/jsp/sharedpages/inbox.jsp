@@ -119,7 +119,7 @@
 											<label> <input type="checkbox">
 											</label>
 										</div> <span class="glyphicon glyphicon-star-empty"></span><span
-										class="name" style="min-width: 120px; display: inline-block;"><c:out value="${ml.sender.nom }"></c:out>&nbsp;<c:out value="${ml.sender.prenom }"></c:out></span> <span class=""><c:out value="${ml.title }"></c:out></span> <span
+										class="name" style="min-width: 120px; display: inline-block;"><c:out value="${ml.title }"></c:out> </span> <span
 										class="text-muted" style="font-size: 11px;">- <c:out value="${ml.text }"></c:out></span> <span class="badge"><c:out value="${ml.dateenvoi }"></c:out></span> <span
 										class="pull-right"><span
 											class="glyphicon glyphicon-paperclip"> </span></span>

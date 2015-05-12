@@ -16,7 +16,7 @@
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="navbar-collapse-4">
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="/easyscrumweb/userspace/profil">Home</a></li>
+				<li><a href="/easyscrumweb/home">Home</a></li>
 				<li><a href="/easyscrumweb/userspace/ManageProjects">projects</a></li>
 				<li><a href="/easyscrumweb/userspace/ManageSprints">Sprints</a></li>
 				<li><a href="/easyscrumweb/userspace/inbox">Inbox</a></li>

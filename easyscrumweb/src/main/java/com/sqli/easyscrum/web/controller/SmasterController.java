@@ -31,7 +31,7 @@ public class SmasterController {
 	{
 		final ModelAndView modelAndView = new ModelAndView();
 		logger.info("Received request to show common page");
-		modelAndView.addObject("projectslist", projectService.getAllProject());
+		modelAndView.addObject("projectslist", projectService.findAll());
 		modelAndView.setViewName("scrummaster/SMProjects");
 		return modelAndView;
 	}
@@ -40,7 +40,7 @@ public class SmasterController {
 	{
 		final ModelAndView modelAndView = new ModelAndView();
 		logger.info("Received request to show common page");
-		modelAndView.addObject("projectslist", projectService.getAllProject());
+		modelAndView.addObject("projectslist", projectService.findAll());
 		modelAndView.setViewName("scrummaster/newSprint");
 		return modelAndView;
 	}

@@ -1,6 +1,7 @@
 package com.sqli.easyscrum.web.controller;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -42,35 +43,35 @@ public class UserSpaceController {
 
 		return modelAndView;
 	}
-
-	@RequestMapping(value = "/newAccount")
-	public ModelAndView getinscriptedPage(FormObject fm) {
-
-		final ModelAndView modelAndView = new ModelAndView();
-
-		Map<String, String> erreurs = new HashMap<String, String>();
-
-		logger.info("Received request to show common page");
-
-		User u = new User(2, fm.getLname(), fm.getLname(), "", fm.getAdresse(),true, fm.getEmail(), fm.getEmail(),fm.getPass(),fm.getType());
-		
-		if (fm.getConfpass().equals(fm.getPass())) {
-			if (userService.getUserByLogin(u.getLogin()) == null) {
-					userService.creatUser(u);
-				modelAndView.setViewName("public/EmailCheck");
-			} else {
-				erreurs.put("login", " ce username existe déja !");
-				modelAndView.addObject("ListErreur", erreurs);
-				modelAndView.setViewName("public/RegisterPage");
-			}
-		} else {
-			erreurs.put("confpass", "les deux chaine ne sont pas identiques !");
-			modelAndView.addObject("ListErreur", erreurs);
-			modelAndView.setViewName("public/RegisterPage");
-		}
-
-		return modelAndView;
-	}
+//
+//	@RequestMapping(value = "/newAccount")
+//	public ModelAndView getinscriptedPage(FormObject fm) {
+//
+//		final ModelAndView modelAndView = new ModelAndView();
+//
+//		Map<String, String> erreurs = new HashMap<String, String>();
+//
+//		logger.info("Received request to show common page");
+//
+//		User u = new User(2, fm.getLname(), fm.getLname(), "", fm.getAdresse(),true, fm.getEmail(), fm.getEmail(),fm.getPass(),fm.getType());
+//		
+//		if (fm.getConfpass().equals(fm.getPass())) {
+//			if (userService.getUserByLogin(u.getLogin()) == null) {
+//					userService.creatUser(u);
+//				modelAndView.setViewName("public/EmailCheck");
+//			} else {
+//				erreurs.put("login", " ce username existe déja !");
+//				modelAndView.addObject("ListErreur", erreurs);
+//				modelAndView.setViewName("public/RegisterPage");
+//			}
+//		} else {
+//			erreurs.put("confpass", "les deux chaine ne sont pas identiques !");
+//			modelAndView.addObject("ListErreur", erreurs);
+//			modelAndView.setViewName("public/RegisterPage");
+//		}
+//
+//		return modelAndView;
+//	}
 	
 	
 	@RequestMapping(value = "/profil")
@@ -78,53 +79,47 @@ public class UserSpaceController {
 		final ModelAndView modelAndView = new ModelAndView();
 		
 		logger.info("Received request to show login page");
-		
 		modelAndView.setViewName("public/index");
-		User result = null;
-		boolean i=true; 
-		String sessionpass="";
-		logger.info("1");
-		try{
-		result = userService.getUserByLogin(session.getAttribute("login").toString());
-		sessionpass=session.getAttribute("pass").toString();
-		}catch(Exception l){logger.info("null pointer");}
-		if(result==null)
-		{
-		result = userService.getUserByLogin(fm.getLogin());
-		i=false;
-		}
-		if(result!=null)
-			if(result.getPassword().equals(fm.getPass())||result.getPassword().equals(sessionpass))
-			{
-				logger.info("3");
-				if(!i)
-				{
-				session.setAttribute("login", fm.getLogin());
-				session.setAttribute("pass", fm.getPass());
-				}
-
-				session.setAttribute("online", true);
-				switch (result.getType()){
+		
+		List<User> results = null;
+		User result=null;
+		
+			results = userService.findUserByLogin(fm.getLogin());
+			logger.info("Got the list");
+			result=results.get(0);
+		
+			if(result.getPassword().equals(fm.getPass()))
+					{
+						// affectation du session
+						session.setAttribute("login", fm.getLogin());
+						session.setAttribute("pass", fm.getPass());
+						
+						// redirection a la page d'acceuil
+						
+						switch (result.getType()){
+						
+						case 1:
+						{
+						modelAndView.setViewName("admin/adminProfil");
+						break;
+						}
+						case 2:
+						{
+							modelAndView.setViewName("projectowner/login");
+							break;}
+						case 3:
+						{
+							modelAndView.setViewName("devloper/Devcpanel");
+							break;}
+						case 4:
+						{
+							modelAndView.setViewName("scrummaster/SMasterProfil");
+							break;}
+						}
+					}
+			
 				
-				case 1:
-				{
-				modelAndView.setViewName("admin/adminProfil");
-				break;
-				}
-				case 2:
-				{
-					modelAndView.setViewName("projectowner/login");
-					break;}
-				case 3:
-				{
-					modelAndView.setViewName("devloper/Devcpanel");
-					break;}
-				case 4:
-				{
-					modelAndView.setViewName("scrummaster/SMasterProfil");
-					break;}
-				}
-			}
+
 				
 		return modelAndView;
 	}
@@ -133,7 +128,8 @@ public class UserSpaceController {
 	public ModelAndView getinboxPage(HttpSession session) {
 		final ModelAndView modelAndView = new ModelAndView();
 		logger.info("Received request to show common page");
-		User resu = userService.getUserByLogin(session.getAttribute("login").toString() );
+		List<User> results = userService.findUserByLogin(session.getAttribute("login").toString() );
+		User resu=results.get(0);
 		session.setAttribute("user",resu );
 		resu=null;
 		modelAndView.setViewName("sharedpages/inbox");
@@ -144,7 +140,8 @@ public class UserSpaceController {
 	public ModelAndView getmessagePage(HttpSession session) {
 		final ModelAndView modelAndView = new ModelAndView();
 		logger.info("Received request to show common page");
-		User resu = userService.getUserByLogin(session.getAttribute("login").toString() );
+		List<User> results = userService.findUserByLogin(session.getAttribute("login").toString() );
+		User resu=results.get(0);
 		session.setAttribute("user",resu);
 		resu=null;
 		modelAndView.setViewName("sharedpages/mail");
@@ -167,10 +164,11 @@ public class UserSpaceController {
 		// if the passed parameter is equal to 0 or to the id of the current User, we give him the permission to update the profil but if it was different 
 		// wich means something else than 0 and userId we give him the right to send a message or to report
 		boolean editrights = true;
-		User resu = userService.getUserByLogin(session.getAttribute("login").toString() );
+		List<User> results = userService.findUserByLogin(session.getAttribute("login").toString() );
+		User resu=results.get(0);
 		if(pro!=0 && pro!=resu.getUserId())
 		{
-		resu = userService.getUserById(pro);
+		resu = userService.find(pro);
 		editrights = false;
 		}
 		

@@ -66,10 +66,10 @@ public class Project {
 	@Column(name = "PStatus")
     private String status;
 	
-	@OneToMany(mappedBy="sprint")
+	@OneToMany
 	private Set<Sprint> sprints;
 	
-	@OneToMany(mappedBy="backlog")
+	@OneToMany
 	private Set<Backlog> backlogs;
 	
 	public Set<Backlog> getBacklogs() {
@@ -89,8 +89,8 @@ public class Project {
 	}
 	
 	@ManyToOne
-    @JoinColumn(name = "iduser")
-    private User user;
+	@JoinColumn(name = "iduser")
+	private User user;
 	
 	public User getUser() {
 		return user;

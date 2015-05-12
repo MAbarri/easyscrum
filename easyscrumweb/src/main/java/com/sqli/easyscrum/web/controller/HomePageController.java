@@ -1,5 +1,7 @@
 package com.sqli.easyscrum.web.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
@@ -27,45 +29,62 @@ public class HomePageController {
 	@Autowired
 	private UserService userService;
 
-	/**
-	 * Handles and retrieves the common JSP page that everyone can see
-	 *
-	 * @return the modelAndView
-	 */
-	// @PreAuthorize("hasPermission(this,'ROLE_VISITOR')")
+//	/**
+//	 * Handles and retrieves the common JSP page that everyone can see
+//	 *
+//	 * @return the modelAndView
+//	 */
+//	// @PreAuthorize("hasPermission(this,'ROLE_VISITOR')")
+	
+	
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public ModelAndView getCommonPage(HttpSession session) {
 		final ModelAndView modelAndView = new ModelAndView();
 		logger.info("Received request to show common page");
 		modelAndView.setViewName("public/index");
-		try {
-			if ((Boolean) session.getAttribute("online")) {
-				User result = userService.getUserByLogin(session.getAttribute(
-						"login").toString());
-				String sessionpass = session.getAttribute("pass").toString();
-				if (result.getPassword().equals(sessionpass))
-					switch (result.getType()) {
-
-					case 1: {
+		//check if a session exist first
+		List<User> results = null;
+		User result=null;
+		
+		boolean fromSession=false;
+		String sessionPass="";
+		
+		
+		try{
+			results = userService.findUserByLogin(session.getAttribute("login").toString());
+			logger.info("Got the list");
+			result=results.get(0);
+			sessionPass=session.getAttribute("pass").toString();
+			fromSession=true;
+			
+			switch (result.getType()){
+						
+						case 1:
+						{
 						modelAndView.setViewName("admin/adminProfil");
 						break;
-					}
-					case 2: {
-						modelAndView.setViewName("projectowner/login");
-						break;
-					}
-					case 3: {
-						modelAndView.setViewName("devloper/Devcpanel");
-						break;
-					}
-					case 4: {
-						modelAndView.setViewName("scrummaster/SMasterProfil");
-						break;
-					}
-					}
-			}
-		} catch (Exception k) {
+						}
+						case 2:
+						{
+							modelAndView.setViewName("projectowner/login");
+							break;}
+						case 3:
+						{
+							modelAndView.setViewName("devloper/Devcpanel");
+							break;}
+						case 4:
+						{
+							modelAndView.setViewName("scrummaster/SMasterProfil");
+							break;}
+						}
+		}catch(Exception l)
+		{
+			logger.info("null pointer");
 		}
+		
+		
+			
+		
 
 		return modelAndView;
 	}

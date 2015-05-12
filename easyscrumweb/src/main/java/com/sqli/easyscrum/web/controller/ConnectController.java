@@ -1,5 +1,7 @@
 package com.sqli.easyscrum.web.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
@@ -35,9 +37,10 @@ public class ConnectController {
 	{
 		final ModelAndView modelAndView = new ModelAndView();
 		logger.info("Received request to show common page");
-		User res = userService.getUserByLogin(session.getAttribute("login").toString() );
+		List<User> results = userService.findUserByLogin(session.getAttribute("login").toString() );
+		User res=results.get(0);
 		session.setAttribute("user",res); 
-		modelAndView.addObject("project", projectService.getProjectById(idproject,res));
+		modelAndView.addObject("project", projectService.find(idproject));
 		modelAndView.addObject("projectslist", res.getProjects());
 		res=null;
 		modelAndView.setViewName("presentation/connect");

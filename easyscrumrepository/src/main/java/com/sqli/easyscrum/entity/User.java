@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -18,7 +19,7 @@ public class User extends BaseEntity implements Serializable {
 
 	private static final long serialVersionUID = 1L;
     @Id
-    @Column(name = "iduser")
+    @Column(name = "idPO")
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Integer userId;
     
@@ -38,7 +39,7 @@ public class User extends BaseEntity implements Serializable {
 	@OneToMany(mappedBy="user")
     private Set<Project> projects;
 	
-	@OneToMany(mappedBy="user")
+	@ManyToMany(mappedBy="senderReciever")
     private Set<Mail> mails;
  
 

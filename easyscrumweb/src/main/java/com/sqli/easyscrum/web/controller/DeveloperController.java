@@ -27,7 +27,7 @@ public class DeveloperController {
 	{
 		final ModelAndView modelAndView = new ModelAndView();
 		logger.info("Received request to show common page");
-		modelAndView.addObject("projectslist", projectService.getAllProject());
+		modelAndView.addObject("projectslist", projectService.findAll());
 		modelAndView.setViewName("devloper/devProjects");
 		return modelAndView;
 	}
@@ -37,7 +37,7 @@ public class DeveloperController {
 		final ModelAndView modelAndView = new ModelAndView();
 		logger.info("Received request to show common page");
 		//get project not started yet
-		modelAndView.addObject("projectslist", projectService.getAllProject());
+		modelAndView.addObject("projectslist", projectService.findAll());
 		modelAndView.setViewName("devloper/getnewProject");
 		return modelAndView;
 	}

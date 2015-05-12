@@ -1,10 +1,13 @@
 package com.sqli.easyscrum.web.controller;
 
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,7 +19,6 @@ import com.sqli.easyscrum.business.services.SprintService;
 import com.sqli.easyscrum.business.services.UserService;
 import com.sqli.easyscrum.entity.Backlog;
 import com.sqli.easyscrum.entity.Project;
-import com.sqli.easyscrum.entity.Sprint;
 import com.sqli.easyscrum.entity.User;
 import com.sqli.easyscrum.entity.UserStorie;
 
@@ -40,10 +42,11 @@ public class ProjectOwnerController {
 		{
 			final ModelAndView modelAndView = new ModelAndView();
 			logger.info("Received request to show common page");
-			modelAndView.addObject("projectslist", projectService.getAllProject());
-			User res = userService.getUserByLogin(session.getAttribute("login").toString() );
-			session.setAttribute("user",res );
-			res=null;
+			modelAndView.addObject("projectslist", projectService.findAll() );
+			List<User> results = userService.findUserByLogin(session.getAttribute("login").toString() );
+			User resu=results.get(0);
+			session.setAttribute("user",resu );
+			resu=null;
 			modelAndView.setViewName("projectowner/PoProjects");
 			return modelAndView;
 		}
@@ -58,11 +61,20 @@ public class ProjectOwnerController {
 		@RequestMapping(value = "/CreatProjects", method = RequestMethod.GET)
 		public ModelAndView getresultPage(FormProjectObject fm)
 		{
+			
 			final ModelAndView modelAndView = new ModelAndView();
 			logger.info("Received request to show common page");
-			UserStorie us=new UserStorie(3, fm.getUstext());
+			Set<UserStorie> lus = new HashSet<UserStorie>();
+			UserStorie us=new UserStorie(2, fm.getUstext());
+			lus.add(us);
+			Set<Backlog> lbls = new HashSet<Backlog>();
+			Backlog newback = new Backlog(1, fm.getBacklogtitle(), "22/12/2014");
+			newback.setStories(lus);
+			lbls.add(newback);
 			Project prj = new Project(3, fm.getNom(), fm.getSel2(), fm.getSel1(), fm.getDescription(), fm.getTags(), fm.getCost(), fm.getCompany(), fm.getEmail(), "12/12/12", "getting started", "today", "--");
-			projectService.creatProject(prj);
+			prj.setBacklogs(lbls);
+			
+			projectService.persist(prj);
 			us=null;
 			prj=null;
 			logger.info("Project Created Successfully");
@@ -75,10 +87,11 @@ public class ProjectOwnerController {
 		{
 			final ModelAndView modelAndView = new ModelAndView();
 			logger.info("Received request to show common page");
-			User res = userService.getUserByLogin(session.getAttribute("login").toString() );
-			session.setAttribute("user",res); 
-			modelAndView.addObject("projectslist", res.getProjects());
-			res=null;
+			List<User> results = userService.findUserByLogin(session.getAttribute("login").toString() );
+			User resu=results.get(0);
+			session.setAttribute("user",resu); 
+			modelAndView.addObject("projectslist", resu.getProjects());
+			resu=null;
 			modelAndView.setViewName("sharedpages/ProjectsSprints");
 			return modelAndView;
 		}
@@ -88,9 +101,10 @@ public class ProjectOwnerController {
 		{
 			final ModelAndView modelAndView = new ModelAndView();
 			logger.info("Received request to show common page");
-			User res = userService.getUserByLogin(session.getAttribute("login").toString() );
+			List<User> results = userService.findUserByLogin(session.getAttribute("login").toString() );
+			User res=results.get(0);
 			session.setAttribute("user",res); 
-			modelAndView.addObject("project", projectService.getProjectById(idproject,res));
+			modelAndView.addObject("project", projectService.find(idproject));
 			modelAndView.addObject("projectslist", res.getProjects());
 			res=null;
 			modelAndView.setViewName("sharedpages/singleproject");
@@ -102,10 +116,11 @@ public class ProjectOwnerController {
 			final ModelAndView modelAndView = new ModelAndView();
 			logger.info("Received request to show common page");
 			
-			User res = userService.getUserByLogin(session.getAttribute("login").toString() );
+			List<User> results = userService.findUserByLogin(session.getAttribute("login").toString() );
+			User res=results.get(0);
 			session.setAttribute("user",res); 
-			modelAndView.addObject("project", projectService.getProjectById(idproject,res));
-			modelAndView.addObject("Sprintslist", projectService.getProjectById(idproject,res).getSprints());
+			modelAndView.addObject("project", projectService.find(idproject));
+			modelAndView.addObject("Sprintslist", projectService.find(idproject).getSprints());
 			modelAndView.addObject("projectslist", res.getProjects());
 			res=null;
 			modelAndView.setViewName("sharedpages/SprintsOverview");
@@ -117,12 +132,12 @@ public class ProjectOwnerController {
 			final ModelAndView modelAndView = new ModelAndView();
 			logger.info("Received request to show common page");
 			
-			Sprint res=sprintService.getsprintById(idSprint);
 			
-			User resu = userService.getUserByLogin(session.getAttribute("login").toString() );
+			List<User> results = userService.findUserByLogin(session.getAttribute("login").toString() );
+			User resu=results.get(0);
 			session.setAttribute("user",resu); 
 			modelAndView.addObject("projectslist", resu.getProjects());
-			modelAndView.addObject("spr", projectService.getSprintById(idSprint, projectService.getProjectById(idprojet,resu)));
+			//modelAndView.addObject("spr", projectService.getSprintById(idSprint, projectService.find(idprojet)));
 			resu=null;
 			modelAndView.setViewName("sharedpages/singleSprint");
 			return modelAndView; 
@@ -131,9 +146,10 @@ public class ProjectOwnerController {
 		public ModelAndView getbacklogPage(HttpSession session,@RequestParam int id) {
 			final ModelAndView modelAndView = new ModelAndView();
 			logger.info("Received request to show common page");
-			User resu = userService.getUserByLogin(session.getAttribute("login").toString() );
+			List<User> results = userService.findUserByLogin(session.getAttribute("login").toString() );
+			User resu=results.get(0);
 			session.setAttribute("user",resu);
-			modelAndView.addObject("project", projectService.getProjectById(id,resu));
+			modelAndView.addObject("project", projectService.find(id));
 			resu=null;
 			modelAndView.setViewName("sharedpages/backlog");
 

@@ -3,9 +3,11 @@ package com.sqli.easyscrum.repository.Impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.sqli.easyscrum.entity.Sprint;
 import com.sqli.easyscrum.repository.DAOsprint;
-
+@Repository
 public class DAOsprintImpl implements DAOsprint {
 	List<Sprint> list = new ArrayList<Sprint>();
 	

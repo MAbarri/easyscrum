@@ -1,53 +1,28 @@
 package com.sqli.easyscrum.business.services.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.sqli.easyscrum.business.services.ProjectService;
+import com.sqli.easyscrum.core.dao.jpa.GenericDao;
+import com.sqli.easyscrum.core.service.GenericServiceImpl;
 import com.sqli.easyscrum.entity.Project;
 import com.sqli.easyscrum.entity.Sprint;
 import com.sqli.easyscrum.entity.User;
 import com.sqli.easyscrum.repository.DAOproject;
 @Service
-public class ProjectServiceImpl implements ProjectService {
+public class ProjectServiceImpl extends GenericServiceImpl<Project,Integer> implements ProjectService {
 
 	@Autowired
-	DAOproject dao;
+	DAOproject projectdao;
 
 	@Override
-	public Project getProjectById(int id,User u) {
-		return dao.getProjectById(id,u);
-
+	protected GenericDao<Project, Integer> getDao() {		
+		return projectdao;
 	}
 
-	@Override
-	public void creatProject(Project u) {
-		dao.creatProject(u);
-
-	}
-
-	@Override
-	public void deleteProject(Project u) {
-		dao.deleteProject(u);
-
-	}
-
-	@Override
-	public void editProject(Project u) {
-		dao.editProject(u);
-
-	}
-
-	@Override
-	public List<Project> getAllProject() {
-		return dao.getAllProject();
-	}
-
-	@Override
-	public Sprint getSprintById(int id, Project u) {
-		return dao.getSprintById(id, u);
-	}
-
+	
 }

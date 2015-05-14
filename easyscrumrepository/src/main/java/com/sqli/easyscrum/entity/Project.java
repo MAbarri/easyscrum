@@ -26,7 +26,7 @@ public class Project {
 	}
 
 	@Id
-    @Column(name = "idSM")
+    @Column(name = "idProject")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer projectId;
     
@@ -66,10 +66,10 @@ public class Project {
 	@Column(name = "PStatus")
     private String status;
 	
-	@OneToMany
+	@OneToMany(mappedBy="projet")
 	private List<Sprint> sprints;
 	
-	@OneToMany
+	@OneToMany(mappedBy="projet")
 	private List<Backlog> backlogs;
 	
 	public List<Backlog> getBacklogs() {

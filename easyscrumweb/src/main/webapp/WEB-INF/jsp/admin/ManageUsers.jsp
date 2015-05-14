@@ -10,7 +10,7 @@
 	href="/easyscrumweb/resources/css/CostumeStyle.css">
 	
 <!-- DataTables CSS -->
-<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.css">
+<link rel="stylesheet" type="text/css" href="/easyscrumweb/resources/css/jquery.dataTables.css">
 </head>
 <body style="font-size: 150%">
 	<!-- Main navbar -->
@@ -57,6 +57,7 @@
 					<!-- Modal -->
 					<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
 						aria-labelledby="myModalLabel" aria-hidden="true">
+						
 						<div class="modal-dialog">
 							<div class="modal-content">
 								<div class="modal-header">
@@ -67,20 +68,10 @@
 									<h4 class="modal-title" id="myModalLabel">Ajout
 										d'utilisateur</h4>
 								</div>
+								<form action="addAccount" method="post">
 								<div class="modal-body">
-									<div class="tabbable-line">
-										<ul class="nav nav-tabs ">
-											<li class="active"><a href="#tab_default_1"
-												data-toggle="tab">Project Owner </a></li>
-											<li><a href="#tab_default_2" data-toggle="tab">Developper
-											</a></li>
-											<li><a href="#tab_default_3" data-toggle="tab">
-													Scrum Master </a></li>
-										</ul>
-										<div class="tab-content">
-											<div class="tab-pane active registersingltab"
-												id="tab_default_1">
-												<form action="addAccount" method="post">
+								
+									<div class="tab-pane registersingltab" id="tab_default_2">
 													<table class="tableregister adminaddform">
 														<tr>
 															<td>&nbsp;</td>
@@ -92,79 +83,21 @@
 															<td>&nbsp;</td>
 														</tr>
 														<tr>
-															<td><input type="email" class="form-control"
-																id="exampleInputEmail1" placeholder="Email" required
-																name="email"></td>
-															<td>&nbsp;*</td>
-															<td><c:out value="${ListErreur['email']}"></c:out></td>
-														</tr>
-														<tr>
-															<td>&nbsp;</td>
-														</tr>
-														<tr>
-															<td><input type="password" class="form-control"
-																id="InputPassword1" placeholder="Password" required
-																name="pass"></td>
-															<td>&nbsp;*</td>
-															<td><c:out value="${ListErreur['pass']}"></c:out></td>
-														</tr>
-														<tr>
-															<td>&nbsp;</td>
-														</tr>
-														<tr>
-															<td><input type="text"
-																class="form-control inscriptioninput" id="ImputName"
-																placeholder="First name" required name="name"> <input
-																type="text" class="form-control inscriptioninput"
-																id="ImputLname" placeholder="Last name" name="lname"></td>
-															<td>&nbsp;*</td>
-															<td><c:out value="${ListErreur['Fullname']}"></c:out></td>
-														</tr>
-														<tr>
-															<td>&nbsp;</td>
-														</tr>
-														<tr>
-															<td><input type="text" class="form-control"
-																id="ImputAdresse" placeholder="Adresse" name="adresse"></td>
-															<td><c:out value="${ListErreur['adresse']}"></c:out></td>
-														</tr>
-														<tr>
-															<td>&nbsp;</td>
-														</tr>
-														<tr>
-															<td><input type="text" class="form-control"
-																id="ImputAdresse" placeholder="Login" name="login"></td>
-															<td><c:out value="${ListErreur['login']}"></c:out></td>
-														</tr>
-
-														<tr>
-															<td>&nbsp;</td>
-														</tr>
-
-														<tr>
-															<td><c:out value="${error.general}"></c:out></td>
-														</tr>
-
-
-													</table>
-													<input type="submit" id="sendform" />
-												</form>
-											</div>
-											<div class="tab-pane registersingltab" id="tab_default_2">
-												<form action="newAccount" method="post">
-													<table class="tableregister adminaddform">
-														<tr>
-															<td>&nbsp;</td>
-														</tr>
-														<tr>
-															<td>&nbsp;</td>
+															<td><select class="form-control" id="seltype" onchange="typeuser()" name="typestinrg">
+																	<option value="" disabled selected>User rights
+																		:</option>
+																	<option>Project Owner</option>
+																	<option>Developer</option>
+																	<option>Scrum Master</option>
+															</select></td>
+															<td><c:out value="${error.adresse}"></c:out></td>
 														</tr>
 														<tr>
 															<td>&nbsp;</td>
 														</tr>
 														<tr>
 															<td><input type="email" class="form-control"
-																id="exampleInputEmail1" placeholder="Email" required
+																id="exampleInputEmail2" placeholder="Email" required
 																name="email"></td>
 															<td>&nbsp;*</td>
 															<td><c:out value="${ListErreur['email']}"></c:out></td>
@@ -227,106 +160,15 @@
 														<tr>
 															<td><c:out value="${error.general}"></c:out></td>
 														</tr>
-
-
-													</table>
-													<input type="submit" id="sendform" />
-												</form>
-											</div>
-											<div class="tab-pane registersingltab" id="tab_default_3">
-												<form action="newAccount" method="post">
-													<table class="tableregister adminaddform">
-														<tr>
-															<td>&nbsp;</td>
-														</tr>
-														<tr>
-															<td>&nbsp;</td>
-														</tr>
-														<tr>
-															<td>&nbsp;</td>
-														</tr>
-														<tr>
-															<td><input type="email" class="form-control"
-																id="exampleInputEmail1" placeholder="Email" required
-																name="email"></td>
-															<td>&nbsp;*</td>
-															<td><c:out value="${ListErreur['email']}"></c:out></td>
-														</tr>
-														<tr>
-															<td>&nbsp;</td>
-														</tr>
-														<tr>
-															<td><input type="password" class="form-control"
-																id="InputPassword1" placeholder="Password" required
-																name="pass"></td>
-															<td>&nbsp;*</td>
-															<td><c:out value="${ListErreur['pass']}"></c:out></td>
-														</tr>
-														<tr>
-															<td>&nbsp;</td>
-														</tr>
-														<tr>
-															<td><input type="text"
-																class="form-control inscriptioninput" id="ImputName"
-																placeholder="First name" required name="name"> <input
-																type="text" class="form-control inscriptioninput"
-																id="ImputLname" placeholder="Last name" name="lname"></td>
-															<td>&nbsp;*</td>
-															<td><c:out value="${ListErreur['Fullname']}"></c:out></td>
-														</tr>
-														<tr>
-															<td>&nbsp;</td>
-														</tr>
-														<tr>
-															<td><input type="text" class="form-control"
-																id="ImputAdresse" placeholder="Adresse" name="adresse"></td>
-															<td><c:out value="${ListErreur['adresse']}"></c:out></td>
-														</tr>
-														<tr>
-															<td>&nbsp;</td>
-														</tr>
-														<tr>
-															<td><input type="text" class="form-control"
-																id="ImputAdresse" placeholder="Login" name="login"></td>
-															<td><c:out value="${ListErreur['login']}"></c:out></td>
-														</tr>
-														<tr>
-															<td>&nbsp;</td>
-														</tr>
-														<tr>
-															<td><select class="form-control" id="sel1">
-																	<option value="" disabled selected>Specialisation
-																		:</option>
-																	<option>Web developer</option>
-																	<option>Web designer</option>
-																	<option>Desktop developer</option>
-																	<option>Desktop designer</option>
-															</select></td>
-															<td><c:out value="${error.adresse}"></c:out></td>
-														</tr>
-														<tr>
-															<td>&nbsp;</td>
-														</tr>
-
-														<tr>
-															<td><c:out value="${error.general}"></c:out></td>
-														</tr>
-
-
-
-													</table>
-													<input type="submit" id="sendform" />
-												</form>
-											</div>
-										</div>
-									</div>
+													</table>												
+											</div>											
 								</div>
 								<div class="modal-footer">
 									<button type="button" class="btn btn-default"
 										data-dismiss="modal">Cancel</button>
-									<button type="button" class="btn btn-primary"
-										onclick="submit()">Add User</button>
+									<button id="adduser" type="submit" class="btn btn-primary" >Add User</button>
 								</div>
+							</form>
 							</div>
 						</div>
 					</div>
@@ -365,7 +207,7 @@
 													</tr>
 													<tr>
 														<td><input type="email" class="form-control"
-															id="exampleInputEmail1" placeholder="Email" required
+															id="updateInputEmail1" placeholder="Email" required
 															name="email"></td>
 														<td>&nbsp;*</td>
 														<td><c:out value="${ListErreur['email']}"></c:out></td>
@@ -419,7 +261,7 @@
 
 
 												</table>
-												<input type="submit" id="sendform" />
+												<input type="submit" id="updateform" style="display:none"/>
 											</form>
 										</div>
 									</div>
@@ -428,7 +270,7 @@
 									<button type="button" class="btn btn-default"
 										data-dismiss="modal">Cancel</button>
 									<button type="button" class="btn btn-primary"
-										onclick="submit()">Add User</button>
+										onclick="submitupdate()">Update User</button>
 								</div>
 							</div>
 						</div>
@@ -474,7 +316,7 @@
 
 
 <!-- DataTables -->
-<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.js"></script>
+<script type="text/javascript" charset="utf8" src="/easyscrumweb/resources/js/Jquery-datatable/jquery.dataTables.js"></script>
 	<script>
 		$(document).ready(function() {
 			$('#example').DataTable();
@@ -507,7 +349,16 @@
 		  });
 		});
 	</script>
-	
+	<script type="text/javascript">
+		function typeuser()
+		{
+			if(document.getElementById("seltype").selectedIndex=="1")
+				document.getElementById("sel1").style.display = "none";
+			else
+				document.getElementById("sel1").style.display = "block";
+				
+		}
+	</script>
 </content>
 </body>
 </html>	

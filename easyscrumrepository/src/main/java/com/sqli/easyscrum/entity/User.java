@@ -39,19 +39,29 @@ public class User implements Serializable {
 		this.projects = projects;
 	}
 
-	@OneToMany(mappedBy="user",fetch = FetchType.LAZY)
+	@OneToMany(mappedBy="user")
     private List<Project> projects;
 	
-	@ManyToMany(mappedBy="senderReciever")
-    private Set<Mail> mails;
+	@OneToMany(mappedBy="sender")
+    private Set<Mail> sentmails;
+	
+	@OneToMany(mappedBy="Reciever")
+    private Set<Mail> recievedmails;
  
-
-	public Set<Mail> getMails() {
-		return mails;
+	public Set<Mail> getSentmails() {
+		return sentmails;
 	}
 
-	public void setMails(Set<Mail> mails) {
-		this.mails = mails;
+	public void setSentmails(Set<Mail> sentmails) {
+		this.sentmails = sentmails;
+	}
+
+	public Set<Mail> getRecievedmails() {
+		return recievedmails;
+	}
+
+	public void setRecievedmails(Set<Mail> recievedmails) {
+		this.recievedmails = recievedmails;
 	}
 
 	public void setUserId(Integer userId) {

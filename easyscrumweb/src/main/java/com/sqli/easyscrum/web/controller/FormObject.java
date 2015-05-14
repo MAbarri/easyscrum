@@ -9,11 +9,19 @@ public class FormObject {
 	private String adresse;
 	private String login;
 	private int type;
+	private String typestinrg;
+
 	public int getType() {
 		return type;
 	}
 	public void setType(int type) {
 		this.type = type;
+	}
+	public String getTypestinrg() {
+		return typestinrg;
+	}
+	public void setTypestinrg(String typestinrg) {
+		this.typestinrg = typestinrg;
 	}
 	public String getLogin() {
 		return login;

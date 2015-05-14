@@ -39,21 +39,17 @@
 			<div class="panel-heading">Mail</div>
 			<div class="panel-body msgpanel">
 			<div class="shadow">
-				<label>Envoyé par :</label>&nbsp;
-				<br><label>A :</label>&nbsp;
+				<label>Envoyé par :</label>&nbsp;<c:out value="${currentmail.sender.login }"></c:out>
+				<br><label>A :</label>&nbsp;<c:out value="${currentmail.reciever.login }"></c:out>
 				<br>
 				</div>
 				<div class="shadow">
-				<label>Title</label>
+				<label><c:out value="${currentmail.title }"></c:out></label>
 				<br><br>
-				Message Text Message Text Message Text Message Text Message Text Message Text Message Text
-				Message Text Message Text Message Text Message Text Message Text Message Text Message Text
-				Message Text Message Text Message Text Message Text Message Text Message Text Message Text
-				Message Text Message Text Message Text Message Text Message Text Message Text Message Text
-				Message Text Message Text Message Text Message Text Message Text Message Text Message Text
+				<c:out value="${currentmail.text }"></c:out>
 				</div>
 				<div class="shadow txtright">
-					Date d'envoi : Date
+					Date d'envoi : <c:out value="${currentmail.dateenvoi }"></c:out>
 				</div>
 				 <button type="button" class="btn btn-primary btn-sm">Return</button>
 				  <button type="button" class="btn btn-primary btn-sm rightbubble">Delete message</button>

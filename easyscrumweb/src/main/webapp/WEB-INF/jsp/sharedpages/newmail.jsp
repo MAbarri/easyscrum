@@ -37,20 +37,22 @@
 		<div class="panel panel-default clientPanel">
 			<div class="panel-heading">New Mail</div>
 			<div class="panel-body msgpanel">
+			<form action="sendmail">
 				<div class="shadow">
 					<br>
-					<label>A :</label>&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" class="form-control" value="<c:out value="${param.dest }"></c:out>" placeholder="addresser" style="width: 300px; display: inline;">
+					<label>A :</label>&nbsp;&nbsp;&nbsp;&nbsp;<input name="destination" id="destination" type="text" class="form-control" value="<c:out value="${param.dest }"></c:out>" placeholder="addresser" style="width: 300px; display: inline;">
 					<br><br>
 				</div>
 				<div class="shadow">
 				<br>
-					 <input class="form-control" type="text" id="formGroupInputLarge" placeholder="Title"> <br>
-					<textarea class="form-control" rows="8" placeholder="Message text"></textarea>
+					 <input name="mailtitle" class="form-control" type="text" id="mailtitle" placeholder="Title"> <br>
+					<textarea name="mailtext" id="mailtext" class="form-control" rows="8" placeholder="Message text"></textarea>
 					<br>
 				</div>
 				
 				<button type="button" class="btn btn-primary btn-sm">Cancel</button>
-				<button type="button" class="btn btn-primary btn-sm rightbubble">Send Message</button>
+				 <button type="submit" class="btn btn-primary btn-sm rightbubble">Send Message</button>
+				 </form>
 			</div>
 		</div>
 	</div>

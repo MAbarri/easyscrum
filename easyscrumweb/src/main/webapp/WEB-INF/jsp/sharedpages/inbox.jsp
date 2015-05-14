@@ -103,18 +103,18 @@
 						<!-- Nav tabs -->
 						<ul class="nav nav-tabs">
 							<li class="active"><a href="#home" data-toggle="tab"><span
-									class="glyphicon glyphicon-inbox"> </span>Primary</a></li>
+									class="glyphicon glyphicon-inbox"> </span>Inbox</a></li>
 							<li><a href="#profile" data-toggle="tab"><span
-									class="glyphicon glyphicon-user"></span> Presentations</a></li>
+									class="glyphicon glyphicon-user"></span> Sent mails</a></li>
 							<li><a href="#messages" data-toggle="tab"><span
-									class="glyphicon glyphicon-tags"></span> Avertissement</a></li>
+									class="glyphicon glyphicon-tags"></span> Important</a></li>
 						</ul>
 						<!-- Tab panes -->
 						<div class="tab-content">
 							<div class="tab-pane fade in active" id="home">
 								<div class="list-group">
-								<c:forEach items="${user.mails }" var="ml" >
-									<a href="/easyscrumweb/userspace/mail" class="list-group-item">
+								<c:forEach items="${user.recievedmails }" var="ml" >
+									<a href="/easyscrumweb/userspace/mail?id= <c:out value="${ml.idmail }"></c:out> " class="list-group-item">
 										<div class="checkbox">
 											<label> <input type="checkbox">
 											</label>
@@ -128,9 +128,17 @@
 							</div>
 							<div class="tab-pane fade in" id="profile">
 								<div class="list-group">
-									<div class="list-group-item">
-										<span class="text-center">This tab is empty.</span>
-									</div>
+									<c:forEach items="${user.sentmails }" var="ml" >
+									<a href="/easyscrumweb/userspace/mail?id= <c:out value="${ml.idmail }"></c:out>" class="list-group-item">
+										<div class="checkbox">
+											<label> <input type="checkbox">
+											</label>
+										</div> <span class="glyphicon glyphicon-star-empty"></span><span
+										class="name" style="min-width: 120px; display: inline-block;"><c:out value="${ml.title }"></c:out> </span> <span
+										class="text-muted" style="font-size: 11px;">- <c:out value="${ml.text }"></c:out></span> <span class="badge"><c:out value="${ml.dateenvoi }"></c:out></span> <span
+										class="pull-right"><span
+											class="glyphicon glyphicon-paperclip"> </span></span>
+									</a></c:forEach>
 								</div>
 							</div>
 							<div class="tab-pane fade in" id="messages">...</div>

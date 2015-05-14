@@ -14,9 +14,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.sqli.easyscrum.business.services.MailService;
 import com.sqli.easyscrum.business.services.ProjectService;
 import com.sqli.easyscrum.business.services.SprintService;
 import com.sqli.easyscrum.business.services.UserService;
+import com.sqli.easyscrum.entity.Mail;
 import com.sqli.easyscrum.entity.User;
 
 @Controller
@@ -34,6 +36,8 @@ public class UserSpaceController {
 	@Autowired
 	private SprintService sprintService;
 	
+	@Autowired
+	private MailService mailService;
 	
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public ModelAndView getwelcomePage() {
@@ -139,12 +143,13 @@ public class UserSpaceController {
 		return modelAndView;
 	}
 	@RequestMapping(value = "/mail", method = RequestMethod.GET)
-	public ModelAndView getmessagePage(HttpSession session) {
+	public ModelAndView getmessagePage(HttpSession session,@RequestParam int id) {
 		final ModelAndView modelAndView = new ModelAndView();
 		logger.info("Received request to show common page");
 		List<User> results = userService.findUserByLogin(session.getAttribute("login").toString() );
 		User resu=results.get(0);
 		session.setAttribute("user",resu);
+		session.setAttribute("currentmail",mailService.find(id));
 		resu=null;
 		modelAndView.setViewName("sharedpages/mail");
 
@@ -159,6 +164,25 @@ public class UserSpaceController {
 
 		return modelAndView;
 	}
+	@RequestMapping(value = "/sendmail", method = RequestMethod.GET)
+	public ModelAndView setnewmessage(HttpSession session,FormMailObject fmo) {
+		final ModelAndView modelAndView = new ModelAndView();
+		logger.info("Received request to send a mail");
+		List<User> results = userService.findUserByLogin(session.getAttribute("login").toString() );
+		User sender=results.get(0);
+		List<User> results2 = userService.findUserByLogin(fmo.getDestination());
+		User reciever=results2.get(0);
+		Mail mail= new Mail(fmo.getMailtitle(), fmo.getMailtext(), "14/05/2015");
+		mail.setSender(sender);
+		mail.setReciever(reciever);
+		
+		mailService.persist(mail);
+		
+		modelAndView.setViewName("redirect:inbox");
+
+		return modelAndView;
+	}
+	
 	@RequestMapping(value = "/Account", method = RequestMethod.GET)
 	public ModelAndView getaccountPage(HttpSession session,@RequestParam int pro) {
 		final ModelAndView modelAndView = new ModelAndView();

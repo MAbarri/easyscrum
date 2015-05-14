@@ -9,4 +9,5 @@ import com.sqli.easyscrum.entity.User;
 @Service
 public interface UserService extends GenericService<User,Integer>{
 	List<User> findUserByLogin(String login);
+
 }

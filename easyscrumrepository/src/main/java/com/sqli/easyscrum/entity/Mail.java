@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -32,10 +33,13 @@ public class Mail {
 	@Column(name="vue")
 	private boolean vue;
 	
-	@ManyToMany
-	@JoinColumn(name="idPO")
-	private List<User> senderReciever;
+	@ManyToOne
+	@JoinColumn(name="idsender")
+	private User sender;
 
+	@ManyToOne
+	@JoinColumn(name="idreciever")
+	private User Reciever;
 	
 	public Mail(){}
 	public Mail( String title,String text,String dateenvoi)
@@ -75,11 +79,18 @@ public class Mail {
 	public void setVue(boolean vue) {
 		this.vue = vue;
 	}
-	public List<User> getSenderReciever() {
-		return senderReciever;
+	public User getSender() {
+		return sender;
 	}
-	public void setSenderReciever(List<User> senderReciever) {
-		this.senderReciever = senderReciever;
+	public void setSender(User sender) {
+		this.sender = sender;
 	}
+	public User getReciever() {
+		return Reciever;
+	}
+	public void setReciever(User reciever) {
+		Reciever = reciever;
+	}
+
 
 }

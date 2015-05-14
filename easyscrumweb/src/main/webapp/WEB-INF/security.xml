@@ -29,12 +29,15 @@
 
 	<http pattern="/auth/login" security="none" />
 	
+
+	
 	<http use-expressions="true">
 	    <intercept-url pattern="/resources/**" access="permitAll" />
 	    <intercept-url pattern="/**" access="isAuthenticated()"/>
 		<intercept-url pattern="/main/admin" access="hasRole('ROLE_ADMIN')" />
 		<intercept-url pattern="/main/register" access="hasRole('ROLE_VISITOR')"/>
-
+		<intercept-url pattern="	/userspace/profil" requires-channel="https"/>
+	
 		<form-login login-page="/auth/login"
 			authentication-failure-url="/auth/login?error=true"
 			default-target-url="/main/home" always-use-default-target="true"/>

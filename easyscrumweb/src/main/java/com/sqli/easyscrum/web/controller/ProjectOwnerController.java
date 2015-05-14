@@ -1,6 +1,6 @@
 package com.sqli.easyscrum.web.controller;
 
-import java.util.HashSet;
+
 import java.util.List;
 import java.util.Set;
 
@@ -14,13 +14,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.sqli.easyscrum.business.services.BackLogService;
 import com.sqli.easyscrum.business.services.ProjectService;
 import com.sqli.easyscrum.business.services.SprintService;
 import com.sqli.easyscrum.business.services.UserService;
+import com.sqli.easyscrum.business.services.UserStoryService;
 import com.sqli.easyscrum.entity.Backlog;
 import com.sqli.easyscrum.entity.Project;
 import com.sqli.easyscrum.entity.User;
-import com.sqli.easyscrum.entity.UserStorie;
 
 @Controller
 @RequestMapping("/userspace")
@@ -36,6 +37,11 @@ public class ProjectOwnerController {
 
 		@Autowired
 		private UserService userService;
+		
+		@Autowired
+		private BackLogService backlogService;
+		@Autowired
+		private UserStoryService usService;
 		
 		@RequestMapping(value = "/ManageProjects", method = RequestMethod.GET)
 		public ModelAndView getCommonPage(HttpSession session)
@@ -59,24 +65,20 @@ public class ProjectOwnerController {
 			return modelAndView;
 		}
 		@RequestMapping(value = "/CreatProjects", method = RequestMethod.GET)
-		public ModelAndView getresultPage(FormProjectObject fm)
+		public ModelAndView getresultPage(FormProjectObject fm,HttpSession session)
 		{
 			
 			final ModelAndView modelAndView = new ModelAndView();
 			logger.info("Received request to show common page");
-			Set<UserStorie> lus = new HashSet<UserStorie>();
-			UserStorie us=new UserStorie(2, fm.getUstext());
-			lus.add(us);
-			Set<Backlog> lbls = new HashSet<Backlog>();
-			Backlog newback = new Backlog(1, fm.getBacklogtitle(), "22/12/2014");
-			newback.setStories(lus);
-			lbls.add(newback);
-			Project prj = new Project(3, fm.getNom(), fm.getSel2(), fm.getSel1(), fm.getDescription(), fm.getTags(), fm.getCost(), fm.getCompany(), fm.getEmail(), "12/12/12", "getting started", "today", "--");
-			prj.setBacklogs(lbls);
 			
-			projectService.persist(prj);
-			us=null;
-			prj=null;
+			List<User> results = userService.findUserByLogin(session.getAttribute("login").toString() );
+			User resu=results.get(0);
+			
+			Project result = fm.toProject(resu);
+			//List<Backlog> bklg1 = result.getBacklogs();
+			//usService.persist( bklg1.get(0).getStories().get(0));
+			projectService.persist(result);
+			
 			logger.info("Project Created Successfully");
 			modelAndView.setViewName("redirect:ManageProjects");
 			return modelAndView;
@@ -95,7 +97,7 @@ public class ProjectOwnerController {
 			modelAndView.setViewName("sharedpages/ProjectsSprints");
 			return modelAndView;
 		}
-		
+			
 		@RequestMapping(value = "/project", method = RequestMethod.GET)
 		public ModelAndView getsingleprojectPage(@RequestParam int idproject,HttpSession session)
 		{

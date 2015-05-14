@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.sqli.easyscrum.business.services.ProjectService;
 import com.sqli.easyscrum.business.services.UserService;
+import com.sqli.easyscrum.entity.Project;
 import com.sqli.easyscrum.entity.User;
 
 /**
@@ -28,6 +30,9 @@ public class HomePageController {
 
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private ProjectService projectService;
 
 //	/**
 //	 * Handles and retrieves the common JSP page that everyone can see
@@ -40,52 +45,61 @@ public class HomePageController {
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public ModelAndView getCommonPage(HttpSession session) {
 		final ModelAndView modelAndView = new ModelAndView();
+		logger.info("Testing persistance");
+		
+		
+		logger.info(projectService.find(1).getCompany());
+		
+		Project projet = new Project("facebook", "English", "Web App", "an awsome Work", "socialMedia;Blue;Awsome",
+				"12000$", "Sumsung", "face@book.com", "22/12/2014", "Getting Started", "22/04/2014", "22/11/2014");
+		User user=userService.find(2);
+		projectService.persist(projet);
+		user.getProjects().add(projet);
+		userService.update(user);
+		
+		
+		logger.info("End Testing persistance");
 		logger.info("Received request to show common page");
-		modelAndView.setViewName("public/index");
-		//check if a session exist first
-		List<User> results = null;
-		User result=null;
-		
-		boolean fromSession=false;
-		String sessionPass="";
-		
-		
-		try{
-			results = userService.findUserByLogin(session.getAttribute("login").toString());
-			logger.info("Got the list");
-			result=results.get(0);
-			sessionPass=session.getAttribute("pass").toString();
-			fromSession=true;
-			
-			switch (result.getType()){
-						
-						case 1:
-						{
-						modelAndView.setViewName("admin/adminProfil");
-						break;
-						}
-						case 2:
-						{
-							modelAndView.setViewName("projectowner/login");
-							break;}
-						case 3:
-						{
-							modelAndView.setViewName("devloper/Devcpanel");
-							break;}
-						case 4:
-						{
-							modelAndView.setViewName("scrummaster/SMasterProfil");
-							break;}
-						}
-		}catch(Exception l)
-		{
-			logger.info("null pointer");
-		}
-		
-		
-			
-		
-
+  		modelAndView.setViewName("public/index");
+//		//check if a session exist first
+//		List<User> results = null;
+//		User result=null;
+//		
+//		boolean fromSession=false;
+//		String sessionPass="";
+//		
+//		
+//		try{
+//			results = userService.findUserByLogin(session.getAttribute("login").toString());
+//			logger.info("Got the list");
+//			result=results.get(0);
+//			sessionPass=session.getAttribute("pass").toString();
+//			fromSession=true;
+//			
+//			switch (result.getType()){
+//						
+//						case 1:
+//						{
+//						modelAndView.setViewName("admin/adminProfil");
+//						break;
+//						}
+//						case 2:
+//						{
+//							modelAndView.setViewName("projectowner/login");
+//							break;}
+//						case 3:
+//						{
+//							modelAndView.setViewName("devloper/Devcpanel");
+//							break;}
+//						case 4:
+//						{
+//							modelAndView.setViewName("scrummaster/SMasterProfil");
+//							break;}
+//						}
+//		}catch(Exception l)
+//		{
+//			logger.info("null pointer");
+//		}
 		return modelAndView;
 	}
 

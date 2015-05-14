@@ -26,6 +26,12 @@ public class UserStorie {
 	@JoinColumn(name="IdBackLog")
 	private Backlog backlog;
 	
+	public Backlog getBacklog() {
+		return backlog;
+	}
+	public void setBacklog(Backlog backlog) {
+		this.backlog = backlog;
+	}
 	public UserStorie()
 	{
 		

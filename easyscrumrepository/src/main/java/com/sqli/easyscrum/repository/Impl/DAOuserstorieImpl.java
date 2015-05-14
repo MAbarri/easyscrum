@@ -1,26 +1,30 @@
 package com.sqli.easyscrum.repository.Impl;
 
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import org.springframework.stereotype.Repository;
 
 import com.sqli.easyscrum.core.dao.jpa.impl.GenericDaoImpl;
-import com.sqli.easyscrum.entity.Project;
-import com.sqli.easyscrum.repository.DAOproject;
+import com.sqli.easyscrum.entity.UserStorie;
+import com.sqli.easyscrum.repository.DAOuserstorie;
 @Repository
-public class DAOprojectImpl extends GenericDaoImpl<Project,Integer> implements DAOproject {
-	
+public class DAOuserstorieImpl extends GenericDaoImpl<UserStorie, Integer> implements
+		DAOuserstorie {
+
 	@PersistenceContext(unitName="easyScrumPU")
 	EntityManager em;
 	
-	DAOprojectImpl(){
-		super(Project.class);
+	public DAOuserstorieImpl() {
+		super(UserStorie.class);
 	}
-	
+
 	@Override
 	protected EntityManager getEntityManager() {
 		return em;
 	}
+
+
 
 }

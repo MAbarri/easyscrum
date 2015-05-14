@@ -84,6 +84,8 @@ public class UserSpaceController {
 		List<User> results = null;
 		User result=null;
 		
+		
+		
 			results = userService.findUserByLogin(fm.getLogin());
 			logger.info("Got the list");
 			result=results.get(0);

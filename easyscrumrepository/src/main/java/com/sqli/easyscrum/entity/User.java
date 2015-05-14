@@ -1,10 +1,13 @@
 package com.sqli.easyscrum.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -19,7 +22,7 @@ public class User extends BaseEntity implements Serializable {
 
 	private static final long serialVersionUID = 1L;
     @Id
-    @Column(name = "idPO")
+    @Column(name = "iduser")
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Integer userId;
     
@@ -27,17 +30,17 @@ public class User extends BaseEntity implements Serializable {
 		return userId;
 	}
 
-    public Set<Project> getProjects() {
-		return projects;
+    public List<Project> getProjects() {
+		return projects==null?new ArrayList<Project>():projects;
 	}
 
 
-	public void setProjects(Set<Project> projects) {
+	public void setProjects(List<Project> projects) {
 		this.projects = projects;
 	}
 
-	@OneToMany(mappedBy="user")
-    private Set<Project> projects;
+	@OneToMany(mappedBy="user",fetch = FetchType.LAZY)
+    private List<Project> projects;
 	
 	@ManyToMany(mappedBy="senderReciever")
     private Set<Mail> mails;

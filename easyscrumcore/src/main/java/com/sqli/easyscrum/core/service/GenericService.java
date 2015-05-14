@@ -54,4 +54,5 @@ public interface GenericService<M, I extends Serializable> {
     List<M> findWithNamedQuery(String namedQueryName, Map<String, ? extends Object> parameters);
 
     List<M> find(final Map<String, ? extends Object> params);
+
 }

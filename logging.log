@@ -2875,3 +2875,446 @@ Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No b
 2015-04-01 19:35:01 INFO  XmlWebApplicationContext:862 - Closing WebApplicationContext for namespace 'dispatcher-servlet': startup date [Wed Apr 01 19:24:30 WEST 2015]; parent: Root WebApplicationContext
 2015-04-01 19:35:01 INFO  XmlWebApplicationContext:862 - Closing Root WebApplicationContext: startup date [Wed Apr 01 19:24:22 WEST 2015]; root of context hierarchy
 2015-04-01 19:35:01 INFO  LocalContainerEntityManagerFactoryBean:462 - Closing JPA EntityManagerFactory for persistence unit 'ideoFormationPU'
+2015-05-13 17:56:34 INFO  ContextLoader:285 - Root WebApplicationContext: initialization started
+2015-05-13 17:56:34 INFO  XmlWebApplicationContext:510 - Refreshing Root WebApplicationContext: startup date [Wed May 13 17:56:34 WAT 2015]; root of context hierarchy
+2015-05-13 17:56:34 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from ServletContext resource [/WEB-INF/applicationContext.xml]
+2015-05-13 17:56:35 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from URL [file:/D:/projects/easyscrum/easyscrumrepository/target/classes/datasource.xml]
+2015-05-13 17:56:35 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from ServletContext resource [/WEB-INF/supplies.xml]
+2015-05-13 17:56:35 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from URL [file:/D:/projects/easyscrum/easyscrumcore/target/classes/core.xml]
+2015-05-13 17:56:35 INFO  PropertyPlaceholderConfigurer:172 - Loading properties file from class path resource [jdbc.properties]
+2015-05-13 17:56:35 INFO  AutowiredAnnotationBeanPostProcessor:153 - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2015-05-13 17:56:35 INFO  LocalContainerEntityManagerFactoryBean:339 - Building JPA container EntityManagerFactory for persistence unit 'easyScrumPU'
+2015-05-13 17:56:35 INFO  LogHelper:46 - HHH000204: Processing PersistenceUnitInfo [
+	name: easyScrumPU
+	...]
+2015-05-13 17:56:35 INFO  Version:54 - HHH000412: Hibernate Core {4.3.5.Final}
+2015-05-13 17:56:35 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2015-05-13 17:56:35 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-05-13 17:56:36 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.4.Final}
+2015-05-13 17:56:36 INFO  Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-05-13 17:56:37 INFO  ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-05-13 17:56:37 INFO  Version:27 - HV000001: Hibernate Validator 5.1.3.Final
+2015-05-13 17:56:38 INFO  SchemaUpdate:182 - HHH000228: Running hbm2ddl schema update
+2015-05-13 17:56:38 INFO  SchemaUpdate:193 - HHH000102: Fetching database metadata
+2015-05-13 17:56:38 INFO  SchemaUpdate:205 - HHH000396: Updating schema
+2015-05-13 17:56:38 INFO  TableMetadata:66 - HHH000261: Table found: easyscrum.userstories
+2015-05-13 17:56:38 INFO  TableMetadata:67 - HHH000037: Columns: [libelle, idbacklog, idus]
+2015-05-13 17:56:38 INFO  TableMetadata:69 - HHH000108: Foreign keys: [fk_7oh3t8va7x4coighivljr7w04]
+2015-05-13 17:56:38 INFO  TableMetadata:70 - HHH000126: Indexes: [fk_7oh3t8va7x4coighivljr7w04, primary]
+2015-05-13 17:56:38 INFO  TableMetadata:66 - HHH000261: Table found: easyscrum.backlog
+2015-05-13 17:56:38 INFO  TableMetadata:67 - HHH000037: Columns: [contenue, idbacklog, dtpost, id_project]
+2015-05-13 17:56:38 INFO  TableMetadata:69 - HHH000108: Foreign keys: [fk_omkuao0dvus9r6n345lytvr96]
+2015-05-13 17:56:38 INFO  TableMetadata:70 - HHH000126: Indexes: [fk_omkuao0dvus9r6n345lytvr96, primary]
+2015-05-13 17:56:38 INFO  TableMetadata:66 - HHH000261: Table found: easyscrum.email
+2015-05-13 17:56:38 INFO  TableMetadata:67 - HHH000037: Columns: [idemail, dateenvoi, vue, text, title]
+2015-05-13 17:56:38 INFO  TableMetadata:69 - HHH000108: Foreign keys: []
+2015-05-13 17:56:38 INFO  TableMetadata:70 - HHH000126: Indexes: [primary]
+2015-05-13 17:56:38 INFO  TableMetadata:66 - HHH000261: Table found: easyscrum.email_user
+2015-05-13 17:56:38 INFO  TableMetadata:67 - HHH000037: Columns: [senderreciever_iduser, mails_idemail]
+2015-05-13 17:56:38 INFO  TableMetadata:69 - HHH000108: Foreign keys: [fk_jbvpc2wtw05bsmycud4i8pg82, fk_rk4rn6chqb23avbc24dww4n7r]
+2015-05-13 17:56:38 INFO  TableMetadata:70 - HHH000126: Indexes: [fk_jbvpc2wtw05bsmycud4i8pg82, fk_rk4rn6chqb23avbc24dww4n7r]
+2015-05-13 17:56:38 INFO  TableMetadata:66 - HHH000261: Table found: easyscrum.project
+2015-05-13 17:56:38 INFO  TableMetadata:67 - HHH000037: Columns: [iduser, cost, idsm, user_iduser, pstatus, description, langue, type, nom, tags, datedebut, company, datefin, daterouge, email]
+2015-05-13 17:56:38 INFO  TableMetadata:69 - HHH000108: Foreign keys: [fk_mysg1furm0tlasi7nrk6cduk6, fk_ca9pi7alys9sqsmm5pgnyu6fc]
+2015-05-13 17:56:38 INFO  TableMetadata:70 - HHH000126: Indexes: [fk_mysg1furm0tlasi7nrk6cduk6, primary, fk_ca9pi7alys9sqsmm5pgnyu6fc]
+2015-05-13 17:56:38 INFO  TableMetadata:66 - HHH000261: Table found: easyscrum.project_backlog
+2015-05-13 17:56:38 INFO  TableMetadata:67 - HHH000037: Columns: [project_idsm, backlogs_idbacklog]
+2015-05-13 17:56:38 INFO  TableMetadata:69 - HHH000108: Foreign keys: [fk_mn20yitq1jqygo38tssjcxwsg, fk_4819gutwbussmulpgrik0875a]
+2015-05-13 17:56:38 INFO  TableMetadata:70 - HHH000126: Indexes: [fk_mn20yitq1jqygo38tssjcxwsg, uk_4819gutwbussmulpgrik0875a]
+2015-05-13 17:56:38 INFO  TableMetadata:66 - HHH000261: Table found: easyscrum.project_sprint
+2015-05-13 17:56:38 INFO  TableMetadata:67 - HHH000037: Columns: [project_idsm, sprints_idsprint]
+2015-05-13 17:56:38 INFO  TableMetadata:69 - HHH000108: Foreign keys: [fk_7h0c67qc76kyvdw5bh133juwt, fk_iros3248nihl12l5a62wi7b17]
+2015-05-13 17:56:38 INFO  TableMetadata:70 - HHH000126: Indexes: [uk_7h0c67qc76kyvdw5bh133juwt, fk_iros3248nihl12l5a62wi7b17]
+2015-05-13 17:56:38 INFO  TableMetadata:66 - HHH000261: Table found: easyscrum.sprint
+2015-05-13 17:56:38 INFO  TableMetadata:67 - HHH000037: Columns: [idsprint, datedebut, sprintname, datefin, status, id_project]
+2015-05-13 17:56:38 INFO  TableMetadata:69 - HHH000108: Foreign keys: [fk_iqrhukmxrsve60hs6m4lbl8b5]
+2015-05-13 17:56:38 INFO  TableMetadata:70 - HHH000126: Indexes: [fk_iqrhukmxrsve60hs6m4lbl8b5, primary]
+2015-05-13 17:56:38 INFO  TableMetadata:66 - HHH000261: Table found: easyscrum.user
+2015-05-13 17:56:38 INFO  TableMetadata:67 - HHH000037: Columns: [iduser, datemajtech, photo, telephone, login, type, nom, speciality, password, adresse, datecreatech, prenom, email]
+2015-05-13 17:56:38 INFO  TableMetadata:69 - HHH000108: Foreign keys: []
+2015-05-13 17:56:38 INFO  TableMetadata:70 - HHH000126: Indexes: [primary]
+2015-05-13 17:56:38 INFO  SchemaUpdate:242 - HHH000232: Schema update complete
+2015-05-13 17:56:38 INFO  ContextLoader:325 - Root WebApplicationContext: initialization completed in 4429 ms
+2015-05-13 17:56:39 INFO  DispatcherServlet:484 - FrameworkServlet 'dispatcher': initialization started
+2015-05-13 17:56:39 INFO  XmlWebApplicationContext:510 - Refreshing WebApplicationContext for namespace 'dispatcher-servlet': startup date [Wed May 13 17:56:39 WAT 2015]; parent: Root WebApplicationContext
+2015-05-13 17:56:39 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from ServletContext resource [/WEB-INF/dispatcher-servlet.xml]
+2015-05-13 17:56:39 INFO  SpringSecurityCoreVersion:58 - You are running with Spring Security Core 3.2.6.RELEASE
+2015-05-13 17:56:39 INFO  SecurityNamespaceHandler:75 - Spring Security 'config' module version is 3.2.6.RELEASE
+2015-05-13 17:56:39 INFO  GlobalMethodSecurityBeanDefinitionParser:163 - Using bean 'expressionHandler' as method ExpressionHandler implementation
+2015-05-13 17:56:39 INFO  AutowiredAnnotationBeanPostProcessor:153 - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2015-05-13 17:56:39 WARN  XmlWebApplicationContext:487 - Exception encountered during context initialization - cancelling refresh attempt
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'connectController': Injection of autowired dependencies failed; nested exception is org.springframework.beans.factory.BeanCreationException: Could not autowire field: private com.sqli.easyscrum.business.services.ProjectService com.sqli.easyscrum.web.controller.ConnectController.projectService; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'projectServiceImpl': Injection of autowired dependencies failed; nested exception is org.springframework.beans.factory.BeanCreationException: Could not autowire field: private com.sqli.easyscrum.business.services.BackLogService com.sqli.easyscrum.business.services.impl.ProjectServiceImpl.backLogService; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [com.sqli.easyscrum.business.services.BackLogService] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:334)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1202)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:537)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:476)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:303)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:299)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:194)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:755)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:757)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:480)
+	at org.springframework.web.servlet.FrameworkServlet.configureAndRefreshWebApplicationContext(FrameworkServlet.java:663)
+	at org.springframework.web.servlet.FrameworkServlet.createWebApplicationContext(FrameworkServlet.java:629)
+	at org.springframework.web.servlet.FrameworkServlet.createWebApplicationContext(FrameworkServlet.java:677)
+	at org.springframework.web.servlet.FrameworkServlet.initWebApplicationContext(FrameworkServlet.java:548)
+	at org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:489)
+	at org.springframework.web.servlet.HttpServletBean.init(HttpServletBean.java:136)
+	at javax.servlet.GenericServlet.init(GenericServlet.java:212)
+	at org.apache.catalina.core.StandardWrapper.loadServlet(StandardWrapper.java:1173)
+	at org.apache.catalina.core.StandardWrapper.load(StandardWrapper.java:993)
+	at org.apache.catalina.core.StandardContext.loadOnStartup(StandardContext.java:4350)
+	at org.apache.catalina.core.StandardContext.start(StandardContext.java:4659)
+	at org.apache.catalina.core.ContainerBase.start(ContainerBase.java:1045)
+	at org.apache.catalina.core.StandardHost.start(StandardHost.java:785)
+	at org.apache.catalina.core.ContainerBase.start(ContainerBase.java:1045)
+	at org.apache.catalina.core.StandardEngine.start(StandardEngine.java:445)
+	at org.apache.catalina.startup.Embedded.start(Embedded.java:825)
+	at org.codehaus.mojo.tomcat.AbstractRunMojo.startContainer(AbstractRunMojo.java:558)
+	at org.codehaus.mojo.tomcat.AbstractRunMojo.execute(AbstractRunMojo.java:255)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:133)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:208)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:153)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:145)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:108)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:76)
+	at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build(SingleThreadedBuilder.java:51)
+	at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:116)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:361)
+	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:155)
+	at org.apache.maven.cli.MavenCli.execute(MavenCli.java:584)
+	at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:213)
+	at org.apache.maven.cli.MavenCli.main(MavenCli.java:157)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:289)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:229)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:415)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:356)
+Caused by: org.springframework.beans.factory.BeanCreationException: Could not autowire field: private com.sqli.easyscrum.business.services.ProjectService com.sqli.easyscrum.web.controller.ConnectController.projectService; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'projectServiceImpl': Injection of autowired dependencies failed; nested exception is org.springframework.beans.factory.BeanCreationException: Could not autowire field: private com.sqli.easyscrum.business.services.BackLogService com.sqli.easyscrum.business.services.impl.ProjectServiceImpl.backLogService; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [com.sqli.easyscrum.business.services.BackLogService] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:561)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:88)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:331)
+	... 49 more
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'projectServiceImpl': Injection of autowired dependencies failed; nested exception is org.springframework.beans.factory.BeanCreationException: Could not autowire field: private com.sqli.easyscrum.business.services.BackLogService com.sqli.easyscrum.business.services.impl.ProjectServiceImpl.backLogService; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [com.sqli.easyscrum.business.services.BackLogService] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:334)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1202)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:537)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:476)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:303)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:299)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:194)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.findAutowireCandidates(DefaultListableBeanFactory.java:1120)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1044)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:942)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:533)
+	... 51 more
+Caused by: org.springframework.beans.factory.BeanCreationException: Could not autowire field: private com.sqli.easyscrum.business.services.BackLogService com.sqli.easyscrum.business.services.impl.ProjectServiceImpl.backLogService; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [com.sqli.easyscrum.business.services.BackLogService] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:561)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:88)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:331)
+	... 62 more
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [com.sqli.easyscrum.business.services.BackLogService] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoSuchBeanDefinitionException(DefaultListableBeanFactory.java:1301)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1047)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:942)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:533)
+	... 64 more
+2015-05-13 17:56:39 ERROR DispatcherServlet:497 - Context initialization failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'connectController': Injection of autowired dependencies failed; nested exception is org.springframework.beans.factory.BeanCreationException: Could not autowire field: private com.sqli.easyscrum.business.services.ProjectService com.sqli.easyscrum.web.controller.ConnectController.projectService; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'projectServiceImpl': Injection of autowired dependencies failed; nested exception is org.springframework.beans.factory.BeanCreationException: Could not autowire field: private com.sqli.easyscrum.business.services.BackLogService com.sqli.easyscrum.business.services.impl.ProjectServiceImpl.backLogService; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [com.sqli.easyscrum.business.services.BackLogService] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:334)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1202)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:537)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:476)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:303)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:299)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:194)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:755)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:757)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:480)
+	at org.springframework.web.servlet.FrameworkServlet.configureAndRefreshWebApplicationContext(FrameworkServlet.java:663)
+	at org.springframework.web.servlet.FrameworkServlet.createWebApplicationContext(FrameworkServlet.java:629)
+	at org.springframework.web.servlet.FrameworkServlet.createWebApplicationContext(FrameworkServlet.java:677)
+	at org.springframework.web.servlet.FrameworkServlet.initWebApplicationContext(FrameworkServlet.java:548)
+	at org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:489)
+	at org.springframework.web.servlet.HttpServletBean.init(HttpServletBean.java:136)
+	at javax.servlet.GenericServlet.init(GenericServlet.java:212)
+	at org.apache.catalina.core.StandardWrapper.loadServlet(StandardWrapper.java:1173)
+	at org.apache.catalina.core.StandardWrapper.load(StandardWrapper.java:993)
+	at org.apache.catalina.core.StandardContext.loadOnStartup(StandardContext.java:4350)
+	at org.apache.catalina.core.StandardContext.start(StandardContext.java:4659)
+	at org.apache.catalina.core.ContainerBase.start(ContainerBase.java:1045)
+	at org.apache.catalina.core.StandardHost.start(StandardHost.java:785)
+	at org.apache.catalina.core.ContainerBase.start(ContainerBase.java:1045)
+	at org.apache.catalina.core.StandardEngine.start(StandardEngine.java:445)
+	at org.apache.catalina.startup.Embedded.start(Embedded.java:825)
+	at org.codehaus.mojo.tomcat.AbstractRunMojo.startContainer(AbstractRunMojo.java:558)
+	at org.codehaus.mojo.tomcat.AbstractRunMojo.execute(AbstractRunMojo.java:255)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:133)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:208)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:153)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:145)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:108)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:76)
+	at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build(SingleThreadedBuilder.java:51)
+	at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:116)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:361)
+	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:155)
+	at org.apache.maven.cli.MavenCli.execute(MavenCli.java:584)
+	at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:213)
+	at org.apache.maven.cli.MavenCli.main(MavenCli.java:157)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:289)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:229)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:415)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:356)
+Caused by: org.springframework.beans.factory.BeanCreationException: Could not autowire field: private com.sqli.easyscrum.business.services.ProjectService com.sqli.easyscrum.web.controller.ConnectController.projectService; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'projectServiceImpl': Injection of autowired dependencies failed; nested exception is org.springframework.beans.factory.BeanCreationException: Could not autowire field: private com.sqli.easyscrum.business.services.BackLogService com.sqli.easyscrum.business.services.impl.ProjectServiceImpl.backLogService; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [com.sqli.easyscrum.business.services.BackLogService] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:561)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:88)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:331)
+	... 49 more
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'projectServiceImpl': Injection of autowired dependencies failed; nested exception is org.springframework.beans.factory.BeanCreationException: Could not autowire field: private com.sqli.easyscrum.business.services.BackLogService com.sqli.easyscrum.business.services.impl.ProjectServiceImpl.backLogService; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [com.sqli.easyscrum.business.services.BackLogService] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:334)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1202)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:537)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:476)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:303)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:299)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:194)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.findAutowireCandidates(DefaultListableBeanFactory.java:1120)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1044)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:942)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:533)
+	... 51 more
+Caused by: org.springframework.beans.factory.BeanCreationException: Could not autowire field: private com.sqli.easyscrum.business.services.BackLogService com.sqli.easyscrum.business.services.impl.ProjectServiceImpl.backLogService; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [com.sqli.easyscrum.business.services.BackLogService] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:561)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:88)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:331)
+	... 62 more
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [com.sqli.easyscrum.business.services.BackLogService] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoSuchBeanDefinitionException(DefaultListableBeanFactory.java:1301)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1047)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:942)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:533)
+	... 64 more
+2015-05-13 18:02:56 INFO  ContextLoader:285 - Root WebApplicationContext: initialization started
+2015-05-13 18:02:56 INFO  XmlWebApplicationContext:510 - Refreshing Root WebApplicationContext: startup date [Wed May 13 18:02:56 WAT 2015]; root of context hierarchy
+2015-05-13 18:02:56 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from ServletContext resource [/WEB-INF/applicationContext.xml]
+2015-05-13 18:02:56 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from URL [file:/D:/projects/easyscrum/easyscrumrepository/target/classes/datasource.xml]
+2015-05-13 18:02:56 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from ServletContext resource [/WEB-INF/supplies.xml]
+2015-05-13 18:02:57 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from URL [file:/D:/projects/easyscrum/easyscrumcore/target/classes/core.xml]
+2015-05-13 18:02:57 INFO  PropertyPlaceholderConfigurer:172 - Loading properties file from class path resource [jdbc.properties]
+2015-05-13 18:02:57 INFO  AutowiredAnnotationBeanPostProcessor:153 - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2015-05-13 18:02:57 INFO  LocalContainerEntityManagerFactoryBean:339 - Building JPA container EntityManagerFactory for persistence unit 'easyScrumPU'
+2015-05-13 18:02:57 INFO  LogHelper:46 - HHH000204: Processing PersistenceUnitInfo [
+	name: easyScrumPU
+	...]
+2015-05-13 18:02:57 INFO  Version:54 - HHH000412: Hibernate Core {4.3.5.Final}
+2015-05-13 18:02:57 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2015-05-13 18:02:57 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-05-13 18:02:58 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.4.Final}
+2015-05-13 18:02:58 INFO  Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-05-13 18:02:59 INFO  ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-05-13 18:02:59 INFO  Version:27 - HV000001: Hibernate Validator 5.1.3.Final
+2015-05-13 18:03:00 INFO  SchemaUpdate:182 - HHH000228: Running hbm2ddl schema update
+2015-05-13 18:03:00 INFO  SchemaUpdate:193 - HHH000102: Fetching database metadata
+2015-05-13 18:03:00 INFO  SchemaUpdate:205 - HHH000396: Updating schema
+2015-05-13 18:03:00 INFO  TableMetadata:66 - HHH000261: Table found: easyscrum.userstories
+2015-05-13 18:03:00 INFO  TableMetadata:67 - HHH000037: Columns: [libelle, idbacklog, idus]
+2015-05-13 18:03:00 INFO  TableMetadata:69 - HHH000108: Foreign keys: [fk_7oh3t8va7x4coighivljr7w04]
+2015-05-13 18:03:00 INFO  TableMetadata:70 - HHH000126: Indexes: [fk_7oh3t8va7x4coighivljr7w04, primary]
+2015-05-13 18:03:00 INFO  TableMetadata:66 - HHH000261: Table found: easyscrum.backlog
+2015-05-13 18:03:00 INFO  TableMetadata:67 - HHH000037: Columns: [contenue, idbacklog, dtpost, id_project]
+2015-05-13 18:03:00 INFO  TableMetadata:69 - HHH000108: Foreign keys: [fk_omkuao0dvus9r6n345lytvr96]
+2015-05-13 18:03:00 INFO  TableMetadata:70 - HHH000126: Indexes: [fk_omkuao0dvus9r6n345lytvr96, primary]
+2015-05-13 18:03:00 INFO  TableMetadata:66 - HHH000261: Table found: easyscrum.email
+2015-05-13 18:03:00 INFO  TableMetadata:67 - HHH000037: Columns: [idemail, dateenvoi, vue, text, title]
+2015-05-13 18:03:00 INFO  TableMetadata:69 - HHH000108: Foreign keys: []
+2015-05-13 18:03:00 INFO  TableMetadata:70 - HHH000126: Indexes: [primary]
+2015-05-13 18:03:00 INFO  TableMetadata:66 - HHH000261: Table found: easyscrum.email_user
+2015-05-13 18:03:00 INFO  TableMetadata:67 - HHH000037: Columns: [senderreciever_iduser, mails_idemail]
+2015-05-13 18:03:00 INFO  TableMetadata:69 - HHH000108: Foreign keys: [fk_jbvpc2wtw05bsmycud4i8pg82, fk_rk4rn6chqb23avbc24dww4n7r]
+2015-05-13 18:03:00 INFO  TableMetadata:70 - HHH000126: Indexes: [fk_jbvpc2wtw05bsmycud4i8pg82, fk_rk4rn6chqb23avbc24dww4n7r]
+2015-05-13 18:03:00 INFO  TableMetadata:66 - HHH000261: Table found: easyscrum.project
+2015-05-13 18:03:00 INFO  TableMetadata:67 - HHH000037: Columns: [iduser, cost, idsm, user_iduser, pstatus, description, langue, type, nom, tags, datedebut, company, datefin, daterouge, email]
+2015-05-13 18:03:00 INFO  TableMetadata:69 - HHH000108: Foreign keys: [fk_mysg1furm0tlasi7nrk6cduk6, fk_ca9pi7alys9sqsmm5pgnyu6fc]
+2015-05-13 18:03:00 INFO  TableMetadata:70 - HHH000126: Indexes: [fk_mysg1furm0tlasi7nrk6cduk6, primary, fk_ca9pi7alys9sqsmm5pgnyu6fc]
+2015-05-13 18:03:00 INFO  TableMetadata:66 - HHH000261: Table found: easyscrum.project_backlog
+2015-05-13 18:03:00 INFO  TableMetadata:67 - HHH000037: Columns: [project_idsm, backlogs_idbacklog]
+2015-05-13 18:03:00 INFO  TableMetadata:69 - HHH000108: Foreign keys: [fk_mn20yitq1jqygo38tssjcxwsg, fk_4819gutwbussmulpgrik0875a]
+2015-05-13 18:03:00 INFO  TableMetadata:70 - HHH000126: Indexes: [fk_mn20yitq1jqygo38tssjcxwsg, uk_4819gutwbussmulpgrik0875a]
+2015-05-13 18:03:00 INFO  TableMetadata:66 - HHH000261: Table found: easyscrum.project_sprint
+2015-05-13 18:03:00 INFO  TableMetadata:67 - HHH000037: Columns: [project_idsm, sprints_idsprint]
+2015-05-13 18:03:00 INFO  TableMetadata:69 - HHH000108: Foreign keys: [fk_7h0c67qc76kyvdw5bh133juwt, fk_iros3248nihl12l5a62wi7b17]
+2015-05-13 18:03:00 INFO  TableMetadata:70 - HHH000126: Indexes: [uk_7h0c67qc76kyvdw5bh133juwt, fk_iros3248nihl12l5a62wi7b17]
+2015-05-13 18:03:00 INFO  TableMetadata:66 - HHH000261: Table found: easyscrum.sprint
+2015-05-13 18:03:00 INFO  TableMetadata:67 - HHH000037: Columns: [idsprint, datedebut, sprintname, datefin, status, id_project]
+2015-05-13 18:03:00 INFO  TableMetadata:69 - HHH000108: Foreign keys: [fk_iqrhukmxrsve60hs6m4lbl8b5]
+2015-05-13 18:03:00 INFO  TableMetadata:70 - HHH000126: Indexes: [fk_iqrhukmxrsve60hs6m4lbl8b5, primary]
+2015-05-13 18:03:00 INFO  TableMetadata:66 - HHH000261: Table found: easyscrum.user
+2015-05-13 18:03:00 INFO  TableMetadata:67 - HHH000037: Columns: [iduser, datemajtech, photo, telephone, login, type, nom, speciality, password, adresse, datecreatech, prenom, email]
+2015-05-13 18:03:00 INFO  TableMetadata:69 - HHH000108: Foreign keys: []
+2015-05-13 18:03:00 INFO  TableMetadata:70 - HHH000126: Indexes: [primary]
+2015-05-13 18:03:00 INFO  SchemaUpdate:242 - HHH000232: Schema update complete
+2015-05-13 18:03:00 INFO  ContextLoader:325 - Root WebApplicationContext: initialization completed in 4418 ms
+2015-05-13 18:03:00 INFO  DispatcherServlet:484 - FrameworkServlet 'dispatcher': initialization started
+2015-05-13 18:03:00 INFO  XmlWebApplicationContext:510 - Refreshing WebApplicationContext for namespace 'dispatcher-servlet': startup date [Wed May 13 18:03:00 WAT 2015]; parent: Root WebApplicationContext
+2015-05-13 18:03:00 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from ServletContext resource [/WEB-INF/dispatcher-servlet.xml]
+2015-05-13 18:03:01 INFO  SpringSecurityCoreVersion:58 - You are running with Spring Security Core 3.2.6.RELEASE
+2015-05-13 18:03:01 INFO  SecurityNamespaceHandler:75 - Spring Security 'config' module version is 3.2.6.RELEASE
+2015-05-13 18:03:01 INFO  GlobalMethodSecurityBeanDefinitionParser:163 - Using bean 'expressionHandler' as method ExpressionHandler implementation
+2015-05-13 18:03:01 INFO  AutowiredAnnotationBeanPostProcessor:153 - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2015-05-13 18:03:01 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/ManageUsers],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.AdminSpaceController.getwelcomePage()
+2015-05-13 18:03:01 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/connect/Present],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.ConnectController.getsingleprojectPage(int,javax.servlet.http.HttpSession)
+2015-05-13 18:03:01 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/CheckProjects],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.DeveloperController.getCommonPage()
+2015-05-13 18:03:01 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/getnewProject],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.DeveloperController.getnewProjectPage()
+2015-05-13 18:03:01 INFO  RequestMappingHandlerMapping:220 - Mapped "{[//news],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.HomePageController.getwelcomePage()
+2015-05-13 18:03:01 INFO  RequestMappingHandlerMapping:220 - Mapped "{[//home],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.HomePageController.getCommonPage(javax.servlet.http.HttpSession)
+2015-05-13 18:03:01 INFO  RequestMappingHandlerMapping:220 - Mapped "{[//deconnect],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.HomePageController.DeconnectPage(javax.servlet.http.HttpSession)
+2015-05-13 18:03:01 INFO  RequestMappingHandlerMapping:220 - Mapped "{[//start],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.HomePageController.getstartPage()
+2015-05-13 18:03:01 INFO  RequestMappingHandlerMapping:220 - Mapped "{[//about],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.HomePageController.getaboutPage()
+2015-05-13 18:03:01 INFO  RequestMappingHandlerMapping:220 - Mapped "{[//services],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.HomePageController.getservicesPage()
+2015-05-13 18:03:01 INFO  RequestMappingHandlerMapping:220 - Mapped "{[//contact],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.HomePageController.getcontactPage()
+2015-05-13 18:03:01 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/ManageProjects],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.ProjectOwnerController.getCommonPage(javax.servlet.http.HttpSession)
+2015-05-13 18:03:01 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/newProject],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.ProjectOwnerController.getWizardPage()
+2015-05-13 18:03:01 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/CreatProjects],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.ProjectOwnerController.getresultPage(com.sqli.easyscrum.web.controller.FormProjectObject,javax.servlet.http.HttpSession)
+2015-05-13 18:03:01 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/ManageSprints],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.ProjectOwnerController.getSprintsPage(javax.servlet.http.HttpSession)
+2015-05-13 18:03:01 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/singleSprint],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.ProjectOwnerController.getOneSprintPage(int,int,javax.servlet.http.HttpSession)
+2015-05-13 18:03:01 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/projectbacklog],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.ProjectOwnerController.getbacklogPage(javax.servlet.http.HttpSession,int)
+2015-05-13 18:03:01 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/project],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.ProjectOwnerController.getsingleprojectPage(int,javax.servlet.http.HttpSession)
+2015-05-13 18:03:01 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/allSprints],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.ProjectOwnerController.getSprintsprojectPage(int,javax.servlet.http.HttpSession)
+2015-05-13 18:03:01 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/ProjectsManaging],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.SmasterController.getCommonPage()
+2015-05-13 18:03:01 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/newSprint],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.SmasterController.getnewSprintPage()
+2015-05-13 18:03:01 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/register],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.UserSpaceController.getwelcomePage()
+2015-05-13 18:03:01 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/profil],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.UserSpaceController.getloginPage(com.sqli.easyscrum.web.controller.FormObject,javax.servlet.http.HttpSession)
+2015-05-13 18:03:01 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/inbox],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.UserSpaceController.getinboxPage(javax.servlet.http.HttpSession)
+2015-05-13 18:03:01 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/mail],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.UserSpaceController.getmessagePage(javax.servlet.http.HttpSession)
+2015-05-13 18:03:01 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/Account],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.UserSpaceController.getaccountPage(javax.servlet.http.HttpSession,int)
+2015-05-13 18:03:01 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/newmail],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.UserSpaceController.getnewmessagePage(javax.servlet.http.HttpSession)
+2015-05-13 18:03:02 INFO  RequestMappingHandlerAdapter:518 - Looking for @ControllerAdvice: WebApplicationContext for namespace 'dispatcher-servlet': startup date [Wed May 13 18:03:00 WAT 2015]; parent: Root WebApplicationContext
+2015-05-13 18:03:02 INFO  RequestMappingHandlerAdapter:518 - Looking for @ControllerAdvice: WebApplicationContext for namespace 'dispatcher-servlet': startup date [Wed May 13 18:03:00 WAT 2015]; parent: Root WebApplicationContext
+2015-05-13 18:03:02 INFO  SimpleUrlHandlerMapping:301 - Root mapping to handler of type [class org.springframework.web.servlet.mvc.ParameterizableViewController]
+2015-05-13 18:03:02 INFO  SimpleUrlHandlerMapping:314 - Mapped URL path [/404] onto handler of type [class org.springframework.web.servlet.mvc.ParameterizableViewController]
+2015-05-13 18:03:02 INFO  SimpleUrlHandlerMapping:314 - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2015-05-13 18:03:02 INFO  DispatcherServlet:503 - FrameworkServlet 'dispatcher': initialization completed in 1654 ms
+2015-05-13 18:04:20 INFO  ContextLoader:285 - Root WebApplicationContext: initialization started
+2015-05-13 18:04:20 INFO  XmlWebApplicationContext:510 - Refreshing Root WebApplicationContext: startup date [Wed May 13 18:04:20 WAT 2015]; root of context hierarchy
+2015-05-13 18:04:20 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from ServletContext resource [/WEB-INF/applicationContext.xml]
+2015-05-13 18:04:20 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from URL [file:/D:/projects/easyscrum/easyscrumrepository/target/classes/datasource.xml]
+2015-05-13 18:04:20 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from ServletContext resource [/WEB-INF/supplies.xml]
+2015-05-13 18:04:20 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from URL [file:/D:/projects/easyscrum/easyscrumcore/target/classes/core.xml]
+2015-05-13 18:04:21 INFO  PropertyPlaceholderConfigurer:172 - Loading properties file from class path resource [jdbc.properties]
+2015-05-13 18:04:21 INFO  AutowiredAnnotationBeanPostProcessor:153 - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2015-05-13 18:04:21 INFO  LocalContainerEntityManagerFactoryBean:339 - Building JPA container EntityManagerFactory for persistence unit 'easyScrumPU'
+2015-05-13 18:04:21 INFO  LogHelper:46 - HHH000204: Processing PersistenceUnitInfo [
+	name: easyScrumPU
+	...]
+2015-05-13 18:04:21 INFO  Version:54 - HHH000412: Hibernate Core {4.3.5.Final}
+2015-05-13 18:04:21 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2015-05-13 18:04:21 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-05-13 18:04:21 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.4.Final}
+2015-05-13 18:04:22 INFO  Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-05-13 18:04:23 INFO  ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-05-13 18:04:23 INFO  Version:27 - HV000001: Hibernate Validator 5.1.3.Final
+2015-05-13 18:04:24 INFO  SchemaUpdate:182 - HHH000228: Running hbm2ddl schema update
+2015-05-13 18:04:24 INFO  SchemaUpdate:193 - HHH000102: Fetching database metadata
+2015-05-13 18:04:24 INFO  SchemaUpdate:205 - HHH000396: Updating schema
+2015-05-13 18:04:24 INFO  TableMetadata:66 - HHH000261: Table found: easyscrum.userstories
+2015-05-13 18:04:24 INFO  TableMetadata:67 - HHH000037: Columns: [libelle, idbacklog, idus]
+2015-05-13 18:04:24 INFO  TableMetadata:69 - HHH000108: Foreign keys: [fk_7oh3t8va7x4coighivljr7w04]
+2015-05-13 18:04:24 INFO  TableMetadata:70 - HHH000126: Indexes: [fk_7oh3t8va7x4coighivljr7w04, primary]
+2015-05-13 18:04:24 INFO  TableMetadata:66 - HHH000261: Table found: easyscrum.backlog
+2015-05-13 18:04:24 INFO  TableMetadata:67 - HHH000037: Columns: [contenue, idbacklog, dtpost, id_project]
+2015-05-13 18:04:24 INFO  TableMetadata:69 - HHH000108: Foreign keys: [fk_omkuao0dvus9r6n345lytvr96]
+2015-05-13 18:04:24 INFO  TableMetadata:70 - HHH000126: Indexes: [fk_omkuao0dvus9r6n345lytvr96, primary]
+2015-05-13 18:04:24 INFO  TableMetadata:66 - HHH000261: Table found: easyscrum.email
+2015-05-13 18:04:24 INFO  TableMetadata:67 - HHH000037: Columns: [idemail, dateenvoi, vue, text, title]
+2015-05-13 18:04:24 INFO  TableMetadata:69 - HHH000108: Foreign keys: []
+2015-05-13 18:04:24 INFO  TableMetadata:70 - HHH000126: Indexes: [primary]
+2015-05-13 18:04:24 INFO  TableMetadata:66 - HHH000261: Table found: easyscrum.email_user
+2015-05-13 18:04:24 INFO  TableMetadata:67 - HHH000037: Columns: [senderreciever_iduser, mails_idemail]
+2015-05-13 18:04:24 INFO  TableMetadata:69 - HHH000108: Foreign keys: [fk_jbvpc2wtw05bsmycud4i8pg82, fk_rk4rn6chqb23avbc24dww4n7r]
+2015-05-13 18:04:24 INFO  TableMetadata:70 - HHH000126: Indexes: [fk_jbvpc2wtw05bsmycud4i8pg82, fk_rk4rn6chqb23avbc24dww4n7r]
+2015-05-13 18:04:24 INFO  TableMetadata:66 - HHH000261: Table found: easyscrum.project
+2015-05-13 18:04:24 INFO  TableMetadata:67 - HHH000037: Columns: [iduser, cost, idsm, user_iduser, pstatus, description, langue, type, nom, tags, datedebut, company, datefin, daterouge, email]
+2015-05-13 18:04:24 INFO  TableMetadata:69 - HHH000108: Foreign keys: [fk_mysg1furm0tlasi7nrk6cduk6, fk_ca9pi7alys9sqsmm5pgnyu6fc]
+2015-05-13 18:04:24 INFO  TableMetadata:70 - HHH000126: Indexes: [fk_mysg1furm0tlasi7nrk6cduk6, primary, fk_ca9pi7alys9sqsmm5pgnyu6fc]
+2015-05-13 18:04:24 INFO  TableMetadata:66 - HHH000261: Table found: easyscrum.project_backlog
+2015-05-13 18:04:24 INFO  TableMetadata:67 - HHH000037: Columns: [project_idsm, backlogs_idbacklog]
+2015-05-13 18:04:24 INFO  TableMetadata:69 - HHH000108: Foreign keys: [fk_mn20yitq1jqygo38tssjcxwsg, fk_4819gutwbussmulpgrik0875a]
+2015-05-13 18:04:24 INFO  TableMetadata:70 - HHH000126: Indexes: [fk_mn20yitq1jqygo38tssjcxwsg, uk_4819gutwbussmulpgrik0875a]
+2015-05-13 18:04:24 INFO  TableMetadata:66 - HHH000261: Table found: easyscrum.project_sprint
+2015-05-13 18:04:24 INFO  TableMetadata:67 - HHH000037: Columns: [project_idsm, sprints_idsprint]
+2015-05-13 18:04:24 INFO  TableMetadata:69 - HHH000108: Foreign keys: [fk_7h0c67qc76kyvdw5bh133juwt, fk_iros3248nihl12l5a62wi7b17]
+2015-05-13 18:04:24 INFO  TableMetadata:70 - HHH000126: Indexes: [uk_7h0c67qc76kyvdw5bh133juwt, fk_iros3248nihl12l5a62wi7b17]
+2015-05-13 18:04:24 INFO  TableMetadata:66 - HHH000261: Table found: easyscrum.sprint
+2015-05-13 18:04:24 INFO  TableMetadata:67 - HHH000037: Columns: [idsprint, datedebut, sprintname, datefin, status, id_project]
+2015-05-13 18:04:24 INFO  TableMetadata:69 - HHH000108: Foreign keys: [fk_iqrhukmxrsve60hs6m4lbl8b5]
+2015-05-13 18:04:24 INFO  TableMetadata:70 - HHH000126: Indexes: [fk_iqrhukmxrsve60hs6m4lbl8b5, primary]
+2015-05-13 18:04:24 INFO  TableMetadata:66 - HHH000261: Table found: easyscrum.user
+2015-05-13 18:04:24 INFO  TableMetadata:67 - HHH000037: Columns: [iduser, datemajtech, photo, telephone, login, type, nom, speciality, password, adresse, datecreatech, prenom, email]
+2015-05-13 18:04:24 INFO  TableMetadata:69 - HHH000108: Foreign keys: []
+2015-05-13 18:04:24 INFO  TableMetadata:70 - HHH000126: Indexes: [primary]
+2015-05-13 18:04:24 INFO  SchemaUpdate:242 - HHH000232: Schema update complete
+2015-05-13 18:04:24 INFO  ContextLoader:325 - Root WebApplicationContext: initialization completed in 4724 ms
+2015-05-13 18:04:24 INFO  DispatcherServlet:484 - FrameworkServlet 'dispatcher': initialization started
+2015-05-13 18:04:24 INFO  XmlWebApplicationContext:510 - Refreshing WebApplicationContext for namespace 'dispatcher-servlet': startup date [Wed May 13 18:04:24 WAT 2015]; parent: Root WebApplicationContext
+2015-05-13 18:04:24 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from ServletContext resource [/WEB-INF/dispatcher-servlet.xml]
+2015-05-13 18:04:25 INFO  SpringSecurityCoreVersion:58 - You are running with Spring Security Core 3.2.6.RELEASE
+2015-05-13 18:04:25 INFO  SecurityNamespaceHandler:75 - Spring Security 'config' module version is 3.2.6.RELEASE
+2015-05-13 18:04:25 INFO  GlobalMethodSecurityBeanDefinitionParser:163 - Using bean 'expressionHandler' as method ExpressionHandler implementation
+2015-05-13 18:04:25 INFO  AutowiredAnnotationBeanPostProcessor:153 - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2015-05-13 18:04:25 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/ManageUsers],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.AdminSpaceController.getwelcomePage()
+2015-05-13 18:04:25 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/connect/Present],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.ConnectController.getsingleprojectPage(int,javax.servlet.http.HttpSession)
+2015-05-13 18:04:25 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/CheckProjects],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.DeveloperController.getCommonPage()
+2015-05-13 18:04:25 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/getnewProject],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.DeveloperController.getnewProjectPage()
+2015-05-13 18:04:25 INFO  RequestMappingHandlerMapping:220 - Mapped "{[//news],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.HomePageController.getwelcomePage()
+2015-05-13 18:04:25 INFO  RequestMappingHandlerMapping:220 - Mapped "{[//home],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.HomePageController.getCommonPage(javax.servlet.http.HttpSession)
+2015-05-13 18:04:25 INFO  RequestMappingHandlerMapping:220 - Mapped "{[//deconnect],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.HomePageController.DeconnectPage(javax.servlet.http.HttpSession)
+2015-05-13 18:04:25 INFO  RequestMappingHandlerMapping:220 - Mapped "{[//start],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.HomePageController.getstartPage()
+2015-05-13 18:04:25 INFO  RequestMappingHandlerMapping:220 - Mapped "{[//about],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.HomePageController.getaboutPage()
+2015-05-13 18:04:25 INFO  RequestMappingHandlerMapping:220 - Mapped "{[//services],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.HomePageController.getservicesPage()
+2015-05-13 18:04:25 INFO  RequestMappingHandlerMapping:220 - Mapped "{[//contact],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.HomePageController.getcontactPage()
+2015-05-13 18:04:25 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/ManageProjects],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.ProjectOwnerController.getCommonPage(javax.servlet.http.HttpSession)
+2015-05-13 18:04:25 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/newProject],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.ProjectOwnerController.getWizardPage()
+2015-05-13 18:04:25 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/CreatProjects],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.ProjectOwnerController.getresultPage(com.sqli.easyscrum.web.controller.FormProjectObject,javax.servlet.http.HttpSession)
+2015-05-13 18:04:25 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/ManageSprints],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.ProjectOwnerController.getSprintsPage(javax.servlet.http.HttpSession)
+2015-05-13 18:04:25 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/singleSprint],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.ProjectOwnerController.getOneSprintPage(int,int,javax.servlet.http.HttpSession)
+2015-05-13 18:04:25 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/projectbacklog],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.ProjectOwnerController.getbacklogPage(javax.servlet.http.HttpSession,int)
+2015-05-13 18:04:25 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/project],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.ProjectOwnerController.getsingleprojectPage(int,javax.servlet.http.HttpSession)
+2015-05-13 18:04:25 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/allSprints],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.ProjectOwnerController.getSprintsprojectPage(int,javax.servlet.http.HttpSession)
+2015-05-13 18:04:25 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/ProjectsManaging],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.SmasterController.getCommonPage()
+2015-05-13 18:04:25 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/newSprint],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.SmasterController.getnewSprintPage()
+2015-05-13 18:04:25 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/register],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.UserSpaceController.getwelcomePage()
+2015-05-13 18:04:25 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/profil],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.UserSpaceController.getloginPage(com.sqli.easyscrum.web.controller.FormObject,javax.servlet.http.HttpSession)
+2015-05-13 18:04:25 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/inbox],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.UserSpaceController.getinboxPage(javax.servlet.http.HttpSession)
+2015-05-13 18:04:25 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/mail],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.UserSpaceController.getmessagePage(javax.servlet.http.HttpSession)
+2015-05-13 18:04:25 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/Account],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.UserSpaceController.getaccountPage(javax.servlet.http.HttpSession,int)
+2015-05-13 18:04:25 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/newmail],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.UserSpaceController.getnewmessagePage(javax.servlet.http.HttpSession)
+2015-05-13 18:04:26 INFO  RequestMappingHandlerAdapter:518 - Looking for @ControllerAdvice: WebApplicationContext for namespace 'dispatcher-servlet': startup date [Wed May 13 18:04:24 WAT 2015]; parent: Root WebApplicationContext
+2015-05-13 18:04:26 INFO  RequestMappingHandlerAdapter:518 - Looking for @ControllerAdvice: WebApplicationContext for namespace 'dispatcher-servlet': startup date [Wed May 13 18:04:24 WAT 2015]; parent: Root WebApplicationContext
+2015-05-13 18:04:26 INFO  SimpleUrlHandlerMapping:301 - Root mapping to handler of type [class org.springframework.web.servlet.mvc.ParameterizableViewController]
+2015-05-13 18:04:26 INFO  SimpleUrlHandlerMapping:314 - Mapped URL path [/404] onto handler of type [class org.springframework.web.servlet.mvc.ParameterizableViewController]
+2015-05-13 18:04:26 INFO  SimpleUrlHandlerMapping:314 - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2015-05-13 18:04:26 INFO  DispatcherServlet:503 - FrameworkServlet 'dispatcher': initialization completed in 1706 ms
+2015-05-13 18:04:36 INFO  controller:48 - Testing persistance
+2015-05-13 18:04:36 INFO  controller:50 - SQLI
+2015-05-13 18:04:36 INFO  controller:58 - End Testing persistance
+2015-05-13 18:04:36 INFO  controller:59 - Received request to show common page
+2015-05-13 18:05:04 INFO  controller:48 - Testing persistance
+2015-05-13 18:05:04 INFO  controller:50 - SQLI
+2015-05-13 18:05:04 INFO  controller:58 - End Testing persistance
+2015-05-13 18:05:04 INFO  controller:59 - Received request to show common page
+2015-05-13 18:05:54 INFO  controller:48 - Testing persistance
+2015-05-13 18:05:54 INFO  controller:50 - SQLI
+2015-05-13 18:05:54 INFO  controller:58 - End Testing persistance
+2015-05-13 18:05:54 INFO  controller:59 - Received request to show common page

@@ -1,5 +1,15 @@
 package com.sqli.easyscrum.web.controller;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+import com.sqli.easyscrum.entity.Backlog;
+import com.sqli.easyscrum.entity.Project;
+import com.sqli.easyscrum.entity.User;
+import com.sqli.easyscrum.entity.UserStorie;
+
 public class FormProjectObject {
 	
 	private String nomp;
@@ -108,6 +118,25 @@ public class FormProjectObject {
 
 	public void setNom(String nomp) {
 		this.nomp = nomp;
+	}
+	public Project toProject(User user)
+	{
+		List<UserStorie> lus = new ArrayList<UserStorie>();
+		UserStorie us=new UserStorie(2, this.getUstext());
+
+		List<Backlog> lbls = new ArrayList<Backlog>();
+		Backlog newback = new Backlog(1, this.getBacklogtitle(), "22/12/2014");
+		
+		us.setBacklog(newback);
+		lus.add(us);
+		
+		newback.setStories(lus);
+		lbls.add(newback);
+		
+		Project prj = new Project( this.getNom(), this.getSel2(), this.getSel1(), this.getDescription(), this.getTags(), this.getCost(), this.getCompany(), this.getEmail(), "12/12/12", "getting started", "today", "--");
+		//prj.setBacklogs(lbls);
+		prj.setUser(user);
+		return prj;
 	}
 	
 }

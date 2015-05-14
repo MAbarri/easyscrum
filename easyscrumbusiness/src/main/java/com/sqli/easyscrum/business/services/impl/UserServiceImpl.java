@@ -57,6 +57,7 @@ public class UserServiceImpl extends GenericServiceImpl<User, Integer> implement
 	public List<User> findUserByLogin(String login) {
 		return userDao.findWithNamedQuery("findByLogin", by("login",login).parameters());
 	}
+
 	
 
 }

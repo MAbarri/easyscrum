@@ -1,7 +1,7 @@
 package com.sqli.easyscrum.entity;
 
 
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,11 +17,11 @@ import javax.persistence.Table;
 @Table(name = "project")
 public class Project {
 
-    public Set<Sprint> getSprints() {
+    public List<Sprint> getSprints() {
 		return sprints;
 	}
 
-	public void setSprints(Set<Sprint> sprints) {
+	public void setSprints(List<Sprint> sprints) {
 		this.sprints = sprints;
 	}
 
@@ -67,16 +67,16 @@ public class Project {
     private String status;
 	
 	@OneToMany
-	private Set<Sprint> sprints;
+	private List<Sprint> sprints;
 	
 	@OneToMany
-	private Set<Backlog> backlogs;
+	private List<Backlog> backlogs;
 	
-	public Set<Backlog> getBacklogs() {
+	public List<Backlog> getBacklogs() {
 		return backlogs;
 	}
 
-	public void setBacklogs(Set<Backlog> backlogs) {
+	public void setBacklogs(List<Backlog> backlogs) {
 		this.backlogs = backlogs;
 	}
 
@@ -197,9 +197,8 @@ public class Project {
 	public void setDateFin(String dateFin) {
 		this.dateFin = dateFin;
 	}
-	public Project(int num,String nom ,String Langue ,String Type ,String Desc ,String Tags ,String Cost ,String Company ,String Email ,String DeadLine ,String Status,String dtd,String Dtf)
+	public Project(String nom ,String Langue ,String Type ,String Desc ,String Tags ,String Cost ,String Company ,String Email ,String DeadLine ,String Status,String dtd,String Dtf)
 	{
-		this.projectId=num;
 		this.nomproject=nom;
 		this.company=Company;
 		this.cost=Cost;

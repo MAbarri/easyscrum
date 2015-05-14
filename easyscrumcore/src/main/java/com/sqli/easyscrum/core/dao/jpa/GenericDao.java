@@ -29,4 +29,5 @@ public interface GenericDao<M, I extends Serializable> {
 
 	List<M> find(Map<String, ? extends Object> parameters);
 
+
 }

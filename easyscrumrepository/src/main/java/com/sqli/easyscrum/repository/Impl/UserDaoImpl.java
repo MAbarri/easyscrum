@@ -24,4 +24,5 @@ public class UserDaoImpl extends GenericDaoImpl<User,Integer> implements UserDao
 		return em;
 	}
 
+
 }

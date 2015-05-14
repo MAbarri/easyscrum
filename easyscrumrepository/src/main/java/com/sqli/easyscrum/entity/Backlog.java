@@ -1,6 +1,6 @@
 package com.sqli.easyscrum.entity;
 
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -21,12 +21,12 @@ public class Backlog {
 	private String description;
 	
 	@OneToMany(mappedBy="backlog")
-    private Set<UserStorie> stories;
+    private List<UserStorie> stories;
 	
-	public Set<UserStorie> getStories() {
+	public List<UserStorie> getStories() {
 		return stories;
 	}
-	public void setStories(Set<UserStorie> stories) {
+	public void setStories(List<UserStorie> stories) {
 		this.stories = stories;
 	}
 	public Project getProjet() {

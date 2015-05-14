@@ -33,7 +33,7 @@ public abstract class GenericDaoImpl<M,I extends Serializable> implements Generi
     public void create(M entity) {
 	getEntityManager().persist(entity);
     }
-
+    
     @Override
     public M edit(M entity) {
 	return getEntityManager().merge(entity);

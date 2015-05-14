@@ -16,7 +16,7 @@ public class UserStorie {
 	
 	@Id
 	@Column(name="IdUS")
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idus;
 	
 	@Column(name="Libelle")
@@ -36,9 +36,8 @@ public class UserStorie {
 	{
 		
 	}
-	public UserStorie(int id,String desc)
+	public UserStorie(String desc)
 	{
-		this.idus=id;
 		this.speech=desc;
 	}
 	public int getIdus() {

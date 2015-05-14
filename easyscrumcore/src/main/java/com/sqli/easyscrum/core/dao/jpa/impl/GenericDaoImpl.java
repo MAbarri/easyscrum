@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
@@ -12,8 +13,11 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import javax.persistence.metamodel.EntityType;
-import com.sqli.easyscrum.core.dao.jpa.GenericDao;
 
+import org.springframework.transaction.annotation.Transactional;
+
+import com.sqli.easyscrum.core.dao.jpa.GenericDao;
+@Transactional
 public abstract class GenericDaoImpl<M,I extends Serializable> implements GenericDao<M,I>{
 
 	private Class<M> entityClass;
@@ -30,6 +34,7 @@ public abstract class GenericDaoImpl<M,I extends Serializable> implements Generi
     protected abstract EntityManager getEntityManager();
 
     @Override
+    
     public void create(M entity) {
 	getEntityManager().persist(entity);
     }

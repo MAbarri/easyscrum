@@ -11,7 +11,7 @@ public class Backlog {
 	
 	@Id
 	@Column(name="IdBackLog")
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idback;
 	
 	@Column(name="Dtpost")
@@ -43,9 +43,8 @@ public class Backlog {
 	{
 		
 	}
-	public Backlog(int id,String desc,String date)
+	public Backlog(String desc,String date)
 	{
-		this.idback=id;
 		this.description=desc;
 		this.dtPost=date;
 	}

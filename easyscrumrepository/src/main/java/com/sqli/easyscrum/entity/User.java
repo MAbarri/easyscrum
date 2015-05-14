@@ -18,12 +18,12 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "user")
-public class User extends BaseEntity implements Serializable {
+public class User implements Serializable {
 
 	private static final long serialVersionUID = 1L;
     @Id
     @Column(name = "iduser")
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer userId;
     
     public Integer getUserId() {
@@ -196,8 +196,7 @@ public class User extends BaseEntity implements Serializable {
         this.userId = userId;
     }
 
-    public User(Integer userId, String nom, String prenom , String photo, String adresse, Boolean actif, String email, String login,String pass,int tp) {
-        this.userId = userId;
+    public User(String nom, String prenom , String photo, String adresse, Boolean actif, String email, String login,String pass,int tp) {
         this.adresse=adresse;
         this.nom=nom;
         this.prenom=prenom;

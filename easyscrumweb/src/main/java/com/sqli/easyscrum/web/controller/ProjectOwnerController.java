@@ -73,11 +73,12 @@ public class ProjectOwnerController {
 			
 			List<User> results = userService.findUserByLogin(session.getAttribute("login").toString() );
 			User resu=results.get(0);
+					
 			
 			Project result = fm.toProject(resu);
 			//List<Backlog> bklg1 = result.getBacklogs();
 			//usService.persist( bklg1.get(0).getStories().get(0));
-			projectService.persist(result);
+			projectService.save(result);
 			
 			logger.info("Project Created Successfully");
 			modelAndView.setViewName("redirect:ManageProjects");

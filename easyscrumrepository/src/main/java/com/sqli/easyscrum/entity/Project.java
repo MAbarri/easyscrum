@@ -27,7 +27,7 @@ public class Project {
 
 	@Id
     @Column(name = "idSM")
-    @GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer projectId;
     
 	@Column(name = "nom")

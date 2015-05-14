@@ -26,9 +26,11 @@ public class ProjectServiceImpl extends GenericServiceImpl<Project,Integer> impl
 	}
 
 	public void save(Project prj) {
+		Project newprj=prj;
+		newprj.getBacklogs().clear();
+		projectdao.create(newprj);
 		for(Backlog i : (prj.getBacklogs()))
 				backLogService.save(i);
-		projectdao.create(prj);
 		
 	}
 

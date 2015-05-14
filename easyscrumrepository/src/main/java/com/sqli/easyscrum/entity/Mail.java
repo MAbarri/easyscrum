@@ -17,7 +17,7 @@ public class Mail {
 
 	@Id
 	@Column(name="idEmail")
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idmail;
 	
 	@Column(name="title")
@@ -38,10 +38,9 @@ public class Mail {
 
 	
 	public Mail(){}
-	public Mail(int id, String title,String text,String dateenvoi)
+	public Mail( String title,String text,String dateenvoi)
 	{
 		this.dateenvoi=dateenvoi;
-		this.idmail=id;
 		this.text=text;
 		this.title=title;
 		this.vue=false;

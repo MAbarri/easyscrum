@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class Sprint {
 	@Id
 	@Column(name="IdSprint")
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idsprint;
 	
 	@Column(name="Sprintname")
@@ -41,9 +41,8 @@ public class Sprint {
 	public Sprint(){
 		
 	}
-	public Sprint (int id,String name,String datedebut,String Datefin,String stat)
+	public Sprint (String name,String datedebut,String Datefin,String stat)
 	{
-		this.idsprint=id;
 		this.nom=name;
 		this.dtd=datedebut;
 		this.dtf=Datefin;

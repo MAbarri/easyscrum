@@ -14,7 +14,7 @@ import com.sqli.easyscrum.repository.UserDao;
 import static com.sqli.easyscrum.core.search.QueryParameter.by;
 
 
-@Service
+@Service("userService")
 public class UserServiceImpl extends GenericServiceImpl<User, Integer> implements UserService{
 	/*
 	@Autowired

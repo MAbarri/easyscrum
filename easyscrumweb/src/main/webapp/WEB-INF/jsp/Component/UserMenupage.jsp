@@ -38,7 +38,7 @@
 						<li><a href="#">Favorited</a></li>
 						<li><a href="#">Settings</a></li>
 						<li class="divider"></li>
-						<li><a href="/easyscrumweb/deconnect">Logout</a></li>
+						<li><a href="/easyscrumweb/home/logout">Logout</a></li>
 					</ul></li>
 			</ul>
 		</div>

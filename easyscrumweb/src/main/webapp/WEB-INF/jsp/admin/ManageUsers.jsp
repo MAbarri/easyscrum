@@ -36,14 +36,14 @@
 					</thead>
 					<tbody>
 					<c:forEach items="${userlist}" var="u">
-						<tr onclick="checkme(this)" >
-							<td><input type="checkbox" name="checkselect" id="dunno" value='<c:out value="${u.userId }"></c:out>' onclick="checkit()"/></td>
-							<td><c:out value="${u.nom }"></c:out></td>
-							<td><c:out value="${u.prenom }"></c:out></td>
-							<td><c:out value="${u.email }"></c:out></td>
-							<td><c:out value="${u.login }"></c:out></td>
-							<td><c:out value="${u.password }"></c:out></td>
-							<td><c:out value="${u.adresse }"></c:out></td>
+						<tr >
+							<td><input type="checkbox" name="checkselect" class="dunno" value='<c:out value="${u.userId }"></c:out>' onclick="checkit()"/></td>
+							<td id="nomatt<c:out value="${u.userId }"></c:out>"><c:out value="${u.nom }"></c:out></td>
+							<td id="prenomatt<c:out value="${u.userId }"></c:out>"><c:out value="${u.prenom }"></c:out></td>
+							<td id="emailatt<c:out value="${u.userId }"></c:out>"><c:out value="${u.email }"></c:out></td>
+							<td id="loginatt<c:out value="${u.userId }"></c:out>"><c:out value="${u.login }"></c:out></td>
+							<td id="passatt<c:out value="${u.userId }"></c:out>"><c:out value="${u.password }"></c:out></td>
+							<td id="adresseatt<c:out value="${u.userId }"></c:out>"><c:out value="${u.adresse }"></c:out></td>
 							</tr>
 					</c:forEach>
 					</tbody>
@@ -174,12 +174,13 @@
 					</div>
 					<!-- ---------------------------Update---------------------------- -->
 					<!-- Button trigger modal -->
-					<button type="button" class="btn btn-primary btn-lg"
-						data-toggle="modal" data-target="#myModal2" id="edit">Edit</button>
+					<button type="button" class="btn btn-primary btn-lg" id="edit" 
+										onclick="submitupdate()">Edit</button>
 
 					<!-- Modal -->
 					<div class="modal fade" id="myModal2" tabindex="-1" role="dialog"
 						aria-labelledby="myModalLabel" aria-hidden="true">
+						
 						<div class="modal-dialog">
 							<div class="modal-content">
 								<div class="modal-header">
@@ -190,11 +191,12 @@
 									<h4 class="modal-title" id="myModalLabel">modification
 										d'un utilisateur</h4>
 								</div>
+								<form action="updateAccount" method="post">
 								<div class="modal-body">
 									<div class="tab-content">
 										<div class="tab-pane active registersingltab"
 											id="tab_default_1">
-											<form action="addAccount" method="post">
+											
 												<table class="tableregister adminaddform">
 													<tr>
 														<td>&nbsp;</td>
@@ -217,7 +219,7 @@
 													</tr>
 													<tr>
 														<td><input type="password" class="form-control"
-															id="InputPassword1" placeholder="Password" required
+															id="updateInputPassword1" placeholder="Password" required
 															name="pass"></td>
 														<td>&nbsp;*</td>
 														<td><c:out value="${ListErreur['pass']}"></c:out></td>
@@ -227,10 +229,10 @@
 													</tr>
 													<tr>
 														<td><input type="text"
-															class="form-control inscriptioninput" id="ImputName"
+															class="form-control inscriptioninput" id="updateImputName"
 															placeholder="First name" required name="name"> <input
 															type="text" class="form-control inscriptioninput"
-															id="ImputLname" placeholder="Last name" name="lname"></td>
+															id="updateImputLname" placeholder="Last name" name="lname"></td>
 														<td>&nbsp;*</td>
 														<td><c:out value="${ListErreur['Fullname']}"></c:out></td>
 													</tr>
@@ -239,7 +241,7 @@
 													</tr>
 													<tr>
 														<td><input type="text" class="form-control"
-															id="ImputAdresse" placeholder="Adresse" name="adresse"></td>
+															id="updateImputAdresse" placeholder="Adresse" name="adresse"></td>
 														<td><c:out value="${ListErreur['adresse']}"></c:out></td>
 													</tr>
 													<tr>
@@ -247,12 +249,13 @@
 													</tr>
 													<tr>
 														<td><input type="text" class="form-control"
-															id="ImputAdresse" placeholder="Login" name="login"></td>
+															id="updateImputlogin" placeholder="Login" name="login"></td>
 														<td><c:out value="${ListErreur['login']}"></c:out></td>
 													</tr>
 
 													<tr>
-														<td>&nbsp;</td>
+														<td>&nbsp;<input type="text" class="form-control" style="display:none"
+															id="oldid" placeholder="Login" name="typestinrg"></td></td>
 													</tr>
 
 													<tr>
@@ -262,16 +265,16 @@
 
 												</table>
 												<input type="submit" id="updateform" style="display:none"/>
-											</form>
 										</div>
 									</div>
+									
 								</div>
 								<div class="modal-footer">
 									<button type="button" class="btn btn-default"
 										data-dismiss="modal">Cancel</button>
-									<button type="button" class="btn btn-primary"
-										onclick="submitupdate()">Update User</button>
+									<button type="submit" class="btn btn-primary">Update User</button>
 								</div>
+								</form>
 							</div>
 						</div>
 					</div>
@@ -292,13 +295,15 @@
 									<h4 class="modal-title" id="myModalLabel">Suppression</h4>
 								</div>
 								<div class="modal-body">
-									<center>Are You sure about deleting these accounts ?</center>
+								<form action="deleteAccounts" method="post">
+									<center>Are You sure about deleting these accounts with all their projects, mails and data ?</center>
+									<input type="text" id="hiddenIDs" style="display:none" name="typestinrg" />
 									<br> <br>
 									<button type="button" class="btn btn-default"
 										data-dismiss="modal">Cancel</button>
-									<button type="button" class="btn btn-primary"
-										onclick="submit()" data-dismiss="modal">Yup, they
+									<button type="submit" class="btn btn-primary">Yup, they
 										deserve</button>
+								</form>
 								</div>
 							</div>
 						</div>
@@ -340,6 +345,39 @@
 			}
 		}
 	</script>
+	
+	<script type="text/javascript">
+	$(document).ready(function() {
+		  $(".dunno").click(function() {
+			  var id;
+			  var delet="";
+			  if ($('.dunno:checked').length) {
+		          var chkId = '';
+		          $('.dunno:checked').each(function () {
+		        	  id=$(this).val();
+		        	  delet+=$(this).val()+";";
+		          });
+			
+		          
+			var aim = "#emailatt" +id;
+			$("#updateInputEmail1").val($(aim).text());
+			aim="#nomatt"+id;
+			$("#updateImputName").val($(aim).text());
+			aim="#prenomatt"+id;
+			$("#updateImputLname").val($(aim).text());
+			aim="#loginatt"+id;
+			$("#updateImputlogin").val($(aim).text());
+			aim="#passatt"+id;
+			$("#updateInputPassword1").val($(aim).text());
+			aim="#adresseatt"+id;
+			$("#updateImputAdresse").val($(aim).text());
+			$("#oldid").val(id);
+			$("#hiddenIDs").val(delet);
+			
+			  }
+		  });
+		});
+	</script>		
 	<script type="text/javascript">
 	$(document).ready(function() {
 		  $('tr').click(function(event) {
@@ -359,6 +397,25 @@
 				
 		}
 	</script>
+	<script type="text/javascript">
+		function submitupdate()
+		{
+			var count =document.querySelectorAll('input[type="checkbox"]:checked').length;
+			if(count==0)
+				{
+				alert("Please select a user !")
+				document.getElementById("edit").setAttribute("data-toggle", "");
+				document.getElementById("edit").setAttribute("data-target", "");
+				}
+			else if(count >0)
+				{
+				document.getElementById("edit").setAttribute("data-toggle", "modal");
+				document.getElementById("edit").setAttribute("data-target", "#myModal2");
+				}
+				
+		}
+	</script>
+	
 </content>
 </body>
 </html>	

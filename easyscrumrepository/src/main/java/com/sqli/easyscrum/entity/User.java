@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -39,13 +40,13 @@ public class User implements Serializable {
 		this.projects = projects;
 	}
 
-	@OneToMany(mappedBy="user")
+	@OneToMany(mappedBy="user",cascade = {CascadeType.PERSIST,CascadeType.MERGE})
     private List<Project> projects;
 	
-	@OneToMany(mappedBy="sender")
+	@OneToMany(mappedBy="sender",cascade = {CascadeType.PERSIST,CascadeType.MERGE})
     private Set<Mail> sentmails;
 	
-	@OneToMany(mappedBy="Reciever")
+	@OneToMany(mappedBy="Reciever",cascade = {CascadeType.PERSIST,CascadeType.MERGE})
     private Set<Mail> recievedmails;
  
 	public Set<Mail> getSentmails() {

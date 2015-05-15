@@ -105,13 +105,14 @@ body
 	background-color: #bbbbbb;
 	
     min-height: 800px;
+    width: 1600px;
 	
 }
 .stickfoot
 {
 	
     background-color: rgb(66, 79, 99);
-    width: 100%;
+    width: 1600px;
     height: 60px;
     bottom: 0px;
     position: fixed;
@@ -148,7 +149,7 @@ body
 {
 	
 	background-color: #bbbbbb;
-	width: 100%;
+    width: 1600px;
 	height: 100%;
 	position:absolute;
 }

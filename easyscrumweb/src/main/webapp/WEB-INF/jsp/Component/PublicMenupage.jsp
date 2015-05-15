@@ -30,14 +30,14 @@
 					</ul>
 					<ul class="collapse nav navbar-nav nav-collapse slide-down"
 						role="search" id="nav-collapse4">
-						<form class="navbar-form navbar-right form-inline memberli" role="form" method="post" action=/easyscrumweb/userspace/profil>
+						<form class="navbar-form navbar-right form-inline memberli" role="form" method="post" action="${pageContext.request.contextPath}/j_spring_security_check"/>
 			              <div class="form-group">
 			                <label class="sr-only" for="Email">Email</label>
-			                <input type="text" class="form-control" id="Email" placeholder="Email" name="login" autofocus required />
+			                <input type="text" class="form-control" id="Email" placeholder="Email" name="j_username" autofocus required />
 			              </div>
 			              <div class="form-group">
 			                <label class="sr-only" for="Password">Password</label>
-			                <input type="password" class="form-control has-error" id="Password" placeholder="Password" name="pass" required />
+			                <input type="password" class="form-control has-error" id="Password" placeholder="password" name="j_password" required />
 			              </div>
 			              <button type="submit" class="btn btn-success">Sign in</button>
 			              <div class="registerb"><a href="/easyscrumweb/userspace/register"><button type="button" class="btn btn-info">Sign up</button></a></div>

@@ -3,7 +3,7 @@
 <head>
 <title>Home Page</title>
 <link rel="stylesheet"
-	href="/easyscrumweb/resources/css/CostumeStyle.css">
+	href="${pageContext.request.contextPath}/resources/css/CostumeStyle.css">
 </head>
 <body>
 	<!-- Main navbar -->

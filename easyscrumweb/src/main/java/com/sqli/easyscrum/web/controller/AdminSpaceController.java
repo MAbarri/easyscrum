@@ -1,7 +1,6 @@
 package com.sqli.easyscrum.web.controller;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
@@ -9,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.sqli.easyscrum.business.services.UserService;
@@ -55,12 +53,78 @@ public class AdminSpaceController {
 				modelAndView.setViewName("#");
 			}catch(Exception ec)
 			{
-				User u = new User(fm.getLname(), fm.getLname(), "", fm.getAdresse(),
+				User u = new User(fm.getName(), fm.getLname(), "", fm.getAdresse(),
 						true, fm.getEmail(), fm.getLogin(), fm.getPass(), fm.getType());
 				userService.persist(u);
 				logger.info("User created");
 				modelAndView.setViewName("redirect:" + "ManageUsers");
 			}
+
+		return modelAndView;
+	}
+	
+	@RequestMapping(value = "/updateAccount")
+	public ModelAndView updateuser(FormObject fm) {
+
+		final ModelAndView modelAndView = new ModelAndView();
+
+		Map<String, String> erreurs = new HashMap<String, String>();
+			
+		boolean exist=false;
+		try{
+			if((userService.findUserByLogin(fm.getLogin()).get(0)!=null)
+					&&(userService.findUserByLogin(fm.getLogin()).get(0)!=userService.find(Integer.parseInt(fm.getTypestinrg()))))
+				exist=true;
+		}catch(Exception ff){}
+		
+				if(exist)
+				{
+				erreurs.put("login", " ce username existe déja !");
+				modelAndView.addObject("ListErreur", erreurs);
+				modelAndView.setViewName("#");
+				}
+				else
+				{
+				User u = new User(fm.getName(), fm.getLname(), "", fm.getAdresse(),
+						true, fm.getEmail(), fm.getLogin(), fm.getPass(), fm.getType());
+				u.setUserId(Integer.parseInt(fm.getTypestinrg()));
+				
+				userService.update(u);
+				logger.info("User updated");
+				modelAndView.setViewName("redirect:" + "ManageUsers");
+				}
+			
+
+		return modelAndView;
+	}
+	
+	
+	@RequestMapping(value = "/deleteAccounts")
+	public ModelAndView deleteusers(FormObject fm) {
+
+		final ModelAndView modelAndView = new ModelAndView();
+
+		Map<String, String> erreurs = new HashMap<String, String>();
+			
+		logger.info("Users delete started");
+		fm.setTypestinrg(fm.getTypestinrg().substring(0,fm.getTypestinrg().length()-1 ));
+		
+		String[] parts = fm.getTypestinrg().split(";");
+		for(int i=0;i<parts.length;i++)
+		{
+			try{
+			if(userService.find(Integer.parseInt(parts[i])).getLogin()!="admin")
+				userService.remove(Integer.parseInt(parts[i]));
+			else 
+				erreurs.put("major erreur", "You cannot delete the admin");
+			}catch(Exception cc){
+				erreurs.put("major erreur", "Errors");
+			}
+		}
+				
+				logger.info("Users deleted");
+				modelAndView.setViewName("redirect:" + "ManageUsers");
+			
 
 		return modelAndView;
 	}

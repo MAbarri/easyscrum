@@ -8,6 +8,8 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -79,7 +81,7 @@ public class UserSpaceController {
 	
 	
 	@RequestMapping(value = "/profil")
-	public ModelAndView getloginPage(FormObject fm,HttpSession session) {
+	public ModelAndView getloginPage(HttpSession session,Authentication authentication) {//FormObject fm,
 		final ModelAndView modelAndView = new ModelAndView();
 		
 		logger.info("Received request to show login page");
@@ -88,17 +90,18 @@ public class UserSpaceController {
 		List<User> results = null;
 		User result=null;
 		
+		UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+		//securitycontextholder.getcontext().getauthentication()
 		
 		
-			results = userService.findUserByLogin(fm.getLogin());
+		
+		
+			results = userService.findUserByLogin(userDetails.getUsername());
 			logger.info("Got the list");
 			result=results.get(0);
 		
-			if(result.getPassword().equals(fm.getPass()))
-					{
 						// affectation du session
-						session.setAttribute("login", fm.getLogin());
-						session.setAttribute("pass", fm.getPass());
+						session.setAttribute("resu",result);
 						
 						// redirection a la page d'acceuil
 						
@@ -122,7 +125,7 @@ public class UserSpaceController {
 							modelAndView.setViewName("scrummaster/SMasterProfil");
 							break;}
 						}
-					}
+					
 			
 				
 

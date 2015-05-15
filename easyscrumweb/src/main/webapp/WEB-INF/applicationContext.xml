@@ -7,5 +7,5 @@
  	<import resource="classpath*:datasource.xml"/>
 	<import resource="supplies.xml"/>
 	<import resource="classpath*:core.xml"/>
-
+	<import resource="security.xml"/>
  </beans>

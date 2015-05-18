@@ -72,6 +72,10 @@ public class Project {
 	@OneToMany(mappedBy="projet")
 	private List<Backlog> backlogs;
 	
+	@ManyToOne
+    @JoinColumn(name = "id_team")
+	private Team team;
+	
 	public List<Backlog> getBacklogs() {
 		return backlogs;
 	}

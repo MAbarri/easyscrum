@@ -38,8 +38,7 @@ public class UserSpaceController {
 	@Autowired
 	private SprintService sprintService;
 	
-	@Autowired
-	private MailService mailService;
+	
 	
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public ModelAndView getwelcomePage() {
@@ -85,7 +84,6 @@ public class UserSpaceController {
 		final ModelAndView modelAndView = new ModelAndView();
 		
 		logger.info("Received request to show login page");
-		modelAndView.setViewName("public/index");
 		
 		List<User> results = null;
 		User result=null;
@@ -101,7 +99,8 @@ public class UserSpaceController {
 			result=results.get(0);
 		
 						// affectation du session
-						session.setAttribute("resu",result);
+						
+						session.setAttribute("userid",result.getUserId());
 						
 						// redirection a la page d'acceuil
 						
@@ -133,75 +132,23 @@ public class UserSpaceController {
 		return modelAndView;
 	}
 	
-	@RequestMapping(value = "/inbox", method = RequestMethod.GET)
-	public ModelAndView getinboxPage(HttpSession session) {
-		final ModelAndView modelAndView = new ModelAndView();
-		logger.info("Received request to show common page");
-		List<User> results = userService.findUserByLogin(session.getAttribute("login").toString() );
-		User resu=results.get(0);
-		session.setAttribute("user",resu );
-		resu=null;
-		modelAndView.setViewName("sharedpages/inbox");
-
-		return modelAndView;
-	}
-	@RequestMapping(value = "/mail", method = RequestMethod.GET)
-	public ModelAndView getmessagePage(HttpSession session,@RequestParam int id) {
-		final ModelAndView modelAndView = new ModelAndView();
-		logger.info("Received request to show common page");
-		List<User> results = userService.findUserByLogin(session.getAttribute("login").toString() );
-		User resu=results.get(0);
-		session.setAttribute("user",resu);
-		session.setAttribute("currentmail",mailService.find(id));
-		resu=null;
-		modelAndView.setViewName("sharedpages/mail");
-
-		return modelAndView;
-	}
 	
-	@RequestMapping(value = "/newmail", method = RequestMethod.GET)
-	public ModelAndView getnewmessagePage(HttpSession session) {
-		final ModelAndView modelAndView = new ModelAndView();
-		logger.info("Received request to show common page");
-		modelAndView.setViewName("sharedpages/newmail");
-
-		return modelAndView;
-	}
-	@RequestMapping(value = "/sendmail", method = RequestMethod.GET)
-	public ModelAndView setnewmessage(HttpSession session,FormMailObject fmo) {
-		final ModelAndView modelAndView = new ModelAndView();
-		logger.info("Received request to send a mail");
-		List<User> results = userService.findUserByLogin(session.getAttribute("login").toString() );
-		User sender=results.get(0);
-		List<User> results2 = userService.findUserByLogin(fmo.getDestination());
-		User reciever=results2.get(0);
-		Mail mail= new Mail(fmo.getMailtitle(), fmo.getMailtext(), "14/05/2015");
-		mail.setSender(sender);
-		mail.setReciever(reciever);
-		
-		mailService.persist(mail);
-		
-		modelAndView.setViewName("redirect:inbox");
-
-		return modelAndView;
-	}
 	
 	@RequestMapping(value = "/Account", method = RequestMethod.GET)
 	public ModelAndView getaccountPage(HttpSession session,@RequestParam int pro) {
 		final ModelAndView modelAndView = new ModelAndView();
 		logger.info("Received request to show common page");
+		session.setAttribute("user",userService.find((Integer) session.getAttribute("userid")));
 		// if the passed parameter is equal to 0 or to the id of the current User, we give him the permission to update the profil but if it was different 
 		// wich means something else than 0 and userId we give him the right to send a message or to report
 		boolean editrights = true;
-		List<User> results = userService.findUserByLogin(session.getAttribute("login").toString() );
-		User resu=results.get(0);
+		User resu=(User) session.getAttribute("user");
 		if(pro!=0 && pro!=resu.getUserId())
 		{
 		resu = userService.find(pro);
 		editrights = false;
 		}
 		
-		session.setAttribute("user",resu);
 		session.setAttribute("editrights",editrights);
 		resu=null;
 		

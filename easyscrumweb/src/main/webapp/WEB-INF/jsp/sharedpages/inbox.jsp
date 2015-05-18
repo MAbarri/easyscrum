@@ -113,7 +113,7 @@
 						<div class="tab-content">
 							<div class="tab-pane fade in active" id="home">
 								<div class="list-group">
-								<c:forEach items="${user.recievedmails }" var="ml" >
+								<c:forEach items="${me.recievedmails }" var="ml" >
 									<a href="/easyscrumweb/userspace/mail?id= <c:out value="${ml.idmail }"></c:out> " class="list-group-item">
 										<div class="checkbox">
 											<label> <input type="checkbox">
@@ -128,7 +128,7 @@
 							</div>
 							<div class="tab-pane fade in" id="profile">
 								<div class="list-group">
-									<c:forEach items="${user.sentmails }" var="ml" >
+									<c:forEach items="${me.sentmails }" var="ml" >
 									<a href="/easyscrumweb/userspace/mail?id= <c:out value="${ml.idmail }"></c:out>" class="list-group-item">
 										<div class="checkbox">
 											<label> <input type="checkbox">

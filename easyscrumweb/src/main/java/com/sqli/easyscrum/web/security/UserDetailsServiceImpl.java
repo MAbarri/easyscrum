@@ -37,14 +37,19 @@ public class UserDetailsServiceImpl implements UserDetailsService{
 	    boolean credentialsNonExpired = true;
 	    boolean accountNonLocked = true;
 	    Collection<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
+	    authorities.add(new SimpleGrantedAuthority("USER_Role"));
 	    if(user.getType()==1)
-		authorities.add(new SimpleGrantedAuthority("Admin_Role"));
-	    else if(user.getType()==2)
-			authorities.add(new SimpleGrantedAuthority("ProjectOwner_Role"));
+		authorities.add(new SimpleGrantedAuthority("ADMIN_Role"));
+	    else
+	    {
+	    	authorities.add(new SimpleGrantedAuthority("ProjectAccess_Role"));
+	    if(user.getType()==2)
+			authorities.add(new SimpleGrantedAuthority("PO_Role"));
 	    else if(user.getType()==3)
-			authorities.add(new SimpleGrantedAuthority("Developer_Role"));
+			authorities.add(new SimpleGrantedAuthority("DEV_Role"));
 	    else if(user.getType()==4)
-			authorities.add(new SimpleGrantedAuthority("ScrumMaster_Role"));
+			authorities.add(new SimpleGrantedAuthority("SM_Role"));
+	    }
 	    //List<Role> roleList = user.getRoleList();
 		//for(Role role:roleList){
 		//authorities.add(new SimpleGrantedAuthority(role.getRoleName));} 	

@@ -49,10 +49,7 @@ public class ProjectOwnerController {
 			final ModelAndView modelAndView = new ModelAndView();
 			logger.info("Received request to show common page");
 			modelAndView.addObject("projectslist", projectService.findAll() );
-			List<User> results = userService.findUserByLogin(session.getAttribute("login").toString() );
-			User resu=results.get(0);
-			session.setAttribute("user",resu );
-			resu=null;
+			session.setAttribute("user",userService.find((Integer) session.getAttribute("userid")));
 			modelAndView.setViewName("projectowner/PoProjects");
 			return modelAndView;
 		}
@@ -71,8 +68,8 @@ public class ProjectOwnerController {
 			final ModelAndView modelAndView = new ModelAndView();
 			logger.info("Received request to show common page");
 			
-			List<User> results = userService.findUserByLogin(session.getAttribute("login").toString() );
-			User resu=results.get(0);
+			
+			User resu=userService.find((Integer) session.getAttribute("userid"));
 					
 			Project result = fm.toProject(resu);
 
@@ -88,8 +85,7 @@ public class ProjectOwnerController {
 		{
 			final ModelAndView modelAndView = new ModelAndView();
 			logger.info("Received request to show common page");
-			List<User> results = userService.findUserByLogin(session.getAttribute("login").toString() );
-			User resu=results.get(0);
+			User resu=userService.find((Integer) session.getAttribute("userid"));
 			session.setAttribute("user",resu); 
 			modelAndView.addObject("projectslist", resu.getProjects());
 			resu=null;
@@ -102,8 +98,7 @@ public class ProjectOwnerController {
 		{
 			final ModelAndView modelAndView = new ModelAndView();
 			logger.info("Received request to show common page");
-			List<User> results = userService.findUserByLogin(session.getAttribute("login").toString() );
-			User res=results.get(0);
+			User res=userService.find((Integer) session.getAttribute("userid"));
 			session.setAttribute("user",res); 
 			modelAndView.addObject("project", projectService.find(idproject));
 			modelAndView.addObject("projectslist", res.getProjects());
@@ -117,8 +112,7 @@ public class ProjectOwnerController {
 			final ModelAndView modelAndView = new ModelAndView();
 			logger.info("Received request to show common page");
 			
-			List<User> results = userService.findUserByLogin(session.getAttribute("login").toString() );
-			User res=results.get(0);
+			User res=userService.find((Integer) session.getAttribute("userid"));
 			session.setAttribute("user",res); 
 			modelAndView.addObject("project", projectService.find(idproject));
 			modelAndView.addObject("Sprintslist", projectService.find(idproject).getSprints());
@@ -132,14 +126,10 @@ public class ProjectOwnerController {
 		{
 			final ModelAndView modelAndView = new ModelAndView();
 			logger.info("Received request to show common page");
-			
-			
-			List<User> results = userService.findUserByLogin(session.getAttribute("login").toString() );
-			User resu=results.get(0);
-			session.setAttribute("user",resu); 
-			modelAndView.addObject("projectslist", resu.getProjects());
+			User res=userService.find((Integer) session.getAttribute("userid"));
+			session.setAttribute("user",res); 
+			modelAndView.addObject("projectslist", res.getProjects());
 			//modelAndView.addObject("spr", projectService.getSprintById(idSprint, projectService.find(idprojet)));
-			resu=null;
 			modelAndView.setViewName("sharedpages/singleSprint");
 			return modelAndView; 
 		}
@@ -147,11 +137,10 @@ public class ProjectOwnerController {
 		public ModelAndView getbacklogPage(HttpSession session,@RequestParam int id) {
 			final ModelAndView modelAndView = new ModelAndView();
 			logger.info("Received request to show common page");
-			List<User> results = userService.findUserByLogin(session.getAttribute("login").toString() );
-			User resu=results.get(0);
-			session.setAttribute("user",resu);
+			User res=userService.find((Integer) session.getAttribute("userid"));
+			session.setAttribute("user",res);
 			modelAndView.addObject("project", projectService.find(id));
-			resu=null;
+			res=null;
 			modelAndView.setViewName("sharedpages/backlog");
 
 			return modelAndView;

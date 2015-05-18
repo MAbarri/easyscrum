@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.sqli.easyscrum.business.services.ProjectService;
@@ -44,49 +45,63 @@ public class HomePageController {
 	
 	
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
-	public ModelAndView getCommonPage(HttpSession session) {
+	public ModelAndView getCommonPage(HttpSession session,@RequestParam(required=false) boolean logoutmsg,@RequestParam(required=false) boolean error) {
 		final ModelAndView modelAndView = new ModelAndView();
 		logger.info("Received request to show common page");
   		modelAndView.setViewName("public/index");
-		//check if a session exist first
-		List<User> results = null;
-		User result=null;
-		
-		boolean fromSession=false;
-		String sessionPass="";
-		
-		
-		try{
-			results = userService.findUserByLogin(session.getAttribute("login").toString());
-			logger.info("Got the list");
-			result=results.get(0);
-			sessionPass=session.getAttribute("pass").toString();
-			fromSession=true;
-			
-			switch (result.getType()){
-						
-						case 1:
-						{
-						modelAndView.setViewName("admin/adminProfil");
-						break;
-						}
-						case 2:
-						{
-							modelAndView.setViewName("projectowner/login");
-							break;}
-						case 3:
-						{
-							modelAndView.setViewName("devloper/Devcpanel");
-							break;}
-						case 4:
-						{
-							modelAndView.setViewName("scrummaster/SMasterProfil");
-							break;}
-						}
-		}catch(Exception l)
+		if(error)
 		{
-			logger.info("null pointer");
+			modelAndView.addObject("errormessage", "Invalide Username or password");
 		}
+		if(error)
+		{
+			session.removeAttribute("user");
+			session.removeAttribute("res");
+			session.removeAttribute("userid");
+		}
+  		
+  		
+  		
+  		
+//  		//check if a session exist first
+//		List<User> results = null;
+//		User result=null;
+//		
+//		boolean fromSession=false;
+//		String sessionPass="";
+//		
+//		
+//		try{
+//			results = userService.findUserByLogin(session.getAttribute("login").toString());
+//			logger.info("Got the list");
+//			result=results.get(0);
+//			sessionPass=session.getAttribute("pass").toString();
+//			fromSession=true;
+//			
+//			switch (result.getType()){
+//						
+//						case 1:
+//						{
+//						modelAndView.setViewName("admin/adminProfil");
+//						break;
+//						}
+//						case 2:
+//						{
+//							modelAndView.setViewName("projectowner/login");
+//							break;}
+//						case 3:
+//						{
+//							modelAndView.setViewName("devloper/Devcpanel");
+//							break;}
+//						case 4:
+//						{
+//							modelAndView.setViewName("scrummaster/SMasterProfil");
+//							break;}
+//						}
+//		}catch(Exception l)
+//		{
+//			logger.info("null pointer");
+//		}
 		return modelAndView;
 	}
 
@@ -99,7 +114,7 @@ public class HomePageController {
 		session.setAttribute("pass", "");
 		session.setAttribute("online", false);
 		modelAndView.setViewName("public/index");
-
+		
 		return modelAndView;
 	}
 	@RequestMapping(value = "/start", method = RequestMethod.GET)
@@ -139,6 +154,14 @@ public class HomePageController {
 		final ModelAndView modelAndView = new ModelAndView();
 		logger.info("Received request to show common page");
 		modelAndView.setViewName("public/contact");
+
+		return modelAndView;
+	}
+	@RequestMapping(value = "/denied", method = RequestMethod.GET)
+	public ModelAndView getDeniedPage() {
+		final ModelAndView modelAndView = new ModelAndView();
+		logger.info("Received request to show common page");
+		modelAndView.setViewName("errors/denied");
 
 		return modelAndView;
 	}

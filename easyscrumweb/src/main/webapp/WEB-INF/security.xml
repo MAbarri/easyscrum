@@ -23,21 +23,57 @@
 	<http pattern="/js/**" security="none" />
 
 	<http pattern="/home" security="none" />
+	<http pattern="/start" security="none" />
+	<http pattern="/about" security="none" />
+	<http pattern="/services" security="none" />
+	<http pattern="/news" security="none" />
+	<http pattern="/contact" security="none" />
 	    
 	<http use-expressions="true">
 	    <intercept-url pattern="/resources/**" access="permitAll" />
-	    <intercept-url pattern="/**" access="isAuthenticated()"/>
-	    <intercept-url pattern="/userspace/profil" access="hasRole('Temporary_Role')" />
+	    <!-- <intercept-url pattern="/**" access="isAuthenticated()"/> -->
+	    <!-- General User pages -->
+	    <intercept-url pattern="/userspace/profil" access="hasRole('USER_Role')" />
+	    <intercept-url pattern="/userspace/inbox" access="hasRole('USER_Role')" />
+	    <intercept-url pattern="/userspace/mail" access="hasRole('USER_Role')" />
+	    <intercept-url pattern="/userspace/newmail" access="hasRole('USER_Role')" />
+	    <intercept-url pattern="/userspace/sendmail" access="hasRole('USER_Role')" />
+	    <intercept-url pattern="/userspace/Account" access="hasRole('USER_Role')" />
+	    <!-- Admin pages -->
+	    <intercept-url pattern="/userspace/ManageUsers" access="hasRole('ADMIN_Role')" />
+	    <intercept-url pattern="/userspace/addAccount" access="hasRole('ADMIN_Role')" />
+	    <intercept-url pattern="/userspace/updateAccount" access="hasRole('ADMIN_Role')" />
+	    <intercept-url pattern="/userspace/deleteAccounts" access="hasRole('ADMIN_Role')" />
+	    <!-- Project General Pages -->
+	    <intercept-url pattern="/userspace/ManageSprints" access="hasRole('ProjectAccess_Role')" />
+	    <intercept-url pattern="/userspace/project" access="hasRole('ProjectAccess_Role')" />
+	    <intercept-url pattern="/userspace/allSprints" access="hasRole('ProjectAccess_Role')" />
+	    <intercept-url pattern="/userspace/singleSprint" access="hasRole('ProjectAccess_Role')" />
+	    <intercept-url pattern="/userspace/projectbacklog" access="hasRole('ProjectAccess_Role')" />
+	    <intercept-url pattern="/userspace/Teams" access="hasRole('ProjectAccess_Role')" />
+	    <intercept-url pattern="/userspace/Team" access="hasRole('ProjectAccess_Role')" />
+	    <!-- Project Owner pages -->
+	    <intercept-url pattern="/userspace/ManageProjects" access="hasRole('PO_Role')" />
+	    <intercept-url pattern="/userspace/newProject" access="hasRole('PO_Role')" />
+	    <intercept-url pattern="/userspace/CreatProjects" access="hasRole('PO_Role')" />
+	    <!-- Developer pages -->
+	    <intercept-url pattern="/userspace/CheckProjects" access="hasRole('DEV_Role')" />
+	    <intercept-url pattern="/userspace/getnewProject" access="hasRole('DEV_Role')" />
+	    <!-- ScrumMaster pages -->
+	    <intercept-url pattern="/userspace/ProjectsManaging" access="hasRole('SM_Role')" />
+	    <intercept-url pattern="/userspace/newSprint" access="hasRole('SM_Role')" />
+	    
+	    
 	<!-- <intercept-url pattern="/main/admin" access="hasRole('ROLE_ADMIN')" />
 		<intercept-url pattern="/main/register" access="hasRole('ROLE_VISITOR')"/>
 		<intercept-url pattern="	/userspace/profil" requires-channel="https"/>
 	 -->
 		<form-login login-page="/home"
-			authentication-failure-url="/auth/login?error=true"
+			authentication-failure-url="/home?error=true"
 			default-target-url="/userspace/profil" always-use-default-target="true"/>
 
-		<logout logout-success-url="/home/login?logoutmsg=true"
-			logout-url="/home/logout" />
+		<logout logout-success-url="/home?logoutmsg=true"
+			logout-url="/home" />
 		<access-denied-handler error-page="/denied" />
 	</http>
 	

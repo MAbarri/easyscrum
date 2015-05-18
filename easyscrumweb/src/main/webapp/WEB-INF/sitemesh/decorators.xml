@@ -11,6 +11,6 @@
 		<pattern>/lol/*</pattern></decorator>
 		
 	<decorator name="testdecor" page="testdecor.jsp">
-		<pattern>/*</pattern>
+		<pattern>/**</pattern>
 	</decorator>
 	</decorators>

@@ -27,23 +27,17 @@
 					<li data-toggle="collapse" data-target="#service" class="collapsed">
 						<a href="#"><i class="fa fa-globe fa-lg"></i> Stats</a>
 					</li>
-					<ul class="sub-menu collapse" id="service">
-						<li>New Service 1</li>
-						<li>New Service 2</li>
-						<li>New Service 3</li>
-					</ul>
 
-
+					<c:if test="${not empty param.idproject }">
 					<li data-toggle="collapse" data-target="#new" class="collapsed">
-						<a href="#"><i class="fa fa-car fa-lg"></i> New <span
+						<a href="#"><i class="fa fa-car fa-lg"></i> New<span
 							class="arrow"></span></a>
 					</li>
+					
 					<ul class="sub-menu collapse" id="new">
-						<li>New Project</li>
-						<li>New Sprint</li>
-						<li>New Backlog</li>
+					<a href="/easyscrumweb/userspace/newSprint" style="color: #e1ffff;"><li>New Sprint</li></a>
 					</ul>
-
+					</c:if>
 				</ul>
 			</div>
 		</div>

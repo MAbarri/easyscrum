@@ -48,6 +48,12 @@ public class User implements Serializable {
 	
 	@OneToMany(mappedBy="Reciever",cascade = {CascadeType.PERSIST,CascadeType.MERGE})
     private Set<Mail> recievedmails;
+	
+	@OneToMany(mappedBy="boss",cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+    private Set<Team> teamchef;
+	
+	@ManyToMany
+    private Set<Team> teams;
  
 	public Set<Mail> getSentmails() {
 		return sentmails;

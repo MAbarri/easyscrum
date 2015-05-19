@@ -54,8 +54,7 @@
 	    <intercept-url pattern="/userspace/Teams" access="hasRole('ProjectAccess_Role')" />
 	    <intercept-url pattern="/userspace/Team" access="hasRole('ProjectAccess_Role')" />
 	    <intercept-url pattern="/userspace/TeamSpace" access="hasRole('ProjectAccess_Role')" />
-	    <intercept-url pattern="/userspace/myTeams" access="hasRole('ProjectAccess_Role')" />
-	    <intercept-url pattern="/userspace/needTeam" access="hasRole('ProjectAccess_Role')" />
+	    <intercept-url pattern="/userspace/myTeams" access="hasRole('ProjectAccess_Role')" />    
 	    <!-- Project Owner pages -->
 	    <intercept-url pattern="/userspace/ManageProjects" access="hasRole('PO_Role')" />
 	    <intercept-url pattern="/userspace/newProject" access="hasRole('PO_Role')" />
@@ -63,10 +62,13 @@
 	    <!-- Developer pages -->
 	    <intercept-url pattern="/userspace/CheckProjects" access="hasRole('DEV_Role')" />
 	    <intercept-url pattern="/userspace/getnewProject" access="hasRole('DEV_Role')" />
+	    <intercept-url pattern="/userspace/needTeam" access="hasRole('DEV_Role')" />	
 	    <!-- ScrumMaster pages -->
 	    <intercept-url pattern="/userspace/ProjectsManaging" access="hasRole('SM_Role')" />
 	    <intercept-url pattern="/userspace/newSprint" access="hasRole('SM_Role')" />
-	    
+	    <intercept-url pattern="/userspace/creatnewTeam" access="hasRole('SM_Role')" />
+	    <intercept-url pattern="/userspace/newTeam" access="hasRole('SM_Role')" />
+	    <intercept-url pattern="/userspace/Invitein" access="hasRole('SM_Role')" />
 	    
 	<!-- <intercept-url pattern="/main/admin" access="hasRole('ROLE_ADMIN')" />
 		<intercept-url pattern="/main/register" access="hasRole('ROLE_VISITOR')"/>

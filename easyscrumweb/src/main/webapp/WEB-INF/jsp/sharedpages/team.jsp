@@ -44,7 +44,7 @@
 						style="margin-top: 20px; margin-bottom: 20px;">
 						<div class="row panel">
 							<div class="col-md-4 bg_blur "
-								style="background-image: url('');"></div>
+								style="background-image: url('/easyscrumweb/resources/images/teamtag.jpg');"></div>
 							<div class="col-md-8  col-xs-12">
 								<img src="http://lorempixel.com/output/people-q-c-100-100-1.jpg"
 									class="img-thumbnail picture hidden-xs" /> <img
@@ -54,15 +54,29 @@
 									<h1>
 										<c:out value="${team.name}"></c:out>
 									</h1>
-									<h4>Team Reputation <c:out value="${team.karma}"></c:out></h4>
-									<span>
-									<label>Caption :</label>&nbsp;<c:out value="${team.caption}"></c:out><br>
-									<label>Boss :</label>&nbsp;<a href="/easyscrumweb/userspace/Account?pro=<c:out value="${team.boss.userId}"></c:out>"> <c:out value="${team.boss.nom}"></c:out>&nbsp;<c:out value="${team.boss.prenom}"></c:out></a><br>
-									<label>Members :</label><c:forEach items="${team.members }" var="mem" >
-																							&nbsp;<a href="/easyscrumweb/userspace/Account?pro=<c:out value="${mem.userId}"></c:out>"> <c:out value="${mem.nom}"></c:out>&nbsp;<c:out value="${mem.prenom}"></c:out></a>,
-																							</c:forEach>  <br>
-									<label>Projects :</label><c:forEach items="${team.projects }" var="pro" >
-																							&nbsp;<a href="/easyscrumweb/userspace/project?idproject=<c:out value="${pro.projectId}"></c:out>"> <c:out value="${pro.nomproject}"></c:out></a>,
+									<h4>
+										Team Reputation
+										<c:out value="${team.karma}"></c:out>
+									</h4>
+									<span> <label>Caption :</label>&nbsp;<c:out
+											value="${team.caption}"></c:out><br> <label>Boss
+											:</label>&nbsp;<a
+										href="/easyscrumweb/userspace/Account?pro=<c:out value="${team.boss.userId}"></c:out>">
+											<c:out value="${team.boss.nom}"></c:out>&nbsp;<c:out
+												value="${team.boss.prenom}"></c:out>
+									</a><br> <label>Members :</label>
+									<c:forEach items="${team.members }" var="mem">
+																							&nbsp;<a
+												href="/easyscrumweb/userspace/Account?pro=<c:out value="${mem.userId}"></c:out>">
+												<c:out value="${mem.nom}"></c:out>&nbsp;<c:out
+													value="${mem.prenom}"></c:out>
+											</a>,
+																							</c:forEach> <br> <label>Projects :</label>
+									<c:forEach items="${team.projects }" var="pro">
+																							&nbsp;<a
+												href="/easyscrumweb/userspace/project?idproject=<c:out value="${pro.projectId}"></c:out>">
+												<c:out value="${pro.nomproject}"></c:out>
+											</a>,
 																							</c:forEach><br>
 									</span>
 								</div>
@@ -74,7 +88,8 @@
 							<div class="col-md-8 col-xs-12"
 								style="margin: 0px; padding: 0px;">
 								<a href="#" style="color: white;">
-									<div class="col-md-4 col-xs-4 well" id="editclick" style="display: 
+									<div class="col-md-4 col-xs-4 well" id="editclick"
+										style="display: 
 									<c:choose>
 									<c:when test="${sessionScope.editrights}">
 									block
@@ -88,7 +103,24 @@
 										<button data-toggle="modal" data-target="#myModal" id="edit"
 											style="display: none;"></button>
 										<i class="glyphicon glyphicon-pencil" id="editlink"></i> Edit
-										Profil
+										Team
+									</div>
+								</a> <a href="/easyscrumweb/userspace/Invitein?idteam=1" style="color: white;">
+									<div class="col-md-4 col-xs-4 well" id="editclick"
+										style="display: 
+									<c:choose>
+									<c:when test="${sessionScope.editrights}">
+									block
+									</c:when>
+									<c:when test="${!sessionScope.editrights}">
+									none
+									</c:when>
+									</c:choose>
+									
+									;">
+										<button id="edit" style="display: none;"></button>
+										<i class="glyphicon glyphicon-pencil" id="editlink"></i> Add
+										Members
 									</div>
 								</a>
 								<!-- Modal -->
@@ -101,81 +133,42 @@
 													aria-label="Close">
 													<span aria-hidden="true">&times;</span>
 												</button>
-												<h4 class="modal-title" id="myModalLabel">Update My Profil</h4>
+												<h4 class="modal-title" id="myModalLabel">Update My
+													Team</h4>
 											</div>
 											<div class="modal-body innerspace">
 												<div class="tab-content">
 													<div class="tab-pane active registersingltab"
 														id="tab_default_1">
-														<form action="addAccount" method="post">
-															<table class="tableregister adminaddform">
-																<tr>
-																	<td>&nbsp;</td>
-																</tr>
-																<tr>
-																	<td>&nbsp;</td>
-																</tr>
-																<tr>
-																	<td>&nbsp;</td>
-																</tr>
-																<tr>
-																	<td><input type="email" class="form-control"
-																		id="exampleInputEmail1" placeholder="Email" required
-																		name="email" value="" ></td>
-																	<td>&nbsp;*</td>
-																	<td><c:out value="${ListErreur['email']}"></c:out></td>
-																</tr>
-																<tr>
-																	<td>&nbsp;</td>
-																</tr>
-																<tr>
-																	<td><input type="password" class="form-control"
-																		id="InputPassword1" placeholder="Password" required
-																		name="pass"></td>
-																	<td>&nbsp;*</td>
-																	<td><c:out value="${ListErreur['pass']}"></c:out></td>
-																</tr>
-																<tr>
-																	<td>&nbsp;</td>
-																</tr>
-																<tr>
-																	<td><input type="text"
-																		class="form-control inscriptioninput" id="ImputName"
-																		placeholder="First name" required name="name" value="">
-																		<input type="text"
-																		class="form-control inscriptioninput" id="ImputLname"
-																		placeholder="Last name" name="lname" value=""></td>
-																	<td>&nbsp;*</td>
-																	<td><c:out value="${ListErreur['Fullname']}"></c:out></td>
-																</tr>
-																<tr>
-																	<td>&nbsp;</td>
-																</tr>
-																<tr>
-																	<td><input type="text" class="form-control"
-																		id="ImputAdresse" placeholder="Adresse" name="adresse" value=""></td>
-																	<td><c:out value="${ListErreur['adresse']}"></c:out></td>
-																</tr>
-																<tr>
-																	<td>&nbsp;</td>
-																</tr>
-																<tr>
-																	<td><input type="text" class="form-control"
-																		id="ImputAdresse" placeholder="Login" name="login" ></td>
-																	<td><c:out value="${ListErreur['login']}"></c:out></td>
-																</tr>
-
-																<tr>
-																	<td>&nbsp;</td>
-																</tr>
-
-																<tr>
-																	<td><c:out value="${error.general}"></c:out></td>
-																</tr>
-
-
-															</table>
-															<input type="submit" id="sendform" />
+														<form class="form-horizontal" role="form" style="margin-top: 150px;color: darkslateblue;"
+															action="creatnewTeam" method="get">
+															<div class="form-group">
+																<label class="col-lg-3 control-label">Team Name</label>
+																<div class="col-lg-8">
+																	<input class="form-control" type="text" name="name">
+																</div>
+															</div>
+															<div class="form-group">
+																<label class="col-lg-3 control-label">Company:</label>
+																<div class="col-lg-8">
+																	<input class="form-control" type="text" value=""
+																		name="company">
+																</div>
+															</div>
+															<div class="form-group">
+																<label class="col-lg-3 control-label">Email:</label>
+																<div class="col-lg-8">
+																	<input class="form-control" type="text" name="email">
+																</div>
+															</div>
+															<div class="form-group">
+																<label class="col-lg-3 control-label">Caption:</label>
+																<div class="col-lg-8">
+																	<textarea id="mailtext" class="form-control" rows="6"
+																		placeholder="caption text" name="caption"></textarea>
+																</div>
+															</div>
+															
 														</form>
 													</div>
 												</div>
@@ -191,7 +184,8 @@
 								</div>
 								<a href="/easyscrumweb/userspace/newmail?dest=Utilisateur"
 									style="color: white;">
-									<div class="col-md-4 col-xs-4 well" style="display: 
+									<div class="col-md-4 col-xs-4 well"
+										style="display: 
 									<c:choose>
 									<c:when test="${!sessionScope.editrights}">
 									block
@@ -205,7 +199,8 @@
 										<i class="glyphicon glyphicon-envelope"></i> Send Email
 									</div>
 								</a> <a href="#" style="color: white;">
-									<div class="col-md-4 col-xs-4 well" style="display: 
+									<div class="col-md-4 col-xs-4 well"
+										style="display: 
 									<c:choose>
 									<c:when test="${!sessionScope.editrights}">
 									block

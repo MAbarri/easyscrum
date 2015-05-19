@@ -54,7 +54,7 @@
 						<div class="description"><c:out value="${p.caption }"/></div>
 					</div>
 					<div class="extra content">
-						<a> <i class="user icon"></i><c:if test="${p.available }">Available</c:if><c:if test="${not p.available }">Not Available</c:if>
+						<i class="user icon"></i><c:if test="${p.available }">Available</c:if><c:if test="${not p.available }">Not Available</c:if>
 					</div>
 				</div>
 				</c:forEach>
@@ -73,28 +73,11 @@
 						<div class="description"><c:out value="${p.caption }"/></div>
 					</div>
 					<div class="extra content">
-						<a> <i class="user icon"></i><c:if test="${p.available }">Available</c:if><c:if test="${not p.available }">Not Available</c:if>
+						<i class="user icon"></i><c:if test="${p.available }">Available</c:if><c:if test="${not p.available }">Not Available</c:if>
 					</div>
 				</div>
 				</c:forEach>
 				
-				<c:if test="${sessionScope.user.type=='4'}">
-			 <div class="ui card leftbubble cardpad">
-					<div class="image">
-						<img
-							src="/easyscrumweb/resources/images/Create_with_plus_mail_layer_add_vector_stock.png">
-					</div>
-					<div class="content">
-						<a class="header" href="newProject">New Team</a>
-						<div class="meta">
-							<span class="date">Client date</span>
-						</div>
-						<div class="description">Creat a new Team, get support for yourself, and start working.</div>
-					</div>
-					<div class="extra content">
-					</div>
-				</div>
-				</c:if>
 			</div>
 		</div>
 	</div>

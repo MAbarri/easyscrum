@@ -43,7 +43,14 @@
 				<div style="margin: 7%;">
 					<a href="/easyscrumweb/userspace/myTeams"><button class="teampagetiles"><center><h2>My Teams</h2></center></button></a>
 					<a href="/easyscrumweb/userspace/Teams"><button class="teampagetiles"><center><h2>All Teams</h2></center></button></a> 
-					<button class="teampagetiles" data-toggle="modal" data-target="#myModal3"><center><h2>Need Team !</h2></center></button>
+					<c:choose>
+						<c:when test="${sessionScope.user.type=='3'}">
+							<button class="teampagetiles" data-toggle="modal" data-target="#myModal3"><center><h2>Need Team !</h2></center></button>
+						</c:when>
+						<c:when test="${sessionScope.user.type=='4'}">
+							<a href="/easyscrumweb/userspace/newTeam"><button class="teampagetiles"><center><h2>New Team</h2></center></button></a>
+						</c:when>
+					</c:choose>
 					<!-- Modal -->
 					<div class="modal fade" id="myModal3" tabindex="-1" role="dialog"
 						aria-labelledby="myModalLabel" aria-hidden="true">

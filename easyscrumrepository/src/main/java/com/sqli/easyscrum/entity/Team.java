@@ -49,15 +49,26 @@ public class Team {
 		this.available = available;
 	}
 
-	public String getKarma() {
+	public String getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
+
+	public int getKarma() {
 		return Karma;
 	}
 
-	public void setKarma(String karma) {
+	public void setKarma(int karma) {
 		Karma = karma;
 	}
 	@Column(name = "caption")
     private String caption;
+	
+	@Column(name = "photo")
+    private String photo;
     
     @Column(name = "name")
     private String name;
@@ -65,11 +76,32 @@ public class Team {
     @Column(name = "creationDate")
     private String creationDate;
     
-    @Column(name = "available")
+    @Column(name = "company")
+    private String company;
+    
+    @Column(name = "email")
+    private String email;
+    
+    public String getCompany() {
+		return company;
+	}
+
+	public void setCompany(String company) {
+		this.company = company;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	@Column(name = "available")
     private boolean available;
     
     @Column(name = "Karma")
-    private String Karma;
+    private int Karma;
     
     @ManyToMany(mappedBy="teams",cascade = {CascadeType.PERSIST,CascadeType.MERGE})
     private Set<User> members;
@@ -123,9 +155,14 @@ public class Team {
     public Team(){
     	
     }
-    public Team(String caption)
+    public Team(String caption,String email,String company,String name,String Photo)
     {
     	this.caption=caption;
+    	//this.creationDate=creationdate;
+    	this.email=email;
+    	this.company=company;
+    	this.name=name;
+    	this.photo=Photo;
     }
     
 }

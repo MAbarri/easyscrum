@@ -1,7 +1,6 @@
 package com.sqli.easyscrum.web.controller;
 
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -14,10 +13,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.sqli.easyscrum.business.services.MailService;
 import com.sqli.easyscrum.business.services.ProjectService;
 import com.sqli.easyscrum.business.services.SprintService;
 import com.sqli.easyscrum.business.services.TeamService;
 import com.sqli.easyscrum.business.services.UserService;
+import com.sqli.easyscrum.entity.Mail;
+import com.sqli.easyscrum.entity.Project;
 import com.sqli.easyscrum.entity.Team;
 import com.sqli.easyscrum.entity.User;
 
@@ -38,6 +40,10 @@ public class TeamManagingController {
 	
 	@Autowired
 	private TeamService teamService;
+	
+
+	@Autowired
+	private MailService mailService;
 	
 	@RequestMapping(value = "/Teams", method = RequestMethod.GET)
 	public ModelAndView geteamsPage(HttpSession session) {
@@ -61,8 +67,7 @@ public class TeamManagingController {
 				User resu=(User) session.getAttribute("user");
 				Team team = teamService.find(idteam);
 				session.setAttribute("team",team);
-				for(User i:team.getMembers())
-					if(((i.getType()==4)&&(i.getUserId()==resu.getUserId()))||((i.getType()==4)&&(idteam==0)))
+				if(team.getBoss().getUserId()==resu.getUserId())
 						editrights=true;
 								
 				session.setAttribute("editrights",editrights);
@@ -108,6 +113,68 @@ public class TeamManagingController {
 		modelAndView.setViewName("redirect:"+"TeamSpace");
 		return modelAndView;
 	}
+	@RequestMapping(value = "/newTeam")
+	public ModelAndView getnewteamPage(HttpSession session)
+	{
+		final ModelAndView modelAndView = new ModelAndView();
+		logger.info("Received request to show common page");
+		session.setAttribute("user",userService.find((Integer) session.getAttribute("userid")));		
+		
+		modelAndView.setViewName("sharedpages/newteam");
+		return modelAndView;
+	}
+	@RequestMapping(value = "/creatnewTeam")
+	public ModelAndView getcreatteamPage(HttpSession session,FormTeamObject fto)
+	{
+		final ModelAndView modelAndView = new ModelAndView();
+		logger.info("Received request to show common page");
+		session.setAttribute("user",userService.find((Integer) session.getAttribute("userid")));		
+		teamService.persist(fto.toTeam(userService.find((Integer) session.getAttribute("userid"))));
+		modelAndView.setViewName("redirect:"+"TeamSpace");
+		return modelAndView;
+	}
 	
+	@RequestMapping(value = "/Invitein")
+	public ModelAndView getMemberstoteamPage(HttpSession session)
+	{
+		final ModelAndView modelAndView = new ModelAndView();
+		logger.info("Received request to show common page");
+		session.setAttribute("user",userService.find((Integer) session.getAttribute("userid")));
+		modelAndView.addObject("userlist", userService.findAll());
+		modelAndView.setViewName("sharedpages/hiremembers");
+		return modelAndView;
+	}
+	
+	@RequestMapping(value = "/InviteUsers")
+	public ModelAndView getinvitemembersPage(HttpSession session,@RequestParam String selected,@RequestParam int idteam)
+	{
+		final ModelAndView modelAndView = new ModelAndView();
+		logger.info("Received request to show common page");
+		//Send Invitation Mail !!
+		User sender= userService.find((Integer) session.getAttribute("userid") );
+		session.setAttribute("user",sender);
+		
+		selected=selected.substring(0,selected.length()-1 );
+		Team team  =teamService.find(idteam);
+		String[] parts = selected.split(";");
+		for(int i=0;i<parts.length;i++)
+		{
+			User reciever =userService.find (Integer.parseInt(parts[i]));
+			Mail invitation = new Mail("Team Invitation",
+					"Hello "+reciever.getNom()+" "+reciever.getPrenom()+"<br>I am "+sender.getNom()+" "
+							+sender.getPrenom()+", and I am a Scrum Master, I found Your profil and i want you to join my Team "+team.getName()
+							+".<br>I have already sent you an invitation, to accept it there is a \"Join Team\" button down here,"
+							+"Click it and Start Your experience with us !<br>Have a Good Day","22/12/2013");
+			invitation.setSender(sender);
+			invitation.setReciever(reciever);
+			
+				mailService.persist(invitation); 
+			
+		}		
+		modelAndView.setViewName("redirect:"+"TeamSpace");
+		return modelAndView;
+	}
+		
+	//
 }
 

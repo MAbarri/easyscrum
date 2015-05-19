@@ -1,3 +1,16 @@
+
+.teampagetiles
+{
+    border: 1px solid darkcyan;
+    height: 200px;
+    width: 350px;
+    float:left;
+    margin-left:10px;
+    cursor: pointer;
+    background-color: aliceblue;
+    color:darkslategray;
+}
+.teampagetiles:
 .addusersbuttonok
 {
     bottom: 50px;

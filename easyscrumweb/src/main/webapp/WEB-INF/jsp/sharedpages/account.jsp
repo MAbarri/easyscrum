@@ -37,8 +37,10 @@
 	<div id="cover" class="backprofil">
 
 		<div class="panel panel-default clientPanel">
-			<div class="panel-heading">Mail</div>
+			<div class="panel-heading">User Profil</div>
 			<div class="panel-body msgpanel">
+			
+			<c:if test="${not empty targetuser.email}">
 				<div class="shadow profilheight">
 					<div class="container"
 						style="margin-top: 20px; margin-bottom: 20px;">
@@ -46,16 +48,16 @@
 							<div class="col-md-4 bg_blur "
 								style="background-image: url(
 							<c:choose>
-									<c:when test="${sessionScope.user.type=='1'}">
+									<c:when test="${targetuser.type=='1'}">
 									'/easyscrumweb/resources/images/ADMINtag.jpg'
 									</c:when>
-									<c:when test="${sessionScope.user.type=='2'}">
+									<c:when test="${targetuser.type=='2'}">
 									'/easyscrumweb/resources/images/projectowner.jpg'
 									</c:when>
-									<c:when test="${sessionScope.user.type=='3'}">
+									<c:when test="${targetuser.type=='3'}">
 									'/easyscrumweb/resources/images/developertag.jpg'
 									</c:when>
-									<c:when test="${sessionScope.user.type=='4'}">
+									<c:when test="${targetuser.type=='4'}">
 									'/easyscrumweb/resources/images/scrummastertag.jpg'
 									</c:when>
 								</c:choose>
@@ -67,28 +69,28 @@
 									class="img-thumbnail visible-xs picture_mob" />
 								<div class="header">
 									<h1>
-										<c:out value="${user.nom}"></c:out>&nbsp;<c:out value="${user.prenom}"></c:out>
+										<c:out value="${targetuser.nom}"></c:out>&nbsp;<c:out value="${targetuser.prenom}"></c:out>
 									</h1>
 									<h4>
 									<c:choose>
-									<c:when test="${sessionScope.user.type=='1'}">
+									<c:when test="${targetuser.type=='1'}">
 									Admin
 									</c:when>
-									<c:when test="${sessionScope.user.type=='2'}">
+									<c:when test="${targetuser.type=='2'}">
 									Project Owner
 									</c:when>
-									<c:when test="${sessionScope.user.type=='3'}">
+									<c:when test="${targetuser.type=='3'}">
 									Developer
 									</c:when>
-									<c:when test="${sessionScope.user.type=='4'}">
+									<c:when test="${targetuser.type=='4'}">
 									Scrum Master
 									</c:when>
 								</c:choose>
 									</h4>
 									<span>
-									<label>Email :</label>&nbsp;<c:out value="${user.email }"></c:out><br>
-									<label>Adress :</label>&nbsp;<c:out value="${user.adresse }"></c:out><br>
-									<label>Phone number :</label>&nbsp;<c:out value="${user.telephone }"></c:out><br>
+									<label>Email :</label>&nbsp;<c:out value="${targetuser.email }"></c:out><br>
+									<label>Adress :</label>&nbsp;<c:out value="${targetuser.adresse }"></c:out><br>
+									<label>Phone number :</label>&nbsp;<c:out value="${targetuser.telephone }"></c:out><br>
 									<label>Speciality :</label>
 									</span>
 								</div>
@@ -147,7 +149,7 @@
 																<tr>
 																	<td><input type="email" class="form-control"
 																		id="exampleInputEmail1" placeholder="Email" required
-																		name="email" value="<c:out value="${user.email }"></c:out>" ></td>
+																		name="email" value="<c:out value="${targetuser.email }"></c:out>" ></td>
 																	<td>&nbsp;*</td>
 																	<td><c:out value="${ListErreur['email']}"></c:out></td>
 																</tr>
@@ -167,10 +169,10 @@
 																<tr>
 																	<td><input type="text"
 																		class="form-control inscriptioninput" id="ImputName"
-																		placeholder="First name" required name="name" value="<c:out value="${user.nom }"></c:out>">
+																		placeholder="First name" required name="name" value="<c:out value="${targetuser.nom }"></c:out>">
 																		<input type="text"
 																		class="form-control inscriptioninput" id="ImputLname"
-																		placeholder="Last name" name="lname" value="<c:out value="${user.prenom }"></c:out>"></td>
+																		placeholder="Last name" name="lname" value="<c:out value="${targetuser.prenom }"></c:out>"></td>
 																	<td>&nbsp;*</td>
 																	<td><c:out value="${ListErreur['Fullname']}"></c:out></td>
 																</tr>
@@ -179,7 +181,7 @@
 																</tr>
 																<tr>
 																	<td><input type="text" class="form-control"
-																		id="ImputAdresse" placeholder="Adresse" name="adresse" value="<c:out value="${user.adresse }"></c:out>"></td>
+																		id="ImputAdresse" placeholder="Adresse" name="adresse" value="<c:out value="${targetuser.adresse }"></c:out>"></td>
 																	<td><c:out value="${ListErreur['adresse']}"></c:out></td>
 																</tr>
 																<tr>
@@ -187,7 +189,7 @@
 																</tr>
 																<tr>
 																	<td><input type="text" class="form-control"
-																		id="ImputAdresse" placeholder="Login" name="login" <c:out value="${user.login }"></c:out>></td>
+																		id="ImputAdresse" placeholder="Login" name="login" <c:out value="${targetuser.login }"></c:out>></td>
 																	<td><c:out value="${ListErreur['login']}"></c:out></td>
 																</tr>
 
@@ -249,6 +251,15 @@
 						</div>
 					</div>
 				</div>
+				</c:if>
+				<c:if test="${empty targetuser.email }">
+					<center>
+					<br><br><br>
+						<h1 style="color: crimson;">User not found !</h1>
+						<h3 style="color: saddlebrown;">This User doesn't exist, he may have deleted his account or have been Banned from this site !</h3><br>
+						<a href="#"><h6>Contact Us</h6></a>
+					</center>
+				</c:if>
 			</div>
 		</div>
 	</div>

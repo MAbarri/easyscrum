@@ -52,6 +52,22 @@ public class User implements Serializable {
 	@OneToMany(mappedBy="boss",cascade = {CascadeType.PERSIST,CascadeType.MERGE})
     private Set<Team> teamchef;
 	
+	public Set<Team> getTeamchef() {
+		return teamchef;
+	}
+
+	public void setTeamchef(Set<Team> teamchef) {
+		this.teamchef = teamchef;
+	}
+
+	public Set<Team> getTeams() {
+		return teams;
+	}
+
+	public void setTeams(Set<Team> teams) {
+		this.teams = teams;
+	}
+
 	@ManyToMany
     private Set<Team> teams;
  
@@ -163,7 +179,18 @@ public class User implements Serializable {
     @Column(name = "login")
     private String login;
     
-    @Column(name = "password")
+    @Column(name = "needteam")
+    private boolean needteam;
+    
+    public boolean isNeedteam() {
+		return needteam;
+	}
+
+	public void setNeedteam(boolean needteam) {
+		this.needteam = needteam;
+	}
+
+	@Column(name = "password")
     private String password;
 
     @Column(name = "Telephone")

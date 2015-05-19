@@ -27,11 +27,12 @@
 	<http pattern="/about" security="none" />
 	<http pattern="/services" security="none" />
 	<http pattern="/news" security="none" />
-	<http pattern="/contact" security="none" />
+	<!-- <http pattern="/contact" security="none" /> -->
 	    
 	<http use-expressions="true">
 	    <intercept-url pattern="/resources/**" access="permitAll" />
 	    <!-- <intercept-url pattern="/**" access="isAuthenticated()"/> -->
+	    
 	    <!-- General User pages -->
 	    <intercept-url pattern="/userspace/profil" access="hasRole('USER_Role')" />
 	    <intercept-url pattern="/userspace/inbox" access="hasRole('USER_Role')" />
@@ -52,6 +53,9 @@
 	    <intercept-url pattern="/userspace/projectbacklog" access="hasRole('ProjectAccess_Role')" />
 	    <intercept-url pattern="/userspace/Teams" access="hasRole('ProjectAccess_Role')" />
 	    <intercept-url pattern="/userspace/Team" access="hasRole('ProjectAccess_Role')" />
+	    <intercept-url pattern="/userspace/TeamSpace" access="hasRole('ProjectAccess_Role')" />
+	    <intercept-url pattern="/userspace/myTeams" access="hasRole('ProjectAccess_Role')" />
+	    <intercept-url pattern="/userspace/needTeam" access="hasRole('ProjectAccess_Role')" />
 	    <!-- Project Owner pages -->
 	    <intercept-url pattern="/userspace/ManageProjects" access="hasRole('PO_Role')" />
 	    <intercept-url pattern="/userspace/newProject" access="hasRole('PO_Role')" />
@@ -73,7 +77,7 @@
 			default-target-url="/userspace/profil" always-use-default-target="true"/>
 
 		<logout logout-success-url="/home?logoutmsg=true"
-			logout-url="/home" />
+			logout-url="/account_logout" />
 		<access-denied-handler error-page="/denied" />
 	</http>
 	

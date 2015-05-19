@@ -109,19 +109,23 @@ public class UserSpaceController {
 						case 1:
 						{
 						modelAndView.setViewName("admin/adminProfil");
+						session.setAttribute("active",true);
 						break;
 						}
 						case 2:
 						{
 							modelAndView.setViewName("projectowner/login");
+							session.setAttribute("active",true);
 							break;}
 						case 3:
 						{
 							modelAndView.setViewName("devloper/Devcpanel");
+							session.setAttribute("active",true);
 							break;}
 						case 4:
 						{
 							modelAndView.setViewName("scrummaster/SMasterProfil");
+							session.setAttribute("active",true);
 							break;}
 						}
 					
@@ -138,11 +142,14 @@ public class UserSpaceController {
 	public ModelAndView getaccountPage(HttpSession session,@RequestParam int pro) {
 		final ModelAndView modelAndView = new ModelAndView();
 		logger.info("Received request to show common page");
-		session.setAttribute("user",userService.find((Integer) session.getAttribute("userid")));
+		
 		// if the passed parameter is equal to 0 or to the id of the current User, we give him the permission to update the profil but if it was different 
 		// wich means something else than 0 and userId we give him the right to send a message or to report
 		boolean editrights = true;
-		User resu=(User) session.getAttribute("user");
+		
+		User resu=userService.find((Integer) session.getAttribute("userid"));
+		session.setAttribute("user",resu);
+		
 		if(pro!=0 && pro!=resu.getUserId())
 		{
 		resu = userService.find(pro);
@@ -150,6 +157,7 @@ public class UserSpaceController {
 		}
 		
 		session.setAttribute("editrights",editrights);
+		modelAndView.addObject("targetuser", resu);
 		resu=null;
 		
 		modelAndView.setViewName("sharedpages/account");

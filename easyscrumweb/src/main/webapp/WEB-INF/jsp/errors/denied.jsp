@@ -11,7 +11,7 @@
 <center>
 <h1>Access Denied !</h1>
 <h3>You Requested a Page You don't Have the permession to access it, Any Other attemt to Access such a Page Could cause a ban for your machine and all your Accounts !</h3>
-<a href="/easyscrumweb/home?logoutmsg=true">Home Page</a>
+<a href="/easyscrumweb/account_logout">Home Page</a>
 </center></div>
 </body>
 </html>

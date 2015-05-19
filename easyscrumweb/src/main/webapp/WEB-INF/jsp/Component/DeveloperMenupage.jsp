@@ -20,7 +20,7 @@
 				<li><a href="/easyscrumweb/userspace/CheckProjects">projects</a></li>
 				<li><a href="/easyscrumweb/userspace/ManageSprints">Sprints</a></li>
 				<li><a href="#">Work to do</a></li>
-				<li><a href="#">My Teams</a></li>
+				<li><a href="/easyscrumweb/userspace/TeamSpace">Teams</a></li>
 				<li><a href="/easyscrumweb/userspace/inbox">Inbox</a></li>
 				<li><a class="btn btn-default btn-outline btn-circle collapsed"
 					data-toggle="collapse" href="#nav-collapse4" aria-expanded="false"
@@ -40,7 +40,7 @@
 						<li><a href="#">Favorited</a></li>
 						<li><a href="#">Settings</a></li>
 						<li class="divider"></li>
-						<li><a href="/easyscrumweb/home?logoutmsg=true">Logout</a></li>
+						<li><a href="/easyscrumweb/account_logout">Logout</a></li>
 					</ul></li>
 			</ul>
 		</div>

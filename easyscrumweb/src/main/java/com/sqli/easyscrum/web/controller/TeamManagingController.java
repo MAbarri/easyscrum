@@ -1,5 +1,6 @@
 package com.sqli.easyscrum.web.controller;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -73,4 +74,40 @@ public class TeamManagingController {
 
 		return modelAndView;
 	}
+
+	@RequestMapping(value = "/TeamSpace", method = RequestMethod.GET)
+	public ModelAndView getteamsPage(HttpSession session)
+	{
+		final ModelAndView modelAndView = new ModelAndView();
+		logger.info("Received request to show common page");
+		session.setAttribute("user",userService.find((Integer) session.getAttribute("userid"))); 
+		modelAndView.setViewName("sharedpages/teamspace");
+		return modelAndView;
+	}
+	
+	@RequestMapping(value = "/myTeams", method = RequestMethod.GET)
+	public ModelAndView getmyteamsPage(HttpSession session)
+	{
+		final ModelAndView modelAndView = new ModelAndView();
+		logger.info("Received request to show common page");
+		session.setAttribute("user",userService.find((Integer) session.getAttribute("userid")));
+		modelAndView.setViewName("sharedpages/myteams");
+		return modelAndView;
+	}
+	
+	@RequestMapping(value = "/needTeam")
+	public ModelAndView getneedteamPage(HttpSession session,boolean change)
+	{
+		final ModelAndView modelAndView = new ModelAndView();
+		logger.info("Received request to show common page");
+		logger.info("need team :"+change);
+		User me =userService.find((Integer) session.getAttribute("userid"));
+		me.setNeedteam(!change);
+		userService.update(me);
+		
+		modelAndView.setViewName("redirect:"+"TeamSpace");
+		return modelAndView;
+	}
+	
 }
+

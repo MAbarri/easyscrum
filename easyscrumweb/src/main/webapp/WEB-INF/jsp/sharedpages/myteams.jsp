@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Teams Overview</title>
+<title>My Teams Overview</title>
 <link rel="stylesheet"
 	href="/easyscrumweb/resources/css/CostumeStyle.css">
 <link rel="stylesheet" href="/easyscrumweb/resources/css/card.css">
@@ -39,7 +39,26 @@
 			<div class="panel-body">
 				
 				
-				<c:forEach items="${teams }" var="p">
+				<c:forEach items="${user.teams }" var="p">
+				
+					<div class="ui card leftbubble cardpad">
+					<div class="image">
+						<img
+							src="/easyscrumweb/resources/images/Old-New-logo_Mark-on-darkBG.png">
+					</div>
+					<div class="content">
+						<a class="header" href="/easyscrumweb/userspace/Team?idteam=<c:out value="${p.idteam }"></c:out>"><c:out value="${p.name }"></c:out> </a>
+						<div class="meta">
+							<span class="date">Date of Creation : <c:out value="${p.creationDate }"></c:out></span>
+						</div>
+						<div class="description"><c:out value="${p.caption }"/></div>
+					</div>
+					<div class="extra content">
+						<a> <i class="user icon"></i><c:if test="${p.available }">Available</c:if><c:if test="${not p.available }">Not Available</c:if>
+					</div>
+				</div>
+				</c:forEach>
+				<c:forEach items="${user.teamchef }" var="p">
 				
 					<div class="ui card leftbubble cardpad">
 					<div class="image">

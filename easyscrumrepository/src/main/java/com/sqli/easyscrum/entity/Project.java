@@ -66,6 +66,14 @@ public class Project {
 	@Column(name = "PStatus")
     private String status;
 	
+	public Team getWorkteam() {
+		return workteam;
+	}
+
+	public void setWorkteam(Team workteam) {
+		this.workteam = workteam;
+	}
+
 	@OneToMany(mappedBy="projet")
 	private List<Sprint> sprints;
 	
@@ -74,7 +82,7 @@ public class Project {
 	
 	@ManyToOne
     @JoinColumn(name = "id_team")
-	private Team team;
+	private Team workteam;
 	
 	public List<Backlog> getBacklogs() {
 		return backlogs;

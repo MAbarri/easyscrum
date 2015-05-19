@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -76,8 +77,9 @@
 										<br><label>Cost :</label>&nbsp;<c:out value="${project.cost}"></c:out>
 										<br><label>Tags :</label>&nbsp;<c:out value="${project.tags}"></c:out>
 										<c:forEach items="${project.backlogs }" var="bg" >
-										<br><a href="/easyscrumweb/userspace/projectbacklog?id=<c:out value="${bg.idback }"></c:out>" style="position: static;">Backlog</a><br>
+										<br><a href="/easyscrumweb/userspace/projectbacklog?id=<c:out value="${bg.idback }"></c:out>" style="position: static;">Backlog</a>
 										</c:forEach>
+										<br><label>Team working on :</label>&nbsp;<a href="/easyscrumweb/userspace/Team?idteam=<c:out value="${project.workteam.idteam }"></c:out>" style="position: static;"> <c:out value="${project.workteam.name}"></c:out></a>
 									</div>
 								</div>
 							</div>
@@ -91,22 +93,12 @@
 						<label for="pnl">Sprints :</label>
 						<div class="panel-body" id="pnl">
 							<div class="list-group">
+							<c:forEach items="${project.sprints }" var="spr" end="4" >
 								<a href="/easyscrumweb/userspace/allSprints?idproject=<c:out value="${project.projectId }"></c:out>" class="list-group-item"> <i
-									class="fa fa-tasks fa-fw"></i> Sprint 1 <span
-									class="pull-right text-muted small"><em>12/12/2014</em> </span>
-								</a> <a href="/easyscrumweb/userspace/allSprints?idproject=<c:out value="${project.projectId }"></c:out>" class="list-group-item"> <i
-									class="fa fa-tasks fa-fw"></i> Sprint 2 <span
-									class="pull-right text-muted small"><em>12/11/2014</em> </span>
-								</a><a href="/easyscrumweb/userspace/allSprints?idproject=<c:out value="${project.projectId }"></c:out>" class="list-group-item"> <i
-									class="fa fa-tasks fa-fw"></i> Sprint 3 <span
-									class="pull-right text-muted small"><em>22/09/2014</em> </span>
-								</a><a href="/easyscrumweb/userspace/allSprints?idproject=<c:out value="${project.projectId }"></c:out>" class="list-group-item"> <i
-									class="fa fa-tasks fa-fw"></i> Sprint 4 <span
-									class="pull-right text-muted small"><em>12/01/2014</em> </span>
-								</a><a href="/easyscrumweb/userspace/allSprints?idproject=<c:out value="${project.projectId }"></c:out>" class="list-group-item"> <i
-									class="fa fa-tasks fa-fw"></i> Sprint 5 <span
-									class="pull-right text-muted small"><em>11/01/2014</em> </span>
+									class="fa fa-tasks fa-fw"></i> <c:out value="${spr.nom }"></c:out> <span
+									class="pull-right text-muted small"><em> <c:out value="${spr.dtd }"></c:out> </em> </span>
 								</a> 
+							</c:forEach>
 							</div>
 							<!-- /.list-group -->
 							<a href="/easyscrumweb/userspace/allSprints?idproject=<c:out value="${project.projectId }"></c:out>" class="btn btn-default btn-block">View All Sprints</a>

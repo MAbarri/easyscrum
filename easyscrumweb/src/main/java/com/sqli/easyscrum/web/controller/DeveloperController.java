@@ -1,5 +1,7 @@
 package com.sqli.easyscrum.web.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,6 +11,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.sqli.easyscrum.business.services.ProjectService;
 import com.sqli.easyscrum.business.services.SprintService;
+import com.sqli.easyscrum.business.services.UserService;
+import com.sqli.easyscrum.entity.User;
 
 @Controller
 @RequestMapping("/userspace")
@@ -18,6 +22,9 @@ public class DeveloperController {
 	
 	@Autowired
 	private ProjectService projectService;
+	
+	@Autowired
+	private UserService userService;
 	
 	@Autowired
 	private SprintService sprintService;

@@ -78,7 +78,7 @@ public class Team {
 	@JoinColumn(name="teamchef")
 	private User boss;
     
-    @OneToMany(mappedBy="team")
+    @OneToMany(mappedBy="workteam")
 	private List<Project> projects;
     
     public Integer getIdteam() {

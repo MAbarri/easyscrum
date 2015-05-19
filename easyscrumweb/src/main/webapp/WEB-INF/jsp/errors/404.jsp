@@ -17,7 +17,7 @@
 		<img alt="Page Not found !" src="/easyscrumweb/resources/images/404.jpg" style="margin-top: 40px;border-radius: 8px;">
 		<br>
 		<h1>Something went wrong :( we'll figure it out soon don't worry.</h1>
-		<h3><a href="/easyscrumweb/home?logoutmsg=true" style="color: darkcyan;">Home Page</a></h3>
+		<h3><a href="/easyscrumweb/account_logout" style="color: darkcyan;">Home Page</a></h3>
 	</div>
 	</center>
 	<!-- footer -->

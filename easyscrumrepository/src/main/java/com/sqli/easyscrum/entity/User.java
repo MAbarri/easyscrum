@@ -44,46 +44,46 @@ public class User implements Serializable {
     private List<Project> projects;
 	
 	@OneToMany(mappedBy="sender",cascade = {CascadeType.PERSIST,CascadeType.MERGE})
-    private Set<Mail> sentmails;
+    private List<Mail> sentmails;
 	
 	@OneToMany(mappedBy="Reciever",cascade = {CascadeType.PERSIST,CascadeType.MERGE})
-    private Set<Mail> recievedmails;
+    private List<Mail> recievedmails;
 	
 	@OneToMany(mappedBy="boss",cascade = {CascadeType.PERSIST,CascadeType.MERGE})
-    private Set<Team> teamchef;
+    private List<Team> teamchef;
 	
-	public Set<Team> getTeamchef() {
+	public List<Team> getTeamchef() {
 		return teamchef;
 	}
 
-	public void setTeamchef(Set<Team> teamchef) {
+	public void setTeamchef(List<Team> teamchef) {
 		this.teamchef = teamchef;
 	}
 
-	public Set<Team> getTeams() {
+	public List<Team> getTeams() {
 		return teams;
 	}
 
-	public void setTeams(Set<Team> teams) {
+	public void setTeams(List<Team> teams) {
 		this.teams = teams;
 	}
 
 	@ManyToMany
-    private Set<Team> teams;
+    private List<Team> teams;
  
-	public Set<Mail> getSentmails() {
+	public List<Mail> getSentmails() {
 		return sentmails;
 	}
 
-	public void setSentmails(Set<Mail> sentmails) {
+	public void setSentmails(List<Mail> sentmails) {
 		this.sentmails = sentmails;
 	}
 
-	public Set<Mail> getRecievedmails() {
+	public List<Mail> getRecievedmails() {
 		return recievedmails;
 	}
 
-	public void setRecievedmails(Set<Mail> recievedmails) {
+	public void setRecievedmails(List<Mail> recievedmails) {
 		this.recievedmails = recievedmails;
 	}
 

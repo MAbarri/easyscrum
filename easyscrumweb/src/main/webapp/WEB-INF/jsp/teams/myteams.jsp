@@ -35,10 +35,34 @@
 	<div id="cover" class="backprofil">
 
 		<div class="panel panel-default clientPanel">
-			<div class="panel-heading">Teams</div>
+			<div class="panel-heading">
+			<c:if test="${selectteam }">select one of your </c:if>
+			Teams
+			</div>
 			<div class="panel-body">
+				<c:choose>
+				<c:when test="${selectteam }">
+				<c:forEach items="${user.teamchef }" var="p">
 				
-				
+					<div class="ui card leftbubble cardpad">
+					<div class="image">
+						<img
+							src="/easyscrumweb/resources/images/Old-New-logo_Mark-on-darkBG.png">
+					</div>
+					<div class="content">
+						<a class="header" href="/easyscrumweb/userspace/GetRecap?idteam=<c:out value="${p.idteam }"></c:out>&idpro=<c:out value="${project }"></c:out>"><c:out value="${p.name }"></c:out> </a>
+						<div class="meta">
+							<span class="date">Date of Creation : <c:out value="${p.creationDate }"></c:out></span>
+						</div>
+						<div class="description"><c:out value="${p.caption }"/></div>
+					</div>
+					<div class="extra content">
+						<i class="user icon"></i><c:if test="${p.available }">Available</c:if><c:if test="${not p.available }">Not Available</c:if>
+					</div>
+				</div>
+				</c:forEach>
+				</c:when>
+				<c:otherwise>
 				<c:forEach items="${user.teams }" var="p">
 				
 					<div class="ui card leftbubble cardpad">
@@ -77,6 +101,8 @@
 					</div>
 				</div>
 				</c:forEach>
+				</c:otherwise>
+				</c:choose>
 				
 			</div>
 		</div>

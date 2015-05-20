@@ -1,6 +1,7 @@
 package com.sqli.easyscrum.web.controller;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -22,6 +23,7 @@ import com.sqli.easyscrum.entity.Mail;
 import com.sqli.easyscrum.entity.Project;
 import com.sqli.easyscrum.entity.Team;
 import com.sqli.easyscrum.entity.User;
+import com.sqli.easyscrum.web.vo.FormTeamObject;
 
 @Controller
 @RequestMapping("/userspace")
@@ -51,7 +53,7 @@ public class TeamManagingController {
 		logger.info("Received request to show common page");
 		session.setAttribute("user",userService.find((Integer) session.getAttribute("userid")));
 		modelAndView.addObject("teams", teamService.findAll());
-		modelAndView.setViewName("sharedpages/allteams");
+		modelAndView.setViewName("teams/allteams");
 		
 
 		return modelAndView;
@@ -74,7 +76,7 @@ public class TeamManagingController {
 				resu=null;
 				
 		
-		modelAndView.setViewName("sharedpages/team");
+		modelAndView.setViewName("teams/team");
 		
 
 		return modelAndView;
@@ -86,7 +88,7 @@ public class TeamManagingController {
 		final ModelAndView modelAndView = new ModelAndView();
 		logger.info("Received request to show common page");
 		session.setAttribute("user",userService.find((Integer) session.getAttribute("userid"))); 
-		modelAndView.setViewName("sharedpages/teamspace");
+		modelAndView.setViewName("teams/teamspace");
 		return modelAndView;
 	}
 	
@@ -96,7 +98,7 @@ public class TeamManagingController {
 		final ModelAndView modelAndView = new ModelAndView();
 		logger.info("Received request to show common page");
 		session.setAttribute("user",userService.find((Integer) session.getAttribute("userid")));
-		modelAndView.setViewName("sharedpages/myteams");
+		modelAndView.setViewName("teams/myteams");
 		return modelAndView;
 	}
 	
@@ -120,7 +122,7 @@ public class TeamManagingController {
 		logger.info("Received request to show common page");
 		session.setAttribute("user",userService.find((Integer) session.getAttribute("userid")));		
 		
-		modelAndView.setViewName("sharedpages/newteam");
+		modelAndView.setViewName("teams/newteam");
 		return modelAndView;
 	}
 	@RequestMapping(value = "/creatnewTeam")
@@ -141,7 +143,7 @@ public class TeamManagingController {
 		logger.info("Received request to show common page");
 		session.setAttribute("user",userService.find((Integer) session.getAttribute("userid")));
 		modelAndView.addObject("userlist", userService.findAll());
-		modelAndView.setViewName("sharedpages/hiremembers");
+		modelAndView.setViewName("teams/hiremembers");
 		return modelAndView;
 	}
 	
@@ -167,6 +169,12 @@ public class TeamManagingController {
 							+"Click it and Start Your experience with us !<br>Have a Good Day","22/12/2013");
 			invitation.setSender(sender);
 			invitation.setReciever(reciever);
+			invitation.setAttachement(String.valueOf(idteam));
+			//mail types :
+			//0 for presentation mail
+			//1 for team invitation mail
+			//2 for random mail
+			invitation.setMailtype(1);
 			
 				mailService.persist(invitation); 
 			
@@ -174,7 +182,35 @@ public class TeamManagingController {
 		modelAndView.setViewName("redirect:"+"TeamSpace");
 		return modelAndView;
 	}
+	@RequestMapping(value = "/acceptinviteteam")
+	public ModelAndView getacceptteamPage(HttpSession session,@RequestParam int team)
+	{
+		final ModelAndView modelAndView = new ModelAndView();
+		logger.info("Received request to show common page");
+		User user = userService.find((Integer) session.getAttribute("userid"));
+		session.setAttribute("user",user);
+				
 		
-	//
+		List<Mail> mails = new ArrayList<Mail>();
+		
+		for(Mail inv :user.getRecievedmails())
+			if(inv.getMailtype()==1)
+				mails.add(inv);
+		
+		for(Mail i :mails)
+			if(Integer.parseInt(i.getAttachement())==team)
+			{
+				Team tm = teamService.find(team);
+				List<Team> list = user.getTeams();
+				if(!list.contains(tm))
+					list.add(tm);
+				user.setTeams(list);
+				userService.update(user);
+				logger.info("Update executed");
+  			}
+		modelAndView.setViewName("redirect:"+"TeamSpace");
+		
+		return modelAndView;
+	}
 }
 

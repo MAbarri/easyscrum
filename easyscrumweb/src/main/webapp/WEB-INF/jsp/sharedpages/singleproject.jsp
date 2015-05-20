@@ -48,12 +48,20 @@
 		<div class="panel panel-default clientPanel sprintpanel">
 			<div class="panel-heading">Project <c:out value="${project.nomproject }"></c:out> </div>
 			<div class="panel-body">
+				
+				<c:choose>
+					<c:when test="${getproject }"><h1>Free project</h1></c:when>
+				<c:otherwise>
+				
 				<br> <label for="progress">Project progress</label>
 				<div class="progress">
 					<div class="progress-bar" role="progressbar" aria-valuenow="60"
 						aria-valuemin="0" aria-valuemax="100" style="width: 20%;">
 						20%</div>
 				</div>
+				</c:otherwise>
+				</c:choose>
+				
 				<div id="cardcontain">
 				<div class="row row-margin-bottom sprintcard">
 					<div class="col-md-5 no-padding lib-item" data-category="view">
@@ -79,7 +87,17 @@
 										<c:forEach items="${project.backlogs }" var="bg" >
 										<br><a href="/easyscrumweb/userspace/projectbacklog?id=<c:out value="${bg.idback }"></c:out>" style="position: static;">Backlog</a>
 										</c:forEach>
+										<c:choose>
+										<c:when test="${getproject }">
+										<form action="selectTeam" method="POST">
+										<input id="idpro" name="idpro" value="<c:out value="${project.projectId}"></c:out>" style="display: none" >
+										<br><button type="submit" class="btn btn-primary">Get this Project</button>
+										</form>
+										</c:when>
+										<c:otherwise>
 										<br><label>Team working on :</label>&nbsp;<a href="/easyscrumweb/userspace/Team?idteam=<c:out value="${project.workteam.idteam }"></c:out>" style="position: static;"> <c:out value="${project.workteam.name}"></c:out></a>
+										</c:otherwise>
+										</c:choose>
 									</div>
 								</div>
 							</div>
@@ -90,6 +108,9 @@
 				<div class="col-lg-4 notificationpanel">
 					<div class="panel panel-default sprintslist">
 						<!-- /.panel-heading -->
+						<c:choose>
+						<c:when test="${getproject }"></c:when>
+						<c:otherwise>
 						<label for="pnl">Sprints :</label>
 						<div class="panel-body" id="pnl">
 							<div class="list-group">
@@ -103,6 +124,8 @@
 							<!-- /.list-group -->
 							<a href="/easyscrumweb/userspace/allSprints?idproject=<c:out value="${project.projectId }"></c:out>" class="btn btn-default btn-block">View All Sprints</a>
 						</div>
+						</c:otherwise>
+						</c:choose>
 						<!-- /.panel-body -->
 					</div>
 				</div>

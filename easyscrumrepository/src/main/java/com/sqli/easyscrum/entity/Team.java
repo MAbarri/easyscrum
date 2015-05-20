@@ -1,7 +1,6 @@
 package com.sqli.easyscrum.entity;
 
 import java.util.List;
-import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -104,7 +103,7 @@ public class Team {
     private int Karma;
     
     @ManyToMany(mappedBy="teams",cascade = {CascadeType.PERSIST,CascadeType.MERGE})
-    private Set<User> members;
+    private List<User> members;
     
     @ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
 	@JoinColumn(name="teamchef")
@@ -129,11 +128,11 @@ public class Team {
 		this.caption = caption;
 	}
 
-	public Set<User> getMembers() {
+	public List<User> getMembers() {
 		return members;
 	}
 
-	public void setMembers(Set<User> members) {
+	public void setMembers(List<User> members) {
 		this.members = members;
 	}
 

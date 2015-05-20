@@ -1,4 +1,4 @@
-package com.sqli.easyscrum.web.controller;
+package com.sqli.easyscrum.web.vo;
 
 import com.sqli.easyscrum.entity.Team;
 import com.sqli.easyscrum.entity.User;

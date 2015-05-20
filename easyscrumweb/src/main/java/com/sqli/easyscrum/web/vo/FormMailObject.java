@@ -1,4 +1,4 @@
-package com.sqli.easyscrum.web.controller;
+package com.sqli.easyscrum.web.vo;
 
 public class FormMailObject {
 

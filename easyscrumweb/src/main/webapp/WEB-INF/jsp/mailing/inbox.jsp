@@ -114,13 +114,13 @@
 							<div class="tab-pane fade in active" id="home">
 								<div class="list-group">
 								<c:forEach items="${me.recievedmails }" var="ml" >
-									<a href="/easyscrumweb/userspace/mail?id= <c:out value="${ml.idmail }"></c:out> " class="list-group-item">
+									<a href="/easyscrumweb/userspace/mail?id=<c:out value="${ml.idmail }"></c:out>" class="list-group-item <c:if test="${ml.vue }">read</c:if>">
 										<div class="checkbox">
-											<label> <input type="checkbox">
+											<label> <input type="checkbox" style="margin-top: 7px">
 											</label>
 										</div> <span class="glyphicon glyphicon-star-empty"></span><span
 										class="name" style="min-width: 120px; display: inline-block;"><c:out value="${ml.title }"></c:out> </span> <span
-										class="text-muted" style="font-size: 11px;">- <c:out value="${ml.text }"></c:out></span> <span class="badge"><c:out value="${ml.dateenvoi }"></c:out></span> <span
+										class="text-muted" style="font-size: 11px;">- <c:out value="${ml.sender.nom}"></c:out>&nbsp;<c:out value="${ml.sender.prenom}"></c:out></span> <span class="badge" style=" float: right;"><c:out value="${ml.dateenvoi }"></c:out></span> <span
 										class="pull-right"><span
 											class="glyphicon glyphicon-paperclip"> </span></span>
 									</a></c:forEach>
@@ -129,15 +129,13 @@
 							<div class="tab-pane fade in" id="profile">
 								<div class="list-group">
 									<c:forEach items="${me.sentmails }" var="ml" >
-									<a href="/easyscrumweb/userspace/mail?id= <c:out value="${ml.idmail }"></c:out>" class="list-group-item">
+									<a href="/easyscrumweb/userspace/mail?id= <c:out value="${ml.idmail }"></c:out>" class="list-group-item read">
 										<div class="checkbox">
-											<label> <input type="checkbox">
+											<label> <input type="checkbox" style="margin-top: 7px">
 											</label>
 										</div> <span class="glyphicon glyphicon-star-empty"></span><span
-										class="name" style="min-width: 120px; display: inline-block;"><c:out value="${ml.title }"></c:out> </span> <span
-										class="text-muted" style="font-size: 11px;">- <c:out value="${ml.text }"></c:out></span> <span class="badge"><c:out value="${ml.dateenvoi }"></c:out></span> <span
-										class="pull-right"><span
-											class="glyphicon glyphicon-paperclip"> </span></span>
+										class="name" style="min-width: 120px; display: inline-block;"><c:out value="${ml.title }"></c:out> </span> <span class="text-muted" style="font-size: 11px;">- <c:out value="${ml.sender.nom}"></c:out>&nbsp;<c:out value="${ml.sender.prenom}"></c:out> <span class="badge" style=" float: right;"><c:out value="${ml.dateenvoi }"></c:out></span> <span
+										class="pull-right"></span>
 									</a></c:forEach>
 								</div>
 							</div>

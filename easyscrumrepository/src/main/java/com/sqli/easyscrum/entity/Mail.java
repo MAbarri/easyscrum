@@ -1,6 +1,5 @@
 package com.sqli.easyscrum.entity;
 
-import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -9,7 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -25,7 +23,26 @@ public class Mail {
 	@Column(name="title")
 	private String title;
 	
-	@Column(name="text",columnDefinition = "TEXT")
+	@Column(name="attachement")
+	private String attachement;
+	
+	public String getAttachement() {
+		return attachement;
+	}
+	public void setAttachement(String attachement) {
+		this.attachement = attachement;
+	}
+	@Column(name="mailtype")
+	public int mailtype;
+	
+	
+	public int getMailtype() {
+		return mailtype;
+	}
+	public void setMailtype(int mailtype) {
+		this.mailtype = mailtype;
+	}
+	@Column(name="mailtext",columnDefinition = "LONGTEXT")
 	private String text;
 	
 	@Column(name="Dateenvoi")

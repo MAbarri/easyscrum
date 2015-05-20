@@ -13,9 +13,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.sqli.easyscrum.business.services.MailService;
+import com.sqli.easyscrum.business.services.ProjectService;
+import com.sqli.easyscrum.business.services.TeamService;
 import com.sqli.easyscrum.business.services.UserService;
 import com.sqli.easyscrum.entity.Mail;
 import com.sqli.easyscrum.entity.User;
+import com.sqli.easyscrum.web.vo.FormMailObject;
 
 @Controller
 @RequestMapping("/userspace")
@@ -29,6 +32,12 @@ public class MailingController {
 	@Autowired
 	private MailService mailService;
 	
+	@Autowired
+	private TeamService teamService;
+	
+	@Autowired
+	private ProjectService projectService;
+	
 	@RequestMapping(value = "/inbox", method = RequestMethod.GET)
 	public ModelAndView getinboxPage(HttpSession session) {
 		final ModelAndView modelAndView = new ModelAndView();
@@ -37,7 +46,7 @@ public class MailingController {
 		modelAndView.addObject("me", resu);
 		session.setAttribute("user",resu);
 		resu=null;
-		modelAndView.setViewName("sharedpages/inbox");
+		modelAndView.setViewName("mailing/inbox");
 
 		return modelAndView;
 	}
@@ -45,10 +54,20 @@ public class MailingController {
 	public ModelAndView getmessagePage(HttpSession session,@RequestParam int id) {
 		final ModelAndView modelAndView = new ModelAndView();
 		logger.info("Received request to show common page");
-
-		session.setAttribute("currentmail",mailService.find(id));
+		Mail mail = mailService.find(id);
+		session.setAttribute("currentmail",mail);
 		session.setAttribute("user",userService.find((Integer) session.getAttribute("userid")));
-		modelAndView.setViewName("sharedpages/mail");
+		if(mail.getMailtype()==1)
+			session.setAttribute("mailteam",teamService.find(Integer.parseInt(mail.getAttachement())));
+		if(mail.getMailtype()==2)
+		{
+			String[] parts = mail.getAttachement().split(";");
+			session.setAttribute("mailteam",teamService.find(Integer.parseInt(parts[0])));
+			session.setAttribute("project",projectService.find(Integer.parseInt(parts[1])));
+		}
+		mail.setVue(true);
+		mailService.update(mail);
+		modelAndView.setViewName("mailing/mail");
 
 		return modelAndView;
 	}
@@ -58,7 +77,7 @@ public class MailingController {
 		final ModelAndView modelAndView = new ModelAndView();
 		logger.info("Received request to show common page");
 		session.setAttribute("user",userService.find((Integer) session.getAttribute("userid")));
-		modelAndView.setViewName("sharedpages/newmail");
+		modelAndView.setViewName("mailing/newmail");
 
 		return modelAndView;
 	}
@@ -74,7 +93,11 @@ public class MailingController {
 		Mail mail= new Mail(fmo.getMailtitle(), fmo.getMailtext(), "14/05/2015");
 		mail.setSender(sender);
 		mail.setReciever(reciever);
-		
+		//mail types :
+		//0 for presentation mail
+		//1 for team invitation mail
+		//2 for random mail
+		mail.setMailtype(2);
 		mailService.persist(mail);
 		
 		modelAndView.setViewName("redirect:inbox");

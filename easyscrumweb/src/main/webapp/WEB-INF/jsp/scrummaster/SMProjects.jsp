@@ -31,7 +31,17 @@
 							src="/easyscrumweb/resources/images/Old-New-logo_Mark-on-darkBG.png">
 					</div>
 					<div class="content">
-						<a class="header" href="/easyscrumweb/userspace/project?idproject=<c:out value="${p.projectId }"></c:out>"><c:out value="${p.nomproject }"></c:out> </a>
+						<a class="header" 
+						<c:choose>
+						<c:when test="${page=='projects' }">
+							href="/easyscrumweb/userspace/Getproject?idproject=<c:out value="${p.projectId }"></c:out>
+						</c:when>
+						<c:otherwise>
+							href="/easyscrumweb/userspace/project?idproject=<c:out value="${p.projectId }"></c:out>
+						</c:otherwise>
+						</c:choose>
+						">
+						<c:out value="${p.nomproject }"></c:out> </a>
 						<div class="meta">
 							<span class="date">Date of Creation : <c:out value="${p.dateDebut }"></c:out></span>
 						</div>
@@ -43,22 +53,23 @@
 				</div>
 				</c:forEach>
 				
-				
+				<c:if test="${page=='canadd' }">
 			 <div class="ui card leftbubble cardpad">
 					<div class="image">
 						<img
 							src="/easyscrumweb/resources/images/Create_with_plus_mail_layer_add_vector_stock.png">
 					</div>
 					<div class="content">
-						<a class="header" href="getnewProject">Get a New Project</a>
+						<a class="header" href="/easyscrumweb/userspace/getnewProjectselection">Get a New Project</a>
 						<div class="meta">
 							<span class="date">Client date</span>
 						</div>
-						<div class="description">Find a new project to work on and get busy.</div>
+						<div class="description">Find a new project to work on with your team.</div>
 					</div>
 					<div class="extra content">
 					</div>
 				</div>
+				</c:if>
 			</div>
 		</div>
 	</div>

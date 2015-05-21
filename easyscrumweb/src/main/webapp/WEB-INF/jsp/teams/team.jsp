@@ -105,7 +105,7 @@
 										<i class="glyphicon glyphicon-pencil" id="editlink"></i> Edit
 										Team
 									</div>
-								</a> <a href="/easyscrumweb/userspace/Invitein?idteam=1" style="color: white;">
+								</a> <a href="/easyscrumweb/userspace/Invitein?idteam=<c:out value="${team.idteam}"></c:out>" style="color: white;">
 									<div class="col-md-4 col-xs-4 well" id="editclick"
 										style="display: 
 									<c:choose>

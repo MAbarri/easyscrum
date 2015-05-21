@@ -46,10 +46,10 @@
 				<div class="shadow">
 				<label><c:out value="${currentmail.title }"></c:out></label>
 				<br><br>
-				<c:if test="${currentmail.mailtype == '3' }">
+				<c:if test="${currentmail.mailtype == '4' }">
 					<c:out value="${currentmail.text }"></c:out>
 				</c:if>
-				<c:if test="${currentmail.mailtype != '3' }">
+				<c:if test="${currentmail.mailtype != '4' }">
 					<c:out value="${currentmail.text }" escapeXml="false"></c:out>
 				</c:if>
 				<br>

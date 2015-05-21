@@ -20,6 +20,7 @@
 				<li><a href="/easyscrumweb/userspace/ManageProjects">projects</a></li>
 				<li><a href="/easyscrumweb/userspace/ManageSprints">Sprints</a></li>
 				<li><a href="/easyscrumweb/userspace/inbox">Inbox</a></li>
+				<li><a href="/easyscrumweb/connect/Present">video</a></li>
 				<li><a href="/easyscrumweb/userspace/Teams">Teams</a></li>
 				<li><a class="btn btn-default btn-outline btn-circle collapsed"
 					data-toggle="collapse" href="#nav-collapse4" aria-expanded="false"

@@ -28,7 +28,7 @@
 	<http pattern="/services" security="none" />
 	<http pattern="/news" security="none" />
 	<!-- <http pattern="/contact" security="none" /> -->
-	    
+	  
 	<http use-expressions="true">
 	    <intercept-url pattern="/resources/**" access="permitAll" />
 	    <!-- <intercept-url pattern="/**" access="isAuthenticated()"/> -->
@@ -40,6 +40,8 @@
 	    <intercept-url pattern="/userspace/newmail" access="hasRole('USER_Role')" />
 	    <intercept-url pattern="/userspace/sendmail" access="hasRole('USER_Role')" />
 	    <intercept-url pattern="/userspace/Account" access="hasRole('USER_Role')" />
+	    <intercept-url pattern="/connect/Present" access="hasRole('USER_Role')" />
+	    
 	    <!-- Admin pages -->
 	    <intercept-url pattern="/userspace/ManageUsers" access="hasRole('ADMIN_Role')" />
 	    <intercept-url pattern="/userspace/addAccount" access="hasRole('ADMIN_Role')" />
@@ -72,7 +74,8 @@
 	    <intercept-url pattern="/userspace/newTeam" access="hasRole('SM_Role')" />
 	    <intercept-url pattern="/userspace/Invitein" access="hasRole('SM_Role')" />
 	    <intercept-url pattern="/userspace/getnewProjectselection" access="hasRole('SM_Role')" />
-	    
+        <!-- <intercept-url pattern="/**" requires-channel="https" /> -->    
+         
 	<!-- <intercept-url pattern="/main/admin" access="hasRole('ROLE_ADMIN')" />
 		<intercept-url pattern="/main/register" access="hasRole('ROLE_VISITOR')"/>
 		<intercept-url pattern="	/userspace/profil" requires-channel="https"/>

@@ -50,15 +50,13 @@
 				<label>Project :</label>&nbsp; <c:out value="${project.nomproject }"></c:out>
 				<br><label>Project Owner</label>&nbsp; <c:out value="${user.nom }"></c:out>&nbsp; <c:out value="${user.prenom }"></c:out>
 				<br><label>Backlogs date :</label>&nbsp;
-						<c:forEach items="${project.backlogs }" var="a" >
-						 <c:out value="${a.dtPost }"></c:out>
+						 <c:out value="${project.backlog.dtPost }"></c:out>
 				<br><br><br>
 				<br><label>User Stories</label>
 				<br><br>
-				<c:forEach items="${a.stories }" var="us" >
+				<c:forEach items="${project.backlog.stories }" var="us" >
 					- <c:out value="${us.speech }"></c:out><br>
 					</c:forEach>
-				</c:forEach>
 			</div>
 		</div>
 

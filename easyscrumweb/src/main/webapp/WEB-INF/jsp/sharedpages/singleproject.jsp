@@ -84,9 +84,8 @@
 										<br><label>Description :</label>&nbsp;<c:out value="${project.desc}"></c:out>
 										<br><label>Cost :</label>&nbsp;<c:out value="${project.cost}"></c:out>
 										<br><label>Tags :</label>&nbsp;<c:out value="${project.tags}"></c:out>
-										<c:forEach items="${project.backlogs }" var="bg" >
-										<br><a href="/easyscrumweb/userspace/projectbacklog?id=<c:out value="${bg.idback }"></c:out>" style="position: static;">Backlog</a>
-										</c:forEach>
+										<br><a href="/easyscrumweb/userspace/projectbacklog?id=<c:out value="${project.projectId }"></c:out>" style="position: static;">Backlog</a>
+										
 										<c:choose>
 										<c:when test="${getproject }">
 										<form action="selectTeam" method="POST">
@@ -95,7 +94,8 @@
 										</form>
 										</c:when>
 										<c:otherwise>
-										<br><label>Team working on :</label>&nbsp;<a href="/easyscrumweb/userspace/Team?idteam=<c:out value="${project.workteam.idteam }"></c:out>" style="position: static;"> <c:out value="${project.workteam.name}"></c:out></a>
+										<br><label>Team working on :</label>&nbsp;<c:if test="${empty project.workteam.idteam }">(no team yet)</c:if>
+										<a href="/easyscrumweb/userspace/Team?idteam=<c:out value="${project.workteam.idteam }"></c:out>" style="position: static;"> <c:out value="${project.workteam.name}"></c:out></a>
 										</c:otherwise>
 										</c:choose>
 									</div>

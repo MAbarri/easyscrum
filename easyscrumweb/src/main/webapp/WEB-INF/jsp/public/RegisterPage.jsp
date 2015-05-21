@@ -112,14 +112,15 @@
 												<tr>
 													<td>&nbsp;</td>
 												</tr>
-
+			
 												<tr>
 													<td colspan="2"><button type="submit"
 															class="btn btn-success creatButton">Creer un
-															compte</button></td>
+															compte</button><input id="type" name="type" value="2" style="display:none;"> </td>
 												</tr>
+												<tr>
 												<td><c:out value="${error.general}"></c:out></td>
-
+												</tr>
 											</table>
 										</form>
 									</div>
@@ -220,7 +221,7 @@
 												<tr>
 													<td colspan="2"><button type="submit"
 															class="btn btn-success creatButton">Creer un
-															compte</button></td>
+															compte</button><input id="type" name="type" value="3" style="display:none;"></td>
 												</tr>
 												<td><c:out value="${error.general}"></c:out></td>
 
@@ -324,7 +325,7 @@
 												<tr>
 													<td colspan="2"><button type="submit"
 															class="btn btn-success creatButton">Creer un
-															compte</button></td>
+															compte</button><input id="type" name="type" value="4" style="display:none;"></td>
 												</tr>
 												<tr>
 												<td><c:out value="${error.general}"></c:out></td>

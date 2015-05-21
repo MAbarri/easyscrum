@@ -22,6 +22,7 @@ import com.sqli.easyscrum.business.services.SprintService;
 import com.sqli.easyscrum.business.services.UserService;
 import com.sqli.easyscrum.entity.Mail;
 import com.sqli.easyscrum.entity.User;
+import com.sqli.easyscrum.web.vo.FormObject;
 
 @Controller
 @RequestMapping("/userspace")
@@ -48,35 +49,39 @@ public class UserSpaceController {
 
 		return modelAndView;
 	}
-//
-//	@RequestMapping(value = "/newAccount")
-//	public ModelAndView getinscriptedPage(FormObject fm) {
-//
-//		final ModelAndView modelAndView = new ModelAndView();
-//
-//		Map<String, String> erreurs = new HashMap<String, String>();
-//
-//		logger.info("Received request to show common page");
-//
-//		User u = new User(2, fm.getLname(), fm.getLname(), "", fm.getAdresse(),true, fm.getEmail(), fm.getEmail(),fm.getPass(),fm.getType());
-//		
-//		if (fm.getConfpass().equals(fm.getPass())) {
-//			if (userService.getUserByLogin(u.getLogin()) == null) {
-//					userService.creatUser(u);
-//				modelAndView.setViewName("public/EmailCheck");
-//			} else {
-//				erreurs.put("login", " ce username existe déja !");
-//				modelAndView.addObject("ListErreur", erreurs);
-//				modelAndView.setViewName("public/RegisterPage");
-//			}
-//		} else {
-//			erreurs.put("confpass", "les deux chaine ne sont pas identiques !");
-//			modelAndView.addObject("ListErreur", erreurs);
-//			modelAndView.setViewName("public/RegisterPage");
-//		}
-//
-//		return modelAndView;
-//	}
+
+	@RequestMapping(value = "/newAccount")
+	public ModelAndView getinscriptedPage(FormObject fm) {
+
+		final ModelAndView modelAndView = new ModelAndView();
+
+		Map<String, String> erreurs = new HashMap<String, String>();
+
+		logger.info("Received request to show common page");
+
+		User u = new User(fm.getLname(), fm.getLname(), "", fm.getAdresse(), true, fm.getEmail(), fm.getLogin(), fm.getPass(), fm.getType());
+		
+		
+		if (fm.getConfpass().equals(fm.getPass())) {
+				try{
+					User exist = userService.findUserByLogin(u.getLogin()).get(0);
+					erreurs.put("login", " ce username existe déja !");
+					modelAndView.addObject("ListErreur", erreurs);
+					modelAndView.setViewName("public/RegisterPage");
+					
+				}catch(Exception cc){
+				
+				userService.persist(u);
+				modelAndView.setViewName("public/EmailCheck");				
+			}
+		} else {
+			erreurs.put("confpass", "les deux chaine ne sont pas identiques !");
+			modelAndView.addObject("ListErreur", erreurs);
+			modelAndView.setViewName("public/RegisterPage");
+		}
+
+		return modelAndView;
+	}
 	
 	
 	@RequestMapping(value = "/profil")

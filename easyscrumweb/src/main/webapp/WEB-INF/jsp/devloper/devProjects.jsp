@@ -43,22 +43,6 @@
 				</div>
 				</c:forEach>
 				
-				
-			 <div class="ui card leftbubble cardpad">
-					<div class="image">
-						<img
-							src="/easyscrumweb/resources/images/Create_with_plus_mail_layer_add_vector_stock.png">
-					</div>
-					<div class="content">
-						<a class="header" href="getnewProject">Get a New Project</a>
-						<div class="meta">
-							<span class="date">Client date</span>
-						</div>
-						<div class="description">Find a new project to work on and get busy.</div>
-					</div>
-					<div class="extra content">
-					</div>
-				</div>
 			</div>
 		</div>
 	</div>

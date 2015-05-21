@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 @Entity
@@ -77,19 +79,21 @@ public class Project {
 	@OneToMany(mappedBy="projet")
 	private List<Sprint> sprints;
 	
-	@OneToMany(mappedBy="projet")
-	private List<Backlog> backlogs;
+	@OneToOne(mappedBy="projet")
+	@PrimaryKeyJoinColumn
+	private Backlog backlog;
 	
 	@ManyToOne
     @JoinColumn(name = "id_team")
 	private Team workteam;
 	
-	public List<Backlog> getBacklogs() {
-		return backlogs;
+	
+	public Backlog getBacklog() {
+		return backlog;
 	}
 
-	public void setBacklogs(List<Backlog> backlogs) {
-		this.backlogs = backlogs;
+	public void setBacklog(Backlog backlog) {
+		this.backlog = backlog;
 	}
 
 	public String getStatus() {

@@ -35,7 +35,7 @@ public class Backlog {
 	public void setProjet(Project projet) {
 		this.projet = projet;
 	}
-	@ManyToOne
+	@OneToOne
     @JoinColumn(name = "id_project")
 	private Project projet;
 		

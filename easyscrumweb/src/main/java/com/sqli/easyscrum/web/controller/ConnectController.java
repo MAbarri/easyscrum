@@ -1,5 +1,6 @@
 package com.sqli.easyscrum.web.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -15,6 +16,8 @@ import org.springframework.web.servlet.ModelAndView;
 import com.sqli.easyscrum.business.services.ProjectService;
 import com.sqli.easyscrum.business.services.SprintService;
 import com.sqli.easyscrum.business.services.UserService;
+import com.sqli.easyscrum.entity.Project;
+import com.sqli.easyscrum.entity.Team;
 import com.sqli.easyscrum.entity.User;
 
 @Controller
@@ -33,15 +36,18 @@ public class ConnectController {
 	private UserService userService;
 	
 	@RequestMapping(value = "/Present", method = RequestMethod.GET)
-	public ModelAndView getsingleprojectPage(@RequestParam int idproject,HttpSession session)
+	public ModelAndView getsingleprojectPage(HttpSession session)
 	{
 		final ModelAndView modelAndView = new ModelAndView();
 		logger.info("Received request to show common page");
-		List<User> results = userService.findUserByLogin(session.getAttribute("login").toString() );
-		User res=results.get(0);
+		User res = userService.find((Integer) session.getAttribute("userid"));
 		session.setAttribute("user",res); 
-		modelAndView.addObject("project", projectService.find(idproject));
-		modelAndView.addObject("projectslist", res.getProjects());
+		List<Team> tms=userService.find((Integer) session.getAttribute("userid")).getTeams();
+		List <Project> resultlist = new ArrayList<Project>();
+		for(Team tm:tms)
+			resultlist=tm.getProjects();
+		modelAndView.addObject("projectslist", resultlist);
+		//modelAndView.addObject("project", projectService.find(idproject));
 		res=null;
 		modelAndView.setViewName("presentation/connect");
 		return modelAndView;

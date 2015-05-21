@@ -124,17 +124,15 @@ public class FormProjectObject {
 		List<UserStorie> lus = new ArrayList<UserStorie>();
 		UserStorie us=new UserStorie(this.getUstext());
 
-		List<Backlog> lbls = new ArrayList<Backlog>();
 		Backlog newback = new Backlog(this.getBacklogtitle(), "22/12/2014");
 		
 		us.setBacklog(newback);
 		lus.add(us);
 		
 		newback.setStories(lus);
-		lbls.add(newback);
 		
 		Project prj = new Project( this.getNom(), this.getSel2(), this.getSel1(), this.getDescription(), this.getTags(), this.getCost(), this.getCompany(), this.getEmail(), "12/12/12", "getting started", "today", "--");
-		prj.setBacklogs(lbls);
+		prj.setBacklog(newback);
 		prj.setUser(user);
 		return prj;
 	}

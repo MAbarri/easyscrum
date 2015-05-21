@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.sqli.easyscrum.business.services.BackLogService;
+import com.sqli.easyscrum.business.services.MailService;
 import com.sqli.easyscrum.business.services.ProjectService;
 import com.sqli.easyscrum.business.services.SprintService;
 import com.sqli.easyscrum.business.services.TeamService;
@@ -27,6 +28,7 @@ import com.sqli.easyscrum.entity.Project;
 import com.sqli.easyscrum.entity.Team;
 import com.sqli.easyscrum.entity.User;
 import com.sqli.easyscrum.web.vo.FormProjectObject;
+import com.sqli.easyscrum.web.vo.Mails;
 
 @Controller
 @RequestMapping("/userspace")
@@ -36,6 +38,9 @@ public class ProjectOwnerController {
 		
 		@Autowired
 		private ProjectService projectService;
+		
+		@Autowired
+		private MailService mailService;
 		
 		@Autowired
 		private SprintService sprintService;
@@ -110,6 +115,9 @@ public class ProjectOwnerController {
 					prj.setWorkteam(tm);
 					projectService.update(prj);
 					logger.info("Update executed");
+					Mails ml = new Mails();
+					for(Mail notf:ml.JobAppNotifs(tm, prj))
+							mailService.persist(notf);
 	  			}
 			modelAndView.setViewName("redirect:"+"ManageProjects");
 			

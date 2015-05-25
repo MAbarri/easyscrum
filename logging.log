@@ -3318,3 +3318,756 @@ Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No q
 2015-05-13 18:05:54 INFO  controller:50 - SQLI
 2015-05-13 18:05:54 INFO  controller:58 - End Testing persistance
 2015-05-13 18:05:54 INFO  controller:59 - Received request to show common page
+2015-05-22 14:43:51 INFO  ContextLoader:285 - Root WebApplicationContext: initialization started
+2015-05-22 14:43:52 INFO  XmlWebApplicationContext:510 - Refreshing Root WebApplicationContext: startup date [Fri May 22 14:43:52 WAT 2015]; root of context hierarchy
+2015-05-22 14:43:52 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from ServletContext resource [/WEB-INF/applicationContext.xml]
+2015-05-22 14:43:52 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from URL [file:/D:/projects/easyscrum/easyscrumrepository/target/classes/datasource.xml]
+2015-05-22 14:43:53 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from ServletContext resource [/WEB-INF/supplies.xml]
+2015-05-22 14:43:53 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from URL [file:/D:/projects/easyscrum/easyscrumcore/target/classes/core.xml]
+2015-05-22 14:43:53 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from ServletContext resource [/WEB-INF/security.xml]
+2015-05-22 14:43:53 INFO  SpringSecurityCoreVersion:58 - You are running with Spring Security Core 3.2.6.RELEASE
+2015-05-22 14:43:53 INFO  SecurityNamespaceHandler:75 - Spring Security 'config' module version is 3.2.6.RELEASE
+2015-05-22 14:43:53 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'permitAll' for /resources/**
+2015-05-22 14:43:53 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('USER_Role')' for /userspace/profil
+2015-05-22 14:43:53 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('USER_Role')' for /userspace/inbox
+2015-05-22 14:43:53 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('USER_Role')' for /userspace/mail
+2015-05-22 14:43:53 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('USER_Role')' for /userspace/newmail
+2015-05-22 14:43:53 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('USER_Role')' for /userspace/sendmail
+2015-05-22 14:43:53 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('USER_Role')' for /userspace/Account
+2015-05-22 14:43:53 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('USER_Role')' for /connect/Present
+2015-05-22 14:43:53 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('ADMIN_Role')' for /userspace/ManageUsers
+2015-05-22 14:43:53 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('ADMIN_Role')' for /userspace/addAccount
+2015-05-22 14:43:53 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('ADMIN_Role')' for /userspace/updateAccount
+2015-05-22 14:43:53 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('ADMIN_Role')' for /userspace/deleteAccounts
+2015-05-22 14:43:53 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('ProjectAccess_Role')' for /userspace/ManageSprints
+2015-05-22 14:43:53 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('ProjectAccess_Role')' for /userspace/project
+2015-05-22 14:43:53 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('ProjectAccess_Role')' for /userspace/allSprints
+2015-05-22 14:43:53 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('ProjectAccess_Role')' for /userspace/singleSprint
+2015-05-22 14:43:53 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('ProjectAccess_Role')' for /userspace/projectbacklog
+2015-05-22 14:43:53 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('ProjectAccess_Role')' for /userspace/Teams
+2015-05-22 14:43:53 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('ProjectAccess_Role')' for /userspace/Team
+2015-05-22 14:43:53 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('ProjectAccess_Role')' for /userspace/TeamSpace
+2015-05-22 14:43:53 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('ProjectAccess_Role')' for /userspace/myTeams
+2015-05-22 14:43:53 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('PO_Role')' for /userspace/ManageProjects
+2015-05-22 14:43:53 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('PO_Role')' for /userspace/newProject
+2015-05-22 14:43:53 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('PO_Role')' for /userspace/CreatProjects
+2015-05-22 14:43:53 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('DEV_Role')' for /userspace/CheckProjects
+2015-05-22 14:43:53 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('DEV_Role')' for /userspace/getnewProject
+2015-05-22 14:43:53 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('DEV_Role')' for /userspace/needTeam
+2015-05-22 14:43:53 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('DEV_Role')' for /userspace/acceptinviteteam
+2015-05-22 14:43:53 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('SM_Role')' for /userspace/ProjectsManaging
+2015-05-22 14:43:53 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('SM_Role')' for /userspace/newSprint
+2015-05-22 14:43:53 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('SM_Role')' for /userspace/creatnewTeam
+2015-05-22 14:43:53 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('SM_Role')' for /userspace/newTeam
+2015-05-22 14:43:53 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('SM_Role')' for /userspace/Invitein
+2015-05-22 14:43:53 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('SM_Role')' for /userspace/getnewProjectselection
+2015-05-22 14:43:54 INFO  HttpSecurityBeanDefinitionParser:266 - Checking sorted filter chain: [Root bean: class [org.springframework.security.web.context.SecurityContextPersistenceFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 200, Root bean: class [org.springframework.security.web.authentication.logout.LogoutFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 700, <org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter#0>, order = 1100, Root bean: class [org.springframework.security.web.savedrequest.RequestCacheAwareFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 1600, Root bean: class [org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 1700, Root bean: class [org.springframework.security.web.authentication.AnonymousAuthenticationFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 2000, Root bean: class [org.springframework.security.web.session.SessionManagementFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 2100, Root bean: class [org.springframework.security.web.access.ExceptionTranslationFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 2200, <org.springframework.security.web.access.intercept.FilterSecurityInterceptor#0>, order = 2300]
+2015-05-22 14:43:54 INFO  PropertyPlaceholderConfigurer:172 - Loading properties file from class path resource [jdbc.properties]
+2015-05-22 14:43:54 INFO  AutowiredAnnotationBeanPostProcessor:153 - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2015-05-22 14:43:55 INFO  LocalContainerEntityManagerFactoryBean:339 - Building JPA container EntityManagerFactory for persistence unit 'easyScrumPU'
+2015-05-22 14:43:55 INFO  LogHelper:46 - HHH000204: Processing PersistenceUnitInfo [
+	name: easyScrumPU
+	...]
+2015-05-22 14:43:55 INFO  Version:54 - HHH000412: Hibernate Core {4.3.5.Final}
+2015-05-22 14:43:55 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2015-05-22 14:43:55 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-05-22 14:43:56 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.4.Final}
+2015-05-22 14:43:56 INFO  Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-05-22 14:43:57 INFO  ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-05-22 14:43:57 INFO  Version:27 - HV000001: Hibernate Validator 5.1.3.Final
+2015-05-22 14:43:59 INFO  SchemaUpdate:182 - HHH000228: Running hbm2ddl schema update
+2015-05-22 14:43:59 INFO  SchemaUpdate:193 - HHH000102: Fetching database metadata
+2015-05-22 14:43:59 INFO  SchemaUpdate:205 - HHH000396: Updating schema
+2015-05-22 14:43:59 INFO  TableMetadata:66 - HHH000261: Table found: easyscrum.userstories
+2015-05-22 14:43:59 INFO  TableMetadata:67 - HHH000037: Columns: [libelle, idbacklog, idus]
+2015-05-22 14:43:59 INFO  TableMetadata:69 - HHH000108: Foreign keys: [fk_7oh3t8va7x4coighivljr7w04]
+2015-05-22 14:43:59 INFO  TableMetadata:70 - HHH000126: Indexes: [fk_7oh3t8va7x4coighivljr7w04, primary]
+2015-05-22 14:43:59 INFO  TableMetadata:66 - HHH000261: Table found: easyscrum.backlog
+2015-05-22 14:43:59 INFO  TableMetadata:67 - HHH000037: Columns: [contenue, idbacklog, dtpost, id_project]
+2015-05-22 14:43:59 INFO  TableMetadata:69 - HHH000108: Foreign keys: [fk_omkuao0dvus9r6n345lytvr96]
+2015-05-22 14:43:59 INFO  TableMetadata:70 - HHH000126: Indexes: [fk_omkuao0dvus9r6n345lytvr96, primary]
+2015-05-22 14:43:59 INFO  TableMetadata:66 - HHH000261: Table found: easyscrum.email
+2015-05-22 14:43:59 INFO  TableMetadata:67 - HHH000037: Columns: [mailtype, idemail, dateenvoi, mailtext, vue, attachement, idsender, title, idreciever]
+2015-05-22 14:43:59 INFO  TableMetadata:69 - HHH000108: Foreign keys: [fk_hcvqijmyveygjmb1rduhlee55, fk_1rymufwe8qmmpg5w36ei819yk]
+2015-05-22 14:43:59 INFO  TableMetadata:70 - HHH000126: Indexes: [fk_hcvqijmyveygjmb1rduhlee55, fk_1rymufwe8qmmpg5w36ei819yk, primary]
+2015-05-22 14:43:59 INFO  TableMetadata:66 - HHH000261: Table found: easyscrum.project
+2015-05-22 14:43:59 INFO  TableMetadata:67 - HHH000037: Columns: [iduser, id_team, cost, pstatus, idproject, description, langue, type, nom, tags, datedebut, company, datefin, daterouge, email]
+2015-05-22 14:43:59 INFO  TableMetadata:69 - HHH000108: Foreign keys: [fk_kc9enfttm3628e32411sino21, fk_ca9pi7alys9sqsmm5pgnyu6fc]
+2015-05-22 14:43:59 INFO  TableMetadata:70 - HHH000126: Indexes: [fk_kc9enfttm3628e32411sino21, primary, fk_ca9pi7alys9sqsmm5pgnyu6fc]
+2015-05-22 14:43:59 INFO  TableMetadata:66 - HHH000261: Table found: easyscrum.sprint
+2015-05-22 14:43:59 INFO  TableMetadata:67 - HHH000037: Columns: [idsprint, datedebut, sprintname, datefin, status, id_project]
+2015-05-22 14:43:59 INFO  TableMetadata:69 - HHH000108: Foreign keys: [fk_iqrhukmxrsve60hs6m4lbl8b5]
+2015-05-22 14:43:59 INFO  TableMetadata:70 - HHH000126: Indexes: [fk_iqrhukmxrsve60hs6m4lbl8b5, primary]
+2015-05-22 14:43:59 INFO  TableMetadata:66 - HHH000261: Table found: easyscrum.team
+2015-05-22 14:43:59 INFO  TableMetadata:67 - HHH000037: Columns: [teamchef, karma, creationdate, available, name, caption, photo, company, idteam, email]
+2015-05-22 14:43:59 INFO  TableMetadata:69 - HHH000108: Foreign keys: [fk_ok7pmq2j0sji9fdfl533b9k1]
+2015-05-22 14:43:59 INFO  TableMetadata:70 - HHH000126: Indexes: [fk_ok7pmq2j0sji9fdfl533b9k1, primary]
+2015-05-22 14:43:59 INFO  TableMetadata:66 - HHH000261: Table found: easyscrum.user
+2015-05-22 14:43:59 INFO  TableMetadata:67 - HHH000037: Columns: [iduser, datemajtech, photo, telephone, login, type, nom, speciality, password, needteam, adresse, datecreatech, prenom, email]
+2015-05-22 14:43:59 INFO  TableMetadata:69 - HHH000108: Foreign keys: []
+2015-05-22 14:43:59 INFO  TableMetadata:70 - HHH000126: Indexes: [primary]
+2015-05-22 14:43:59 INFO  TableMetadata:66 - HHH000261: Table found: easyscrum.user_team
+2015-05-22 14:43:59 INFO  TableMetadata:67 - HHH000037: Columns: [members_iduser, teams_idteam]
+2015-05-22 14:43:59 INFO  TableMetadata:69 - HHH000108: Foreign keys: [fk_cx6grug9osexbuwpb01wncct5, fk_aqfv7f7l6oqiui939i8309oq6]
+2015-05-22 14:43:59 INFO  TableMetadata:70 - HHH000126: Indexes: [fk_cx6grug9osexbuwpb01wncct5, primary]
+2015-05-22 14:43:59 INFO  SchemaUpdate:242 - HHH000232: Schema update complete
+2015-05-22 14:44:00 INFO  DefaultSecurityFilterChain:28 - Creating filter chain: Ant [pattern='/css/**'], []
+2015-05-22 14:44:00 INFO  DefaultSecurityFilterChain:28 - Creating filter chain: Ant [pattern='/icons/**'], []
+2015-05-22 14:44:00 INFO  DefaultSecurityFilterChain:28 - Creating filter chain: Ant [pattern='/js/**'], []
+2015-05-22 14:44:00 INFO  DefaultSecurityFilterChain:28 - Creating filter chain: Ant [pattern='/home'], []
+2015-05-22 14:44:00 INFO  DefaultSecurityFilterChain:28 - Creating filter chain: Ant [pattern='/start'], []
+2015-05-22 14:44:00 INFO  DefaultSecurityFilterChain:28 - Creating filter chain: Ant [pattern='/about'], []
+2015-05-22 14:44:00 INFO  DefaultSecurityFilterChain:28 - Creating filter chain: Ant [pattern='/services'], []
+2015-05-22 14:44:00 INFO  DefaultSecurityFilterChain:28 - Creating filter chain: Ant [pattern='/news'], []
+2015-05-22 14:44:01 INFO  DefaultSecurityFilterChain:28 - Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.SecurityContextPersistenceFilter@e2344da, org.springframework.security.web.authentication.logout.LogoutFilter@71135794, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@79b0956e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@35451ba6, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@21d48c40, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4a10c019, org.springframework.security.web.session.SessionManagementFilter@37f627d0, org.springframework.security.web.access.ExceptionTranslationFilter@2a7392a3, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2fc0ad21]
+2015-05-22 14:44:01 INFO  DefaultFilterChainValidator:124 - Checking whether login URL '/home' is accessible with your configuration
+2015-05-22 14:44:01 INFO  ContextLoader:325 - Root WebApplicationContext: initialization completed in 9692 ms
+2015-05-22 14:44:01 INFO  DispatcherServlet:484 - FrameworkServlet 'dispatcher': initialization started
+2015-05-22 14:44:01 INFO  XmlWebApplicationContext:510 - Refreshing WebApplicationContext for namespace 'dispatcher-servlet': startup date [Fri May 22 14:44:01 WAT 2015]; parent: Root WebApplicationContext
+2015-05-22 14:44:01 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from ServletContext resource [/WEB-INF/dispatcher-servlet.xml]
+2015-05-22 14:44:01 INFO  SecurityNamespaceHandler:75 - Spring Security 'config' module version is 3.2.6.RELEASE
+2015-05-22 14:44:01 INFO  GlobalMethodSecurityBeanDefinitionParser:163 - Using bean 'expressionHandler' as method ExpressionHandler implementation
+2015-05-22 14:44:02 INFO  AutowiredAnnotationBeanPostProcessor:153 - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2015-05-22 14:44:02 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/ManageUsers],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.AdminSpaceController.getwelcomePage()
+2015-05-22 14:44:02 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/addAccount],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.AdminSpaceController.addnew(com.sqli.easyscrum.web.vo.FormObject)
+2015-05-22 14:44:02 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/updateAccount],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.AdminSpaceController.updateuser(com.sqli.easyscrum.web.vo.FormObject)
+2015-05-22 14:44:02 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/deleteAccounts],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.AdminSpaceController.deleteusers(com.sqli.easyscrum.web.vo.FormObject)
+2015-05-22 14:44:02 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/connect/Present],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.ConnectController.getsingleprojectPage(javax.servlet.http.HttpSession)
+2015-05-22 14:44:02 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/CheckProjects],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.DeveloperController.getCommonPage(javax.servlet.http.HttpSession)
+2015-05-22 14:44:02 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/getnewProject],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.DeveloperController.getnewProjectPage()
+2015-05-22 14:44:02 INFO  RequestMappingHandlerMapping:220 - Mapped "{[//news],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.HomePageController.getwelcomePage(javax.servlet.http.HttpSession)
+2015-05-22 14:44:02 INFO  RequestMappingHandlerMapping:220 - Mapped "{[//home],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.HomePageController.getCommonPage(javax.servlet.http.HttpSession,boolean,boolean,org.springframework.security.core.Authentication)
+2015-05-22 14:44:02 INFO  RequestMappingHandlerMapping:220 - Mapped "{[//about],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.HomePageController.getaboutPage(javax.servlet.http.HttpSession)
+2015-05-22 14:44:02 INFO  RequestMappingHandlerMapping:220 - Mapped "{[//start],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.HomePageController.getstartPage(javax.servlet.http.HttpSession)
+2015-05-22 14:44:02 INFO  RequestMappingHandlerMapping:220 - Mapped "{[//services],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.HomePageController.getservicesPage(javax.servlet.http.HttpSession)
+2015-05-22 14:44:02 INFO  RequestMappingHandlerMapping:220 - Mapped "{[//contact],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.HomePageController.getcontactPage(javax.servlet.http.HttpSession)
+2015-05-22 14:44:02 INFO  RequestMappingHandlerMapping:220 - Mapped "{[//denied],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.HomePageController.getDeniedPage()
+2015-05-22 14:44:02 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/auth/login],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.LoginController.getLoginPage()
+2015-05-22 14:44:02 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/inbox],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.MailingController.getinboxPage(javax.servlet.http.HttpSession)
+2015-05-22 14:44:02 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/mail],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.MailingController.getmessagePage(javax.servlet.http.HttpSession,int)
+2015-05-22 14:44:02 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/sendmail],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.MailingController.setnewmessage(javax.servlet.http.HttpSession,com.sqli.easyscrum.web.vo.FormMailObject)
+2015-05-22 14:44:02 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/newmail],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.MailingController.getnewmessagePage(javax.servlet.http.HttpSession)
+2015-05-22 14:44:02 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/singleSprint],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.ProjectManagingController.getOneSprintPage(int,int,javax.servlet.http.HttpSession)
+2015-05-22 14:44:02 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/ManageSprints],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.ProjectManagingController.getSprintsPage(javax.servlet.http.HttpSession)
+2015-05-22 14:44:02 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/projectbacklog],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.ProjectManagingController.getbacklogPage(javax.servlet.http.HttpSession,int)
+2015-05-22 14:44:02 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/project],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.ProjectManagingController.getsingleprojectPage(int,javax.servlet.http.HttpSession)
+2015-05-22 14:44:02 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/allSprints],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.ProjectManagingController.getSprintsprojectPage(int,javax.servlet.http.HttpSession)
+2015-05-22 14:44:02 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/ManageProjects],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.ProjectOwnerController.getCommonPage(javax.servlet.http.HttpSession)
+2015-05-22 14:44:02 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/CreatProjects],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.ProjectOwnerController.getresultPage(com.sqli.easyscrum.web.vo.FormProjectObject,javax.servlet.http.HttpSession)
+2015-05-22 14:44:02 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/newProject],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.ProjectOwnerController.getWizardPage()
+2015-05-22 14:44:02 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/acceptjobapp],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.ProjectOwnerController.getacceptjobappPage(javax.servlet.http.HttpSession,int,int)
+2015-05-22 14:44:02 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/ProjectsManaging],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.SmasterController.getCommonPage(javax.servlet.http.HttpSession)
+2015-05-22 14:44:02 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/newSprint],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.SmasterController.getnewSprintPage()
+2015-05-22 14:44:02 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/GetRecap],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.SmasterController.getrecapPage(javax.servlet.http.HttpSession,int,int)
+2015-05-22 14:44:02 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/Projectselected],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.SmasterController.getbusinessPage(javax.servlet.http.HttpSession,int,int)
+2015-05-22 14:44:02 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/selectTeam],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.SmasterController.getmyteamsPage(javax.servlet.http.HttpSession,int)
+2015-05-22 14:44:02 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/Getproject],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.SmasterController.getsingleprojectPage(int,javax.servlet.http.HttpSession)
+2015-05-22 14:44:02 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/getnewProjectselection],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.SmasterController.getselectprojectPage(javax.servlet.http.HttpSession)
+2015-05-22 14:44:02 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/myTeams],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.TeamManagingController.getmyteamsPage(javax.servlet.http.HttpSession)
+2015-05-22 14:44:02 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/TeamSpace],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.TeamManagingController.getteamsPage(javax.servlet.http.HttpSession)
+2015-05-22 14:44:02 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/Teams],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.TeamManagingController.geteamsPage(javax.servlet.http.HttpSession)
+2015-05-22 14:44:02 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/Team],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.TeamManagingController.gesingleteamPage(javax.servlet.http.HttpSession,int)
+2015-05-22 14:44:02 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/needTeam],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.TeamManagingController.getneedteamPage(javax.servlet.http.HttpSession,boolean)
+2015-05-22 14:44:02 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/newTeam],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.TeamManagingController.getnewteamPage(javax.servlet.http.HttpSession)
+2015-05-22 14:44:02 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/creatnewTeam],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.TeamManagingController.getcreatteamPage(javax.servlet.http.HttpSession,com.sqli.easyscrum.web.vo.FormTeamObject)
+2015-05-22 14:44:02 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/Invitein],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.TeamManagingController.getMemberstoteamPage(javax.servlet.http.HttpSession)
+2015-05-22 14:44:02 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/InviteUsers],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.TeamManagingController.getinvitemembersPage(javax.servlet.http.HttpSession,java.lang.String,int)
+2015-05-22 14:44:02 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/acceptinviteteam],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.TeamManagingController.getacceptteamPage(javax.servlet.http.HttpSession,int)
+2015-05-22 14:44:02 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/register],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.UserSpaceController.getwelcomePage()
+2015-05-22 14:44:02 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/Account],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.UserSpaceController.getaccountPage(javax.servlet.http.HttpSession,int)
+2015-05-22 14:44:02 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/profil],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.UserSpaceController.getloginPage(javax.servlet.http.HttpSession,org.springframework.security.core.Authentication)
+2015-05-22 14:44:02 INFO  RequestMappingHandlerMapping:220 - Mapped "{[/userspace/newAccount],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.sqli.easyscrum.web.controller.UserSpaceController.getinscriptedPage(com.sqli.easyscrum.web.vo.FormObject)
+2015-05-22 14:44:03 INFO  RequestMappingHandlerAdapter:518 - Looking for @ControllerAdvice: WebApplicationContext for namespace 'dispatcher-servlet': startup date [Fri May 22 14:44:01 WAT 2015]; parent: Root WebApplicationContext
+2015-05-22 14:44:03 INFO  RequestMappingHandlerAdapter:518 - Looking for @ControllerAdvice: WebApplicationContext for namespace 'dispatcher-servlet': startup date [Fri May 22 14:44:01 WAT 2015]; parent: Root WebApplicationContext
+2015-05-22 14:44:03 INFO  SimpleUrlHandlerMapping:301 - Root mapping to handler of type [class org.springframework.web.servlet.mvc.ParameterizableViewController]
+2015-05-22 14:44:03 INFO  SimpleUrlHandlerMapping:314 - Mapped URL path [/404] onto handler of type [class org.springframework.web.servlet.mvc.ParameterizableViewController]
+2015-05-22 14:44:03 INFO  SimpleUrlHandlerMapping:314 - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2015-05-22 14:44:03 INFO  DispatcherServlet:503 - FrameworkServlet 'dispatcher': initialization completed in 2575 ms
+2015-05-22 14:57:55 INFO  ContextLoader:285 - Root WebApplicationContext: initialization started
+2015-05-22 14:57:55 INFO  XmlWebApplicationContext:510 - Refreshing Root WebApplicationContext: startup date [Fri May 22 14:57:55 WAT 2015]; root of context hierarchy
+2015-05-22 14:57:55 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from ServletContext resource [/WEB-INF/applicationContext.xml]
+2015-05-22 14:57:55 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from URL [file:/D:/projects/easyscrum/easyscrumrepository/target/classes/datasource.xml]
+2015-05-22 14:57:55 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from ServletContext resource [/WEB-INF/supplies.xml]
+2015-05-22 14:57:55 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from URL [file:/D:/projects/easyscrum/easyscrumcore/target/classes/core.xml]
+2015-05-22 14:57:55 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from ServletContext resource [/WEB-INF/security.xml]
+2015-05-22 14:57:55 INFO  SpringSecurityCoreVersion:58 - You are running with Spring Security Core 3.2.6.RELEASE
+2015-05-22 14:57:55 INFO  SecurityNamespaceHandler:75 - Spring Security 'config' module version is 3.2.6.RELEASE
+2015-05-22 14:57:55 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'permitAll' for /resources/**
+2015-05-22 14:57:55 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('USER_Role')' for /userspace/profil
+2015-05-22 14:57:55 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('USER_Role')' for /userspace/inbox
+2015-05-22 14:57:55 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('USER_Role')' for /userspace/mail
+2015-05-22 14:57:55 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('USER_Role')' for /userspace/newmail
+2015-05-22 14:57:55 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('USER_Role')' for /userspace/sendmail
+2015-05-22 14:57:55 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('USER_Role')' for /userspace/Account
+2015-05-22 14:57:55 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('USER_Role')' for /connect/Present
+2015-05-22 14:57:55 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('ADMIN_Role')' for /userspace/ManageUsers
+2015-05-22 14:57:55 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('ADMIN_Role')' for /userspace/addAccount
+2015-05-22 14:57:55 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('ADMIN_Role')' for /userspace/updateAccount
+2015-05-22 14:57:55 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('ADMIN_Role')' for /userspace/deleteAccounts
+2015-05-22 14:57:55 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('ProjectAccess_Role')' for /userspace/ManageSprints
+2015-05-22 14:57:55 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('ProjectAccess_Role')' for /userspace/project
+2015-05-22 14:57:55 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('ProjectAccess_Role')' for /userspace/allSprints
+2015-05-22 14:57:55 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('ProjectAccess_Role')' for /userspace/singleSprint
+2015-05-22 14:57:55 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('ProjectAccess_Role')' for /userspace/projectbacklog
+2015-05-22 14:57:55 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('ProjectAccess_Role')' for /userspace/Teams
+2015-05-22 14:57:55 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('ProjectAccess_Role')' for /userspace/Team
+2015-05-22 14:57:55 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('ProjectAccess_Role')' for /userspace/TeamSpace
+2015-05-22 14:57:55 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('ProjectAccess_Role')' for /userspace/myTeams
+2015-05-22 14:57:55 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('PO_Role')' for /userspace/ManageProjects
+2015-05-22 14:57:55 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('PO_Role')' for /userspace/newProject
+2015-05-22 14:57:55 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('PO_Role')' for /userspace/CreatProjects
+2015-05-22 14:57:55 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('DEV_Role')' for /userspace/CheckProjects
+2015-05-22 14:57:55 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('DEV_Role')' for /userspace/getnewProject
+2015-05-22 14:57:55 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('DEV_Role')' for /userspace/needTeam
+2015-05-22 14:57:55 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('DEV_Role')' for /userspace/acceptinviteteam
+2015-05-22 14:57:55 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('SM_Role')' for /userspace/ProjectsManaging
+2015-05-22 14:57:55 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('SM_Role')' for /userspace/newSprint
+2015-05-22 14:57:55 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('SM_Role')' for /userspace/creatnewTeam
+2015-05-22 14:57:55 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('SM_Role')' for /userspace/newTeam
+2015-05-22 14:57:55 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('SM_Role')' for /userspace/Invitein
+2015-05-22 14:57:55 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('SM_Role')' for /userspace/getnewProjectselection
+2015-05-22 14:57:56 INFO  HttpSecurityBeanDefinitionParser:266 - Checking sorted filter chain: [Root bean: class [org.springframework.security.web.context.SecurityContextPersistenceFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 200, Root bean: class [org.springframework.security.web.authentication.logout.LogoutFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 700, <org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter#0>, order = 1100, Root bean: class [org.springframework.security.web.savedrequest.RequestCacheAwareFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 1600, Root bean: class [org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 1700, Root bean: class [org.springframework.security.web.authentication.AnonymousAuthenticationFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 2000, Root bean: class [org.springframework.security.web.session.SessionManagementFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 2100, Root bean: class [org.springframework.security.web.access.ExceptionTranslationFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 2200, <org.springframework.security.web.access.intercept.FilterSecurityInterceptor#0>, order = 2300]
+2015-05-22 14:57:56 INFO  PropertyPlaceholderConfigurer:172 - Loading properties file from class path resource [jdbc.properties]
+2015-05-22 14:57:56 INFO  AutowiredAnnotationBeanPostProcessor:153 - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2015-05-22 14:57:57 INFO  LocalContainerEntityManagerFactoryBean:339 - Building JPA container EntityManagerFactory for persistence unit 'easyScrumPU'
+2015-05-22 14:57:57 INFO  LogHelper:46 - HHH000204: Processing PersistenceUnitInfo [
+	name: easyScrumPU
+	...]
+2015-05-22 14:57:57 INFO  Version:54 - HHH000412: Hibernate Core {4.3.5.Final}
+2015-05-22 14:57:57 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2015-05-22 14:57:57 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-05-22 14:57:57 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.4.Final}
+2015-05-22 14:57:57 WARN  XmlWebApplicationContext:487 - Exception encountered during context initialization - cancelling refresh attempt
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in URL [file:/D:/projects/easyscrum/easyscrumrepository/target/classes/datasource.xml]: Invocation of init method failed; nested exception is org.hibernate.InvalidMappingException: Error while parsing file: file:/D:/projects/easyscrum/easyscrumrepository/target/classes/META-INF/User.hbm.xml
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1566)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:539)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:476)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:303)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:299)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:194)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:956)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:747)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:480)
+	at org.springframework.web.context.ContextLoader.configureAndRefreshWebApplicationContext(ContextLoader.java:403)
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:306)
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:106)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4135)
+	at org.apache.catalina.core.StandardContext.start(StandardContext.java:4630)
+	at org.apache.catalina.core.ContainerBase.start(ContainerBase.java:1045)
+	at org.apache.catalina.core.StandardHost.start(StandardHost.java:785)
+	at org.apache.catalina.core.ContainerBase.start(ContainerBase.java:1045)
+	at org.apache.catalina.core.StandardEngine.start(StandardEngine.java:445)
+	at org.apache.catalina.startup.Embedded.start(Embedded.java:825)
+	at org.codehaus.mojo.tomcat.AbstractRunMojo.startContainer(AbstractRunMojo.java:558)
+	at org.codehaus.mojo.tomcat.AbstractRunMojo.execute(AbstractRunMojo.java:255)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:133)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:208)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:153)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:145)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:108)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:76)
+	at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build(SingleThreadedBuilder.java:51)
+	at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:116)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:361)
+	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:155)
+	at org.apache.maven.cli.MavenCli.execute(MavenCli.java:584)
+	at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:213)
+	at org.apache.maven.cli.MavenCli.main(MavenCli.java:157)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:289)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:229)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:415)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:356)
+Caused by: org.hibernate.InvalidMappingException: Error while parsing file: file:/D:/projects/easyscrum/easyscrumrepository/target/classes/META-INF/User.hbm.xml
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.buildHibernateConfiguration(EntityManagerFactoryBuilderImpl.java:1168)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider$1.buildHibernateConfiguration(SpringHibernateJpaPersistenceProvider.java:52)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl$4.perform(EntityManagerFactoryBuilderImpl.java:846)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl$4.perform(EntityManagerFactoryBuilderImpl.java:843)
+	at org.hibernate.boot.registry.classloading.internal.ClassLoaderServiceImpl.withTccl(ClassLoaderServiceImpl.java:397)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:842)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:60)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:343)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:318)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1625)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1562)
+	... 42 more
+Caused by: org.hibernate.InvalidMappingException: Unable to read XML
+	at org.hibernate.internal.util.xml.MappingReader.legacyReadMappingDocument(MappingReader.java:375)
+	at org.hibernate.internal.util.xml.MappingReader.readMappingDocument(MappingReader.java:304)
+	at org.hibernate.cfg.Configuration.add(Configuration.java:516)
+	at org.hibernate.cfg.Configuration.add(Configuration.java:512)
+	at org.hibernate.cfg.Configuration.add(Configuration.java:686)
+	at org.hibernate.cfg.Configuration.addInputStream(Configuration.java:724)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.buildHibernateConfiguration(EntityManagerFactoryBuilderImpl.java:1163)
+	... 52 more
+Caused by: org.dom4j.DocumentException: Error on line 19 of document  : Fin prématurée du fichier. Nested exception: Fin prématurée du fichier.
+	at org.dom4j.io.SAXReader.read(SAXReader.java:482)
+	at org.hibernate.internal.util.xml.MappingReader.legacyReadMappingDocument(MappingReader.java:325)
+	... 58 more
+2015-05-22 14:57:57 ERROR ContextLoader:331 - Context initialization failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in URL [file:/D:/projects/easyscrum/easyscrumrepository/target/classes/datasource.xml]: Invocation of init method failed; nested exception is org.hibernate.InvalidMappingException: Error while parsing file: file:/D:/projects/easyscrum/easyscrumrepository/target/classes/META-INF/User.hbm.xml
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1566)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:539)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:476)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:303)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:299)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:194)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:956)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:747)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:480)
+	at org.springframework.web.context.ContextLoader.configureAndRefreshWebApplicationContext(ContextLoader.java:403)
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:306)
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:106)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4135)
+	at org.apache.catalina.core.StandardContext.start(StandardContext.java:4630)
+	at org.apache.catalina.core.ContainerBase.start(ContainerBase.java:1045)
+	at org.apache.catalina.core.StandardHost.start(StandardHost.java:785)
+	at org.apache.catalina.core.ContainerBase.start(ContainerBase.java:1045)
+	at org.apache.catalina.core.StandardEngine.start(StandardEngine.java:445)
+	at org.apache.catalina.startup.Embedded.start(Embedded.java:825)
+	at org.codehaus.mojo.tomcat.AbstractRunMojo.startContainer(AbstractRunMojo.java:558)
+	at org.codehaus.mojo.tomcat.AbstractRunMojo.execute(AbstractRunMojo.java:255)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:133)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:208)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:153)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:145)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:108)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:76)
+	at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build(SingleThreadedBuilder.java:51)
+	at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:116)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:361)
+	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:155)
+	at org.apache.maven.cli.MavenCli.execute(MavenCli.java:584)
+	at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:213)
+	at org.apache.maven.cli.MavenCli.main(MavenCli.java:157)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:289)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:229)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:415)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:356)
+Caused by: org.hibernate.InvalidMappingException: Error while parsing file: file:/D:/projects/easyscrum/easyscrumrepository/target/classes/META-INF/User.hbm.xml
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.buildHibernateConfiguration(EntityManagerFactoryBuilderImpl.java:1168)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider$1.buildHibernateConfiguration(SpringHibernateJpaPersistenceProvider.java:52)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl$4.perform(EntityManagerFactoryBuilderImpl.java:846)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl$4.perform(EntityManagerFactoryBuilderImpl.java:843)
+	at org.hibernate.boot.registry.classloading.internal.ClassLoaderServiceImpl.withTccl(ClassLoaderServiceImpl.java:397)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:842)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:60)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:343)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:318)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1625)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1562)
+	... 42 more
+Caused by: org.hibernate.InvalidMappingException: Unable to read XML
+	at org.hibernate.internal.util.xml.MappingReader.legacyReadMappingDocument(MappingReader.java:375)
+	at org.hibernate.internal.util.xml.MappingReader.readMappingDocument(MappingReader.java:304)
+	at org.hibernate.cfg.Configuration.add(Configuration.java:516)
+	at org.hibernate.cfg.Configuration.add(Configuration.java:512)
+	at org.hibernate.cfg.Configuration.add(Configuration.java:686)
+	at org.hibernate.cfg.Configuration.addInputStream(Configuration.java:724)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.buildHibernateConfiguration(EntityManagerFactoryBuilderImpl.java:1163)
+	... 52 more
+Caused by: org.dom4j.DocumentException: Error on line 19 of document  : Fin prématurée du fichier. Nested exception: Fin prématurée du fichier.
+	at org.dom4j.io.SAXReader.read(SAXReader.java:482)
+	at org.hibernate.internal.util.xml.MappingReader.legacyReadMappingDocument(MappingReader.java:325)
+	... 58 more
+2015-05-22 14:58:52 INFO  ContextLoader:285 - Root WebApplicationContext: initialization started
+2015-05-22 14:58:53 INFO  XmlWebApplicationContext:510 - Refreshing Root WebApplicationContext: startup date [Fri May 22 14:58:53 WAT 2015]; root of context hierarchy
+2015-05-22 14:58:53 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from ServletContext resource [/WEB-INF/applicationContext.xml]
+2015-05-22 14:58:53 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from URL [file:/D:/projects/easyscrum/easyscrumrepository/target/classes/datasource.xml]
+2015-05-22 14:58:53 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from ServletContext resource [/WEB-INF/supplies.xml]
+2015-05-22 14:58:53 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from URL [file:/D:/projects/easyscrum/easyscrumcore/target/classes/core.xml]
+2015-05-22 14:58:53 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from ServletContext resource [/WEB-INF/security.xml]
+2015-05-22 14:58:53 INFO  SpringSecurityCoreVersion:58 - You are running with Spring Security Core 3.2.6.RELEASE
+2015-05-22 14:58:53 INFO  SecurityNamespaceHandler:75 - Spring Security 'config' module version is 3.2.6.RELEASE
+2015-05-22 14:58:53 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'permitAll' for /resources/**
+2015-05-22 14:58:53 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('USER_Role')' for /userspace/profil
+2015-05-22 14:58:53 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('USER_Role')' for /userspace/inbox
+2015-05-22 14:58:53 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('USER_Role')' for /userspace/mail
+2015-05-22 14:58:53 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('USER_Role')' for /userspace/newmail
+2015-05-22 14:58:53 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('USER_Role')' for /userspace/sendmail
+2015-05-22 14:58:53 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('USER_Role')' for /userspace/Account
+2015-05-22 14:58:53 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('USER_Role')' for /connect/Present
+2015-05-22 14:58:53 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('ADMIN_Role')' for /userspace/ManageUsers
+2015-05-22 14:58:53 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('ADMIN_Role')' for /userspace/addAccount
+2015-05-22 14:58:53 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('ADMIN_Role')' for /userspace/updateAccount
+2015-05-22 14:58:53 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('ADMIN_Role')' for /userspace/deleteAccounts
+2015-05-22 14:58:53 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('ProjectAccess_Role')' for /userspace/ManageSprints
+2015-05-22 14:58:53 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('ProjectAccess_Role')' for /userspace/project
+2015-05-22 14:58:53 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('ProjectAccess_Role')' for /userspace/allSprints
+2015-05-22 14:58:53 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('ProjectAccess_Role')' for /userspace/singleSprint
+2015-05-22 14:58:53 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('ProjectAccess_Role')' for /userspace/projectbacklog
+2015-05-22 14:58:53 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('ProjectAccess_Role')' for /userspace/Teams
+2015-05-22 14:58:53 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('ProjectAccess_Role')' for /userspace/Team
+2015-05-22 14:58:53 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('ProjectAccess_Role')' for /userspace/TeamSpace
+2015-05-22 14:58:53 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('ProjectAccess_Role')' for /userspace/myTeams
+2015-05-22 14:58:53 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('PO_Role')' for /userspace/ManageProjects
+2015-05-22 14:58:53 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('PO_Role')' for /userspace/newProject
+2015-05-22 14:58:53 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('PO_Role')' for /userspace/CreatProjects
+2015-05-22 14:58:53 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('DEV_Role')' for /userspace/CheckProjects
+2015-05-22 14:58:53 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('DEV_Role')' for /userspace/getnewProject
+2015-05-22 14:58:53 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('DEV_Role')' for /userspace/needTeam
+2015-05-22 14:58:53 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('DEV_Role')' for /userspace/acceptinviteteam
+2015-05-22 14:58:53 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('SM_Role')' for /userspace/ProjectsManaging
+2015-05-22 14:58:53 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('SM_Role')' for /userspace/newSprint
+2015-05-22 14:58:53 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('SM_Role')' for /userspace/creatnewTeam
+2015-05-22 14:58:53 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('SM_Role')' for /userspace/newTeam
+2015-05-22 14:58:53 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('SM_Role')' for /userspace/Invitein
+2015-05-22 14:58:53 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('SM_Role')' for /userspace/getnewProjectselection
+2015-05-22 14:58:53 INFO  HttpSecurityBeanDefinitionParser:266 - Checking sorted filter chain: [Root bean: class [org.springframework.security.web.context.SecurityContextPersistenceFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 200, Root bean: class [org.springframework.security.web.authentication.logout.LogoutFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 700, <org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter#0>, order = 1100, Root bean: class [org.springframework.security.web.savedrequest.RequestCacheAwareFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 1600, Root bean: class [org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 1700, Root bean: class [org.springframework.security.web.authentication.AnonymousAuthenticationFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 2000, Root bean: class [org.springframework.security.web.session.SessionManagementFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 2100, Root bean: class [org.springframework.security.web.access.ExceptionTranslationFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 2200, <org.springframework.security.web.access.intercept.FilterSecurityInterceptor#0>, order = 2300]
+2015-05-22 14:58:54 INFO  PropertyPlaceholderConfigurer:172 - Loading properties file from class path resource [jdbc.properties]
+2015-05-22 14:58:54 INFO  AutowiredAnnotationBeanPostProcessor:153 - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2015-05-22 14:58:54 INFO  LocalContainerEntityManagerFactoryBean:339 - Building JPA container EntityManagerFactory for persistence unit 'easyScrumPU'
+2015-05-22 14:58:54 INFO  LogHelper:46 - HHH000204: Processing PersistenceUnitInfo [
+	name: easyScrumPU
+	...]
+2015-05-22 14:58:54 INFO  Version:54 - HHH000412: Hibernate Core {4.3.5.Final}
+2015-05-22 14:58:54 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2015-05-22 14:58:54 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-05-22 14:58:55 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.4.Final}
+2015-05-22 14:58:55 WARN  XmlWebApplicationContext:487 - Exception encountered during context initialization - cancelling refresh attempt
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in URL [file:/D:/projects/easyscrum/easyscrumrepository/target/classes/datasource.xml]: Invocation of init method failed; nested exception is org.hibernate.InvalidMappingException: Error while parsing file: file:/D:/projects/easyscrum/easyscrumrepository/target/classes/META-INF/User.hbm.xml
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1566)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:539)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:476)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:303)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:299)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:194)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:956)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:747)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:480)
+	at org.springframework.web.context.ContextLoader.configureAndRefreshWebApplicationContext(ContextLoader.java:403)
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:306)
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:106)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4135)
+	at org.apache.catalina.core.StandardContext.start(StandardContext.java:4630)
+	at org.apache.catalina.core.ContainerBase.start(ContainerBase.java:1045)
+	at org.apache.catalina.core.StandardHost.start(StandardHost.java:785)
+	at org.apache.catalina.core.ContainerBase.start(ContainerBase.java:1045)
+	at org.apache.catalina.core.StandardEngine.start(StandardEngine.java:445)
+	at org.apache.catalina.startup.Embedded.start(Embedded.java:825)
+	at org.codehaus.mojo.tomcat.AbstractRunMojo.startContainer(AbstractRunMojo.java:558)
+	at org.codehaus.mojo.tomcat.AbstractRunMojo.execute(AbstractRunMojo.java:255)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:133)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:208)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:153)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:145)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:108)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:76)
+	at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build(SingleThreadedBuilder.java:51)
+	at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:116)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:361)
+	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:155)
+	at org.apache.maven.cli.MavenCli.execute(MavenCli.java:584)
+	at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:213)
+	at org.apache.maven.cli.MavenCli.main(MavenCli.java:157)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:289)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:229)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:415)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:356)
+Caused by: org.hibernate.InvalidMappingException: Error while parsing file: file:/D:/projects/easyscrum/easyscrumrepository/target/classes/META-INF/User.hbm.xml
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.buildHibernateConfiguration(EntityManagerFactoryBuilderImpl.java:1168)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider$1.buildHibernateConfiguration(SpringHibernateJpaPersistenceProvider.java:52)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl$4.perform(EntityManagerFactoryBuilderImpl.java:846)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl$4.perform(EntityManagerFactoryBuilderImpl.java:843)
+	at org.hibernate.boot.registry.classloading.internal.ClassLoaderServiceImpl.withTccl(ClassLoaderServiceImpl.java:397)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:842)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:60)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:343)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:318)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1625)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1562)
+	... 42 more
+Caused by: org.hibernate.InvalidMappingException: Unable to read XML
+	at org.hibernate.internal.util.xml.MappingReader.legacyReadMappingDocument(MappingReader.java:375)
+	at org.hibernate.internal.util.xml.MappingReader.readMappingDocument(MappingReader.java:304)
+	at org.hibernate.cfg.Configuration.add(Configuration.java:516)
+	at org.hibernate.cfg.Configuration.add(Configuration.java:512)
+	at org.hibernate.cfg.Configuration.add(Configuration.java:686)
+	at org.hibernate.cfg.Configuration.addInputStream(Configuration.java:724)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.buildHibernateConfiguration(EntityManagerFactoryBuilderImpl.java:1163)
+	... 52 more
+Caused by: org.dom4j.DocumentException: Error on line 19 of document  : Fin prématurée du fichier. Nested exception: Fin prématurée du fichier.
+	at org.dom4j.io.SAXReader.read(SAXReader.java:482)
+	at org.hibernate.internal.util.xml.MappingReader.legacyReadMappingDocument(MappingReader.java:325)
+	... 58 more
+2015-05-22 14:58:55 ERROR ContextLoader:331 - Context initialization failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in URL [file:/D:/projects/easyscrum/easyscrumrepository/target/classes/datasource.xml]: Invocation of init method failed; nested exception is org.hibernate.InvalidMappingException: Error while parsing file: file:/D:/projects/easyscrum/easyscrumrepository/target/classes/META-INF/User.hbm.xml
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1566)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:539)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:476)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:303)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:299)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:194)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:956)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:747)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:480)
+	at org.springframework.web.context.ContextLoader.configureAndRefreshWebApplicationContext(ContextLoader.java:403)
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:306)
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:106)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4135)
+	at org.apache.catalina.core.StandardContext.start(StandardContext.java:4630)
+	at org.apache.catalina.core.ContainerBase.start(ContainerBase.java:1045)
+	at org.apache.catalina.core.StandardHost.start(StandardHost.java:785)
+	at org.apache.catalina.core.ContainerBase.start(ContainerBase.java:1045)
+	at org.apache.catalina.core.StandardEngine.start(StandardEngine.java:445)
+	at org.apache.catalina.startup.Embedded.start(Embedded.java:825)
+	at org.codehaus.mojo.tomcat.AbstractRunMojo.startContainer(AbstractRunMojo.java:558)
+	at org.codehaus.mojo.tomcat.AbstractRunMojo.execute(AbstractRunMojo.java:255)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:133)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:208)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:153)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:145)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:108)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:76)
+	at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build(SingleThreadedBuilder.java:51)
+	at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:116)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:361)
+	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:155)
+	at org.apache.maven.cli.MavenCli.execute(MavenCli.java:584)
+	at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:213)
+	at org.apache.maven.cli.MavenCli.main(MavenCli.java:157)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:289)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:229)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:415)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:356)
+Caused by: org.hibernate.InvalidMappingException: Error while parsing file: file:/D:/projects/easyscrum/easyscrumrepository/target/classes/META-INF/User.hbm.xml
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.buildHibernateConfiguration(EntityManagerFactoryBuilderImpl.java:1168)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider$1.buildHibernateConfiguration(SpringHibernateJpaPersistenceProvider.java:52)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl$4.perform(EntityManagerFactoryBuilderImpl.java:846)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl$4.perform(EntityManagerFactoryBuilderImpl.java:843)
+	at org.hibernate.boot.registry.classloading.internal.ClassLoaderServiceImpl.withTccl(ClassLoaderServiceImpl.java:397)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:842)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:60)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:343)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:318)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1625)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1562)
+	... 42 more
+Caused by: org.hibernate.InvalidMappingException: Unable to read XML
+	at org.hibernate.internal.util.xml.MappingReader.legacyReadMappingDocument(MappingReader.java:375)
+	at org.hibernate.internal.util.xml.MappingReader.readMappingDocument(MappingReader.java:304)
+	at org.hibernate.cfg.Configuration.add(Configuration.java:516)
+	at org.hibernate.cfg.Configuration.add(Configuration.java:512)
+	at org.hibernate.cfg.Configuration.add(Configuration.java:686)
+	at org.hibernate.cfg.Configuration.addInputStream(Configuration.java:724)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.buildHibernateConfiguration(EntityManagerFactoryBuilderImpl.java:1163)
+	... 52 more
+Caused by: org.dom4j.DocumentException: Error on line 19 of document  : Fin prématurée du fichier. Nested exception: Fin prématurée du fichier.
+	at org.dom4j.io.SAXReader.read(SAXReader.java:482)
+	at org.hibernate.internal.util.xml.MappingReader.legacyReadMappingDocument(MappingReader.java:325)
+	... 58 more
+2015-05-22 15:00:13 INFO  ContextLoader:285 - Root WebApplicationContext: initialization started
+2015-05-22 15:00:13 INFO  XmlWebApplicationContext:510 - Refreshing Root WebApplicationContext: startup date [Fri May 22 15:00:13 WAT 2015]; root of context hierarchy
+2015-05-22 15:00:13 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from ServletContext resource [/WEB-INF/applicationContext.xml]
+2015-05-22 15:00:13 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from URL [file:/D:/projects/easyscrum/easyscrumrepository/target/classes/datasource.xml]
+2015-05-22 15:00:14 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from ServletContext resource [/WEB-INF/supplies.xml]
+2015-05-22 15:00:14 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from URL [file:/D:/projects/easyscrum/easyscrumcore/target/classes/core.xml]
+2015-05-22 15:00:14 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from ServletContext resource [/WEB-INF/security.xml]
+2015-05-22 15:00:14 INFO  SpringSecurityCoreVersion:58 - You are running with Spring Security Core 3.2.6.RELEASE
+2015-05-22 15:00:14 INFO  SecurityNamespaceHandler:75 - Spring Security 'config' module version is 3.2.6.RELEASE
+2015-05-22 15:00:14 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'permitAll' for /resources/**
+2015-05-22 15:00:14 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('USER_Role')' for /userspace/profil
+2015-05-22 15:00:14 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('USER_Role')' for /userspace/inbox
+2015-05-22 15:00:14 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('USER_Role')' for /userspace/mail
+2015-05-22 15:00:14 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('USER_Role')' for /userspace/newmail
+2015-05-22 15:00:14 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('USER_Role')' for /userspace/sendmail
+2015-05-22 15:00:14 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('USER_Role')' for /userspace/Account
+2015-05-22 15:00:14 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('USER_Role')' for /connect/Present
+2015-05-22 15:00:14 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('ADMIN_Role')' for /userspace/ManageUsers
+2015-05-22 15:00:14 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('ADMIN_Role')' for /userspace/addAccount
+2015-05-22 15:00:14 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('ADMIN_Role')' for /userspace/updateAccount
+2015-05-22 15:00:14 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('ADMIN_Role')' for /userspace/deleteAccounts
+2015-05-22 15:00:14 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('ProjectAccess_Role')' for /userspace/ManageSprints
+2015-05-22 15:00:14 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('ProjectAccess_Role')' for /userspace/project
+2015-05-22 15:00:14 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('ProjectAccess_Role')' for /userspace/allSprints
+2015-05-22 15:00:14 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('ProjectAccess_Role')' for /userspace/singleSprint
+2015-05-22 15:00:14 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('ProjectAccess_Role')' for /userspace/projectbacklog
+2015-05-22 15:00:14 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('ProjectAccess_Role')' for /userspace/Teams
+2015-05-22 15:00:14 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('ProjectAccess_Role')' for /userspace/Team
+2015-05-22 15:00:14 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('ProjectAccess_Role')' for /userspace/TeamSpace
+2015-05-22 15:00:14 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('ProjectAccess_Role')' for /userspace/myTeams
+2015-05-22 15:00:14 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('PO_Role')' for /userspace/ManageProjects
+2015-05-22 15:00:14 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('PO_Role')' for /userspace/newProject
+2015-05-22 15:00:14 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('PO_Role')' for /userspace/CreatProjects
+2015-05-22 15:00:14 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('DEV_Role')' for /userspace/CheckProjects
+2015-05-22 15:00:14 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('DEV_Role')' for /userspace/getnewProject
+2015-05-22 15:00:14 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('DEV_Role')' for /userspace/needTeam
+2015-05-22 15:00:14 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('DEV_Role')' for /userspace/acceptinviteteam
+2015-05-22 15:00:14 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('SM_Role')' for /userspace/ProjectsManaging
+2015-05-22 15:00:14 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('SM_Role')' for /userspace/newSprint
+2015-05-22 15:00:14 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('SM_Role')' for /userspace/creatnewTeam
+2015-05-22 15:00:14 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('SM_Role')' for /userspace/newTeam
+2015-05-22 15:00:14 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('SM_Role')' for /userspace/Invitein
+2015-05-22 15:00:14 INFO  FilterInvocationSecurityMetadataSourceParser:134 - Creating access control expression attribute 'hasRole('SM_Role')' for /userspace/getnewProjectselection
+2015-05-22 15:00:14 INFO  HttpSecurityBeanDefinitionParser:266 - Checking sorted filter chain: [Root bean: class [org.springframework.security.web.context.SecurityContextPersistenceFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 200, Root bean: class [org.springframework.security.web.authentication.logout.LogoutFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 700, <org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter#0>, order = 1100, Root bean: class [org.springframework.security.web.savedrequest.RequestCacheAwareFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 1600, Root bean: class [org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 1700, Root bean: class [org.springframework.security.web.authentication.AnonymousAuthenticationFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 2000, Root bean: class [org.springframework.security.web.session.SessionManagementFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 2100, Root bean: class [org.springframework.security.web.access.ExceptionTranslationFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 2200, <org.springframework.security.web.access.intercept.FilterSecurityInterceptor#0>, order = 2300]
+2015-05-22 15:00:14 INFO  PropertyPlaceholderConfigurer:172 - Loading properties file from class path resource [jdbc.properties]
+2015-05-22 15:00:14 INFO  AutowiredAnnotationBeanPostProcessor:153 - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2015-05-22 15:00:15 INFO  LocalContainerEntityManagerFactoryBean:339 - Building JPA container EntityManagerFactory for persistence unit 'easyScrumPU'
+2015-05-22 15:00:15 INFO  LogHelper:46 - HHH000204: Processing PersistenceUnitInfo [
+	name: easyScrumPU
+	...]
+2015-05-22 15:00:15 INFO  Version:54 - HHH000412: Hibernate Core {4.3.5.Final}
+2015-05-22 15:00:15 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2015-05-22 15:00:15 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-05-22 15:00:15 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.4.Final}
+2015-05-22 15:00:15 WARN  XmlWebApplicationContext:487 - Exception encountered during context initialization - cancelling refresh attempt
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in URL [file:/D:/projects/easyscrum/easyscrumrepository/target/classes/datasource.xml]: Invocation of init method failed; nested exception is org.hibernate.InvalidMappingException: Error while parsing file: file:/D:/projects/easyscrum/easyscrumrepository/target/classes/META-INF/User.hbm.xml
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1566)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:539)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:476)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:303)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:299)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:194)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:956)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:747)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:480)
+	at org.springframework.web.context.ContextLoader.configureAndRefreshWebApplicationContext(ContextLoader.java:403)
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:306)
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:106)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4135)
+	at org.apache.catalina.core.StandardContext.start(StandardContext.java:4630)
+	at org.apache.catalina.core.ContainerBase.start(ContainerBase.java:1045)
+	at org.apache.catalina.core.StandardHost.start(StandardHost.java:785)
+	at org.apache.catalina.core.ContainerBase.start(ContainerBase.java:1045)
+	at org.apache.catalina.core.StandardEngine.start(StandardEngine.java:445)
+	at org.apache.catalina.startup.Embedded.start(Embedded.java:825)
+	at org.codehaus.mojo.tomcat.AbstractRunMojo.startContainer(AbstractRunMojo.java:558)
+	at org.codehaus.mojo.tomcat.AbstractRunMojo.execute(AbstractRunMojo.java:255)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:133)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:208)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:153)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:145)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:108)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:76)
+	at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build(SingleThreadedBuilder.java:51)
+	at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:116)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:361)
+	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:155)
+	at org.apache.maven.cli.MavenCli.execute(MavenCli.java:584)
+	at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:213)
+	at org.apache.maven.cli.MavenCli.main(MavenCli.java:157)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:289)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:229)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:415)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:356)
+Caused by: org.hibernate.InvalidMappingException: Error while parsing file: file:/D:/projects/easyscrum/easyscrumrepository/target/classes/META-INF/User.hbm.xml
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.buildHibernateConfiguration(EntityManagerFactoryBuilderImpl.java:1168)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider$1.buildHibernateConfiguration(SpringHibernateJpaPersistenceProvider.java:52)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl$4.perform(EntityManagerFactoryBuilderImpl.java:846)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl$4.perform(EntityManagerFactoryBuilderImpl.java:843)
+	at org.hibernate.boot.registry.classloading.internal.ClassLoaderServiceImpl.withTccl(ClassLoaderServiceImpl.java:397)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:842)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:60)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:343)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:318)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1625)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1562)
+	... 42 more
+Caused by: org.hibernate.InvalidMappingException: Unable to read XML
+	at org.hibernate.internal.util.xml.MappingReader.legacyReadMappingDocument(MappingReader.java:375)
+	at org.hibernate.internal.util.xml.MappingReader.readMappingDocument(MappingReader.java:304)
+	at org.hibernate.cfg.Configuration.add(Configuration.java:516)
+	at org.hibernate.cfg.Configuration.add(Configuration.java:512)
+	at org.hibernate.cfg.Configuration.add(Configuration.java:686)
+	at org.hibernate.cfg.Configuration.addInputStream(Configuration.java:724)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.buildHibernateConfiguration(EntityManagerFactoryBuilderImpl.java:1163)
+	... 52 more
+Caused by: org.dom4j.DocumentException: Error on line 19 of document  : Fin prématurée du fichier. Nested exception: Fin prématurée du fichier.
+	at org.dom4j.io.SAXReader.read(SAXReader.java:482)
+	at org.hibernate.internal.util.xml.MappingReader.legacyReadMappingDocument(MappingReader.java:325)
+	... 58 more
+2015-05-22 15:00:15 ERROR ContextLoader:331 - Context initialization failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in URL [file:/D:/projects/easyscrum/easyscrumrepository/target/classes/datasource.xml]: Invocation of init method failed; nested exception is org.hibernate.InvalidMappingException: Error while parsing file: file:/D:/projects/easyscrum/easyscrumrepository/target/classes/META-INF/User.hbm.xml
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1566)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:539)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:476)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:303)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:299)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:194)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:956)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:747)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:480)
+	at org.springframework.web.context.ContextLoader.configureAndRefreshWebApplicationContext(ContextLoader.java:403)
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:306)
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:106)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4135)
+	at org.apache.catalina.core.StandardContext.start(StandardContext.java:4630)
+	at org.apache.catalina.core.ContainerBase.start(ContainerBase.java:1045)
+	at org.apache.catalina.core.StandardHost.start(StandardHost.java:785)
+	at org.apache.catalina.core.ContainerBase.start(ContainerBase.java:1045)
+	at org.apache.catalina.core.StandardEngine.start(StandardEngine.java:445)
+	at org.apache.catalina.startup.Embedded.start(Embedded.java:825)
+	at org.codehaus.mojo.tomcat.AbstractRunMojo.startContainer(AbstractRunMojo.java:558)
+	at org.codehaus.mojo.tomcat.AbstractRunMojo.execute(AbstractRunMojo.java:255)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:133)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:208)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:153)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:145)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:108)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:76)
+	at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build(SingleThreadedBuilder.java:51)
+	at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:116)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:361)
+	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:155)
+	at org.apache.maven.cli.MavenCli.execute(MavenCli.java:584)
+	at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:213)
+	at org.apache.maven.cli.MavenCli.main(MavenCli.java:157)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:289)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:229)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:415)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:356)
+Caused by: org.hibernate.InvalidMappingException: Error while parsing file: file:/D:/projects/easyscrum/easyscrumrepository/target/classes/META-INF/User.hbm.xml
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.buildHibernateConfiguration(EntityManagerFactoryBuilderImpl.java:1168)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider$1.buildHibernateConfiguration(SpringHibernateJpaPersistenceProvider.java:52)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl$4.perform(EntityManagerFactoryBuilderImpl.java:846)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl$4.perform(EntityManagerFactoryBuilderImpl.java:843)
+	at org.hibernate.boot.registry.classloading.internal.ClassLoaderServiceImpl.withTccl(ClassLoaderServiceImpl.java:397)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:842)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:60)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:343)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:318)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1625)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1562)
+	... 42 more
+Caused by: org.hibernate.InvalidMappingException: Unable to read XML
+	at org.hibernate.internal.util.xml.MappingReader.legacyReadMappingDocument(MappingReader.java:375)
+	at org.hibernate.internal.util.xml.MappingReader.readMappingDocument(MappingReader.java:304)
+	at org.hibernate.cfg.Configuration.add(Configuration.java:516)
+	at org.hibernate.cfg.Configuration.add(Configuration.java:512)
+	at org.hibernate.cfg.Configuration.add(Configuration.java:686)
+	at org.hibernate.cfg.Configuration.addInputStream(Configuration.java:724)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.buildHibernateConfiguration(EntityManagerFactoryBuilderImpl.java:1163)
+	... 52 more
+Caused by: org.dom4j.DocumentException: Error on line 19 of document  : Fin prématurée du fichier. Nested exception: Fin prématurée du fichier.
+	at org.dom4j.io.SAXReader.read(SAXReader.java:482)
+	at org.hibernate.internal.util.xml.MappingReader.legacyReadMappingDocument(MappingReader.java:325)
+	... 58 more

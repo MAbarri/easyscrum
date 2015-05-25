@@ -42,7 +42,7 @@
 						</div>
 					</div>
 				</div>
-				<form role="form" class="centerformwiz" action="CreatProjects">
+				<form role="form" class="centerformwiz" action="CreatProjects" method="POST">
 					<div class="row setup-content" id="step-1">
 						<div class="col-xs-12">
 							<div class="col-md-12">
@@ -123,7 +123,7 @@
 							<div class="col-md-12">
 								<h3>Final Step</h3>
 								<div class="form-group">
-								<label class="control-label">Durée du projet</label> <input
+								<label class="control-label">Project Duration</label> <input
 										maxlength="200" type="text" required="required"
 										class="form-control" placeholder="Durée en semaines" id="time" name="time" />
 								</div>
@@ -150,9 +150,15 @@
 			</div>
 		</div>
 	</div>
-	<div class="stickfoot">
-		<center>CHAT SPACE</center>
-	</div>
+	<!-- Sticky footer -->
+    <div class="stickfoot">
+    <center>
+    <div class="gconvers">
+    <center>Copyright @EasyScrum 2015</center>
+    
+    </div>
+    </center>
+    </div>
 	<script src="/easyscrumweb/resources/js/jquery-1.10.2.min.js"></script>
 	<script>
 		$(document)

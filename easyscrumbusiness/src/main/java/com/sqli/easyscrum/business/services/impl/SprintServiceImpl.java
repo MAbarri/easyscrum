@@ -6,39 +6,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.sqli.easyscrum.business.services.SprintService;
+import com.sqli.easyscrum.core.dao.jpa.GenericDao;
+import com.sqli.easyscrum.core.service.GenericServiceImpl;
+import com.sqli.easyscrum.entity.Mail;
 import com.sqli.easyscrum.entity.Sprint;
+import com.sqli.easyscrum.repository.DAOmail;
 import com.sqli.easyscrum.repository.DAOsprint;
 @Service
-public class SprintServiceImpl implements SprintService {
+public class SprintServiceImpl extends GenericServiceImpl<Sprint, Integer> implements SprintService {
+
 	@Autowired
-	DAOsprint dao;
-	@Override
-	public void creatsprint(Sprint u) {
-		dao.creatsprint(u);
-
-	}
-
-	@Override
-	public void deletesprint(Sprint u) {
-		dao.deletesprint(u);
-
-	}
-
-	@Override
-	public void editsprint(Sprint u) {
-		dao.editsprint(u);
-
-	}
-
-	@Override
-	public List<Sprint> getAllSprint() {
-		return dao.getAllSprint();
-	}
-
-	@Override
-	public Sprint getsprintById(int id) {
+	DAOsprint daosprint;
 	
-		return dao.getsprintById(id);
+	@Override
+	protected GenericDao<Sprint, Integer> getDao() {
+		return daosprint;
 	}
 
 }

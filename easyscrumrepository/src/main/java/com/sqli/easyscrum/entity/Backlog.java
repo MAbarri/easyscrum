@@ -1,5 +1,6 @@
 package com.sqli.easyscrum.entity;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import javax.persistence.*;
@@ -15,7 +16,7 @@ public class Backlog {
 	private int idback;
 	
 	@Column(name="Dtpost")
-	private String dtPost;
+	private Timestamp dtPost;
 	
 	@Column(name="Contenue")
 	private String description;
@@ -43,10 +44,10 @@ public class Backlog {
 	{
 		
 	}
-	public Backlog(String desc,String date)
+	public Backlog(String desc,Timestamp Timestamp)
 	{
 		this.description=desc;
-		this.dtPost=date;
+		this.dtPost=Timestamp;
 	}
 	public int getIdback() {
 		return idback;
@@ -54,10 +55,10 @@ public class Backlog {
 	public void setIdback(int idback) {
 		this.idback = idback;
 	}
-	public String getDtPost() {
+	public Timestamp getDtPost() {
 		return dtPost;
 	}
-	public void setDtPost(String dtPost) {
+	public void setDtPost(Timestamp dtPost) {
 		this.dtPost = dtPost;
 	}
 	public String getDescription() {

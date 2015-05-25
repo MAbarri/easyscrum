@@ -21,4 +21,22 @@ public class MailServiceImpl extends GenericServiceImpl<Mail, Integer>
 	}
 
 	
+
+		@Override
+		public int GetUnredCount(int userId) {
+			Integer result=daomail.GetUnreadCount("GetUnreadCount",userId);
+			if(result==null)
+			return 0;
+			return result;
+		}
+
+
+
+		@Override
+		public Integer GetUnreadCountWParam(int userId, int param) {
+			Integer result=daomail.GetUnreadCountWParam("GetUnreadCountWParam",userId,param);
+			if(result==null)
+			return 0;
+			return result;
+		}
 }

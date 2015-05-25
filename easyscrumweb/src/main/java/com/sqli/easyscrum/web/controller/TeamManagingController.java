@@ -24,6 +24,7 @@ import com.sqli.easyscrum.entity.Project;
 import com.sqli.easyscrum.entity.Team;
 import com.sqli.easyscrum.entity.User;
 import com.sqli.easyscrum.web.vo.FormTeamObject;
+import com.sqli.easyscrum.web.vo.Mails;
 
 @Controller
 @RequestMapping("/userspace")
@@ -162,11 +163,8 @@ public class TeamManagingController {
 		for(int i=0;i<parts.length;i++)
 		{
 			User reciever =userService.find (Integer.parseInt(parts[i]));
-			Mail invitation = new Mail("Team Invitation",
-					"Hello "+reciever.getNom()+" "+reciever.getPrenom()+"<br>I am "+sender.getNom()+" "
-							+sender.getPrenom()+", and I am a Scrum Master, I found Your profil and i want you to join my Team "+team.getName()
-							+".<br>I have already sent you an invitation, to accept it there is a \"Join Team\" button down here,"
-							+"Click it and Start Your experience with us !<br>Have a Good Day","22/12/2013");
+			Mails mails = new Mails();
+			Mail invitation = mails.TeamInvitation(reciever, sender, team);
 			invitation.setSender(sender);
 			invitation.setReciever(reciever);
 			invitation.setAttachement(String.valueOf(idteam));

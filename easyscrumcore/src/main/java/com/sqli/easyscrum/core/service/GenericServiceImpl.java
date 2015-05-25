@@ -66,6 +66,11 @@ public abstract class GenericServiceImpl<M, I extends Serializable> implements G
 	}
 
 	@Override
+	public int count(){
+	 return getDao().count();	
+	}
+	
+	@Override
 	public List<M> findWithNamedQuery(final String namedQueryName, final Map<String, ? extends Object> parameters)
 	{
 		return getDao().findWithNamedQuery(namedQueryName, parameters);

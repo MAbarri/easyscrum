@@ -1,6 +1,9 @@
 package com.sqli.easyscrum.web.vo;
 
+import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -119,19 +122,37 @@ public class FormProjectObject {
 	public void setNom(String nomp) {
 		this.nomp = nomp;
 	}
+	
+	//current time------------------------
+	// 1) create a java calendar instance
+	Calendar calendar = Calendar.getInstance();
+	 
+	// 2) get a java.util.Date from the calendar instance.
+	//		    this date will represent the current instant, or "now".
+	java.util.Date now = calendar.getTime();
+	 
+	// 3) a java current time (now) instance
+	Timestamp currentTimestamp = new Timestamp(now.getTime());
+	
+
 	public Project toProject(User user)
 	{
 		List<UserStorie> lus = new ArrayList<UserStorie>();
 		UserStorie us=new UserStorie(this.getUstext());
 
-		Backlog newback = new Backlog(this.getBacklogtitle(), "22/12/2014");
+		Backlog newback = new Backlog(this.getBacklogtitle(), currentTimestamp);
 		
 		us.setBacklog(newback);
 		lus.add(us);
 		
 		newback.setStories(lus);
+		//get current time plus the value of days entered by the user
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(currentTimestamp);
+		cal.add(Calendar.DAY_OF_WEEK, Integer.valueOf(this.getTime()));
+		Timestamp nextTimestamp = new Timestamp(cal.getTime().getTime());
 		
-		Project prj = new Project( this.getNom(), this.getSel2(), this.getSel1(), this.getDescription(), this.getTags(), this.getCost(), this.getCompany(), this.getEmail(), "12/12/12", "getting started", "today", "--");
+		Project prj = new Project( this.getNom(), this.getSel2(), this.getSel1(), this.getDescription(), this.getTags(), this.getCost(), this.getCompany(), this.getEmail(), nextTimestamp, "getting started",currentTimestamp , null);
 		prj.setBacklog(newback);
 		prj.setUser(user);
 		return prj;

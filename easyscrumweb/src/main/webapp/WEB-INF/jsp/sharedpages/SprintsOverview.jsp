@@ -57,8 +57,8 @@
 			<br><br>
 				<c:forEach items="${Sprintslist }" var="sprint">
 					<div class="onesprintbyone">
-				<label>Sprint : <a href="/easyscrumweb/userspace/singleSprint?idSprint= <c:out value="${sprint.idsprint }"></c:out> &idprojet= <c:out value="${project.projectId}"></c:out> " > <c:out value="${sprint.nom }"></c:out></a> </label><br> <label>description:
-					</label>&nbsp;<c:out value="${sprint.nom }"></c:out>&nbsp;&nbsp;<label>date de debut Sprint :</label>&nbsp;<c:out value="${sprint.dtd }"></c:out>				
+				<label>Sprint : <a href="/easyscrumweb/userspace/singleSprint?idSprint=<c:out value="${sprint.idsprint }"></c:out>&idprojet=<c:out value="${project.projectId}"></c:out>" > <c:out value="${sprint.nom }"></c:out></a> </label><br> <label>description:
+					</label>&nbsp;<c:out value="${sprint.description }"></c:out>&nbsp;&nbsp;<label>date de debut Sprint :</label>&nbsp;<c:out value="${sprint.dtd }"></c:out>				
 				<br> <label for="progress">progress :</label>&nbsp;<c:out value="${sprint.status }"></c:out><br><br>
 				<div class="progress">
 					<div class="progress-bar" role="progressbar" aria-valuenow="60"
@@ -83,9 +83,15 @@
 		</div>
 
 	</div>
-	<div class="stickfoot">
-		<center>CHAT SPACE</center>
-	</div>
+	<!-- Sticky footer -->
+    <div class="stickfoot">
+    <center>
+    <div class="gconvers">
+    <center>Copyright @EasyScrum 2015</center>
+    
+    </div>
+    </center>
+    </div>
 
 </body>
 </html>

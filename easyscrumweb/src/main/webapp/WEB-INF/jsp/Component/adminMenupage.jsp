@@ -27,16 +27,13 @@
 			</ul>
 			<ul class="collapse nav navbar-nav nav-collapse slide-down"
 				role="search" id="nav-collapse4">
-				<li><a href="#">Support</a></li>
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
 					data-toggle="dropdown" role="button" aria-expanded="false"><img
 						class="img-circle"
 						src="https://pbs.twimg.com/profile_images/588909533428322304/Gxuyp46N.jpg"
-						alt="maridlcrmn" width="20" /> Maridlcrmn <span class="caret"></span></a>
+						alt="maridlcrmn" width="20" /> <c:out value="${sessionScope.userlogin}"></c:out> <span class="caret"></span></a>
 					<ul class="dropdown-menu" role="menu">
 						<li><a href="/easyscrumweb/userspace/Account?pro=0">My profile</a></li>
-						<li><a href="#">Favorited</a></li>
-						<li><a href="#">Settings</a></li>
 						<li class="divider"></li>
 						<li><a href="/easyscrumweb/account_logout">Logout</a></li>
 					</ul></li>

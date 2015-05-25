@@ -67,8 +67,10 @@
 					Do you want to Join it ?</p>
 					<form action="acceptinviteteam" method="POST">
 					<input name="team" id="team" value="<c:out value="${mailteam.idteam }"></c:out>" style="display:none;" />
+					<c:if test="${sessionScope.user.type!='4'}">
 					<button type="submit" class="btn btn-primary">Accept invitation</button>
 					<a href="#"> <button type="button" class="btn btn-default">Delete Message</button></a>
+					</c:if>
 					</form>
 					</div>
 				</c:if>
@@ -87,20 +89,33 @@
 					<form action="acceptjobapp" method="POST">
 					<input name="team" id="team" value="<c:out value="${mailteam.idteam }"></c:out>" style="display:none;" />
 					<input name="project" id="project" value="<c:out value="${project.projectId }"></c:out>" style="display:none;" />
+					<c:if test="${sessionScope.user.type!='4'}">
 					<button type="submit" class="btn btn-primary">Accept invitation</button>
 					<a href="#"> <button type="button" class="btn btn-default">Delete Message</button></a>
+					</c:if>
 					</form>
 					</div>
 				</c:if>
 				</div>
+				<c:if test="${currentmail.mailtype == '4' }">
 				<div class="shadow">
 					<label>Reply</label><br>
 					<textarea name="replytext" id="replytext" class="form-control" rows="8" placeholder="Message text"></textarea>
 				</div>
+				</c:if>
 				 <button type="button" class="btn btn-primary btn-sm">Return</button>
 				  <button type="button" class="btn btn-primary btn-sm rightbubble">Delete message</button>
 			</div>
 		</div>
 	</div>
+	<!-- Sticky footer -->
+    <div class="stickfoot">
+    <center>
+    <div class="gconvers">
+    <center>Copyright @EasyScrum 2015</center>
+    
+    </div>
+    </center>
+    </div>
 </body>
 </html>

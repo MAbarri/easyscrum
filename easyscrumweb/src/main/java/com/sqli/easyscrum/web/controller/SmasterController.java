@@ -20,8 +20,11 @@ import com.sqli.easyscrum.business.services.TeamService;
 import com.sqli.easyscrum.business.services.UserService;
 import com.sqli.easyscrum.entity.Mail;
 import com.sqli.easyscrum.entity.Project;
+import com.sqli.easyscrum.entity.Sprint;
 import com.sqli.easyscrum.entity.Team;
 import com.sqli.easyscrum.entity.User;
+import com.sqli.easyscrum.web.vo.FormSprintObject;
+import com.sqli.easyscrum.web.vo.Mails;
 
 @Controller
 @RequestMapping("/userspace")
@@ -68,11 +71,26 @@ public class SmasterController {
 		return modelAndView;
 	}
 	@RequestMapping(value = "/newSprint", method = RequestMethod.GET)
-	public ModelAndView getnewSprintPage()
+	public ModelAndView getnewSprintPage(HttpSession session)
 	{
 		final ModelAndView modelAndView = new ModelAndView();
 		logger.info("Received request to show common page");
-		modelAndView.addObject("projectslist", projectService.findAll());
+
+		User user=userService.find((Integer) session.getAttribute("userid"));
+		session.setAttribute("user",user); 
+
+
+		List<Project> list = new ArrayList<Project>();
+		List<Team> tlist = new ArrayList<Team>();
+		
+		tlist.addAll(user.getTeamchef());
+		tlist.addAll(user.getTeams());
+		
+		for(Team i : tlist)
+			list.addAll(i.getProjects());
+		list.addAll(user.getProjects());
+		modelAndView.addObject("projectslist", list);
+		
 		modelAndView.setViewName("scrummaster/newSprint");
 		return modelAndView;
 	}
@@ -147,11 +165,10 @@ public class SmasterController {
 		session.setAttribute("user",sender);
 				
 		User reciever =userService.find (project.getUser().getUserId());
-		Mail invitation = new Mail("Job application",
-				"Hello "+reciever.getNom()+" "+reciever.getPrenom()+"<br>I am "+sender.getNom()+" "
-						+sender.getPrenom()+", and I am a Scrum Master, I found Your project \""+project.getNomproject()+"\" and i think my Team \""+team.getName()
-						+"\" will be a perfect choice to be it's maker<br>I have already sent you a job application, to accept it there is a \"Accept application\" button down here,"
-						+"Click it and Start Your experience with us !<br>Have a Good Day","22/12/2013");
+
+		Mails mails = new Mails();
+		Mail invitation = mails.JobApplication(reciever, sender, team, project);
+		
 		invitation.setSender(sender);
 		invitation.setReciever(reciever);
 		invitation.setAttachement(String.valueOf(idteam)+";"+String.valueOf(idpro));
@@ -164,10 +181,34 @@ public class SmasterController {
 		
 			mailService.persist(invitation); 
 		
-		
-		
 		modelAndView.setViewName("redirect:"+"ProjectsManaging");
 		return modelAndView;
 	}
-//acceptjobapp
+	@RequestMapping(value = "/createsprint")
+	public ModelAndView getOneSprintPage(FormSprintObject fso,HttpSession session)
+	{
+		final ModelAndView modelAndView = new ModelAndView();
+		logger.info("Received request to show common page");
+		User user=userService.find((Integer) session.getAttribute("userid"));
+		session.setAttribute("user",user); 
+
+		Sprint sprt = new Sprint(fso.getNom(), fso.getconvertedDtd(), fso.getconvertedDtf(), fso.getDescription(),fso.getPriority());
+		sprt.setProjet(projectService.find(fso.getProjectid()));
+		sprintService.persist(sprt);
+		
+		List<Project> list = new ArrayList<Project>();
+		List<Team> tlist = new ArrayList<Team>();
+		
+		tlist.addAll(user.getTeamchef());
+		tlist.addAll(user.getTeams());
+		
+		for(Team i : tlist)
+			list.addAll(i.getProjects());
+		list.addAll(user.getProjects());
+		modelAndView.addObject("projectslist", list);
+		
+		modelAndView.setViewName("redirect:"+"allSprints?idproject="+fso.getProjectid());
+		return modelAndView; 
+	}
+//
 }

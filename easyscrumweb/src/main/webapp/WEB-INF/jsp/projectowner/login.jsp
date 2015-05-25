@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -25,8 +26,10 @@
                                     <i class="fa fa-comments fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">26</div>
-                                    <div>New Comments!</div>
+                                    <div class="huge">
+										<c:out value="${nbnormalmsgs }"></c:out>
+									</div>
+                                    <div>New Messages!</div>
                                 </div>
                             </div>
                         </div>
@@ -47,8 +50,8 @@
                                     <i class="fa fa-tasks fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">12</div>
-                                    <div>New Tasks!</div>
+                                    <div class="huge"><c:out value="${nbteammsgs }"></c:out></div>
+                                    <div>New Team Invitations!</div>
                                 </div>
                             </div>
                         </div>
@@ -69,8 +72,8 @@
                                     <i class="fa fa-star-o fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">124</div>
-                                    <div>New Reviews!</div>
+                                    <div class="huge"><c:out value="${nbjobmsgs }"></c:out></div>
+                                    <div>New Project Updates!</div>
                                 </div>
                             </div>
                         </div>
@@ -91,8 +94,8 @@
                                     <i class="fa fa-plus fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">13</div>
-                                    <div>Others!</div>
+                                    <div class="huge"><c:out value="${nbmsgs }"></c:out></div>
+                                    <div>All!</div>
                                 </div>
                             </div>
                         </div>
@@ -181,12 +184,25 @@
                             Recent Activities
                         </div>
                         <div class="panel-body">
-                            Links to projects u dakxi
+                        <table style="width: 100%">
+                        <c:forEach items="${activs}" var="r" end="5"><tr>
+							<td><label>Activitie : </label></td><td><c:out value="${r.activities }"></c:out></td><td><label>Date :</label></td><td><c:out value="${r.dtActivities }"></c:out></td>
+                        </tr></c:forEach>
+                        </table>
+                        <c:if test="${empty activs}"><center>no recent activities.</center></c:if>
                         </div>
                     </div>
-                </div>
+    </div>
+    
     <!-- Sticky footer -->
-    <div class="stickfoot"><center>CHAT SPACE</center></div>
+    <div class="stickfoot">
+    <center>
+    <div class="gconvers">
+    <center>Copyright @EasyScrum 2015</center>
+    
+    </div>
+    </center>
+    </div>
    </div>
 </body>
 </html>

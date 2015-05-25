@@ -1,6 +1,8 @@
 package com.sqli.easyscrum.entity;
 
 
+import java.sql.Timestamp;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -46,7 +48,7 @@ public class Mail {
 	private String text;
 	
 	@Column(name="Dateenvoi")
-	private String dateenvoi;
+	private Timestamp dateenvoi;
 	
 	@Column(name="vue")
 	private boolean vue;
@@ -60,7 +62,7 @@ public class Mail {
 	private User Reciever;
 	
 	public Mail(){}
-	public Mail( String title,String text,String dateenvoi)
+	public Mail( String title,String text,Timestamp dateenvoi)
 	{
 		this.dateenvoi=dateenvoi;
 		this.text=text;
@@ -85,10 +87,10 @@ public class Mail {
 	public void setText(String text) {
 		this.text = text;
 	}
-	public String getDateenvoi() {
+	public Timestamp getDateenvoi() {
 		return dateenvoi;
 	}
-	public void setDateenvoi(String dateenvoi) {
+	public void setDateenvoi(Timestamp dateenvoi) {
 		this.dateenvoi = dateenvoi;
 	}
 	public boolean isVue() {

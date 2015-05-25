@@ -24,7 +24,7 @@ public class BacklogServiceImpl extends GenericServiceImpl<Backlog, Integer> imp
 	
 	@Override
 	public void save(Backlog bklg) {
-		
+		bklg.setProjet(null);
 		daobacklog.create(bklg);
 		for(UserStorie i:bklg.getStories())
 			userstorieService.persist(i);

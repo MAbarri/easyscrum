@@ -1,5 +1,6 @@
 package com.sqli.easyscrum.entity;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -32,11 +33,11 @@ public class Team {
 		this.name = name;
 	}
 
-	public String getCreationDate() {
+	public Timestamp getCreationDate() {
 		return creationDate;
 	}
 
-	public void setCreationDate(String creationDate) {
+	public void setCreationDate(Timestamp creationDate) {
 		this.creationDate = creationDate;
 	}
 
@@ -73,7 +74,7 @@ public class Team {
     private String name;
     
     @Column(name = "creationDate")
-    private String creationDate;
+    private Timestamp creationDate;
     
     @Column(name = "company")
     private String company;

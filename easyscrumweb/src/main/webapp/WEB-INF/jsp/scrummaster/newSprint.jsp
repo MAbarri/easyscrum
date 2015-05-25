@@ -27,28 +27,35 @@
 			</div>
 			<div class="panel-body">
 			
-				
+				<form action="createsprint" method="POST">
 					<div class="onesprintbyone">
-				<label>Sprint :&nbsp;&nbsp;&nbsp;<input type="text" class="form-control" placeholder="Name" style="width: 400px; display: inline;"> 
-				 </label><br> <label>Description:<br><textarea class="form-control" rows="8" placeholder="Message text" style="width:600px;margin:auto;"></textarea>
+				<label>Sprint :&nbsp;&nbsp;&nbsp;<input type="text" class="form-control" name="nom" placeholder="Name" style="width: 400px; display: inline;"> 
+				 </label><br> <label>Description:<br><textarea class="form-control" name="description" rows="8" placeholder="Message text" style="width:600px;margin:auto;"></textarea>
 					</label>
 				<br><br>
-				<table><tr><td><label>Date de debut Sprint :&nbsp;&nbsp;&nbsp;</label></td><td><input type="date" /></td></tr>
-				<tr><td><label>Date fin estimée :</label></td><td><input type="date" /></td></tr>
-				<tr><td><label>Priority :</label></td><td><select><option>Top priority</option><option>Important</option><option>Moderate</option><option>Optional</option><option>You can skip it</option> </select></td></tr>
+				<table><tr><td><label>Date de debut Sprint :&nbsp;&nbsp;&nbsp;</label></td><td><input type="date" name="dtd" /></td></tr>
+				<tr><td><label>Date fin estimée :</label></td><td><input type="date" name="dtf"/></td></tr>
+				<tr><td><label>Priority :</label></td><td><select name="Priority"><option>Top priority</option><option>Important</option><option>Moderate</option><option>Optional</option><option>You can skip it</option> </select></td></tr>
 				</table>
 				</div>
+				<input name="projectid" value="<c:out value="${param.idprojet}"></c:out>">
 				<button type="button" class="btn btn-primary btn-sm">Cancel</button>
-				<button type="button" class="btn btn-primary btn-sm rightbubble">Start new Sprint</button>				
-				
+				<button type="submit" class="btn btn-primary btn-sm rightbubble">Start new Sprint</button>				
+				</form>
 				
 			</div>
 		</div>
 
 	</div>
-	<div class="stickfoot">
-		<center>CHAT SPACE</center>
-	</div>
+	<!-- Sticky footer -->
+    <div class="stickfoot">
+    <center>
+    <div class="gconvers">
+    <center>Copyright @EasyScrum 2015</center>
+    
+    </div>
+    </center>
+    </div>
 
 </body>
 </html>

@@ -1,5 +1,7 @@
 package com.sqli.easyscrum.entity;
 
+import java.sql.Timestamp;
+
 import javax.persistence.*;
 
 @Entity
@@ -14,7 +16,13 @@ public class Sprint {
 	private String nom;
 	
 	@Column(name="DateDebut")
-	private String dtd;
+	private Timestamp dtd;
+	
+	@Column(name="description")
+	private String description;
+	
+	@Column(name="priority")
+	private String priority;
 	
 	@ManyToOne
     @JoinColumn(name = "id_project")
@@ -29,11 +37,23 @@ public class Sprint {
 	public String getNom() {
 		return nom;
 	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	public String getPriority() {
+		return priority;
+	}
+	public void setPriority(String priority) {
+		this.priority = priority;
+	}
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
 	@Column(name="DateFin")
-	private String dtf;
+	private Timestamp dtf;
 	
 	@Column(name="status")
 	private String status;
@@ -41,12 +61,14 @@ public class Sprint {
 	public Sprint(){
 		
 	}
-	public Sprint (String name,String datedebut,String Datefin,String stat)
+	public Sprint (String name,Timestamp datedebut,Timestamp Datefin,String description,String priority)
 	{
 		this.nom=name;
 		this.dtd=datedebut;
 		this.dtf=Datefin;
-		this.status=stat;
+		this.description=description;
+		this.priority=priority;
+		this.status="Starting";
 	}
 	public int getIdsprint() {
 		return idsprint;
@@ -54,16 +76,16 @@ public class Sprint {
 	public void setIdsprint(int idsprint) {
 		this.idsprint = idsprint;
 	}
-	public String getDtd() {
+	public Timestamp getDtd() {
 		return dtd;
 	}
-	public void setDtd(String dtd) {
+	public void setDtd(Timestamp dtd) {
 		this.dtd = dtd;
 	}
-	public String getDtf() {
+	public Timestamp getDtf() {
 		return dtf;
 	}
-	public void setDtf(String dtf) {
+	public void setDtf(Timestamp dtf) {
 		this.dtf = dtf;
 	}
 	public String getStatus() {
@@ -72,7 +94,13 @@ public class Sprint {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	
+	/*Status values :
+	 * Starting : 20%
+	 * Working On : 40%
+	   Testing : 60%
+	   Ready for a Demo : 80%
+	   Delivery : 99%
+	 */
 	
 	
 }

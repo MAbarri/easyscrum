@@ -74,7 +74,7 @@ public class ProjectOwnerController {
 			modelAndView.setViewName("projectowner/NewProject");
 			return modelAndView;
 		}
-		@RequestMapping(value = "/CreatProjects", method = RequestMethod.GET)
+		@RequestMapping(value = "/CreatProjects")
 		public ModelAndView getresultPage(FormProjectObject fm,HttpSession session)
 		{
 			

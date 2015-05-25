@@ -41,6 +41,7 @@
 	    <intercept-url pattern="/userspace/sendmail" access="hasRole('USER_Role')" />
 	    <intercept-url pattern="/userspace/Account" access="hasRole('USER_Role')" />
 	    <intercept-url pattern="/connect/Present" access="hasRole('USER_Role')" />
+	    <intercept-url pattern="/userspace/updateMyAccount" access="hasRole('USER_Role')" />  
 	    
 	    <!-- Admin pages -->
 	    <intercept-url pattern="/userspace/ManageUsers" access="hasRole('ADMIN_Role')" />
@@ -56,7 +57,7 @@
 	    <intercept-url pattern="/userspace/Teams" access="hasRole('ProjectAccess_Role')" />
 	    <intercept-url pattern="/userspace/Team" access="hasRole('ProjectAccess_Role')" />
 	    <intercept-url pattern="/userspace/TeamSpace" access="hasRole('ProjectAccess_Role')" />
-	    <intercept-url pattern="/userspace/myTeams" access="hasRole('ProjectAccess_Role')" />    
+	    <intercept-url pattern="/userspace/myTeams" access="hasRole('ProjectAccess_Role')" />
 	    <!-- Project Owner pages -->
 	    <intercept-url pattern="/userspace/ManageProjects" access="hasRole('PO_Role')" />
 	    <intercept-url pattern="/userspace/newProject" access="hasRole('PO_Role')" />
@@ -74,6 +75,8 @@
 	    <intercept-url pattern="/userspace/newTeam" access="hasRole('SM_Role')" />
 	    <intercept-url pattern="/userspace/Invitein" access="hasRole('SM_Role')" />
 	    <intercept-url pattern="/userspace/getnewProjectselection" access="hasRole('SM_Role')" />
+	    <intercept-url pattern="/userspace/createsprint" access="hasRole('SM_Role')" />
+	    
         <!-- <intercept-url pattern="/**" requires-channel="https" /> -->    
          
 	<!-- <intercept-url pattern="/main/admin" access="hasRole('ROLE_ADMIN')" />

@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.sqli.easyscrum.business.services.ActivitiesService;
 import com.sqli.easyscrum.business.services.MailService;
 import com.sqli.easyscrum.business.services.ProjectService;
 import com.sqli.easyscrum.business.services.SprintService;
@@ -39,7 +40,11 @@ public class UserSpaceController {
 	@Autowired
 	private SprintService sprintService;
 	
-	
+	@Autowired
+	private ActivitiesService activitiesService;
+
+	@Autowired
+	private MailService mailService;
 	
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public ModelAndView getwelcomePage() {
@@ -96,9 +101,6 @@ public class UserSpaceController {
 		UserDetails userDetails = (UserDetails) authentication.getPrincipal();
 		//securitycontextholder.getcontext().getauthentication()
 		
-		
-		
-		
 			results = userService.findUserByLogin(userDetails.getUsername());
 			logger.info("Got the list");
 			result=results.get(0);
@@ -106,9 +108,18 @@ public class UserSpaceController {
 						// affectation du session
 						
 						session.setAttribute("userid",result.getUserId());
-						
+						session.setAttribute("userlogin",result.getLogin());
+						session.setAttribute("userpicture",result.getPhoto());
 						// redirection a la page d'acceuil
 						
+						modelAndView.addObject("activs", activitiesService.findUserActivities(result.getUserId()));
+						modelAndView.addObject("nbmsgs", mailService.GetUnredCount(result.getUserId()));
+						//1 for team invitation mail						
+						modelAndView.addObject("nbteammsgs", mailService.GetUnreadCountWParam(result.getUserId(), 1));
+						//2 for job application						
+						modelAndView.addObject("nbjobmsgs", mailService.GetUnreadCountWParam(result.getUserId(), 3));
+						//3 for random mail
+						modelAndView.addObject("nbnormalmsgs", mailService.GetUnreadCountWParam(result.getUserId(), 2));
 						switch (result.getType()){
 						
 						case 1:
@@ -170,5 +181,36 @@ public class UserSpaceController {
 		return modelAndView;
 	}
 	
-//
+	@RequestMapping(value = "/updateMyAccount")
+	public ModelAndView getupdatedPage(FormObject fm,HttpSession session) {
+		final ModelAndView modelAndView = new ModelAndView();
+		Map<String, String> erreurs = new HashMap<String, String>();
+		logger.info("Received request to show common page");
+
+		User u = userService.find((Integer) session.getAttribute("userid") );
+		
+		if ((fm.getConfpass().equals(fm.getPass()))&&(u.getPassword().equals(fm.getOldpass()))) {
+			
+			if(fm.getName()!=""&&fm.getName()!=null)
+				u.setNom(fm.getName());
+			if(fm.getEmail()!=""&&fm.getEmail()!=null)
+				u.setEmail(fm.getEmail());
+			if(fm.getAdresse()!=""&&fm.getAdresse()!=null)
+				u.setAdresse(fm.getAdresse());
+			if(fm.getLogin()!=""&&fm.getLogin()!=null)
+				u.setLogin(fm.getLogin());
+			if(fm.getLname()!=""&&fm.getLname()!=null)
+				u.setPrenom(fm.getLname());
+			if(fm.getPass()!=""&&fm.getPass()!=null)
+				u.setPassword(fm.getPass());
+				
+			userService.update(u);
+		} else {
+			erreurs.put("confpass", "les deux chaine ne sont pas identiques !");
+			modelAndView.addObject("ListErreur", erreurs);
+		}
+		
+		modelAndView.setViewName("redirect:Account?pro=0");
+		return modelAndView;
+	}
 }

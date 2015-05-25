@@ -2,6 +2,7 @@ package com.sqli.easyscrum.web.vo;
 
 public class FormObject {
 	private String email;
+	private String oldpass;
 	private String pass;
 	private String confpass;
 	private String name;
@@ -11,6 +12,12 @@ public class FormObject {
 	private int type;
 	private String typestinrg;
 
+	public String getOldpass() {
+		return oldpass;
+	}
+	public void setOldpass(String oldpass) {
+		this.oldpass = oldpass;
+	}
 	public int getType() {
 		return type;
 	}

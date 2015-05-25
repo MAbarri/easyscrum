@@ -9,7 +9,7 @@
 					<li><a href="/easyscrumweb/userspace/ManageProjects"> <i
 							class="fa fa-dashboard fa-lg"></i> Projects
 					</a></li>
-					<c:forEach items="${projectslist }" var="p">
+					<c:forEach items="${user.projects }" var="p">
 						<li data-toggle="collapse"
 							data-target="#products-<c:out value="${p.nomproject}"></c:out>"
 							class="collapsed"><a href="#"><i
@@ -17,7 +17,7 @@
 								<span class="arrow"></span></a></li>
 						<ul class="sub-menu collapse"
 							id="products-<c:out value="${p.nomproject}"></c:out>">
-							<c:forEach items="${Sprintslist }" var="sprint">
+							<c:forEach items="${p.sprints }" var="sprint">
 							<li><a href="/easyscrumweb/userspace/singleSprint?idSprint=<c:out value="${sprint.idsprint }"></c:out>"><c:out value="${sprint.nom }"></c:out></a></li>
 							</c:forEach>
 						</ul>

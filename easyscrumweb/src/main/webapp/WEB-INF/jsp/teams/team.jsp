@@ -221,6 +221,15 @@
 			</div>
 		</div>
 	</div>
+	<!-- Sticky footer -->
+    <div class="stickfoot">
+    <center>
+    <div class="gconvers">
+    <center>Copyright @EasyScrum 2015</center>
+    
+    </div>
+    </center>
+    </div>
 	<script src="/easyscrumweb/resources/js/jquery-1.10.2.min.js"></script>
 	<script type="text/javascript">
 		$("#editclick").click(function() {

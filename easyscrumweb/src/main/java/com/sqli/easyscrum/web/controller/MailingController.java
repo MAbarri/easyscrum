@@ -1,5 +1,8 @@
 package com.sqli.easyscrum.web.controller;
 
+import java.sql.Timestamp;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -56,7 +59,9 @@ public class MailingController {
 		logger.info("Received request to show common page");
 		Mail mail = mailService.find(id);
 		session.setAttribute("currentmail",mail);
-		session.setAttribute("user",userService.find((Integer) session.getAttribute("userid")));
+		User user = userService.find((Integer) session.getAttribute("userid"));
+		session.setAttribute("user",user);
+		
 		if(mail.getMailtype()==1)
 			session.setAttribute("mailteam",teamService.find(Integer.parseInt(mail.getAttachement())));
 		if(mail.getMailtype()==2)
@@ -65,8 +70,11 @@ public class MailingController {
 			session.setAttribute("mailteam",teamService.find(Integer.parseInt(parts[0])));
 			session.setAttribute("project",projectService.find(Integer.parseInt(parts[1])));
 		}
+		if(user.getUserId()==mail.getReciever().getUserId())
+		{
 		mail.setVue(true);
 		mailService.update(mail);
+		}
 		modelAndView.setViewName("mailing/mail");
 
 		return modelAndView;
@@ -90,14 +98,27 @@ public class MailingController {
 		session.setAttribute("user",sender);
 		List<User> results2 = userService.findUserByLogin(fmo.getDestination());
 		User reciever=results2.get(0);
-		Mail mail= new Mail(fmo.getMailtitle(), fmo.getMailtext(), "14/05/2015");
+		
+		//current time------------------------
+		// 1) create a java calendar instance
+		Calendar calendar = Calendar.getInstance();
+		 
+		// 2) get a java.util.Date from the calendar instance.
+		//		    this date will represent the current instant, or "now".
+		java.util.Date now = calendar.getTime();
+		 
+		// 3) a java current time (now) instance
+		java.sql.Timestamp currentTimestamp = new java.sql.Timestamp(now.getTime());
+		
+		Mail mail= new Mail(fmo.getMailtitle(), fmo.getMailtext(), currentTimestamp);
 		mail.setSender(sender);
 		mail.setReciever(reciever);
 		//mail types :
 		//0 for presentation mail
 		//1 for team invitation mail
-		//2 for random mail
-		mail.setMailtype(2);
+		//2 for job app
+		//3 for random mail
+		mail.setMailtype(3);
 		mailService.persist(mail);
 		
 		modelAndView.setViewName("redirect:inbox");

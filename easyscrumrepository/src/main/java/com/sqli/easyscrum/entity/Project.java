@@ -1,6 +1,7 @@
 package com.sqli.easyscrum.entity;
 
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -57,13 +58,13 @@ public class Project {
     private String email;
 	
 	@Column(name = "DateDebut")
-    private String dateDebut;
+    private Timestamp dateDebut;
 	
 	@Column(name = "DateRouge")
-    private String deadLine;
+    private Timestamp deadLine;
 	
 	@Column(name = "DateFin")
-    private String dateFin;
+    private Timestamp dateFin;
 	
 	@Column(name = "PStatus")
     private String status;
@@ -173,11 +174,11 @@ public class Project {
 		this.email = email;
 	}
 
-	public String getDeadLine() {
+	public Timestamp getDeadLine() {
 		return deadLine;
 	}
 
-	public void setDeadLine(String deadLine) {
+	public void setDeadLine(Timestamp deadLine) {
 		this.deadLine = deadLine;
 	}
 
@@ -198,22 +199,22 @@ public class Project {
 		this.nomproject = nomproject;
 	}
 
-	public String getDateDebut() {
+	public Timestamp getDateDebut() {
 		return dateDebut;
 	}
 
-	public void setDateDebut(String dateDebut) {
+	public void setDateDebut(Timestamp dateDebut) {
 		this.dateDebut = dateDebut;
 	}
 
-	public String getDateFin() {
+	public Timestamp getDateFin() {
 		return dateFin;
 	}
 
-	public void setDateFin(String dateFin) {
+	public void setDateFin(Timestamp dateFin) {
 		this.dateFin = dateFin;
 	}
-	public Project(String nom ,String Langue ,String Type ,String Desc ,String Tags ,String Cost ,String Company ,String Email ,String DeadLine ,String Status,String dtd,String Dtf)
+	public Project(String nom ,String Langue ,String Type ,String Desc ,String Tags ,String Cost ,String Company ,String Email ,Timestamp DeadLine ,String Status,Timestamp dtd,Timestamp Dtf)
 	{
 		this.nomproject=nom;
 		this.company=Company;

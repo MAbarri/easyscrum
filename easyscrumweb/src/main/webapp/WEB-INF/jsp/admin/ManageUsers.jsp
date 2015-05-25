@@ -313,9 +313,14 @@
 			</div>
 		</div>
 		<!-- Sticky footer -->
-		<div class="stickfoot">
-			<center>CHAT SPACE</center>
-		</div>
+    <div class="stickfoot">
+    <center>
+    <div class="gconvers">
+    <center>Copyright @EasyScrum 2015</center>
+    
+    </div>
+    </center>
+    </div>
 	</div>
 	<content tag="bottom_javascript">
 

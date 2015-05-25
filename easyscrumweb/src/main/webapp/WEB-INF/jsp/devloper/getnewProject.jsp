@@ -48,8 +48,14 @@
 			</div>
 		</div>
 	</div>
-	<div class="stickfoot">
-		<center>CHAT SPACE</center>
-	</div>
+	<!-- Sticky footer -->
+    <div class="stickfoot">
+    <center>
+    <div class="gconvers">
+    <center>Copyright @EasyScrum 2015</center>
+    
+    </div>
+    </center>
+    </div>
 </body>
 </html>

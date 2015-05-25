@@ -52,6 +52,8 @@ public interface GenericService<M, I extends Serializable> {
      * @return List of all instances of model given as a generic type.
      */
     List<M> findAll();
+    
+    public int count();
 
     List<M> findWithNamedQuery(String namedQueryName, Map<String, ? extends Object> parameters);
 

@@ -17,7 +17,7 @@
 								<span class="arrow"></span></a></li>
 						<ul class="sub-menu collapse"
 							id="products-<c:out value="${p.nomproject}"></c:out>">
-							<c:forEach items="${Sprintslist }" var="sprint">
+							<c:forEach items="${p.sprints }" var="sprint">
 							<li><a href="/easyscrumweb/userspace/singleSprint?idSprint=<c:out value="${sprint.idsprint }"></c:out>"><c:out value="${sprint.nom }"></c:out></a></li>
 							</c:forEach>
 						</ul>
@@ -35,7 +35,7 @@
 					</li>
 					
 					<ul class="sub-menu collapse" id="new">
-					<a href="/easyscrumweb/userspace/newSprint" style="color: #e1ffff;"><li>New Sprint</li></a>
+					<a href="/easyscrumweb/userspace/newSprint?idprojet=<c:out value="${param.idproject}"></c:out>" style="color: #e1ffff;"><li>New Sprint</li></a>
 					</ul>
 					</c:if>
 				</ul>

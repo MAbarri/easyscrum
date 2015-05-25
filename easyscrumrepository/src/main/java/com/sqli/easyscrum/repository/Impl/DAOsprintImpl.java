@@ -1,56 +1,28 @@
 package com.sqli.easyscrum.repository.Impl;
 
-import java.util.ArrayList;
-import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 import org.springframework.stereotype.Repository;
 
+import com.sqli.easyscrum.core.dao.jpa.impl.GenericDaoImpl;
 import com.sqli.easyscrum.entity.Sprint;
 import com.sqli.easyscrum.repository.DAOsprint;
 @Repository
-public class DAOsprintImpl implements DAOsprint {
-	List<Sprint> list = new ArrayList<Sprint>();
+public class DAOsprintImpl extends GenericDaoImpl<Sprint, Integer>    implements DAOsprint  {
+
+	@PersistenceContext(unitName="easyScrumPU")
+	EntityManager em;
 	
-	public void init()
-	{
+	public DAOsprintImpl() {
+		super(Sprint.class);
+	}
+
+	@Override
+	protected EntityManager getEntityManager() {
+		return em;
+	}
+	
 
 		
-	}
-	
-	@Override
-	public Sprint getsprintById(int id) {
-		Sprint result=null;
-		for(Sprint i:list)
-			if(i.getIdsprint()==id)
-				result=i;
-		return result;
-	}
-
-	@Override
-	public void creatsprint(Sprint u) {
-		list.add(u);
-
-	}
-
-	@Override
-	public void deletesprint(Sprint u) {
-		for(Sprint i:list)
-			if(i.getIdsprint()==u.getIdsprint())
-				list.remove(i);
-
-	}
-
-	@Override
-	public void editsprint(Sprint u) {
-		for(Sprint i:list)
-			if(i.getIdsprint()==u.getIdsprint())
-				i=u;
-
-	}
-
-	@Override
-	public List<Sprint> getAllSprint() {
-		return list;
-	}
-
 }

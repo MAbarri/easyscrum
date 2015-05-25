@@ -1,6 +1,8 @@
 package com.sqli.easyscrum.web.vo;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import com.sqli.easyscrum.entity.Mail;
@@ -10,13 +12,25 @@ import com.sqli.easyscrum.entity.User;
 
 public class Mails {
 	
+	//current time------------------------
+			// 1) create a java calendar instance
+			Calendar calendar = Calendar.getInstance();
+			 
+			// 2) get a java.util.Date from the calendar instance.
+			//		    this date will represent the current instant, or "now".
+			java.util.Date now = calendar.getTime();
+			 
+			// 3) a java current time (now) instance
+			java.sql.Timestamp currentTimestamp = new java.sql.Timestamp(now.getTime());
+			
+	
 	public Mail TeamInvitation(User reciever,User sender,Team team)
 	{
 		Mail invitation = new Mail("Team Invitation",
 				"Hello "+reciever.getNom()+" "+reciever.getPrenom()+"<br>I am "+sender.getNom()+" "
 						+sender.getPrenom()+", and I am a Scrum Master, I found Your profil and i want you to join my Team "+team.getName()
 						+".<br>I have already sent you an invitation, to accept it there is a \"Join Team\" button down here,"
-						+"Click it and Start Your experience with us !<br>Have a Good Day","22/12/2013");
+						+"Click it and Start Your experience with us !<br>Have a Good Day",currentTimestamp);
 		invitation.setSender(sender);
 		invitation.setReciever(reciever);
 		invitation.setAttachement(String.valueOf(team.getIdteam()));
@@ -33,7 +47,7 @@ public class Mails {
 				"Hello "+reciever.getNom()+" "+reciever.getPrenom()+"<br>I am "+sender.getNom()+" "
 						+sender.getPrenom()+", and I am a Scrum Master, I found Your project \""+project.getNomproject()+"\" and i think my Team \""+team.getName()
 						+"\" will be a perfect choice to be it's maker<br>I have already sent you a job application, to accept it there is a \"Accept application\" button down here,"
-						+"Click it and Start Your experience with us !<br>Have a Good Day","22/12/2013");
+						+"Click it and Start Your experience with us !<br>Have a Good Day",currentTimestamp);
 		invitation.setSender(sender);
 		invitation.setReciever(reciever);
 		invitation.setAttachement(String.valueOf(team.getProjects())+";"+String.valueOf(project.getProjectId()));
@@ -54,7 +68,7 @@ public class Mails {
 			Mail invitation = new Mail("New Job application",
 					"Hello "+i.getNom()+" "+i.getPrenom()+"<br>I am "+team.getBoss().getNom()+" "
 							+team.getBoss().getPrenom()+", and I am your Team Manager, Our Team \""+team.getName()+"\" just aquired a new project : Project \""+project.getNomproject()
-							+"\" , I encourage you to go and check it out, read it's Backlog ans send me whatever remarques you have.<br>When starting the project, i will send you another message.<br>Have a Good Day","22/12/2013");
+							+"\" , I encourage you to go and check it out, read it's Backlog ans send me whatever remarques you have.<br>When starting the project, i will send you another message.<br>Have a Good Day",currentTimestamp);
 			invitation.setSender(team.getBoss());
 			invitation.setReciever(i);
 			invitation.setAttachement(String.valueOf(team.getProjects())+";"+String.valueOf(project.getProjectId()));

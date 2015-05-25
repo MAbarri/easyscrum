@@ -55,13 +55,13 @@
 				
 					<div class="onesprintbyone">
 				<label>Sprint : <c:out value="${spr.nom }"></c:out> </label><br> <label>description:
-					</label>&nbsp;<c:out value="${spr.nom }"></c:out>&nbsp;&nbsp;<label>date de debut Sprint :</label>&nbsp;<c:out value="${spr.dtd }"></c:out>
+					</label>&nbsp;<c:out value="${spr.description }"></c:out>&nbsp;&nbsp;<label>date de debut Sprint :</label>&nbsp;<c:out value="${spr.dtd }"></c:out>
 				
 					<br> <label>Date fin estimée :</label>&nbsp;<c:out value="${spr.dtf }"></c:out>
 				<br> <label>Durée restante :</label>&nbsp;1 month
 				<br> <label>Developpement Team :</label>&nbsp;Team test
 				<br> <label>Developpement Team Master :</label>&nbsp;Master of Puppets
-				<br> <label>Priority :</label>&nbsp;Important
+				<br> <label>Priority :</label>&nbsp;<c:out value="${spr.priority }"></c:out>
 				
 				<br> <label for="progress">progress :</label>&nbsp;<c:out value="${spr.status }"></c:out><br><br>
 				<div class="progress">
@@ -87,9 +87,15 @@
 		</div>
 
 	</div>
-	<div class="stickfoot">
-		<center>CHAT SPACE</center>
-	</div>
+	<!-- Sticky footer -->
+    <div class="stickfoot">
+    <center>
+    <div class="gconvers">
+    <center>Copyright @EasyScrum 2015</center>
+    
+    </div>
+    </center>
+    </div>
 
 </body>
 </html>

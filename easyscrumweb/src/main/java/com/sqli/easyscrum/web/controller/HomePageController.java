@@ -38,17 +38,6 @@ public class HomePageController {
 	@Autowired
 	private ProjectService projectService;
 	
-
-//	/**
-//	 * Handles and retrieves the common JSP page that everyone can see
-//	 *
-//	 * @return the modelAndView
-//	 */
-//	// @PreAuthorize("hasPermission(this,'ROLE_VISITOR')")
-	
-	//
-	
-	
 	
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public ModelAndView getCommonPage(HttpSession session,@RequestParam(required=false) boolean logoutmsg,@RequestParam(required=false) boolean error,Authentication authentication) {

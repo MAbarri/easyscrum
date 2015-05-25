@@ -47,7 +47,6 @@
 						<th>Prenom</th>
 						<th>Email</th>
 						<th>Login</th>
-						<th>Mot de passe</th>
 						<th>Adresse</th>
 					</tr>
 					</thead>
@@ -61,7 +60,6 @@
 							<td id="prenomatt<c:out value="${u.userId }"></c:out>"><c:out value="${u.prenom }"></c:out></td>
 							<td id="emailatt<c:out value="${u.userId }"></c:out>"><c:out value="${u.email }"></c:out></td>
 							<td id="loginatt<c:out value="${u.userId }"></c:out>"><c:out value="${u.login }"></c:out></td>
-							<td id="passatt<c:out value="${u.userId }"></c:out>"><c:out value="${u.password }"></c:out></td>
 							<td id="adresseatt<c:out value="${u.userId }"></c:out>"><c:out value="${u.adresse }"></c:out></td>
 							</tr>
 					</c:if>
@@ -92,9 +90,14 @@
 			</div>
 		</div>
 		<!-- Sticky footer -->
-		<div class="stickfoot">
-			<center>CHAT SPACE</center>
-		</div>
+    <div class="stickfoot">
+    <center>
+    <div class="gconvers">
+    <center>Copyright @EasyScrum 2015</center>
+    
+    </div>
+    </center>
+    </div>
 	</div>
 	<content tag="bottom_javascript">
 

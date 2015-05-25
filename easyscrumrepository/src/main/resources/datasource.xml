@@ -36,7 +36,8 @@
 		<property name="mappingResources">
             <list>
                 <value>META-INF/User.hbm.xml</value>
-
+				<value>META-INF/Mail.hbm.xml</value>
+				<value>META-INF/Activities.hbm.xml</value>
             </list>
         </property>
 	</bean>

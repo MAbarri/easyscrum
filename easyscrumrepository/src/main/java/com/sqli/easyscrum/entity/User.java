@@ -12,14 +12,16 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
 @Entity
 @Table(name = "user")
-public class User implements Serializable {
+public class User {
 
 	private static final long serialVersionUID = 1L;
     @Id
@@ -27,6 +29,74 @@ public class User implements Serializable {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer userId;
     
+    @OneToMany(mappedBy="user",cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+    private List<Project> projects;
+	
+	@OneToMany(mappedBy="sender",cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+    private List<Mail> sentmails;
+	
+	@OneToMany(mappedBy="Reciever",cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+    private List<Mail> recievedmails;
+	
+	@OneToMany(mappedBy="boss",cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+    private List<Team> teamchef;
+	
+	@OneToMany(mappedBy="user",cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+    private List<Activities> ativities;
+	
+	@ManyToMany
+    private List<Team> teams;
+	
+	public List<Activities> getAtivities() {
+		return ativities;
+	}
+
+	public void setAtivities(List<Activities> ativities) {
+		this.ativities = ativities;
+	}
+
+	@OneToOne
+    @JoinColumn(name = "iduser")
+	private Notification notification;    
+	
+	public Notification getNotification() {
+		return notification;
+	}
+
+	public void setNotification(Notification notification) {
+		this.notification = notification;
+	}
+
+	@Column(name = "nom")
+    private String nom;
+    
+    @Column(name = "prenom")
+    private String prenom;
+    
+    @Column(name = "adresse")
+    private String adresse;
+    
+    @Column(name = "email")
+    private String email;
+    
+    @Column(name = "photo")
+    private String photo;
+    
+    @Column(name = "login")
+    private String login;
+    
+    @Column(name = "needteam")
+    private boolean needteam;
+    
+    @Column(name = "password")
+    private String password;
+
+    @Column(name = "Telephone")
+    private String telephone;
+    
+    @Column(name = "Speciality")
+    private String Speciality;
+
     public Integer getUserId() {
 		return userId;
 	}
@@ -39,18 +109,6 @@ public class User implements Serializable {
 	public void setProjects(List<Project> projects) {
 		this.projects = projects;
 	}
-
-	@OneToMany(mappedBy="user",cascade = {CascadeType.PERSIST,CascadeType.MERGE})
-    private List<Project> projects;
-	
-	@OneToMany(mappedBy="sender",cascade = {CascadeType.PERSIST,CascadeType.MERGE})
-    private List<Mail> sentmails;
-	
-	@OneToMany(mappedBy="Reciever",cascade = {CascadeType.PERSIST,CascadeType.MERGE})
-    private List<Mail> recievedmails;
-	
-	@OneToMany(mappedBy="boss",cascade = {CascadeType.PERSIST,CascadeType.MERGE})
-    private List<Team> teamchef;
 	
 	public List<Team> getTeamchef() {
 		return teamchef;
@@ -67,9 +125,6 @@ public class User implements Serializable {
 	public void setTeams(List<Team> teams) {
 		this.teams = teams;
 	}
-
-	@ManyToMany
-    private List<Team> teams;
  
 	public List<Mail> getSentmails() {
 		return sentmails;
@@ -160,27 +215,6 @@ public class User implements Serializable {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
-	@Column(name = "nom")
-    private String nom;
-    
-    @Column(name = "prenom")
-    private String prenom;
-    
-    @Column(name = "adresse")
-    private String adresse;
-    
-    @Column(name = "email")
-    private String email;
-    
-    @Column(name = "photo")
-    private String photo;
-    
-    @Column(name = "login")
-    private String login;
-    
-    @Column(name = "needteam")
-    private boolean needteam;
     
     public boolean isNeedteam() {
 		return needteam;
@@ -189,15 +223,6 @@ public class User implements Serializable {
 	public void setNeedteam(boolean needteam) {
 		this.needteam = needteam;
 	}
-
-	@Column(name = "password")
-    private String password;
-
-    @Column(name = "Telephone")
-    private String telephone;
-    
-    @Column(name = "Speciality")
-    private String Speciality;
     
 	public String getTelephone() {
 		return telephone;

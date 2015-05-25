@@ -1,5 +1,8 @@
 package com.sqli.easyscrum.web.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
@@ -15,6 +18,8 @@ import com.sqli.easyscrum.business.services.ProjectService;
 import com.sqli.easyscrum.business.services.SprintService;
 import com.sqli.easyscrum.business.services.UserService;
 import com.sqli.easyscrum.business.services.UserStoryService;
+import com.sqli.easyscrum.entity.Project;
+import com.sqli.easyscrum.entity.Team;
 import com.sqli.easyscrum.entity.User;
 
 @Controller
@@ -43,10 +48,20 @@ public class ProjectManagingController {
 	{
 		final ModelAndView modelAndView = new ModelAndView();
 		logger.info("Received request to show common page");
-		User resu=userService.find((Integer) session.getAttribute("userid"));
-		session.setAttribute("user",resu); 
-		modelAndView.addObject("projectslist", resu.getProjects());
-		resu=null;
+		User user=userService.find((Integer) session.getAttribute("userid"));
+		session.setAttribute("user",user); 
+
+		List<Project> list = new ArrayList<Project>();
+		List<Team> tlist = new ArrayList<Team>();
+		
+		tlist.addAll(user.getTeamchef());
+		tlist.addAll(user.getTeams());
+		
+		for(Team i : tlist)
+			list.addAll(i.getProjects());
+		list.addAll(user.getProjects());
+		modelAndView.addObject("projectslist", list);
+		
 		modelAndView.setViewName("sharedpages/ProjectsSprints");
 		return modelAndView;
 	}
@@ -56,11 +71,20 @@ public class ProjectManagingController {
 	{
 		final ModelAndView modelAndView = new ModelAndView();
 		logger.info("Received request to show common page");
-		User res=userService.find((Integer) session.getAttribute("userid"));
-		session.setAttribute("user",res); 
+		User user=userService.find((Integer) session.getAttribute("userid"));
+		session.setAttribute("user",user); 
 		modelAndView.addObject("project", projectService.find(idproject));
-		modelAndView.addObject("projectslist", res.getProjects());
-		res=null;
+
+		List<Project> list = new ArrayList<Project>();
+		List<Team> tlist = new ArrayList<Team>();
+		
+		tlist.addAll(user.getTeamchef());
+		tlist.addAll(user.getTeams());
+		
+		for(Team i : tlist)
+			list.addAll(i.getProjects());
+		list.addAll(user.getProjects());
+		modelAndView.addObject("projectslist", list);
 		modelAndView.setViewName("sharedpages/singleproject");
 		return modelAndView;
 	}
@@ -70,24 +94,46 @@ public class ProjectManagingController {
 		final ModelAndView modelAndView = new ModelAndView();
 		logger.info("Received request to show common page");
 		
-		User res=userService.find((Integer) session.getAttribute("userid"));
-		session.setAttribute("user",res); 
+		User user=userService.find((Integer) session.getAttribute("userid"));
+		session.setAttribute("user",user); 
 		modelAndView.addObject("project", projectService.find(idproject));
 		modelAndView.addObject("Sprintslist", projectService.find(idproject).getSprints());
-		modelAndView.addObject("projectslist", res.getProjects());
-		res=null;
+
+		List<Project> list = new ArrayList<Project>();
+		List<Team> tlist = new ArrayList<Team>();
+		
+		tlist.addAll(user.getTeamchef());
+		tlist.addAll(user.getTeams());
+		
+		for(Team i : tlist)
+			list.addAll(i.getProjects());
+		list.addAll(user.getProjects());
+		modelAndView.addObject("projectslist", list);
+		
 		modelAndView.setViewName("sharedpages/SprintsOverview");
 		return modelAndView;
 	}
 	@RequestMapping(value = "/singleSprint", method = RequestMethod.GET)
-	public ModelAndView getOneSprintPage(@RequestParam int idSprint,@RequestParam int idprojet,HttpSession session)
+	public ModelAndView getOneSprintPage(@RequestParam int idSprint,HttpSession session)
 	{
 		final ModelAndView modelAndView = new ModelAndView();
 		logger.info("Received request to show common page");
-		User res=userService.find((Integer) session.getAttribute("userid"));
-		session.setAttribute("user",res); 
-		modelAndView.addObject("projectslist", res.getProjects());
-		//modelAndView.addObject("spr", projectService.getSprintById(idSprint, projectService.find(idprojet)));
+		User user=userService.find((Integer) session.getAttribute("userid"));
+		session.setAttribute("user",user); 
+
+
+		List<Project> list = new ArrayList<Project>();
+		List<Team> tlist = new ArrayList<Team>();
+		
+		tlist.addAll(user.getTeamchef());
+		tlist.addAll(user.getTeams());
+		
+		for(Team i : tlist)
+			list.addAll(i.getProjects());
+		list.addAll(user.getProjects());
+		modelAndView.addObject("projectslist", list);
+		
+		modelAndView.addObject("spr", sprintService.find(idSprint));
 		modelAndView.setViewName("sharedpages/singleSprint");
 		return modelAndView; 
 	}

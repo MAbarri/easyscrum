@@ -135,7 +135,7 @@
 												<div class="tab-content">
 													<div class="tab-pane active registersingltab"
 														id="tab_default_1">
-														<form action="addAccount" method="post">
+														<form action="updateMyAccount" method="post">
 															<table class="tableregister adminaddform">
 																<tr>
 																	<td>&nbsp;</td>
@@ -158,8 +158,28 @@
 																</tr>
 																<tr>
 																	<td><input type="password" class="form-control"
-																		id="InputPassword1" placeholder="Password" required
+																		id="InputPassword1" placeholder="Old Password" required
+																		name="oldpass"></td>
+																	<td>&nbsp;*</td>
+																	<td><c:out value="${ListErreur['pass']}"></c:out></td>
+																</tr>
+																<tr>
+																	<td>&nbsp;</td>
+																</tr>
+																<tr>
+																	<td><input type="password" class="form-control"
+																		id="InputPassword1" placeholder="New Password" required
 																		name="pass"></td>
+																	<td>&nbsp;*</td>
+																	<td><c:out value="${ListErreur['pass']}"></c:out></td>
+																</tr>
+																<tr>
+																	<td>&nbsp;</td>
+																</tr>
+																<tr>
+																	<td><input type="password" class="form-control"
+																		id="InputPassword1" placeholder="Confirme New Password" required
+																		name="confpass"></td>
 																	<td>&nbsp;*</td>
 																	<td><c:out value="${ListErreur['pass']}"></c:out></td>
 																</tr>
@@ -211,8 +231,7 @@
 											<div class="modal-footer">
 												<button type="button" class="btn btn-default"
 													data-dismiss="modal">Cancel</button>
-												<button type="button" class="btn btn-primary"
-													onclick="submit()">Update</button>
+												<button type="button" id="lunchsubmit" class="btn btn-primary">Update</button>
 											</div>
 										</div>
 									</div>
@@ -263,10 +282,22 @@
 			</div>
 		</div>
 	</div>
+	<!-- Sticky footer -->
+    <div class="stickfoot">
+    <center>
+    <div class="gconvers">
+    <center>Copyright @EasyScrum 2015</center>
+    
+    </div>
+    </center>
+    </div>
 	<script src="/easyscrumweb/resources/js/jquery-1.10.2.min.js"></script>
 	<script type="text/javascript">
 		$("#editclick").click(function() {
 			$("#edit").click();
+		});
+		$("#lunchsubmit").click(function() {
+			$("#sendform").click();
 		});
 	</script>
 </body>

@@ -63,10 +63,11 @@
 								</c:choose>
 							);"></div>
 							<div class="col-md-8  col-xs-12">
-								<img src="http://lorempixel.com/output/people-q-c-100-100-1.jpg"
+							<input type="file" name="photo" id="uploadpic" style="display:none">
+								<div class="pointerpic" id="uploadtrigger"><img src="/easyscrumweb/resources/images/avatar.png"
 									class="img-thumbnail picture hidden-xs" /> <img
-									src="http://lorempixel.com/output/people-q-c-100-100-1.jpg"
-									class="img-thumbnail visible-xs picture_mob" />
+									src="/easyscrumweb/resources/images/avatar.png"
+									class="img-thumbnail visible-xs picture_mob" /></div>
 								<div class="header">
 									<h1>
 										<c:out value="${targetuser.nom}"></c:out>&nbsp;<c:out value="${targetuser.prenom}"></c:out>
@@ -298,6 +299,9 @@
 		});
 		$("#lunchsubmit").click(function() {
 			$("#sendform").click();
+		});
+		$("#uploadtrigger").click(function() {
+			$("#uploadpic").click();
 		});
 	</script>
 </body>

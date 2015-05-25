@@ -10,7 +10,6 @@
 	href="/easyscrumweb/resources/css/CostumeStyle.css">
 </head>
 <body>
-
 	<!-- Main navbar -->
 	<%@ include file="../Component/DeveloperMenupage.jsp"%>	
 	<div id="cover" class="backprofil">

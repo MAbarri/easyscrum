@@ -97,10 +97,15 @@
 					</div>
 				</c:if>
 				</div>
-				<c:if test="${currentmail.mailtype == '4' }">
+				<c:if test="${currentmail.mailtype == '3' }">
 				<div class="shadow">
+					<form action="sendmail" method="POST">
+					<input name="destination" type="text" value="<c:out value="${currentmail.sender.login}"></c:out>" style="display: none">
+					<input name="mailtitle" type="text" value="Reply to Your Message :<c:out value="${currentmail.title}"></c:out>" style="display: none">
 					<label>Reply</label><br>
-					<textarea name="replytext" id="replytext" class="form-control" rows="8" placeholder="Message text"></textarea>
+					<textarea name="mailtext" class="form-control" rows="8" placeholder="Message text"></textarea><br>
+					<button type="submit" class="btn btn-default btn-sm rightbubble">Reply</button><br><br>
+					</form>
 				</div>
 				</c:if>
 				 <button type="button" class="btn btn-primary btn-sm">Return</button>

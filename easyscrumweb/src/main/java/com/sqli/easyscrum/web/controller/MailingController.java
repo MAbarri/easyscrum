@@ -89,7 +89,7 @@ public class MailingController {
 
 		return modelAndView;
 	}
-	@RequestMapping(value = "/sendmail", method = RequestMethod.GET)
+	@RequestMapping(value = "/sendmail")
 	public ModelAndView setnewmessage(HttpSession session,FormMailObject fmo) {
 		final ModelAndView modelAndView = new ModelAndView();
 		logger.info("Received request to send a mail");

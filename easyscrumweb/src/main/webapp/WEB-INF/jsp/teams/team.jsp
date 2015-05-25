@@ -46,9 +46,9 @@
 							<div class="col-md-4 bg_blur "
 								style="background-image: url('/easyscrumweb/resources/images/teamtag.jpg');"></div>
 							<div class="col-md-8  col-xs-12">
-								<img src="http://lorempixel.com/output/people-q-c-100-100-1.jpg"
+								<img src="/easyscrumweb/resources/images/teamavatar.jpg"
 									class="img-thumbnail picture hidden-xs" /> <img
-									src="http://lorempixel.com/output/people-q-c-100-100-1.jpg"
+									src="/easyscrumweb/resources/images/teamavatar.jpg"
 									class="img-thumbnail visible-xs picture_mob" />
 								<div class="header">
 									<h1>
@@ -66,7 +66,7 @@
 												value="${team.boss.prenom}"></c:out>
 									</a><br> <label>Members :</label>
 									<c:forEach items="${team.members }" var="mem">
-																							&nbsp;<a
+												<a
 												href="/easyscrumweb/userspace/Account?pro=<c:out value="${mem.userId}"></c:out>">
 												<c:out value="${mem.nom}"></c:out>&nbsp;<c:out
 													value="${mem.prenom}"></c:out>

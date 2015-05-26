@@ -46,10 +46,17 @@
 							<div class="col-md-4 bg_blur "
 								style="background-image: url('/easyscrumweb/resources/images/teamtag.jpg');"></div>
 							<div class="col-md-8  col-xs-12">
-								<img src="/easyscrumweb/resources/images/teamavatar.jpg"
-									class="img-thumbnail picture hidden-xs" /> <img
-									src="/easyscrumweb/resources/images/teamavatar.jpg"
-									class="img-thumbnail visible-xs picture_mob" />
+							<form method="POST" action="uploadtriggerteam?idt=<c:out value="${team.idteam}"></c:out>" enctype="multipart/form-data" style="display:none">
+							<input type="file" id="uploadpic" name="uploadpic">
+							<input type="submit" id="saveupload">
+							</form>
+								<div class="pointerpic" id="uploadtrigger"><img 
+									<c:if test="${empty team.photo }">src="/easyscrumweb/resources/images/teamavatar.jpg"</c:if>
+									<c:if test="${not empty team.photo }">src="/easyscrumweb/resources/<c:out value="${team.photo}"></c:out>"</c:if>
+									class="img-thumbnail picture hidden-xs"/> <img
+									<c:if test="${empty team.photo }">src="/easyscrumweb/resources/images/teamavatar.jpg"</c:if>
+									<c:if test="${not empty team.photo }">src="/easyscrumweb/resources/<c:out value="${team.photo}"></c:out>"</c:if>
+									class="img-thumbnail visible-xs picture_mob" /></div>
 								<div class="header">
 									<h1>
 										<c:out value="${team.name}"></c:out>
@@ -235,6 +242,12 @@
 		$("#editclick").click(function() {
 			$("#edit").click();
 		});
-	</script>
+			$("#uploadtrigger").click(function() {
+				$("#uploadpic").click();
+			});
+			$("#uploadpic").change(function() {
+				$("#saveupload").click();
+			});
+		</script>
 </body>
 </html>

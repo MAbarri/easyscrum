@@ -2,16 +2,20 @@ package com.sqli.easyscrum.web.controller;
 
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.sqli.easyscrum.business.services.MailService;
@@ -23,6 +27,7 @@ import com.sqli.easyscrum.entity.Mail;
 import com.sqli.easyscrum.entity.Project;
 import com.sqli.easyscrum.entity.Team;
 import com.sqli.easyscrum.entity.User;
+import com.sqli.easyscrum.web.vo.FormPhoto;
 import com.sqli.easyscrum.web.vo.FormTeamObject;
 import com.sqli.easyscrum.web.vo.Mails;
 
@@ -31,7 +36,7 @@ import com.sqli.easyscrum.web.vo.Mails;
 public class TeamManagingController {
 
 	protected static Logger logger = Logger.getLogger("controller");
-
+	private @Value("#{appDir['fullPath']}") String APP_PATH;
 	@Autowired
 	private UserService userService;
 	
@@ -210,5 +215,22 @@ public class TeamManagingController {
 		
 		return modelAndView;
 	}
+	@RequestMapping(value = "/uploadtriggerteam")
+	public ModelAndView getupdatedpicPage(HttpSession session,@RequestParam("uploadpic") MultipartFile file,@RequestParam int idt) {
+		final ModelAndView modelAndView = new ModelAndView();
+		Map<String, String> erreurs = new HashMap<String, String>();
+		logger.info("Received request to show common page");
+
+		User u = userService.find((Integer) session.getAttribute("userid") );
+		Team tm = teamService.find(idt);
+		//------------------------------------------------------------------------------------------------------------------------------
+		FormPhoto fp= new FormPhoto();
+		tm.setPhoto(fp.uploadTeampicture(tm, file, APP_PATH));
+		logger.info(tm.getPhoto());
+		teamService.update(tm);
+		//-----------------------------------------------------------------------------------------------------------------------------
+			modelAndView.setViewName("redirect:myTeams");
+			return modelAndView;
+		}
 }
 

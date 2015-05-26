@@ -44,7 +44,9 @@
 					<div class="ui card leftbubble cardpad">
 					<div class="image">
 						<img
-							src="/easyscrumweb/resources/images/Old-New-logo_Mark-on-darkBG.png">
+						<c:if test="${empty p.photo }">src="/easyscrumweb/resources/images/Old-New-logo_Mark-on-darkBG.png"</c:if>
+						<c:if test="${not empty p.photo }">src="/easyscrumweb/resources/<c:out value="${p.photo}"></c:out>"</c:if>
+							>
 					</div>
 					<div class="content">
 						<a class="header" href="/easyscrumweb/userspace/Team?idteam=<c:out value="${p.idteam }"></c:out>"><c:out value="${p.name }"></c:out> </a>

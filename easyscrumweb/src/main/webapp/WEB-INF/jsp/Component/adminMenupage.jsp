@@ -30,12 +30,12 @@
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
 					data-toggle="dropdown" role="button" aria-expanded="false"><img
 						class="img-circle"
-						src="/easyscrumweb/resources/images/
-						<c:choose>
+						src="/easyscrumweb/resources/images/defaultavatar.jpg"
+						<%-- <c:choose>
 						<c:when test="${not empty userpicture}"><c:out value="${userpicture }"></c:out></c:when>
 						<c:otherwise>defaultavatar.jpg</c:otherwise>
-						</c:choose>
-						"
+						</c:choose> --%>
+						
 						alt="maridlcrmn" width="20" /> <c:out value="${sessionScope.userlogin}"></c:out> <span class="caret"></span></a>
 					<ul class="dropdown-menu" role="menu">
 						<li><a href="/easyscrumweb/userspace/Account?pro=0">My profile</a></li>

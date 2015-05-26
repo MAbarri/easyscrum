@@ -48,6 +48,9 @@ public class Project {
 	@Column(name = "tags")
     private String tags;
 	
+	@Column(name = "logo")
+    private String logo;
+	
 	@Column(name = "Cost")
     private String cost;
 	
@@ -71,6 +74,14 @@ public class Project {
 	
 	public Team getWorkteam() {
 		return workteam;
+	}
+
+	public String getLogo() {
+		return logo;
+	}
+
+	public void setLogo(String logo) {
+		this.logo = logo;
 	}
 
 	public void setWorkteam(Team workteam) {

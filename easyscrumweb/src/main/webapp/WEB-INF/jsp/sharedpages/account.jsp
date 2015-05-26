@@ -62,15 +62,20 @@
 									</c:when>
 								</c:choose>
 							);"></div>
-							<div class="col-md-8  col-xs-12">
-							<input type="file" name="photo" id="uploadpic" style="display:none">
-								<div class="pointerpic" id="uploadtrigger"><img src="/easyscrumweb/resources/images/avatar.png"
-									class="img-thumbnail picture hidden-xs" /> <img
-									src="/easyscrumweb/resources/images/avatar.png"
+							<div class="col-md-8  col-xs-12"><form method="POST" action="changepic" enctype="multipart/form-data" style="display:none">
+							<input type="file" id="uploadpic" name="uploadpic">
+							<input type="submit" id="saveupload">
+							</form>
+								<div class="pointerpic" id="uploadtrigger"><img 
+									<c:if test="${empty targetuser.photo }">src="/easyscrumweb/resources/images/avatar.png"</c:if>
+									<c:if test="${not empty targetuser.photo }">src="/easyscrumweb/resources/<c:out value="${targetuser.photo}"></c:out>"</c:if>
+									class="img-thumbnail picture hidden-xs"/> <img
+									<c:if test="${empty targetuser.photo }">src="/easyscrumweb/resources/images/avatar.png"</c:if>
+									<c:if test="${not empty targetuser.photo }">src="/easyscrumweb/resources/<c:out value="${targetuser.photo}"></c:out>"</c:if>
 									class="img-thumbnail visible-xs picture_mob" /></div>
 								<div class="header">
 									<h1>
-										<c:out value="${targetuser.nom}"></c:out>&nbsp;<c:out value="${targetuser.prenom}"></c:out>
+										<c:out value="${targetuser.nom}"></c:out>&nbsp;<c:out value="${targetuser.prenom}"></c:out><c:out value="${result}"></c:out>
 									</h1>
 									<h4>
 									<c:choose>
@@ -303,6 +308,10 @@
 		$("#uploadtrigger").click(function() {
 			$("#uploadpic").click();
 		});
+		$("#uploadpic").change(function() {
+			$("#saveupload").click();
+		});
 	</script>
+	<script src="/easyscrumweb/resources/js/tooltip.js"></script>
 </body>
 </html>

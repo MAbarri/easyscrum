@@ -67,9 +67,14 @@
 					<div class="col-md-5 no-padding lib-item" data-category="view">
 						<div class="lib-panel">
 							<div class="row box-shadow">
-								<div class="col-md-6">
+							<form method="POST" action="uploadtriggerproject?idp=<c:out value="${project.projectId}"></c:out>" enctype="multipart/form-data" style="display:none">
+							<input type="file" id="uploadpic" name="uploadpic">
+							<input type="submit" id="saveupload">
+							</form>
+								<div class="col-md-6 pointerpic" id="uploadtrigger">
 									<img class="lib-img-show"
-										src="/easyscrumweb/resources/images/Old-New-logo_Mark-on-darkBG.png">
+									<c:if test="${empty project.logo }">src="/easyscrumweb/resources/images/Old-New-logo_Mark-on-darkBG.png"</c:if>
+									<c:if test="${not empty project.logo }">src="/easyscrumweb/resources/<c:out value="${project.logo}"></c:out>"</c:if>>
 								</div>
 								<div class="col-md-6">
 									<div class="lib-row lib-header">
@@ -143,6 +148,14 @@
     </div>
     </center>
     </div>
-
+<script src="/easyscrumweb/resources/js/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript">
+			$("#uploadtrigger").click(function() {
+				$("#uploadpic").click();
+			});
+			$("#uploadpic").change(function() {
+				$("#saveupload").click();
+			});
+		</script>
 </body>
 </html>

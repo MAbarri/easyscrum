@@ -1,19 +1,33 @@
 package com.sqli.easyscrum.web.controller;
 
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.util.Calendar;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.FileItemFactory;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpRequest;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.sqli.easyscrum.business.services.ActivitiesService;
@@ -24,13 +38,16 @@ import com.sqli.easyscrum.business.services.UserService;
 import com.sqli.easyscrum.entity.Mail;
 import com.sqli.easyscrum.entity.User;
 import com.sqli.easyscrum.web.vo.FormObject;
+import com.sqli.easyscrum.web.vo.FormPhoto;
 
 @Controller
 @RequestMapping("/userspace")
 public class UserSpaceController {
 
+	private @Value("#{appDir['fullPath']}") String APP_PATH;
+	
 	protected static Logger logger = Logger.getLogger("controller");
-
+	
 	@Autowired
 	private UserService userService;
 	
@@ -110,18 +127,19 @@ public class UserSpaceController {
 						session.setAttribute("userid",result.getUserId());
 						session.setAttribute("userlogin",result.getLogin());
 						session.setAttribute("userpicture",result.getPhoto());
-						// redirection a la page d'acceuil
 						
 						modelAndView.addObject("activs", activitiesService.findUserActivities(result.getUserId()));
 						modelAndView.addObject("nbmsgs", mailService.GetUnredCount(result.getUserId()));
+						
 						//1 for team invitation mail						
 						modelAndView.addObject("nbteammsgs", mailService.GetUnreadCountWParam(result.getUserId(), 1));
 						//2 for job application						
 						modelAndView.addObject("nbjobmsgs", mailService.GetUnreadCountWParam(result.getUserId(), 3));
 						//3 for random mail
 						modelAndView.addObject("nbnormalmsgs", mailService.GetUnreadCountWParam(result.getUserId(), 2));
-						switch (result.getType()){
 						
+						switch (result.getType()){
+						// redirection a la page d'acceuil
 						case 1:
 						{
 						modelAndView.setViewName("admin/adminProfil");
@@ -209,8 +227,24 @@ public class UserSpaceController {
 			erreurs.put("confpass", "les deux chaine ne sont pas identiques !");
 			modelAndView.addObject("ListErreur", erreurs);
 		}
-		
 		modelAndView.setViewName("redirect:Account?pro=0");
 		return modelAndView;
 	}
-}
+	
+	@RequestMapping(value = "/changepic")
+	public ModelAndView getupdatedpicPage(HttpSession session,@RequestParam("uploadpic") MultipartFile file) {
+		final ModelAndView modelAndView = new ModelAndView();
+		Map<String, String> erreurs = new HashMap<String, String>();
+		logger.info("Received request to show common page");
+
+		User u = userService.find((Integer) session.getAttribute("userid") );
+		//------------------------------------------------------------------------------------------------------------------------------
+		FormPhoto fp= new FormPhoto();
+		u.setPhoto(fp.uploadUserpicture(u, file,APP_PATH));
+		logger.info(u.getPhoto());
+		userService.update(u);
+		//-----------------------------------------------------------------------------------------------------------------------------
+			modelAndView.setViewName("redirect:Account?pro=0");
+			return modelAndView;
+		}
+	}

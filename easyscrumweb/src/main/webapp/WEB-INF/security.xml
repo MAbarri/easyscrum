@@ -28,6 +28,7 @@
 	<http pattern="/about" security="none" />
 	<http pattern="/services" security="none" />
 	<http pattern="/news" security="none" />
+	<http pattern="/userspace/sendmail" security="none" />
 	<!-- <http pattern="/contact" security="none" /> -->
 	  
 	<http use-expressions="true">
@@ -39,7 +40,6 @@
 	    <intercept-url pattern="/userspace/inbox" access="hasRole('USER_Role')" />
 	    <intercept-url pattern="/userspace/mail" access="hasRole('USER_Role')" />
 	    <intercept-url pattern="/userspace/newmail" access="hasRole('USER_Role')" />
-	    <intercept-url pattern="/userspace/sendmail" access="hasRole('USER_Role')" />
 	    <intercept-url pattern="/userspace/Account" access="hasRole('USER_Role')" />
 	    <intercept-url pattern="/connect/Present" access="hasRole('USER_Role')" />
 	    <intercept-url pattern="/userspace/updateMyAccount" access="hasRole('USER_Role')" />  
@@ -88,7 +88,9 @@
 	</http>
 	
 	<authentication-manager>
-		<authentication-provider user-service-ref="userDetailsService"/>
+		<authentication-provider user-service-ref="userDetailsService">
+		 <password-encoder hash="bcrypt" />
+		</authentication-provider>
 	</authentication-manager>
 
 </beans:beans>

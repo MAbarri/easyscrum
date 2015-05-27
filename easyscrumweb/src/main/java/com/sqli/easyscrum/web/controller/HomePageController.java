@@ -1,14 +1,10 @@
 package com.sqli.easyscrum.web.controller;
 
-import java.util.List;
-
 import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -17,7 +13,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.sqli.easyscrum.business.services.ProjectService;
 import com.sqli.easyscrum.business.services.UserService;
-import com.sqli.easyscrum.entity.Project;
 import com.sqli.easyscrum.entity.User;
 
 /**
@@ -44,6 +39,7 @@ public class HomePageController {
 		final ModelAndView modelAndView = new ModelAndView();
 		logger.info("Received request to show common page");
   		modelAndView.setViewName("public/index");
+  		
 		if(error)
 		{
 			modelAndView.addObject("errormessage", "Invalide Username or password");

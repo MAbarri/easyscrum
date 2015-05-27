@@ -9,6 +9,7 @@ import com.sqli.easyscrum.business.services.UserStoryService;
 import com.sqli.easyscrum.core.dao.jpa.GenericDao;
 import com.sqli.easyscrum.core.service.GenericServiceImpl;
 import com.sqli.easyscrum.entity.Backlog;
+import com.sqli.easyscrum.entity.Project;
 import com.sqli.easyscrum.entity.UserStorie;
 import com.sqli.easyscrum.repository.DAObacklog;
 @Service
@@ -28,6 +29,7 @@ public class BacklogServiceImpl extends GenericServiceImpl<Backlog, Integer> imp
 		daobacklog.create(bklg);
 		for(UserStorie i:bklg.getStories())
 			userstorieService.persist(i);
+		
 		
 	}
 

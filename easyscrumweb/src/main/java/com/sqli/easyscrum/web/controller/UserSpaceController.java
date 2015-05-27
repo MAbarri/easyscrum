@@ -1,28 +1,17 @@
 package com.sqli.easyscrum.web.controller;
 
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.util.Calendar;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Properties;
 
-import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
 
-import org.apache.commons.fileupload.FileItem;
-import org.apache.commons.fileupload.FileItemFactory;
-import org.apache.commons.fileupload.disk.DiskFileItemFactory;
-import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpRequest;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.bcrypt.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -35,7 +24,6 @@ import com.sqli.easyscrum.business.services.MailService;
 import com.sqli.easyscrum.business.services.ProjectService;
 import com.sqli.easyscrum.business.services.SprintService;
 import com.sqli.easyscrum.business.services.UserService;
-import com.sqli.easyscrum.entity.Mail;
 import com.sqli.easyscrum.entity.User;
 import com.sqli.easyscrum.web.vo.FormObject;
 import com.sqli.easyscrum.web.vo.FormPhoto;
@@ -80,8 +68,8 @@ public class UserSpaceController {
 		Map<String, String> erreurs = new HashMap<String, String>();
 
 		logger.info("Received request to show common page");
-
-		User u = new User(fm.getLname(), fm.getLname(), "", fm.getAdresse(), true, fm.getEmail(), fm.getLogin(), fm.getPass(), fm.getType());
+		
+		User u = new User(fm.getLname(), fm.getLname(), "", fm.getAdresse(), true, fm.getEmail(), fm.getLogin(),fm.getPass() , fm.getType());
 		
 		
 		if (fm.getConfpass().equals(fm.getPass())) {
@@ -207,7 +195,9 @@ public class UserSpaceController {
 
 		User u = userService.find((Integer) session.getAttribute("userid") );
 		
-		if ((fm.getConfpass().equals(fm.getPass()))&&(u.getPassword().equals(fm.getOldpass()))) {
+		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+		
+		if ((fm.getConfpass().equals(fm.getPass()))&&(passwordEncoder.matches(fm.getOldpass(), u.getPassword()))) {
 			
 			if(fm.getName()!=""&&fm.getName()!=null)
 				u.setNom(fm.getName());

@@ -3,7 +3,7 @@ Template Name: AdminEx Dashboard
 Author: ThemeBucket
 -------------------------------------------*/
 
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic);
+@import url(//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic);
 @import url('bootstrap.min.css');
 @import url('bootstrap-reset.css');
 @import url('jquery-ui-1.10.3.css');
@@ -1767,7 +1767,7 @@ ul.user-states li {
 .carousel-control i {
     display: inline-block;
     height: 25px;
-    left: 50%;
+   
     margin-left: -10px;
     margin-top: -10px;
     position: absolute;
@@ -3274,16 +3274,6 @@ div.tagsinput span.tag a {
     color: #fff;
 }
 
-.timeline:before {
-    background-color: #d8d9df;
-    bottom: 0px;
-    content: "";
-    left: 50%;
-    position: absolute;
-    top: 30px;
-    width: 1px;
-    z-index: 0;
-}
 
 h3.timeline-title {
     margin: 0;

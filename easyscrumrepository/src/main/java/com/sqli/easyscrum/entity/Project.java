@@ -4,6 +4,7 @@ package com.sqli.easyscrum.entity;
 import java.sql.Timestamp;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -88,10 +89,10 @@ public class Project {
 		this.workteam = workteam;
 	}
 
-	@OneToMany(mappedBy="projet")
+	@OneToMany(mappedBy="projet", cascade = {CascadeType.PERSIST, CascadeType.MERGE,CascadeType.REMOVE} )
 	private List<Sprint> sprints;
 	
-	@OneToOne(mappedBy="projet")
+	@OneToOne(mappedBy="projet", cascade = {CascadeType.PERSIST, CascadeType.MERGE,CascadeType.REMOVE} )
 	@PrimaryKeyJoinColumn
 	private Backlog backlog;
 	

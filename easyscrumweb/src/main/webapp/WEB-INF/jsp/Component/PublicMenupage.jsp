@@ -18,8 +18,7 @@
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="/easyscrumweb/start">Get Started</a></li>
 						<li><a href="/easyscrumweb/about">About</a></li>
-						<li><a href="/easyscrumweb/services">Services</a></li>
-						<li><a href="/easyscrumweb/news">News</a></li>
+						<li><a href="/easyscrumweb/services">Our Team</a></li>
 						<li><a href="/easyscrumweb/contact">Contact</a></li>
 						<li><a
 							class="btn btn-default btn-outline btn-circle collapsed"
@@ -30,7 +29,7 @@
 					</ul>
 					<ul class="collapse nav navbar-nav nav-collapse slide-down"
 						role="search" id="nav-collapse4">
-						<form class="navbar-form navbar-right form-inline memberli" role="form" method="post" action="${pageContext.request.contextPath}/j_spring_security_check"/>
+						<form class="navbar-form navbar-right form-inline memberli" role="form" method="post" action="${pageContext.request.contextPath}/j_spring_security_check" style="  width: 730px;"/>
 			              <div class="form-group">
 			                <label class="sr-only" for="Email">Email</label>
 			                <input type="text" class="form-control" id="Email" placeholder="Email" name="j_username" autofocus required />

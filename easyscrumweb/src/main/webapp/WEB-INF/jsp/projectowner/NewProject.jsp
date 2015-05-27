@@ -70,6 +70,7 @@
 										<option>French</option>
 										<option>Arabic</option>
 										<option>Spanish</option>
+										<option>Other</option>
 									</select>
 								</div>
 								<button class="btn btn-primary nextBtn btn-lg pull-right"
@@ -105,16 +106,15 @@
 										class="form-control" placeholder="Title of the Backlog"  id="backlogtitle" name="backlogtitle"/>
 										</div>
 										<div class="form-group">
+										<input id="ustext" name="ustext" style="display: none">
 									<label class="control-label">Write in details What you want</label> <input
 										maxlength="200" type="text" required="required"
-										class="form-control" placeholder="User Stories" id="ustext" name="ustext"/>
+										class="form-control ustorie" placeholder="User Stories" id="ustorie" />
 								</div>
 								<div id="space"></div>
 								<button type="button" class="btn btn-default navbar-btn" onclick="addplace()">More space please</button>
 								
-								
-								<button class="btn btn-primary nextBtn btn-lg pull-right"
-									type="button">Next</button>
+								<button type="button" class="btn btn-primary nextBtn btn-lg pull-right">Next</button>
 							</div>
 						</div>
 					</div>
@@ -142,7 +142,7 @@
 										maxlength="200" type="text" required="required"
 										class="form-control" placeholder="Email" id="email" name="email" />
 								</div>
-								<button class="btn btn-success btn-lg pull-right" type="submit">Finish!</button>
+								<button class="btn btn-success btn-lg pull-right" id="lastclick" type="submit">Finish!</button>
 							</div>
 						</div>
 					</div>
@@ -219,8 +219,15 @@
 	<script type="text/javascript">
 	function addplace()
 	{
-		document.getElementById("space").innerHTML+="<div class=\"form-group\"><label class=\"control-label\">More Space</label> <input	maxlength=\"200\" type=\"text\" required=\"required\" class=\"form-control\" placeholder=\"User Stories\" /></div>";
+		$('#space').append('<div class=\"form-group\"><label class=\"control-label\">More Space</label> <input	maxlength=\"200\" type=\"text\" class=\"form-control ustorie\" placeholder=\"User Stories\" /></div>');
 	}
+	$( "#lastclick" ).click(function() {
+		$("#ustext").val("");
+	$( ".ustorie" ).each(function() {
+		if(($( this ).val()!="")&&($( this ).val()!=null))
+		  $("#ustext").val($("#ustext").val()+';and;'+$( this ).val());
+		});
+	});
 	</script>
 </body>
 </html>

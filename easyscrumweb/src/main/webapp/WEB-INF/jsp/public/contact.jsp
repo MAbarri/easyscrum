@@ -16,10 +16,24 @@
 
 	<div id="cover" class="backsite">
 
-		<div class="registrepanel getstart">
-			<h1>Send message form</h1>
-			
-			
+		<div class="panel panel-default clientPanel">
+			<div class="panel-heading">Mail to Supportsl</div>
+			<div class="panel-body msgpanel">
+			<form action="userspace/sendmail?id=0" method="POST">
+				<div class="shadow">
+					Send a Mail to administration<br>
+				</div>
+				<div class="shadow">
+				<br>
+					 <input name="mailtitle" class="form-control" type="text" id="mailtitle" placeholder="Title"> <br>
+					<textarea name="mailtext" id="mailtext" class="form-control" rows="8" placeholder="Message text"></textarea>
+					<br>
+				</div>
+				
+				<button type="button" class="btn btn-primary btn-sm">Cancel</button>
+				 <button type="submit" class="btn btn-primary btn-sm rightbubble">Send Message</button>
+				 </form>
+			</div>
 		</div>
 	</div>
 	<!-- footer -->

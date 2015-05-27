@@ -30,7 +30,8 @@ public class ProjectServiceImpl extends GenericServiceImpl<Project,Integer> impl
 		bl.setProjet(prj);
 		backLogService.save(bl);
 		projectdao.create(prj);
-		
+		bl.setProjet(prj);
+		backLogService.update(bl);
 	}
 
 	

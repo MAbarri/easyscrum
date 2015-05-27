@@ -138,12 +138,18 @@ public class FormProjectObject {
 	public Project toProject(User user)
 	{
 		List<UserStorie> lus = new ArrayList<UserStorie>();
-		UserStorie us=new UserStorie(this.getUstext());
 
 		Backlog newback = new Backlog(this.getBacklogtitle(), currentTimestamp);
 		
+		String userstories = this.getUstext().substring(5);
+		String[] parts = userstories.split(";and;");
+		for(int i=0;i<parts.length;i++)
+		{
+		UserStorie us=new UserStorie(parts[i]);
 		us.setBacklog(newback);
 		lus.add(us);
+		}
+		
 		
 		newback.setStories(lus);
 		//get current time plus the value of days entered by the user

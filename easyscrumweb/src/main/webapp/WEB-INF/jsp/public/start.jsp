@@ -16,23 +16,20 @@
 
 	<div id="cover" class="backsite">
 
-		<div class="registrepanel getstart">
+		<div class="registrepanel getstart" style="margin-bottom: 20px;height: auto;min-height: 800px;">
 			<h1>Joining us is so Easy, just Follow the EasyScrum's EasyGuide</h1>
 			<h3>Step 1: Register and Login</h3>
-			Some Pictures to explain
-			<h3>Step 2: Get a Job</h3>
-			Some Pictures to explain
-			<h3>Step 3: Get busy</h3>
-			Some Pictures to explain
+			<center><img alt="Join" src="/easyscrumweb/resources/images/login.JPG" style="width: 80%;"></center>
+			<h3>Step 2: Get a Team/Post a Project and get a team to work on it</h3>
+			<center><img alt="Begin" src="/easyscrumweb/resources/images/start.JPG" style="width: 80%;"></center>
+			<h3>Step 3: Get To work/Stay up-to-date with your project</h3>
+			<center><img alt="Work" src="/easyscrumweb/resources/images/Captureproject.JPG" style="width: 80%;"></center>
 			<h3>Step 4: See what you've done Come alive</h3>
-			Some Pictures to explain
-			<h3>Step 5: Get a new job</h3>
-			Some Pictures to explain
+			<center><img alt="Finish" src="/easyscrumweb/resources/images/screenshare.png" style="width: 80%;"></center>
+			<h3>Step 5: Start another round of work</h3>
+			<center><img alt="Again" src="/easyscrumweb/resources/images/Getit.JPG" style="width: 80%;"></center>
 			
 		</div>
 	</div>
-	<!-- footer -->
-	<div class="Upspace">
-	<%@ include file="../Component/footer.jsp"%></div>
 </body>
 </html>

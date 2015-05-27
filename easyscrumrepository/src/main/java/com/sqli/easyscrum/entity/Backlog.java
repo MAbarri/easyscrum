@@ -21,7 +21,7 @@ public class Backlog {
 	@Column(name="Contenue")
 	private String description;
 	
-	@OneToMany(mappedBy="backlog")
+	@OneToMany(mappedBy="backlog", cascade = {CascadeType.PERSIST, CascadeType.MERGE,CascadeType.REMOVE} )
     private List<UserStorie> stories;
 	
 	public List<UserStorie> getStories() {

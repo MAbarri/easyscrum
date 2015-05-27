@@ -17,8 +17,11 @@
 	<div id="cover" class="backsite">
 
 		<div class="registrepanel getstart">
-			<h1>Three bubbles or more Presenting our team, What we are here for and how is it going !!</h1>
-			
+			<h1>Our awsome Team :</h1><br>
+			<h4>EasyScrum was created in SQLI laboratories, althout the creation team was composed of only One Person, and his Boss of course.</h4>
+			<br><h3>Mohamed Abarri</h3>
+			<p>19 Y.A, Student at ISTA TetaouanShore,Web Designer/Developer but only a rookie</p><br><br>
+			<center>as soon as we get more information we will post it here !</center>
 			
 		</div>
 	</div>

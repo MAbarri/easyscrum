@@ -46,7 +46,7 @@
 		</c:when>
 	</c:choose>
 		<div class="panel panel-default clientPanel sprintpanel">
-			<div class="panel-heading">Project <c:out value="${project.nomproject }"></c:out> </div>
+			<div class="panel-heading">Project <c:out value="${project.nomproject }"></c:out><div id="deletetrigger" class="pointerpic" style="display: inline;float: right;color: red;">Delete project X</div> </div>
 			<div class="panel-body">
 				
 				<c:choose>
@@ -137,7 +137,34 @@
 				<!-- /.col-lg-4 -->
 			</div>
 		</div>
-
+		<!-- Button trigger modal -->
+					<button type="button" class="btn btn-primary btn-lg"
+						data-toggle="modal" data-target="#myModal3" id="delete" style="display: hidden">Delete</button>
+					<!-- Modal -->
+					<div class="modal fade" id="myModal3" tabindex="-1" role="dialog"
+						aria-labelledby="myModalLabel" aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal"
+										aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+									<h4 class="modal-title" id="myModalLabel">Suppression</h4>
+								</div>
+								<div class="modal-body">
+								<form action="deleteproject?id=<c:out value="${project.projectId }"></c:out>" method="post">
+									<center>Are You sure about deleting this project with all it's progress ? (If the team working on this project report you for not informing them, You could be banned from the site.")</center>
+									<input type="text" id="hiddenIDs" style="display:none" name="typestinrg" />
+									<br> <br>
+									<button type="button" class="btn btn-default"
+										data-dismiss="modal">Cancel</button>
+									<button type="submit" class="btn btn-primary">Yup, delete it</button>
+								</form>
+								</div>
+							</div>
+						</div>
+						</div>
 	</div>
 	<!-- Sticky footer -->
     <div class="stickfoot">
@@ -155,6 +182,9 @@
 			});
 			$("#uploadpic").change(function() {
 				$("#saveupload").click();
+			});
+			$("#deletetrigger").click(function() {
+				$("#delete").click();
 			});
 		</script>
 </body>

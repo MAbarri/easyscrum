@@ -90,14 +90,10 @@ public class MailingController {
 		return modelAndView;
 	}
 	@RequestMapping(value = "/sendmail")
-	public ModelAndView setnewmessage(HttpSession session,FormMailObject fmo) {
+	public ModelAndView setnewmessage(HttpSession session,FormMailObject fmo,@RequestParam(required=false) int id) {
 		final ModelAndView modelAndView = new ModelAndView();
 		logger.info("Received request to send a mail");
-		
-		User sender= userService.find((Integer) session.getAttribute("userid") );
-		session.setAttribute("user",sender);
-		List<User> results2 = userService.findUserByLogin(fmo.getDestination());
-		User reciever=results2.get(0);
+		modelAndView.setViewName("redirect:inbox");
 		
 		//current time------------------------
 		// 1) create a java calendar instance
@@ -109,9 +105,34 @@ public class MailingController {
 		 
 		// 3) a java current time (now) instance
 		java.sql.Timestamp currentTimestamp = new java.sql.Timestamp(now.getTime());
-		
+
 		Mail mail= new Mail(fmo.getMailtitle(), fmo.getMailtext(), currentTimestamp);
+		User reciever = new User();
+		if(id!=0)
+		{
+		User sender= userService.find((Integer) session.getAttribute("userid") );
+		session.setAttribute("user",sender);
+		List<User> results2 = userService.findUserByLogin(fmo.getDestination());
+		reciever=results2.get(0);
 		mail.setSender(sender);
+		}
+		else
+		{
+			User sender= new User();
+			try{
+			sender =userService.findUserByLogin("Anonymous").get(0); 
+			}catch(Exception cc){
+				sender.setLogin("Anonymous");
+				sender.setType(2);
+				sender.setNom("Anonymous");
+				userService.persist(sender);
+			}
+			
+			List<User> results2 = userService.findUserByLogin("admin");
+			reciever=results2.get(0);
+			mail.setSender(sender);
+			modelAndView.setViewName("redirect:../home");
+		}
 		mail.setReciever(reciever);
 		//mail types :
 		//0 for presentation mail
@@ -121,7 +142,6 @@ public class MailingController {
 		mail.setMailtype(3);
 		mailService.persist(mail);
 		
-		modelAndView.setViewName("redirect:inbox");
 
 		return modelAndView;
 	}

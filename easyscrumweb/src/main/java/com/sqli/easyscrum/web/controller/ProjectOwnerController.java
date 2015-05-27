@@ -123,5 +123,19 @@ public class ProjectOwnerController {
 			
 			return modelAndView;
 		}
-		
+		@RequestMapping(value = "/deleteproject")
+		public ModelAndView deleteprojectPage(@RequestParam int id,HttpSession session)
+		{
+			final ModelAndView modelAndView = new ModelAndView();
+			logger.info("Received request to show common page");
+			User user = userService.find((Integer) session.getAttribute("userid"));
+			session.setAttribute("user",user);
+			
+			Project target = projectService.find(id);
+			if(target.getUser().getLogin().equals(user.getLogin()))
+				projectService.remove(target);
+			
+			modelAndView.setViewName("redirect:"+"ManageProjects");
+			return modelAndView;
+		}
 }

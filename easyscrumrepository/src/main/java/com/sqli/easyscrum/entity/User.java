@@ -1,22 +1,19 @@
 package com.sqli.easyscrum.entity;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 
 @Entity
@@ -53,18 +50,6 @@ public class User {
 
 	public void setAtivities(List<Activities> ativities) {
 		this.ativities = ativities;
-	}
-
-	@OneToOne
-    @JoinColumn(name = "iduser")
-	private Notification notification;    
-	
-	public Notification getNotification() {
-		return notification;
-	}
-
-	public void setNotification(Notification notification) {
-		this.notification = notification;
 	}
 
 	@Column(name = "nom")
@@ -213,7 +198,10 @@ public class User {
 
 
 	public void setPassword(String password) {
-		this.password = password;
+		
+		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+		this.password = passwordEncoder.encode(password);
+		
 	}
     
     public boolean isNeedteam() {
@@ -272,7 +260,8 @@ public class User {
         this.photo=photo;
         this.email=email;
         this.login = login;
-        this.password=pass;
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+		this.password = passwordEncoder.encode(pass);
         this.type=tp;
     }
 

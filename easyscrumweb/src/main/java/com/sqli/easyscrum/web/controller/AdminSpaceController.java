@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.sqli.easyscrum.business.services.UserService;
+import com.sqli.easyscrum.core.server.SystemInfo;
 import com.sqli.easyscrum.entity.User;
 import com.sqli.easyscrum.web.vo.FormObject;
 
@@ -109,11 +110,11 @@ public class AdminSpaceController {
 			
 		logger.info("Users delete started");
 		fm.setTypestinrg(fm.getTypestinrg().substring(0,fm.getTypestinrg().length()-1 ));
-		
 		String[] parts = fm.getTypestinrg().split(";");
 		for(int i=0;i<parts.length;i++)
 		{
 			try{
+				logger.info("----------------------------User to delete : id = "+parts[i]);
 			if(userService.find(Integer.parseInt(parts[i])).getLogin()!="admin")
 				userService.remove(Integer.parseInt(parts[i]));
 			else 
@@ -130,5 +131,22 @@ public class AdminSpaceController {
 		return modelAndView;
 	}
 
+	@RequestMapping(value = "/Server", method = RequestMethod.GET)
+	public ModelAndView getstatsPage() {
+		final ModelAndView modelAndView = new ModelAndView();
+		logger.info("Received request to show common page");
+		SystemInfo sysinf = new SystemInfo();
+		
+		String memory=sysinf.MemInfo();
+		String disk=sysinf.DiskInfo();
+		String os=sysinf.OsInfo();
+		
+		modelAndView.addObject("memory", memory);
+		modelAndView.addObject("disk", disk);
+		modelAndView.addObject("osystem", os);
+		
+		modelAndView.setViewName("admin/stats");
+		return modelAndView;
+	}
 }
 

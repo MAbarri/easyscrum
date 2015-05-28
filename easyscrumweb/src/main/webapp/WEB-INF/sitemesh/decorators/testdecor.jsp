@@ -7,6 +7,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <link href="${pageContext.request.contextPath}/resources/css/style-responsive.css" rel="stylesheet"/>
+<link href="${pageContext.request.contextPath}/resources/css/responsiveeasyscrum.css" rel="stylesheet"/>
 	<link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet"/>
 		<title>EasyScrum - <decorator:title /></title>
 		<decorator:head />

@@ -16,8 +16,8 @@
 		<!-- Page component -->
 
 		<!-- /.row -->
-		<div class="row leftbubble centerbubbles">
-			<div class="col-lg-4 col-md-4">
+		<div class="row leftbubble centerbubbles" id="newsroot">
+			<div class="col-lg-4 col-md-3">
 				<div class="panel">
 					<div class="panel-heading">
 						<div class="row">
@@ -160,7 +160,7 @@
 
 		<!-- Recent work -->
 
-		<div class="col-lg-8 centerbubbles">
+		<div class="col-lg-8 centerbubbles activitiespanel">
 			<div class="panel panel-default">
 				<div class="panel-heading">Recent Activities</div>
 				<div class="panel-body">

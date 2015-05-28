@@ -49,6 +49,7 @@
 	    <intercept-url pattern="/userspace/addAccount" access="hasRole('ADMIN_Role')" />
 	    <intercept-url pattern="/userspace/updateAccount" access="hasRole('ADMIN_Role')" />
 	    <intercept-url pattern="/userspace/deleteAccounts" access="hasRole('ADMIN_Role')" />
+	    <intercept-url pattern="/userspace/Server" access="hasRole('ADMIN_Role')" />
 	    <!-- Project General Pages -->
 	    <intercept-url pattern="/userspace/ManageSprints" access="hasRole('ProjectAccess_Role')" />
 	    <intercept-url pattern="/userspace/project" access="hasRole('ProjectAccess_Role')" />

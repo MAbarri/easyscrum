@@ -26,19 +26,19 @@ public class User {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer userId;
     
-    @OneToMany(mappedBy="user",cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+    @OneToMany(mappedBy="user",cascade = {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REMOVE})
     private List<Project> projects;
 	
-	@OneToMany(mappedBy="sender",cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+	@OneToMany(mappedBy="sender",cascade = {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REMOVE})
     private List<Mail> sentmails;
 	
-	@OneToMany(mappedBy="Reciever",cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+	@OneToMany(mappedBy="Reciever",cascade = {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REMOVE})
     private List<Mail> recievedmails;
 	
-	@OneToMany(mappedBy="boss",cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+	@OneToMany(mappedBy="boss",cascade = {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REMOVE})
     private List<Team> teamchef;
 	
-	@OneToMany(mappedBy="user",cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+	@OneToMany(mappedBy="user",cascade = {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REMOVE})
     private List<Activities> ativities;
 	
 	@ManyToMany

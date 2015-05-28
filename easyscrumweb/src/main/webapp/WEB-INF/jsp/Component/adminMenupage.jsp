@@ -19,7 +19,7 @@
 				<li><a href="/easyscrumweb/userspace/profil">Home</a></li>
 				<li><a href="/easyscrumweb/userspace/ManageUsers">Users</a></li>
 				<li><a href="/easyscrumweb/userspace/inbox">Inbox</a></li>
-				<li><a href="#">Stats</a></li>
+				<li><a href="/easyscrumweb/userspace/Server">Server Stats</a></li>
 				<li><a class="btn btn-default btn-outline btn-circle collapsed"
 					data-toggle="collapse" href="#nav-collapse4" aria-expanded="false"
 					aria-controls="nav-collapse4">Profile <i class=""></i>

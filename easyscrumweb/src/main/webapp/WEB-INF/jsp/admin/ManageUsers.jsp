@@ -18,7 +18,7 @@
 	<div id="cover" class="backprofil">
 
 		<div class="panel panel-default clientPanel">
-			<div class="panel-heading">Liste des Utilisateurs</div>
+			<div class="panel-heading">Users List</div>
 			<div class="panel-body">
 
 
@@ -26,11 +26,11 @@
 					<thead>
 					 <tr>
 						<th>Item</th>
-						<th>Nom</th>
-						<th>Prenom</th>
+						<th>First Name</th>
+						<th>Last name</th>
 						<th>Email</th>
 						<th>Login</th>
-						<th>Mot de passe</th>
+						<th>Password</th>
 						<th>Adresse</th>
 					</tr>
 					</thead>

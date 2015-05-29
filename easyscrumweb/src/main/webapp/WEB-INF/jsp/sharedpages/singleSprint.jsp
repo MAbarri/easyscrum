@@ -47,8 +47,8 @@
 	</c:choose>
 		<div class="panel panel-default clientPanel sprintpanel">
 			<div class="panel-heading">
-				Project
-				<c:out value="${sprint.nom }"></c:out>
+				Sprint 
+				<c:out value="${spr.nom }"></c:out>
 			</div>
 			<div class="panel-body">
 			
@@ -71,15 +71,23 @@
 							<c:when test="${spr.status=='Working On'}">40%</c:when>
 							<c:when test="${spr.status=='Testing'}">60%</c:when>
 							<c:when test="${spr.status=='Ready for a Demo'}">80%</c:when>
-							<c:when test="${spr.status=='Delivery'}">99%</c:when></c:choose> ;">
+							<c:when test="${spr.status=='Delivery'}">99%</c:when>
+							<c:when test="${spr.status=='Finished'}">100%</c:when></c:choose> ;">
 							<c:choose>
 							<c:when test="${spr.status=='Starting'}">20%</c:when>
 							<c:when test="${spr.status=='Working On'}">40%</c:when>
 							<c:when test="${spr.status=='Testing'}">60%</c:when>
 							<c:when test="${spr.status=='Ready for a Demo'}">80%</c:when>
-							<c:when test="${spr.status=='Delivery'}">99%</c:when></c:choose></div>
+							<c:when test="${spr.status=='Delivery'}">99%</c:when>
+							<c:when test="${spr.status=='Finished'}">100%</c:when></c:choose></div>
 						
 				</div>
+				<c:if test="${spr.status!='Finished'}">
+				<form action="changedsprintstat" method="POST">
+				<input name="values" value="<c:out value="${spr.idsprint }"></c:out>;0" style="display: none">
+				<button type="submit" class="btn btn-default btn-sm leftbubble">Restart Sprint</button></form><form action="changedsprintstat" method="POST"><input name="values" value="<c:out value="${spr.idsprint }"></c:out>;1" style="display: none">
+				<button type="submit" class="btn btn-default btn-sm rightbubble">Pass Sprint to Next Phase</button></form><br><br>
+				</c:if>
 				</div>
 				
 				

@@ -39,13 +39,13 @@
 		<div class="panel panel-default clientPanel">
 			<div class="panel-heading">Team</div>
 			<div class="panel-body msgpanel">
-				<div class="shadow profilheight">
+				<div class="shadow profilheight" style="  overflow-x: hidden;">
 					<div class="container"
 						style="margin-top: 20px; margin-bottom: 20px;">
 						<div class="row panel">
-							<div class="col-md-4 bg_blur "
+							<div class="col-md-4 col-md-4a bg_blur "
 								style="background-image: url('/easyscrumweb/resources/images/teamtag.jpg');"></div>
-							<div class="col-md-8  col-xs-12">
+							<div class="col-md-8 col-md-8a col-xs-12">
 							<form method="POST" action="uploadtriggerteam?idt=<c:out value="${team.idteam}"></c:out>" enctype="multipart/form-data" style="display:none">
 							<input type="file" id="uploadpic" name="uploadpic">
 							<input type="submit" id="saveupload">

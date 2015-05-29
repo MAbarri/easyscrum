@@ -46,7 +46,9 @@
 		</c:when>
 	</c:choose>
 		<div class="panel panel-default clientPanel sprintpanel">
-			<div class="panel-heading">Project <c:out value="${project.nomproject }"></c:out><div id="deletetrigger" class="pointerpic" style="display: inline;float: right;color: red;">Delete project X</div> </div>
+			<div class="panel-heading">Project <c:out value="${project.nomproject }"></c:out>
+			<c:if test="${sessionScope.user.type=='2'}"><div id="deletetrigger" class="pointerpic" style="display: inline;float: right;color: red;">Delete project X</div></c:if>
+			 </div>
 			<div class="panel-body">
 				
 				<c:choose>
@@ -66,12 +68,12 @@
 				<div class="row row-margin-bottom sprintcard">
 					<div class="col-md-5 no-padding lib-item" data-category="view">
 						<div class="lib-panel">
-							<div class="row box-shadow">
+							<div class="row box-shadow oneprojectrespon">
 							<form method="POST" action="uploadtriggerproject?idp=<c:out value="${project.projectId}"></c:out>" enctype="multipart/form-data" style="display:none">
 							<input type="file" id="uploadpic" name="uploadpic">
 							<input type="submit" id="saveupload">
 							</form>
-								<div class="col-md-6 pointerpic" id="uploadtrigger">
+								<div class="col-md-6 pointerpic projectresponpic" id="uploadtrigger">
 									<img class="lib-img-show"
 									<c:if test="${empty project.logo }">src="/easyscrumweb/resources/images/Old-New-logo_Mark-on-darkBG.png"</c:if>
 									<c:if test="${not empty project.logo }">src="/easyscrumweb/resources/<c:out value="${project.logo}"></c:out>"</c:if>>
@@ -110,7 +112,7 @@
 					</div>
 				</div></div>
 				<!--feed-->
-				<div class="col-lg-4 notificationpanel">
+				<div class="col-lg-4 notificationpanel sprintnotif">
 					<div class="panel panel-default sprintslist">
 						<!-- /.panel-heading -->
 						<c:choose>
@@ -127,7 +129,7 @@
 							</c:forEach>
 							</div>
 							<!-- /.list-group -->
-							<a href="/easyscrumweb/userspace/allSprints?idproject=<c:out value="${project.projectId }"></c:out>" class="btn btn-default btn-block">View All Sprints</a>
+							<a href="/easyscrumweb/userspace/allSprints?idproject=<c:out value="${project.projectId }"></c:out>" class="btn btn-default btn-block" style="  width: 200px !important;">View All Sprints</a>
 						</div>
 						</c:otherwise>
 						</c:choose>

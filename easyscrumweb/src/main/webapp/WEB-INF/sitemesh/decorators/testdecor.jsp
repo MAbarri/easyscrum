@@ -6,6 +6,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+<link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/icons/EasyScrum.ico">
 <link href="${pageContext.request.contextPath}/resources/css/style-responsive.css" rel="stylesheet"/>
 <link href="${pageContext.request.contextPath}/resources/css/responsiveeasyscrum.css" rel="stylesheet"/>
 	<link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet"/>

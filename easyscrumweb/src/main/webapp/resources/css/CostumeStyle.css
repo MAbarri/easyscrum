@@ -37,6 +37,7 @@
     width: 350px;
     float:left;
     margin-left:10px;
+    margin-bottom:10px;
     cursor: pointer;
     background-color: aliceblue;
     color:darkslategray;
@@ -70,9 +71,6 @@
 }
 .profilheight
 {
-	
-    min-height: 450px;
-	
 }
 
 .txtright
@@ -109,8 +107,8 @@ padding:10px;margin-bottom: 10px;
 }
 .sprintpanel
 {
-	width:70% !important;
-    margin-left: 360px !important;
+	width:auto !important;
+    margin-right: 40px;
 }
 .sprintcenter
 {
@@ -135,8 +133,8 @@ padding:10px;margin-bottom: 10px;
 {
 	
     
-	
-    width: 1440px;
+	min-width:370px;
+    width: 90%;
     margin-left:5%;
     margin-top: 40px;
     min-height: 550px;
@@ -193,6 +191,7 @@ body
 	background-color: #bbbbbb;
 	height: 100%;
 	position:absolute;
+	width: 100%;
 }
 
 /*---------------------------Profil Page----------------------------*/

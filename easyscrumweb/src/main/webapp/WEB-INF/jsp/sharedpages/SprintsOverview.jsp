@@ -67,13 +67,15 @@
 							<c:when test="${sprint.status=='Working On'}">40%</c:when>
 							<c:when test="${sprint.status=='Testing'}">60%</c:when>
 							<c:when test="${sprint.status=='Ready for a Demo'}">80%</c:when>
-							<c:when test="${sprint.status=='Delivery'}">99%</c:when></c:choose> ;">
+							<c:when test="${sprint.status=='Delivery'}">99%</c:when>
+							<c:when test="${sprint.status=='Finished'}">100%</c:when></c:choose> ;">
 							<c:choose>
 							<c:when test="${sprint.status=='Starting'}">20%</c:when>
 							<c:when test="${sprint.status=='Working On'}">40%</c:when>
 							<c:when test="${sprint.status=='Testing'}">60%</c:when>
 							<c:when test="${sprint.status=='Ready for a Demo'}">80%</c:when>
-							<c:when test="${sprint.status=='Delivery'}">99%</c:when></c:choose></div>
+							<c:when test="${sprint.status=='Delivery'}">99%</c:when>	
+							<c:when test="${sprint.status=='Finished'}">100%</c:when></c:choose></div>
 						
 				</div>
 				</div>

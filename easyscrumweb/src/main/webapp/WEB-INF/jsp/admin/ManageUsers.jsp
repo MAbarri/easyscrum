@@ -30,7 +30,7 @@
 						<th>Last name</th>
 						<th>Email</th>
 						<th>Login</th>
-						<th>Password</th>
+						<th>Type</th>
 						<th>Adresse</th>
 					</tr>
 					</thead>
@@ -42,7 +42,7 @@
 							<td id="prenomatt<c:out value="${u.userId }"></c:out>"><c:out value="${u.prenom }"></c:out></td>
 							<td id="emailatt<c:out value="${u.userId }"></c:out>"><c:out value="${u.email }"></c:out></td>
 							<td id="loginatt<c:out value="${u.userId }"></c:out>"><c:out value="${u.login }"></c:out></td>
-							<td id="passatt<c:out value="${u.userId }"></c:out>"><c:out value="${u.password }"></c:out></td>
+							<td ><c:choose><c:when test="${u.type==1 }">Admin</c:when><c:when test="${u.type==2 }">Project Owner</c:when><c:when test="${u.type==3 }">Developer</c:when><c:when test="${u.type==4 }">Scrum Master</c:when> </c:choose> </td>
 							<td id="adresseatt<c:out value="${u.userId }"></c:out>"><c:out value="${u.adresse }"></c:out></td>
 							</tr>
 					</c:forEach>

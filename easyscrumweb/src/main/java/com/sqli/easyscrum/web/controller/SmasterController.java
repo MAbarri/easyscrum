@@ -210,5 +210,51 @@ public class SmasterController {
 		modelAndView.setViewName("redirect:"+"allSprints?idproject="+fso.getProjectid());
 		return modelAndView; 
 	}
+	
+	@RequestMapping(value = "/changedsprintstat")
+	public ModelAndView getOneSprintPage(@RequestParam String  values,HttpSession session)
+	{
+		final ModelAndView modelAndView = new ModelAndView();
+		logger.info("Received request to show common page");
+		User user=userService.find((Integer) session.getAttribute("userid"));
+		session.setAttribute("user",user); 
+
+		String[] parts = values.split(";");
+
+		int idSprint = Integer.valueOf(parts[0]);
+		int operation = Integer.valueOf(parts[1]);
+		Sprint targetSpr=sprintService.find(idSprint);
+		if(operation==0)
+			targetSpr.setStatus("Starting");
+		else if(operation==1)
+		{
+			if(targetSpr.getStatus().equals("Starting"))
+				targetSpr.setStatus("Working On");
+			else if(targetSpr.getStatus().equals("Working On"))
+				targetSpr.setStatus("Testing");
+			else if(targetSpr.getStatus().equals("Testing"))
+				targetSpr.setStatus("Ready for a Demo");
+			else if(targetSpr.getStatus().equals("Ready for a Demo"))
+				targetSpr.setStatus("Delivery");
+			else if(targetSpr.getStatus().equals("Delivery"))
+				targetSpr.setStatus("Finished");
+		}
+		sprintService.update(targetSpr);
+			
+		List<Project> list = new ArrayList<Project>();
+		List<Team> tlist = new ArrayList<Team>();
+		
+		tlist.addAll(user.getTeamchef());
+		tlist.addAll(user.getTeams());
+		
+		for(Team i : tlist)
+			list.addAll(i.getProjects());
+		list.addAll(user.getProjects());
+		modelAndView.addObject("projectslist", list);
+		
+		modelAndView.addObject("spr", targetSpr);
+		modelAndView.setViewName("sharedpages/singleSprint");
+		return modelAndView; 
+	}
 //
 }

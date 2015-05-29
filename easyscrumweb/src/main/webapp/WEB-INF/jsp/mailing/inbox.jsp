@@ -35,7 +35,7 @@
 	<div id="cover" class="backprofil">
 
 		<div class="panel panel-default clientPanel">
-			<div class="panel-heading">Projects</div>
+			<div class="panel-heading">Mails inbox</div>
 			<div class="panel-body">
 				<div class="row">
 					<div class="col-sm-3 col-md-2">

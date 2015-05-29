@@ -41,11 +41,11 @@
 			<div class="panel-body msgpanel">
 			
 			<c:if test="${not empty targetuser.email}">
-				<div class="shadow profilheight">
+				<div class="shadow profilheight" style="overflow-x: hidden;">
 					<div class="container"
 						style="margin-top: 20px; margin-bottom: 20px;">
 						<div class="row panel">
-							<div class="col-md-4 bg_blur "
+							<div class="col-md-4 col-md-4a bg_blur "
 								style="background-image: url(
 							<c:choose>
 									<c:when test="${targetuser.type=='1'}">
@@ -62,7 +62,7 @@
 									</c:when>
 								</c:choose>
 							);"></div>
-							<div class="col-md-8  col-xs-12"><form method="POST" action="changepic" enctype="multipart/form-data" style="display:none">
+							<div class="col-md-8 col-md-8a  col-xs-12"><form method="POST" action="changepic" enctype="multipart/form-data" style="display:none">
 							<input type="file" id="uploadpic" name="uploadpic">
 							<input type="submit" id="saveupload">
 							</form>

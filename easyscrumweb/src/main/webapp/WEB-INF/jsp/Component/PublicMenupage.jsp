@@ -29,7 +29,8 @@
 					</ul>
 					<ul class="collapse nav navbar-nav nav-collapse slide-down"
 						role="search" id="nav-collapse4">
-						<form class="navbar-form navbar-right form-inline memberli" role="form" method="post" action="${pageContext.request.contextPath}/j_spring_security_check" style="  width: 730px;"/>
+						<form class="navbar-form navbar-right form-inline memberli" role="form" method="post" 
+								action="${pageContext.request.contextPath}/j_spring_security_check" style="  width: 730px;"/>
 			              <div class="form-group">
 			                <label class="sr-only" for="Email">Email</label>
 			                <input type="text" class="form-control" id="Email" placeholder="Email" name="j_username" autofocus required />

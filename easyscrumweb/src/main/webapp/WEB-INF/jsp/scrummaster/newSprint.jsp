@@ -38,7 +38,7 @@
 				<tr><td><label>Priority :</label></td><td><select name="Priority"><option>Top priority</option><option>Important</option><option>Moderate</option><option>Optional</option><option>You can skip it</option> </select></td></tr>
 				</table>
 				</div>
-				<input name="projectid" value="<c:out value="${param.idprojet}"></c:out>">
+				<input name="projectid" value="<c:out value="${param.idprojet}"></c:out>" style="display: none">
 				<button type="button" class="btn btn-primary btn-sm">Cancel</button>
 				<button type="submit" class="btn btn-primary btn-sm rightbubble">Start new Sprint</button>				
 				</form>

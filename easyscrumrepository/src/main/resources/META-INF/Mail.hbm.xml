@@ -24,6 +24,14 @@
                  u.mailtype=:PR
             ]]></query>
         </named-query>
+        <named-query name="GetRecent">
+            <query><![CDATA[
+                select u
+                  from Mail u
+                 where u.vue = 0 And
+                 Dateenvoi > :yesterday
+            ]]></query>
+        </named-query>
         
         
     </entity>

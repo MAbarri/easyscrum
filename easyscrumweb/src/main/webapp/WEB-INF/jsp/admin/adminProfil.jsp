@@ -16,147 +16,120 @@
 		<!-- Page component -->
 
 		<!-- /.row -->
-		<div class="row leftbubble centerbubbles" id="newsroot">
-			<div class="col-lg-4 col-md-3">
-				<div class="panel">
-					<div class="panel-heading">
-						<div class="row">
-							<div class="col-xs-3">
-								<i class="fa fa-comments fa-5x"></i>
-							</div>
-							<div class="col-xs-9 text-right">
-								<div class="huge">26</div>
-								<div>New Messages!</div>
-							</div>
-						</div>
-					</div>
-					<a href="#">
-						<div class="panel-footer">
-							<span class="pull-left">View Details</span> <span
-								class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-							<div class="clearfix"></div>
-						</div>
-					</a>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-3">
-				<div class="panel">
-					<div class="panel-heading">
-						<div class="row">
-							<div class="col-xs-3">
-								<i class="fa fa-tasks fa-5x"></i>
-							</div>
-							<div class="col-xs-9 text-right">
-								<div class="huge">12</div>
-								<div>New Reports!</div>
-							</div>
-						</div>
-					</div>
-					<a href="#">
-						<div class="panel-footer">
-							<span class="pull-left">View Details</span> <span
-								class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-							<div class="clearfix"></div>
-						</div>
-					</a>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-3">
-				<div class="panel">
-					<div class="panel-heading">
-						<div class="row">
-							<div class="col-xs-3">
-								<i class="fa fa-star-o fa-5x"></i>
-							</div>	
-							<div class="col-xs-9 text-right">
-								<div class="huge">124</div>
-								<div>NEW Support Messages!</div>
-							</div>
-						</div>
-					</div>
-					<a href="#">
-						<div class="panel-footer">
-							<span class="pull-left">View Details</span> <span
-								class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-							<div class="clearfix"></div>
-						</div>
-					</a>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-3">
-				<div class="panel">
-					<div class="panel-heading">
-						<div class="row">
-							<div class="col-xs-3">
-								<i class="fa fa-plus fa-5x"></i>
-							</div>
-							<div class="col-xs-9 text-right">
-								<div class="huge">13</div>
-								<div>All!</div>
-							</div>
-						</div>
-					</div>
-					<a href="#">
-						<div class="panel-footer">
-							<span class="pull-left">View Details</span> <span
-								class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-							<div class="clearfix"></div>
-						</div>
-					</a>
-				</div>
-			</div>
-		</div>
-		<!-- /.row -->
+            <div class="row leftbubble centerbubbles" id="newsroot">
+                <div class="col-lg-4 col-md-3">
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-comments fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge">
+										<c:out value="${nbnormalmsgs }"></c:out>
+									</div>
+                                    <div>New Messages!</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div class="panel-footer">
+                                <span class="pull-left">View Details</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-3">
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-tasks fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge"><c:out value="${nbteammsgs }"></c:out></div>
+                                    <div>New Team Invitations!</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div class="panel-footer">
+                                <span class="pull-left">View Details</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-3">
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-star-o fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge"><c:out value="${nbjobmsgs }"></c:out></div>
+                                    <div>New Project Updates!</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div class="panel-footer">
+                                <span class="pull-left">View Details</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-3">
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-plus fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge"><c:out value="${nbmsgs }"></c:out></div>
+                                    <div>All!</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div class="panel-footer">
+                                <span class="pull-left">View Details</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+    <!-- /.row -->
 
 
 
 		<!--feed-->
-		<div class="col-lg-4 notificationpanel">
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					<i class="fa fa-bell fa-fw"></i> Notifications Panel
-				</div>
-				<!-- /.panel-heading -->
-				<div class="panel-body">
-					<div class="list-group">
-						<a href="#" class="list-group-item"> <i
-							class="fa fa-comment fa-fw"></i> New Comment <span
-							class="pull-right text-muted small"><em>4 minutes ago</em>
-						</span>
-						</a> <a href="#" class="list-group-item"> <i
-							class="fa fa-twitter fa-fw"></i> 3 New Followers <span
-							class="pull-right text-muted small"><em>12 minutes
-									ago</em> </span>
-						</a> <a href="#" class="list-group-item"> <i
-							class="fa fa-envelope fa-fw"></i> Message Sent <span
-							class="pull-right text-muted small"><em>27 minutes
-									ago</em> </span>
-						</a> <a href="#" class="list-group-item"> <i
-							class="fa fa-tasks fa-fw"></i> New Task <span
-							class="pull-right text-muted small"><em>43 minutes
-									ago</em> </span>
-						</a> <a href="#" class="list-group-item"> <i
-							class="fa fa-upload fa-fw"></i> Server Rebooted <span
-							class="pull-right text-muted small"><em>11:32 AM</em> </span>
-						</a> <a href="#" class="list-group-item"> <i
-							class="fa fa-bolt fa-fw"></i> Server Crashed! <span
-							class="pull-right text-muted small"><em>11:13 AM</em> </span>
-						</a> <a href="#" class="list-group-item"> <i
-							class="fa fa-warning fa-fw"></i> Server Not Responding <span
-							class="pull-right text-muted small"><em>10:57 AM</em> </span>
-						</a> <a href="#" class="list-group-item"> <i
-							class="fa fa-shopping-cart fa-fw"></i> New Order Placed <span
-							class="pull-right text-muted small"><em>9:49 AM</em> </span>
-						</a> <a href="#" class="list-group-item"> <i
-							class="fa fa-money fa-fw"></i> Payment Received <span
-							class="pull-right text-muted small"><em>Yesterday</em> </span>
-						</a>
-					</div>
-				</div>
-				<!-- /.panel-body -->
-			</div>
-		</div>
-		<!-- /.col-lg-4 -->
+	<div class="col-lg-4 notificationpanel" style="  max-width: 400px;">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-bell fa-fw"></i> Notifications Panel
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="list-group">
+                             <div id="bottom-bar"></div>
+                            </div>
+                            <!-- /.list-group -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                </div>
+                <!-- /.col-lg-4 -->
+
 
 		<!-- Recent work -->
 
@@ -183,5 +156,29 @@
     </center>
     </div>
 	</div>
+	<script src="${pageContext.request.contextPath}/resources/js/jquery-1.10.2.min.js"></script>
+	<script>
+			var cacheData;
+			var data = $('#bottom-bar').html();
+			var auto_refresh = setInterval(
+			function ()
+			{
+			    $.ajax({
+			        url: 'newsbox',
+			        type: 'POST',
+			        data: data,
+			        dataType: 'html',
+			        success: function(data) {
+			            if (data !== cacheData){
+			                //data has changed (or it's the first call), save new cache data and update div
+			                cacheData = data;
+			                $('#bottom-bar').html(data);
+			            }
+			        }
+			    })
+			}, 600); // check every 30000 milliseconds
+			
+			</script>
+	
 </body>
 </html>

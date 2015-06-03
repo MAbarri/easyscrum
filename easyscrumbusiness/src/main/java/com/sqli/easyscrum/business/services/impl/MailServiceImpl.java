@@ -1,5 +1,12 @@
 package com.sqli.easyscrum.business.services.impl;
 
+import static com.sqli.easyscrum.core.search.QueryParameter.by;
+
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+
+import org.apache.commons.lang.time.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -38,5 +45,13 @@ public class MailServiceImpl extends GenericServiceImpl<Mail, Integer>
 			if(result==null)
 			return 0;
 			return result;
+		}
+
+
+
+		@Override
+		public List<Mail> GetRecent() {
+			Date yesterday = new Date(System.currentTimeMillis() - 1000L * 60L * 60L * 24L);
+			return daomail.findWithNamedQuery("GetRecent", by("yesterday",yesterday).parameters());
 		}
 }

@@ -113,8 +113,8 @@
 	
 	
 	
-	<!--feed-->
-	<div class="col-lg-4 notificationpanel">
+		<!--feed-->
+	<div class="col-lg-4 notificationpanel" style="  max-width: 400px;">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <i class="fa fa-bell fa-fw"></i> Notifications Panel
@@ -122,22 +122,7 @@
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                             <div class="list-group">
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-comment fa-fw"></i> New Comment
-                                    <span class="pull-right text-muted small"><em>4 minutes ago</em>
-                                    </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-envelope fa-fw"></i> Message Sent
-                                    <span class="pull-right text-muted small"><em>27 minutes ago</em>
-                                    </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-tasks fa-fw"></i> New Task
-                                    <span class="pull-right text-muted small"><em>43 minutes ago</em>
-                                    </span>
-                                </a>
-                                
+                             <div id="bottom-bar"></div>
                             </div>
                             <!-- /.list-group -->
                         </div>
@@ -145,7 +130,6 @@
                     </div>
                 </div>
                 <!-- /.col-lg-4 -->
-
 <!-- Recent work -->
 
 	<div class="col-lg-8 centerbubbles activitiespanel">
@@ -173,5 +157,28 @@
     </center>
     </div>
    </div>
+   <script src="${pageContext.request.contextPath}/resources/js/jquery-1.10.2.min.js"></script>
+	<script>
+			var cacheData;
+			var data = $('#bottom-bar').html();
+			var auto_refresh = setInterval(
+			function ()
+			{
+			    $.ajax({
+			        url: 'newsbox',
+			        type: 'POST',
+			        data: data,
+			        dataType: 'html',
+			        success: function(data) {
+			            if (data !== cacheData){
+			                //data has changed (or it's the first call), save new cache data and update div
+			                cacheData = data;
+			                $('#bottom-bar').html(data);
+			            }
+			        }
+			    })
+			}, 600); // check every 30000 milliseconds
+			
+			</script>
 </body>
 </html>

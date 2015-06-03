@@ -1,5 +1,9 @@
 package com.sqli.easyscrum.web.controller;
 
+import java.math.BigInteger;
+import java.security.SecureRandom;
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -24,6 +28,7 @@ import com.sqli.easyscrum.business.services.MailService;
 import com.sqli.easyscrum.business.services.ProjectService;
 import com.sqli.easyscrum.business.services.SprintService;
 import com.sqli.easyscrum.business.services.UserService;
+import com.sqli.easyscrum.entity.Mail;
 import com.sqli.easyscrum.entity.User;
 import com.sqli.easyscrum.web.vo.FormObject;
 import com.sqli.easyscrum.web.vo.FormPhoto;
@@ -237,4 +242,19 @@ public class UserSpaceController {
 			modelAndView.setViewName("redirect:Account?pro=0");
 			return modelAndView;
 		}
+	@RequestMapping(value = "/newsbox")
+	public ModelAndView gettestajaxPage(HttpSession session) {
+		final ModelAndView modelAndView = new ModelAndView();
+		logger.info("Received request to show common page");
+		User resu=userService.find((Integer) session.getAttribute("userid"));
+		session.setAttribute("user",resu);
+		List<Mail> mailist = new ArrayList<Mail>();
+		
+		mailist=mailService.GetRecent();
+		
+		modelAndView.addObject("mailist", mailist);
+		modelAndView.setViewName("ajax/emails");
+
+		return modelAndView;
+	}
 	}

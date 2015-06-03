@@ -37,7 +37,7 @@
 		<div class="panel panel-default clientPanel">
 			<div class="panel-heading">New Mail</div>
 			<div class="panel-body msgpanel">
-			<form action="sendmail">
+			<form action="sendmail?id=1" method="POST">
 				<div class="shadow">
 					<br>
 					<label>A :</label>&nbsp;&nbsp;&nbsp;&nbsp;<input name="destination" id="destination" type="text" class="form-control" value="<c:out value="${param.dest }"></c:out>" placeholder="addresser" style="width: 300px; display: inline;">

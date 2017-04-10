@@ -1,0 +1,7 @@
+* text=auto
+*.css linguist-vendored
+*.less linguist-vendored
+*.less linguist-vendored
+*.xml linguist-vendored
+easyscrumweb/src/main/webapp/resources/js/* linguist-vendored
+easyscrumweb/src/main/webapp/resources/css/* linguist-vendored
